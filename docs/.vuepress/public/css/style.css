@@ -1,0 +1,15 @@
+#app .navbar .site-name,#app .home #main-title {
+    color: #2b7c4d;
+}
+
+/* .home .feature h2 {
+	text-align: center;
+} */
+
+/* .home .feature {
+	text-align: center;
+} */
+
+iframe {
+    border-width: 0px;
+}
