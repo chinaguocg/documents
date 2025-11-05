@@ -19,7 +19,9 @@ module.exports = {
 	},
     themeConfig: {
         nav: require("./nav.js"),
-        sidebar: require("./sidebar.js")
+        sidebar: require("./sidebar.js"),
+        repo: 'chinaguocg/documents',
+        repoLabel: '查看源码'
     },
     plugins: [
         '@vuepress/back-to-top',

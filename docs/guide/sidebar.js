@@ -18,6 +18,7 @@ module.exports = [
 			'/guide/depth/04',
 			'/guide/depth/05',
 			'/guide/depth/06',
+
 		  ]
 		},
 		{
@@ -25,7 +26,9 @@ module.exports = [
 		  collapsable: true,
 		  children:[
 			'/guide/think/01',
-
+            '/guide/think/02',
+            '/guide/think/03',
+            '/guide/think/04',
 		  ]
 		},
 	]

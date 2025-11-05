@@ -13,11 +13,24 @@ features:
 footer: © Copyright 2025 Chinaguocg-Documents - All Rights Reserved
 ---
 
+```
+Welcome to the Chinaguocg-Documents. The code still has 3 seconds to get to the battlefield.
+
+# 1. clone
+git clone https://github.com/chinaguocg/documents.git
+
+# 2. install dependencies
+yarn add 
+# OR npm install
+
+# 3. run
+yarn docs:dev 
+# OR npm run docs:dev
+```
+
 ::: tip       
 
 站在巨人的肩上
-
-Standing on Shoulders of Giants
 
 :::
 
