@@ -8,7 +8,7 @@ module.exports = [
 					collapsable: true,
 					children:[
 						'/study_notes/ops/linux/basic/01',
-
+                        '/study_notes/ops/linux/basic/02',
 					]
 				},
 				{
