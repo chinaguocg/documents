@@ -7,6 +7,7 @@
 Notes on facts,learnings,and ideas.
 
 ![Static Badge](https://img.shields.io/badge/Love-China-red)![Static Badge](https://img.shields.io/badge/Coder-blue)![Static Badge](https://img.shields.io/badge/DevOps-blueviolet)![Static Badge](https://img.shields.io/badge/chinaguocg-orange)
+
 ![GitHub Issues or Pull Requests](https://img.shields.io/github/issues/chinaguocg/documents)![GitHub forks](https://img.shields.io/github/forks/chinaguocg/documents)![GitHub Repo stars](https://img.shields.io/github/stars/chinaguocg/documents)![GitHub language count](https://img.shields.io/github/languages/count/chinaguocg/documents)![GitHub commit activity](https://img.shields.io/github/commit-activity/t/chinaguocg/documents)![GitHub License](https://img.shields.io/github/license/chinaguocg/documents)
 
 </div>
