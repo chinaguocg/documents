@@ -46,6 +46,7 @@ module.exports = [
 			collapsable: true,
 			children:[
 				'/study_notes/ops/nginx/01',
+				'/study_notes/ops/nginx/02',
                 
 			]
 		},
