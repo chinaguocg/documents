@@ -10,6 +10,7 @@ module.exports = [
 						'/study_notes/ops/linux/basic/01',
                         '/study_notes/ops/linux/basic/02',
                         '/study_notes/ops/linux/basic/03',
+                        '/study_notes/ops/linux/basic/04',
 					]
 				},
 				{
