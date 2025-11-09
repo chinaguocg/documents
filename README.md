@@ -71,5 +71,5 @@ yarn docs:dev
 
 ## Thanks
 
- **感谢 [vuepress](https://github.com/vuejs/vuepress)    [VuePress](https://vuepress.vuejs.org/)** 
+ **感谢 [vuepress](https://github.com/vuejs/vuepress)    [VuePress](https://vuepress.vuejs.org/)    [echarts](https://github.com/apache/echarts)    [Echarts](https://echarts.apache.org/zh/index.html) ** 
 
