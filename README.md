@@ -20,7 +20,7 @@ VuePress 提供了一个良好的写文档博客的环境，侧边栏的展示�
 
 进行连接，并且目录结构层级分明，这样更有利于管理知识工具。
 
-本项目已经整合了 Echarts 及 Three.js 的相关功能，可以方便地在文档中嵌入图表及 3D 模型。
+本项目已经整合了 Echarts 的相关功能，可以方便地在文档中嵌入图表及 3D 模型。
 
 同时也集成了一些常用的插件，如搜索、图片放大、代码复制等，提升了用户体验。
 
@@ -57,7 +57,6 @@ yarn docs:dev
   │  │    ├─img   图片
   │  │    ├─js    公共js
   │  │    ├─pdf   pdf文档
-  │  │    ├─three Three.js相关  
   │  │    ├─video 视频
   │  │    └─web   html页面
   │  ├─config.js  配置文件的入口文件
@@ -76,5 +75,5 @@ yarn docs:dev
 
 ## Thanks
 
-**感谢 [vuepress](https://github.com/vuejs/vuepress)    [VuePress](https://vuepress.vuejs.org/)    [echarts](https://github.com/apache/echarts)    [Echarts](https://echarts.apache.org/zh/index.html)    [three.js](https://github.com/mrdoob/three.js/)    [Three.js](https://threejs.org/)**  
+**感谢 [vuepress](https://github.com/vuejs/vuepress)    [VuePress](https://vuepress.vuejs.org/)    [echarts](https://github.com/apache/echarts)    [Echarts](https://echarts.apache.org/zh/index.html)**  
 

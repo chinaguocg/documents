@@ -9,7 +9,6 @@
 :tada: [DDKK](https://ddkk.com/) :tada:
 
 
-<iframe width="100%" height="666" src="/documents/three/examples/my_tsl_editor.html" ></iframe>
 
 
 

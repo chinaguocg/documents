@@ -29,7 +29,6 @@ module.exports = [
             '/guide/think/02',
             '/guide/think/03',
             '/guide/think/04',
-            '/guide/think/05',
 
         ]
     },
