@@ -23,7 +23,7 @@ module.exports = [
                         '/study_notes/ops/linux/basic/14安装openresty',
                         '/study_notes/ops/linux/basic/15自定义YUM仓库',
                         '/study_notes/ops/linux/basic/16Linux 进程管理',
-                        '/study_notes/ops/linux/basic/17进程管理-练习',
+                        '/study_notes/ops/linux/basic/17进程管理 练习',
 					]
 				},
 				{
