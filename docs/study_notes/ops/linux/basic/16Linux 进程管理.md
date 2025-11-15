@@ -4,7 +4,7 @@
 
 ### 一、进程基本概念
 
-```shell
+```bash
 在Linux系统中：
 - 进程是程序的运行实例
 - 每个进程有唯一的进程ID（PID）
@@ -85,7 +85,7 @@ TIME:			`进程占用CPU的总时间`
 COMMAND			`进程文件`
 ```
 
-```shell
+```bash
 - 进程管理学习环境准备
 [root@tianyun ~]# systemctl stop nginx
 [root@tianyun ~]# systemctl disable nginx
@@ -96,7 +96,7 @@ COMMAND			`进程文件`
 
 **ps命令必备技巧一：ps aux**
 
-```shell
+```bash
 [root@tianyun ~]# ps aux
 [root@tianyun ~]# ps aux --sort=-%cpu |head 		# 按CPU占比排序, -表示降序
 [root@tianyun ~]# ps aux --sort=-%mem |head			# 按内存占比排序
@@ -118,7 +118,7 @@ root      78872  0.0  0.0 112816   980 pts/1    S+   16:02   0:00 grep --color=a
 
 **ps命令必备技巧二：ps -eo 显示自定义字段**
 
-```shell
+```bash
 [root@tianyun ~]# ps -eo cmd,pid,ppid,user,%cpu,%mem,stat,start_time |head 
 CMD                            PID   PPID USER     %CPU %MEM STAT START
 /usr/lib/systemd/systemd --      1      0 root      0.0  0.3 Ss   Jun18
@@ -284,7 +284,7 @@ httpd   1710 apache    4u  IPv6  24895      0t0  TCP *:http (LISTEN)
 
 #### 4、netstat - 查看监听端口
 
-```shell
+```bash
 client -----> 192.168.92.148 ???					# 不知道要访问什么服务
 
 client (ssh://) -----> 	192.168.92.148:22			# sshd远程连接服务
@@ -508,7 +508,7 @@ MiB Swap:   2048.0 total,   2048.0 free,      0.0 used.   3200.2 avail Mem
 
 #### 2、**htop** - 实时系统监控
 
-```shell
+```bash
 [root@tianyun ~]# yum list htop
 Loaded plugins: fastestmirror, langpacks
 Loading mirror speeds from cached hostfile
@@ -526,7 +526,7 @@ htop.x86_64            2.2.0-3.el7                       epel
 
 ### 四、进程控制 - kill
 
-```shell
+```bash
 [root@tianyun ~]# kill -l   #查看所有信号
  1) SIGHUP       2) SIGINT       3) SIGQUIT      4) SIGILL       5) SIGTRAP
  6) SIGABRT      7) SIGBUS       8) SIGFPE       9) SIGKILL     10) SIGUSR1
@@ -552,14 +552,14 @@ htop.x86_64            2.2.0-3.el7                       epel
 
 #### **kill案例一**
 
-```shell
+```bash
 以Apache为实验场景，把Nginx关闭
 
 [root@tianyun ~]# systemctl stop httpd			# 停止Apache（httpd）服务 相当于信号15
 [root@tianyun ~]# systemctl restart httpd		# 重启Apache（httpd）服务
 ```
 
-```shell
+```bash
 [root@tianyun ~]# ps aux |grep httpd			# 查看当前是否启动
 root      38466  0.1  0.2 230444  5232 ?        Ss   11:06   0:00 /usr/sbin/httpd -DFOREGROUND
 apache    38471  0.0  0.1 232528  3152 ?        S    11:06   0:00 /usr/sbin/httpd -DFOREGROUND
@@ -589,7 +589,7 @@ root      38589  0.0  0.0 112808   968 pts/1    R+   11:12   0:00 grep --color=a
 
 #### **kill案例二**
 
-```shell
+```bash
 信号TERM 15（正常终止）
 [root@tianyun ~]# vim /etc/hosts			 	# 打开着，等待接收信号
 [root@tianyun ~]# ps aux |grep vim
@@ -610,14 +610,14 @@ Found a awap file by the name "/etc/.hosts.swp"	 # 产生了交换文件
 
 #### **1. 查看当前CPU负载**  
 
-```shell
+```bash
 [root@tianyun ~]# uptime 
  17:35:01 up 16:02,  3 users,  load average: 0.00, 0.02, 0.05
 ```
 
 #### **2. 查看内存使用**
 
-```shell
+```bash
 [root@tianyun ~]# free -m
               total        used        free      shared  buff/cache   available
 Mem:           1819         858         156          21         804         768
@@ -631,7 +631,7 @@ Swap:          2.0G         16M        2.0G
 
 #### **3. 查看系统的版本和内核**
 
-```shell
+```bash
 [root@tianyun ~]# cat /etc/redhat-release  	#查看操作系统版本
 CentOS Linux release 7.4.1708 (Core)
 
@@ -656,7 +656,7 @@ Socket(s):             2					# 物理CPU的数量
 32
 ```
 
-```shell
+```bash
 查看服务器CPU架构
 [root@tianyun ~]# lscpu
 Architecture:          x86_64

@@ -685,7 +685,7 @@ Linux中打包和压缩不是一回事，打包是把多个文件打包成一个
 
 
 
-```shell
+```bash
 比较：
 [root@tianyun ~]# ls -lh etc*
 -rw-r--r--. 1 root root  11M Jun 24 11:09 etc.tar.bz2

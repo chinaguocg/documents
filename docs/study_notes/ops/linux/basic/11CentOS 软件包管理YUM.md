@@ -46,7 +46,7 @@ repolist: 16,771
 ```
 ### **5. 增加阿里云EPEL源**
 
-```shell
+```bash
 [root@yangge ~]# curl https://mirrors.aliyun.com/repo/epel-7.repo -o /etc/yum.repos.d/epel.repo
 [root@yangge ~]# ls /etc/yum.repos.d/
 CentOS-Base.repo  epel.repo
@@ -358,7 +358,7 @@ ID     | Command line             | Date and time    | Action(s)      | Altered
 
 **[root@yangge ~]# vim init.sh**			
 
-```shell
+```bash
 #!/bin/bash
 # by tianyun v1.0
 # 2025.7.23

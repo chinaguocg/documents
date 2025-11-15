@@ -28,10 +28,19 @@ yarn docs:dev
 # OR npm run docs:dev
 ```
 
-::: tip       
+::: tip
 
 站在巨人的肩上
 
 :::
 
-<iframe width="100%" height="666" src="/documents/web/image2bar3d.html" ></iframe>
+
+::: warning
+
+Stay hungry, stay foolish.
+
+求知若渴，虚心若愚。
+
+:::
+
+
