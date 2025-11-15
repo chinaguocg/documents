@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Ansible 初识一：控制与被控 | Documents</title>
+    <meta name="generator" content="VuePress 1.9.10">
+    <link rel="icon" href="/documents/img/logo.png">
+    <link rel="stylesheet" href="/documents/css/style.css">
+    <meta name="description" content="开发运维技术文档">
+    <meta name="keywords" content="Chinaguocg,Documents,DevOps,IT技术,文档博客,开发,运维,技术文档">
+    
+    <link rel="preload" href="/documents/assets/css/0.styles.b20f9c26.css" as="style"><link rel="preload" href="/documents/assets/js/app.fb883db5.js" as="script"><link rel="preload" href="/documents/assets/js/2.e8bd7cca.js" as="script"><link rel="preload" href="/documents/assets/js/1.40c64e62.js" as="script"><link rel="preload" href="/documents/assets/js/43.7630c48b.js" as="script"><link rel="prefetch" href="/documents/assets/js/10.b63d61ac.js"><link rel="prefetch" href="/documents/assets/js/11.23025be0.js"><link rel="prefetch" href="/documents/assets/js/12.9a27d63b.js"><link rel="prefetch" href="/documents/assets/js/13.e3dba2b7.js"><link rel="prefetch" href="/documents/assets/js/14.6d3d6a88.js"><link rel="prefetch" href="/documents/assets/js/15.30a4286e.js"><link rel="prefetch" href="/documents/assets/js/16.e4505b74.js"><link rel="prefetch" href="/documents/assets/js/17.255ebcfb.js"><link rel="prefetch" href="/documents/assets/js/18.a4c4f660.js"><link rel="prefetch" href="/documents/assets/js/19.2c33fa19.js"><link rel="prefetch" href="/documents/assets/js/20.fc453a90.js"><link rel="prefetch" href="/documents/assets/js/21.c52a45d9.js"><link rel="prefetch" href="/documents/assets/js/22.9b18a918.js"><link rel="prefetch" href="/documents/assets/js/23.8f24947d.js"><link rel="prefetch" href="/documents/assets/js/24.b943b232.js"><link rel="prefetch" href="/documents/assets/js/25.680bc1c4.js"><link rel="prefetch" href="/documents/assets/js/26.e3c64576.js"><link rel="prefetch" href="/documents/assets/js/27.df32cf0b.js"><link rel="prefetch" href="/documents/assets/js/28.32ebad55.js"><link rel="prefetch" href="/documents/assets/js/29.53cf73a3.js"><link rel="prefetch" href="/documents/assets/js/3.1bdb9756.js"><link rel="prefetch" href="/documents/assets/js/30.25959590.js"><link rel="prefetch" href="/documents/assets/js/31.63a77baa.js"><link rel="prefetch" href="/documents/assets/js/32.3c2bc0ff.js"><link rel="prefetch" href="/documents/assets/js/33.55b9dd1d.js"><link rel="prefetch" href="/documents/assets/js/34.72d68f93.js"><link rel="prefetch" href="/documents/assets/js/35.2f997e59.js"><link rel="prefetch" href="/documents/assets/js/36.c4dbef59.js"><link rel="prefetch" href="/documents/assets/js/37.de8e788f.js"><link rel="prefetch" href="/documents/assets/js/38.fa86566e.js"><link rel="prefetch" href="/documents/assets/js/39.ce80e044.js"><link rel="prefetch" href="/documents/assets/js/4.ce792ed0.js"><link rel="prefetch" href="/documents/assets/js/40.92c3a9f7.js"><link rel="prefetch" href="/documents/assets/js/41.9f09b338.js"><link rel="prefetch" href="/documents/assets/js/42.da4ce53b.js"><link rel="prefetch" href="/documents/assets/js/44.101ff796.js"><link rel="prefetch" href="/documents/assets/js/45.cc48ac11.js"><link rel="prefetch" href="/documents/assets/js/46.ebf00827.js"><link rel="prefetch" href="/documents/assets/js/47.df6f26e6.js"><link rel="prefetch" href="/documents/assets/js/48.0d75469e.js"><link rel="prefetch" href="/documents/assets/js/49.90ac9cb8.js"><link rel="prefetch" href="/documents/assets/js/5.d956834b.js"><link rel="prefetch" href="/documents/assets/js/50.a0bed255.js"><link rel="prefetch" href="/documents/assets/js/51.4259bd8b.js"><link rel="prefetch" href="/documents/assets/js/52.252c85c7.js"><link rel="prefetch" href="/documents/assets/js/53.a9ff8c3b.js"><link rel="prefetch" href="/documents/assets/js/54.c459c6d5.js"><link rel="prefetch" href="/documents/assets/js/55.846ad4da.js"><link rel="prefetch" href="/documents/assets/js/56.e95fa2b3.js"><link rel="prefetch" href="/documents/assets/js/57.b504be7f.js"><link rel="prefetch" href="/documents/assets/js/58.f8ef198d.js"><link rel="prefetch" href="/documents/assets/js/59.2d6ebab4.js"><link rel="prefetch" href="/documents/assets/js/6.118e9bad.js"><link rel="prefetch" href="/documents/assets/js/60.df495fd1.js"><link rel="prefetch" href="/documents/assets/js/61.a70a93c1.js"><link rel="prefetch" href="/documents/assets/js/62.342024d3.js"><link rel="prefetch" href="/documents/assets/js/63.192c720b.js"><link rel="prefetch" href="/documents/assets/js/64.98cbd251.js"><link rel="prefetch" href="/documents/assets/js/65.7553bc57.js"><link rel="prefetch" href="/documents/assets/js/66.503bab25.js"><link rel="prefetch" href="/documents/assets/js/67.41b52c62.js"><link rel="prefetch" href="/documents/assets/js/68.cbb4ad29.js"><link rel="prefetch" href="/documents/assets/js/7.a506e926.js"><link rel="prefetch" href="/documents/assets/js/vendors~docsearch.271bc088.js">
+    <link rel="stylesheet" href="/documents/assets/css/0.styles.b20f9c26.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/documents/" class="home-link router-link-active"><!----> <span class="site-name">Documents</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/documents/guide/" class="nav-link">
+  指南
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="文档" class="dropdown-title"><span class="title">文档</span> <span class="arrow down"></span></button> <button type="button" aria-label="文档" class="mobile-dropdown-title"><span class="title">文档</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/documents/study_notes/ops/" class="nav-link router-link-active">
+  运维
+</a></li><li class="dropdown-item"><!----> <a href="/documents/study_notes/dev/" class="nav-link">
+  开发
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="资源共享" class="dropdown-title"><span class="title">资源共享</span> <span class="arrow down"></span></button> <button type="button" aria-label="资源共享" class="mobile-dropdown-title"><span class="title">资源共享</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          在线工具
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://shields.io/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  图标徽章
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://tinypng.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  图片压缩
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://bigjpg.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  图片放大
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="http://cron.qqe2.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  CRON 表达式
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://tableconvert.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  MD 表格生成
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          在线服务
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.bootcdn.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Boot CDN
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          镜像资源
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://msdn.itellyou.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  MSDN
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://mirrors.tuna.tsinghua.edu.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  清华开源软件镜像站
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://developer.aliyun.com/mirror/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  阿里开源镜像站
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          网址导航
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.w3school.com.cn/index.html" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  W3School
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://www.runoob.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  菜鸟教程
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="http://www.h-ui.net/site.shtml" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  IT网址导航
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li></ul></div></div> <a href="https://github.com/chinaguocg/documents" target="_blank" rel="noopener noreferrer" class="repo-link">
+    查看源码
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/documents/guide/" class="nav-link">
+  指南
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="文档" class="dropdown-title"><span class="title">文档</span> <span class="arrow down"></span></button> <button type="button" aria-label="文档" class="mobile-dropdown-title"><span class="title">文档</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/documents/study_notes/ops/" class="nav-link router-link-active">
+  运维
+</a></li><li class="dropdown-item"><!----> <a href="/documents/study_notes/dev/" class="nav-link">
+  开发
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="资源共享" class="dropdown-title"><span class="title">资源共享</span> <span class="arrow down"></span></button> <button type="button" aria-label="资源共享" class="mobile-dropdown-title"><span class="title">资源共享</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          在线工具
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://shields.io/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  图标徽章
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://tinypng.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  图片压缩
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://bigjpg.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  图片放大
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="http://cron.qqe2.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  CRON 表达式
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://tableconvert.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  MD 表格生成
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          在线服务
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.bootcdn.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Boot CDN
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          镜像资源
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://msdn.itellyou.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  MSDN
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://mirrors.tuna.tsinghua.edu.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  清华开源软件镜像站
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://developer.aliyun.com/mirror/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  阿里开源镜像站
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          网址导航
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.w3school.com.cn/index.html" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  W3School
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://www.runoob.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  菜鸟教程
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="http://www.h-ui.net/site.shtml" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  IT网址导航
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li></ul></div></div> <a href="https://github.com/chinaguocg/documents" target="_blank" rel="noopener noreferrer" class="repo-link">
+    查看源码
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Linux</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>Ansible</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/documents/study_notes/ops/ansible/basic/01.html" aria-current="page" class="active sidebar-link">Ansible 初识一：控制与被控</a></li><li><a href="/documents/study_notes/ops/ansible/basic/02.html" class="sidebar-link">Ansible 初识二：playbook</a></li><li><a href="/documents/study_notes/ops/ansible/basic/03.html" class="sidebar-link">Ansible 初识三：Ansible 定义变量</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Disk</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Nginx</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Docker</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="ansible-初识一-控制与被控"><a href="#ansible-初识一-控制与被控" class="header-anchor">#</a> Ansible 初识一：控制与被控</h1> <p>Ansible是一款开源的实现自动化运维的平台。</p> <blockquote><p>术语：</p> <p>playbook: 剧本</p> <p>inventory: 清单</p> <p>task： 任务</p> <p>modules： 模块</p> <p>Plugins :  插件</p> <p>agent:  代理</p></blockquote> <blockquote><p>ansible的特性：</p> <ul><li><p>1） 它使用简单的yaml格式的语言，不需要特定的编码基础。</p></li> <li><p>2） 无代理--agentless。</p></li> <li><p>3） ansible 架构分为控制端和被管理端，ansible只能安装在控制节点上，控制节点的系统必须为linux，被管理节点无差别。</p></li> <li><p>4） 大部分模块被设计为幂等性，可以多次安全地去执行</p></li></ul></blockquote> <p>工作原理：
+ansible自带了很多模块（实现具体任务的小程序），模块通过连接插件（通常是ssh服务）发送到被管理节点上，去完成相应的task。</p> <p><strong>被管理节点需要达成相应的 <u>特定状态</u>。（期望的状态），完成后，模块自动删除。</strong></p> <p><strong>安装ansible:</strong> <strong>在控制节点： yum  install ansible  -y</strong></p> <p><strong>前期准备工作：</strong></p> <ul><li><ol><li>实现免密登录
+在控制节点：</li></ol></li></ul> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code>ssh-keygen 
+ssh-copy-id <span class="token parameter variable">-i</span>  /home/jess/.ssh/id_rsa.pub   Jess@node1        //为node1的jess用户免密
+ssh-copy-id <span class="token parameter variable">-i</span>  /home/jess/.ssh/id_rsa.pub   jess@node2            //为node2的jess用户免密
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><ul><li>2）sudo提权	
+在控制节点：</li></ul> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token function">vim</span>   /etc/sudoers.d/jess
+jess   <span class="token assign-left variable">ALL</span><span class="token operator">=</span>	NOPASSWD:   ALL
+<span class="token function">scp</span>   /etc/sudoers.d/jess     root@node1:/etc/sudoers.d/
+<span class="token function">scp</span>   /etc/sudoers.d/jess     root@node1:/etc/sudoers.d/
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><p><strong>关于清单文件</strong></p> <p>清单文件分为：静态和动态</p> <p>默认的清单文件： /etc/ansible/hosts</p> <p><u>默认的一般不用，需要在项目目录下创建自定义的清单文件</u></p> <p><u>mkdir  /home/xxx/yyy/     //创建项目目录</u></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>x.example.com
+192.168.72.130
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p>[start:end]
+清单文件中的主机，可以被划分成不同的group。使用[   ]代表组名称。同时组可以被嵌套。
+使用”children”关键字来构成嵌套组。[groupname:children]。
+Tip: 一直存在两个特殊的组名：<u>all,  ungrouped</u></p> <p>验证：
+ansible  组名|主机名   --list-hosts   [-i   清单文件名称]</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>[jess@localhost project]$ ansible qf1 --list-hosts --inventory inventory
+  hosts (1):
+    192.168.72.130
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><p>完整代码示例如下</p> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code>                             noarch                                  <span class="token number">2.14</span>-1.el7                                      base                                    <span class="token number">104</span> k
+ python2-cryptography                                  x86_64                                  <span class="token number">1.7</span>.2-2.el7                                     base                                    <span class="token number">502</span> k
+ python2-httplib2                                      noarch                                  <span class="token number">0.18</span>.1-3.el7                                    epel                                    <span class="token number">125</span> k
+ python2-jmespath                                      noarch                                  <span class="token number">0.9</span>.4-2.el7                                     epel                                     <span class="token number">41</span> k
+ python2-pyasn1                                        noarch                                  <span class="token number">0.1</span>.9-7.el7                                     base                                    <span class="token number">100</span> k
+ sshpass                                               x86_64                                  <span class="token number">1.06</span>-2.el7                                      extras                                   <span class="token number">21</span> k
+
+事务概要
+<span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">=</span>
+安装  <span class="token number">1</span> 软件包 <span class="token punctuation">(</span>+16 依赖软件包<span class="token punctuation">)</span>
+
+总下载量：21 M
+安装大小：120 M
+Downloading packages:
+<span class="token punctuation">(</span><span class="token number">1</span>/17<span class="token punctuation">)</span>: libyaml-0.1.4-11.el7_0.x86_64.rpm                                                                                                                             <span class="token operator">|</span>  <span class="token number">55</span> kB  00:00:00     
+<span class="token punctuation">(</span><span class="token number">2</span>/17<span class="token punctuation">)</span>: PyYAML-3.10-11.el7.x86_64.rpm                                                                                                                                 <span class="token operator">|</span> <span class="token number">153</span> kB  00:00:00     
+<span class="token punctuation">(</span><span class="token number">3</span>/17<span class="token punctuation">)</span>: python-cffi-1.6.0-5.el7.x86_64.rpm                                                                                                                            <span class="token operator">|</span> <span class="token number">218</span> kB  00:00:00     
+<span class="token punctuation">(</span><span class="token number">4</span>/17<span class="token punctuation">)</span>: python-enum34-1.0.4-1.el7.noarch.rpm                                                                                                                          <span class="token operator">|</span>  <span class="token number">52</span> kB  00:00:00     
+<span class="token punctuation">(</span><span class="token number">5</span>/17<span class="token punctuation">)</span>: python-idna-2.4-1.el7.noarch.rpm                                                                                                                              <span class="token operator">|</span>  <span class="token number">94</span> kB  00:00:00     
+<span class="token punctuation">(</span><span class="token number">6</span>/17<span class="token punctuation">)</span>: python-jinja2-2.7.2-4.el7.noarch.rpm                                                                                                                          <span class="token operator">|</span> <span class="token number">519</span> kB  00:00:01     
+<span class="token punctuation">(</span><span class="token number">7</span>/17<span class="token punctuation">)</span>: python-markupsafe-0.11-10.el7.x86_64.rpm                                                                                                                      <span class="token operator">|</span>  <span class="token number">25</span> kB  00:00:00     
+<span class="token punctuation">(</span><span class="token number">8</span>/17<span class="token punctuation">)</span>: python-babel-0.9.6-8.el7.noarch.rpm                                                                                                                           <span class="token operator">|</span> <span class="token number">1.4</span> MB  00:00:04     
+<span class="token punctuation">(</span><span class="token number">9</span>/17<span class="token punctuation">)</span>: python-ply-3.4-11.el7.noarch.rpm                                                                                                                              <span class="token operator">|</span> <span class="token number">123</span> kB  00:00:00     
+<span class="token punctuation">(</span><span class="token number">10</span>/17<span class="token punctuation">)</span>: python-pycparser-2.14-1.el7.noarch.rpm                                                                                                                       <span class="token operator">|</span> <span class="token number">104</span> kB  00:00:00     
+<span class="token punctuation">(</span><span class="token number">11</span>/17<span class="token punctuation">)</span>: python-paramiko-2.1.1-9.el7.noarch.rpm                                                                                                                       <span class="token operator">|</span> <span class="token number">269</span> kB  00:00:01     
+warning: /var/cache/yum/x86_64/7/epel/packages/python2-httplib2-0.18.1-3.el7.noarch.rpm: Header V4 RSA/SHA256 Signature, key ID 352c64e5: NOKEY            <span class="token punctuation">]</span> <span class="token number">1.1</span> MB/s <span class="token operator">|</span> <span class="token number">5.9</span> MB  00:00:12 ETA 
+python2-httplib2-0.18.1-3.el7.noarch.rpm 的公钥尚未安装
+<span class="token punctuation">(</span><span class="token number">12</span>/17<span class="token punctuation">)</span>: python2-httplib2-0.18.1-3.el7.noarch.rpm                                                                                                                     <span class="token operator">|</span> <span class="token number">125</span> kB  00:00:00     
+<span class="token punctuation">(</span><span class="token number">13</span>/17<span class="token punctuation">)</span>: python2-jmespath-0.9.4-2.el7.noarch.rpm                                                                                                                      <span class="token operator">|</span>  <span class="token number">41</span> kB  00:00:00     
+<span class="token punctuation">(</span><span class="token number">14</span>/17<span class="token punctuation">)</span>: sshpass-1.06-2.el7.x86_64.rpm                                                                                                                                <span class="token operator">|</span>  <span class="token number">21</span> kB  00:00:00     
+<span class="token punctuation">(</span><span class="token number">15</span>/17<span class="token punctuation">)</span>: python2-pyasn1-0.1.9-7.el7.noarch.rpm                                                                                                                        <span class="token operator">|</span> <span class="token number">100</span> kB  00:00:03     
+<span class="token punctuation">(</span><span class="token number">16</span>/17<span class="token punctuation">)</span>: python2-cryptography-1.7.2-2.el7.x86_64.rpm                                                                                                                  <span class="token operator">|</span> <span class="token number">502</span> kB  00:00:11     
+<span class="token punctuation">(</span><span class="token number">17</span>/17<span class="token punctuation">)</span>: ansible-2.9.27-1.el7.noarch.rpm                                                                                                                              <span class="token operator">|</span>  <span class="token number">17</span> MB  00:00:23     
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+总计                                                                                                                                                         <span class="token number">895</span> kB/s <span class="token operator">|</span>  <span class="token number">21</span> MB  00:00:23     
+从 http://mirrors.cloud.tencent.com/epel/RPM-GPG-KEY-EPEL-7 检索密钥
+导入 GPG key 0x352C64E5:
+ 用户ID     <span class="token builtin class-name">:</span> <span class="token string">&quot;Fedora EPEL (7) &lt;epel@fedoraproject.org&gt;&quot;</span>
+ 指纹       <span class="token builtin class-name">:</span> 91e9 7d7c 4a5e 96f1 7f3e 888f 6a2f aea2 352c 64e5
+ 来自       <span class="token builtin class-name">:</span> http://mirrors.cloud.tencent.com/epel/RPM-GPG-KEY-EPEL-7
+Running transaction check
+Running transaction <span class="token builtin class-name">test</span>
+Transaction <span class="token builtin class-name">test</span> succeeded
+Running transaction
+  正在安装    <span class="token builtin class-name">:</span> python2-pyasn1-0.1.9-7.el7.noarch                                                                                                                                       <span class="token number">1</span>/17 
+  正在安装    <span class="token builtin class-name">:</span> python-markupsafe-0.11-10.el7.x86_64                                                                                                                                    <span class="token number">2</span>/17 
+  正在安装    <span class="token builtin class-name">:</span> sshpass-1.06-2.el7.x86_64                                                                                                                                               <span class="token number">3</span>/17 
+  正在安装    <span class="token builtin class-name">:</span> python2-httplib2-0.18.1-3.el7.noarch                                                                                                                                    <span class="token number">4</span>/17 
+  正在安装    <span class="token builtin class-name">:</span> python-babel-0.9.6-8.el7.noarch                                                                                                                                         <span class="token number">5</span>/17 
+  正在安装    <span class="token builtin class-name">:</span> python-jinja2-2.7.2-4.el7.noarch                                                                                                                                        <span class="token number">6</span>/17 
+  正在安装    <span class="token builtin class-name">:</span> python2-jmespath-0.9.4-2.el7.noarch                                                                                                                                     <span class="token number">7</span>/17 
+  正在安装    <span class="token builtin class-name">:</span> python-enum34-1.0.4-1.el7.noarch                                                                                                                                        <span class="token number">8</span>/17 
+  正在安装    <span class="token builtin class-name">:</span> python-ply-3.4-11.el7.noarch                                                                                                                                            <span class="token number">9</span>/17 
+  正在安装    <span class="token builtin class-name">:</span> python-pycparser-2.14-1.el7.noarch                                                                                                                                     <span class="token number">10</span>/17 
+  正在安装    <span class="token builtin class-name">:</span> python-cffi-1.6.0-5.el7.x86_64                                                                                                                                         <span class="token number">11</span>/17 
+  正在安装    <span class="token builtin class-name">:</span> libyaml-0.1.4-11.el7_0.x86_64                                                                                                                                          <span class="token number">12</span>/17 
+  正在安装    <span class="token builtin class-name">:</span> PyYAML-3.10-11.el7.x86_64                                                                                                                                              <span class="token number">13</span>/17 
+  正在安装    <span class="token builtin class-name">:</span> python-idna-2.4-1.el7.noarch                                                                                                                                           <span class="token number">14</span>/17 
+  正在安装    <span class="token builtin class-name">:</span> python2-cryptography-1.7.2-2.el7.x86_64                                                                                                                                <span class="token number">15</span>/17 
+  正在安装    <span class="token builtin class-name">:</span> python-paramiko-2.1.1-9.el7.noarch                                                                                                                                     <span class="token number">16</span>/17 
+  正在安装    <span class="token builtin class-name">:</span> ansible-2.9.27-1.el7.noarch                                                                                                                                            <span class="token number">17</span>/17 
+  验证中      <span class="token builtin class-name">:</span> python-idna-2.4-1.el7.noarch                                                                                                                                            <span class="token number">1</span>/17 
+  验证中      <span class="token builtin class-name">:</span> libyaml-0.1.4-11.el7_0.x86_64                                                                                                                                           <span class="token number">2</span>/17 
+  验证中      <span class="token builtin class-name">:</span> python-ply-3.4-11.el7.noarch                                                                                                                                            <span class="token number">3</span>/17 
+  验证中      <span class="token builtin class-name">:</span> python-enum34-1.0.4-1.el7.noarch                                                                                                                                        <span class="token number">4</span>/17 
+  验证中      <span class="token builtin class-name">:</span> ansible-2.9.27-1.el7.noarch                                                                                                                                             <span class="token number">5</span>/17 
+  验证中      <span class="token builtin class-name">:</span> python-paramiko-2.1.1-9.el7.noarch                                                                                                                                      <span class="token number">6</span>/17 
+  验证中      <span class="token builtin class-name">:</span> python2-jmespath-0.9.4-2.el7.noarch                                                                                                                                     <span class="token number">7</span>/17 
+  验证中      <span class="token builtin class-name">:</span> python-babel-0.9.6-8.el7.noarch                                                                                                                                         <span class="token number">8</span>/17 
+  验证中      <span class="token builtin class-name">:</span> python2-httplib2-0.18.1-3.el7.noarch                                                                                                                                    <span class="token number">9</span>/17 
+  验证中      <span class="token builtin class-name">:</span> python-cffi-1.6.0-5.el7.x86_64                                                                                                                                         <span class="token number">10</span>/17 
+  验证中      <span class="token builtin class-name">:</span> sshpass-1.06-2.el7.x86_64                                                                                                                                              <span class="token number">11</span>/17 
+  验证中      <span class="token builtin class-name">:</span> python-jinja2-2.7.2-4.el7.noarch                                                                                                                                       <span class="token number">12</span>/17 
+  验证中      <span class="token builtin class-name">:</span> python2-pyasn1-0.1.9-7.el7.noarch                                                                                                                                      <span class="token number">13</span>/17 
+  验证中      <span class="token builtin class-name">:</span> PyYAML-3.10-11.el7.x86_64                                                                                                                                              <span class="token number">14</span>/17 
+  验证中      <span class="token builtin class-name">:</span> python-pycparser-2.14-1.el7.noarch                                                                                                                                     <span class="token number">15</span>/17 
+  验证中      <span class="token builtin class-name">:</span> python-markupsafe-0.11-10.el7.x86_64                                                                                                                                   <span class="token number">16</span>/17 
+  验证中      <span class="token builtin class-name">:</span> python2-cryptography-1.7.2-2.el7.x86_64                                                                                                                                <span class="token number">17</span>/17 
+
+已安装:
+  ansible.noarch <span class="token number">0</span>:2.9.27-1.el7                                                                                                                                                              
+
+作为依赖被安装:
+  PyYAML.x86_64 <span class="token number">0</span>:3.10-11.el7                    libyaml.x86_64 <span class="token number">0</span>:0.1.4-11.el7_0               python-babel.noarch <span class="token number">0</span>:0.9.6-8.el7            python-cffi.x86_64 <span class="token number">0</span>:1.6.0-5.el7                 
+  python-enum34.noarch <span class="token number">0</span>:1.0.4-1.el7             python-idna.noarch <span class="token number">0</span>:2.4-1.el7                python-jinja2.noarch <span class="token number">0</span>:2.7.2-4.el7           python-markupsafe.x86_64 <span class="token number">0</span>:0.11-10.el7           
+  python-paramiko.noarch <span class="token number">0</span>:2.1.1-9.el7           python-ply.noarch <span class="token number">0</span>:3.4-11.el7                python-pycparser.noarch <span class="token number">0</span>:2.14-1.el7         python2-cryptography.x86_64 <span class="token number">0</span>:1.7.2-2.el7        
+  python2-httplib2.noarch <span class="token number">0</span>:0.18.1-3.el7         python2-jmespath.noarch <span class="token number">0</span>:0.9.4-2.el7         python2-pyasn1.noarch <span class="token number">0</span>:0.1.9-7.el7          sshpass.x86_64 <span class="token number">0</span>:1.06-2.el7                      
+
+完毕！
+<span class="token punctuation">[</span>root@bogon qianfeng<span class="token punctuation">]</span><span class="token comment"># ansible --version</span>
+ansible <span class="token number">2.9</span>.27
+  config <span class="token function">file</span> <span class="token operator">=</span> /etc/ansible/ansible.cfg
+  configured module search path <span class="token operator">=</span> <span class="token punctuation">[</span>u<span class="token string">'/root/.ansible/plugins/modules'</span>, u<span class="token string">'/usr/share/ansible/plugins/modules'</span><span class="token punctuation">]</span>
+  ansible python module location <span class="token operator">=</span> /usr/lib/python2.7/site-packages/ansible
+  executable location <span class="token operator">=</span> /usr/bin/ansible
+  python version <span class="token operator">=</span> <span class="token number">2.7</span>.5 <span class="token punctuation">(</span>default, Aug  <span class="token number">4</span> <span class="token number">2017</span>, 00:39:18<span class="token punctuation">)</span> <span class="token punctuation">[</span>GCC <span class="token number">4.8</span>.5 <span class="token number">20150623</span> <span class="token punctuation">(</span>Red Hat <span class="token number">4.8</span>.5-16<span class="token punctuation">)</span><span class="token punctuation">]</span>
+<span class="token punctuation">[</span>root@bogon qianfeng<span class="token punctuation">]</span><span class="token comment"># ping 192.168.72.130</span>
+PING <span class="token number">192.168</span>.72.130 <span class="token punctuation">(</span><span class="token number">192.168</span>.72.130<span class="token punctuation">)</span> <span class="token number">56</span><span class="token punctuation">(</span><span class="token number">84</span><span class="token punctuation">)</span> bytes of data.
+<span class="token number">64</span> bytes from <span class="token number">192.168</span>.72.130: <span class="token assign-left variable">icmp_seq</span><span class="token operator">=</span><span class="token number">1</span> <span class="token assign-left variable">ttl</span><span class="token operator">=</span><span class="token number">64</span> <span class="token assign-left variable">time</span><span class="token operator">=</span><span class="token number">0.637</span> ms
+<span class="token number">64</span> bytes from <span class="token number">192.168</span>.72.130: <span class="token assign-left variable">icmp_seq</span><span class="token operator">=</span><span class="token number">2</span> <span class="token assign-left variable">ttl</span><span class="token operator">=</span><span class="token number">64</span> <span class="token assign-left variable">time</span><span class="token operator">=</span><span class="token number">0.870</span> ms
+<span class="token number">64</span> bytes from <span class="token number">192.168</span>.72.130: <span class="token assign-left variable">icmp_seq</span><span class="token operator">=</span><span class="token number">3</span> <span class="token assign-left variable">ttl</span><span class="token operator">=</span><span class="token number">64</span> <span class="token assign-left variable">time</span><span class="token operator">=</span><span class="token number">0.870</span> ms
+<span class="token number">64</span> bytes from <span class="token number">192.168</span>.72.130: <span class="token assign-left variable">icmp_seq</span><span class="token operator">=</span><span class="token number">4</span> <span class="token assign-left variable">ttl</span><span class="token operator">=</span><span class="token number">64</span> <span class="token assign-left variable">time</span><span class="token operator">=</span><span class="token number">1.15</span> ms
+<span class="token number">64</span> bytes from <span class="token number">192.168</span>.72.130: <span class="token assign-left variable">icmp_seq</span><span class="token operator">=</span><span class="token number">5</span> <span class="token assign-left variable">ttl</span><span class="token operator">=</span><span class="token number">64</span> <span class="token assign-left variable">time</span><span class="token operator">=</span><span class="token number">0.876</span> ms
+^C
+--- <span class="token number">192.168</span>.72.130 <span class="token function">ping</span> statistics ---
+<span class="token number">5</span> packets transmitted, <span class="token number">5</span> received, <span class="token number">0</span>% packet loss, <span class="token function">time</span> 4004ms
+rtt min/avg/max/mdev <span class="token operator">=</span> <span class="token number">0.637</span>/0.880/1.150/0.165 ms
+<span class="token punctuation">[</span>root@bogon qianfeng<span class="token punctuation">]</span><span class="token comment"># useradd jess</span>
+<span class="token punctuation">[</span>root@bogon qianfeng<span class="token punctuation">]</span><span class="token comment"># passwd jess</span>
+更改用户 jess 的密码 。
+新的 密码：
+无效的密码： 密码少于 <span class="token number">8</span> 个字符
+重新输入新的 密码：
+passwd：所有的身份验证令牌已经成功更新。
+<span class="token punctuation">[</span>root@bogon qianfeng<span class="token punctuation">]</span><span class="token comment"># ssh-keygen</span>
+Generating public/private rsa key pair.
+Enter <span class="token function">file</span> <span class="token keyword">in</span> <span class="token function">which</span> to save the key <span class="token punctuation">(</span>/root/.ssh/id_rsa<span class="token punctuation">)</span>: 
+Created directory <span class="token string">'/root/.ssh'</span><span class="token builtin class-name">.</span>
+Enter passphrase <span class="token punctuation">(</span>empty <span class="token keyword">for</span> no passphrase<span class="token punctuation">)</span>: 
+Enter same passphrase again: 
+Your identification has been saved <span class="token keyword">in</span> /root/.ssh/id_rsa.
+Your public key has been saved <span class="token keyword">in</span> /root/.ssh/id_rsa.pub.
+The key fingerprint is:
+SHA256:kxrrRWPBPfaqbonJrefv1XLIc+YPwD+h5ez5Ka1fuNg root@bogon
+The key<span class="token string">'s randomart image is:
++---[RSA 2048]----+
+|                 |
+|       . .       |
+|        o +      |
+|         + +     |
+|      . S   + o  |
+|       * o o X o |
+|     .o+... B &amp; .|
+|     .+.=. . % *o|
+|      o*+oo ..E=o|
++----[SHA256]-----+
+[root@bogon qianfeng]# ssh-copy-id -i /home/jess/.
+./             .bash_logout   .bashrc        
+../            .bash_profile  .mozilla/      
+[root@bogon qianfeng]# su - jess
+[jess@bogon ~]$ ssh-keygen
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/jess/.ssh/id_rsa): 
+Created directory '</span>/home/jess/.ssh<span class="token string">'.
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in /home/jess/.ssh/id_rsa.
+Your public key has been saved in /home/jess/.ssh/id_rsa.pub.
+The key fingerprint is:
+SHA256:MigVKgegjcM/gsiRXgqpFFFNAzbP+ZLU3ofloNf+t9k jess@bogon
+The key'</span>s randomart image is:
++---<span class="token punctuation">[</span>RSA <span class="token number">2048</span><span class="token punctuation">]</span>----+
+<span class="token operator">|</span>+oo<span class="token operator">==</span>o           <span class="token operator">|</span>
+<span class="token operator">|</span><span class="token assign-left variable">o</span><span class="token operator">=</span>+.+o+          <span class="token operator">|</span>
+<span class="token operator">|</span><span class="token assign-left variable">B</span><span class="token operator">=</span>+<span class="token punctuation">..</span><span class="token operator">=</span> <span class="token builtin class-name">.</span> <span class="token builtin class-name">.</span> <span class="token builtin class-name">.</span>     <span class="token operator">|</span>
+<span class="token operator">|</span><span class="token assign-left variable">O</span><span class="token operator">+=</span><span class="token punctuation">..</span>.+ o *      <span class="token operator">|</span>
+<span class="token operator">|</span><span class="token operator">+=</span>.o.oo+S+ +     <span class="token operator">|</span>
+<span class="token operator">|</span>  <span class="token punctuation">..</span>. .o. o      <span class="token operator">|</span>
+<span class="token operator">|</span>           <span class="token builtin class-name">.</span>     <span class="token operator">|</span>
+<span class="token operator">|</span>            <span class="token builtin class-name">.</span>  .o<span class="token operator">|</span>
+<span class="token operator">|</span>             <span class="token punctuation">..</span>oE<span class="token operator">|</span>
++----<span class="token punctuation">[</span>SHA256<span class="token punctuation">]</span>-----+
+<span class="token punctuation">[</span>jess@bogon ~<span class="token punctuation">]</span>$ ssh-copy-id /home/jess/.ssh/id_rsa.pub jess@192.168.72.130
+/bin/ssh-copy-id: ERROR: Too many arguments.  Expecting a target hostname, got: <span class="token string">'/home/jess/.ssh/id_rsa.pub'</span> <span class="token string">'jess@192.168.72.130'</span>
+
+Usage: /bin/ssh-copy-id <span class="token punctuation">[</span>-h<span class="token operator">|</span>-?<span class="token operator">|</span>-f<span class="token operator">|</span>-n<span class="token punctuation">]</span> <span class="token punctuation">[</span>-i <span class="token punctuation">[</span>identity_file<span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token punctuation">[</span>-p port<span class="token punctuation">]</span> <span class="token punctuation">[</span><span class="token punctuation">[</span>-o <span class="token operator">&lt;</span>ssh <span class="token parameter variable">-o</span> options<span class="token operator">&gt;</span><span class="token punctuation">]</span> <span class="token punctuation">..</span>.<span class="token punctuation">]</span> <span class="token punctuation">[</span>user@<span class="token punctuation">]</span>hostname
+	-f: force mode -- copy keys without trying to check <span class="token keyword">if</span> they are already installed
+	-n: dry run    -- no keys are actually copied
+	-h<span class="token operator">|</span>-?: print this <span class="token builtin class-name">help</span>
+<span class="token punctuation">[</span>jess@bogon ~<span class="token punctuation">]</span>$ <span class="token function">ssh</span> jess@192.168.72.130
+The authenticity of <span class="token function">host</span> <span class="token string">'192.168.72.130 (192.168.72.130)'</span> can<span class="token string">'t be established.
+ECDSA key fingerprint is SHA256:jLEBIr2vbp2q0OChP8oGXgY33I8PgY9hqYjUGbPuiEg.
+ECDSA key fingerprint is MD5:1e:0c:6e:12:67:b2:9c:cc:82:92:d0:02:5f:41:8a:02.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added '</span><span class="token number">192.168</span>.72.130<span class="token string">' (ECDSA) to the list of known hosts.
+jess@192.168.72.130'</span>s password: 
+<span class="token punctuation">[</span>jess@bogon ~<span class="token punctuation">]</span>$ eit
+bash: eit: 未找到命令<span class="token punctuation">..</span>.
+<span class="token punctuation">[</span>jess@bogon ~<span class="token punctuation">]</span>$ <span class="token builtin class-name">exit</span>
+登出
+Connection to <span class="token number">192.168</span>.72.130 closed.
+<span class="token punctuation">[</span>jess@bogon ~<span class="token punctuation">]</span>$ <span class="token function">ip</span> a
+<span class="token number">1</span>: lo: <span class="token operator">&lt;</span>LOOPBACK,UP,LOWER_UP<span class="token operator">&gt;</span> mtu <span class="token number">65536</span> qdisc noqueue state UNKNOWN qlen <span class="token number">1</span>
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet <span class="token number">127.0</span>.0.1/8 scope <span class="token function">host</span> lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope <span class="token function">host</span> 
+       valid_lft forever preferred_lft forever
+<span class="token number">2</span>: ens33: <span class="token operator">&lt;</span>BROADCAST,MULTICAST,UP,LOWER_UP<span class="token operator">&gt;</span> mtu <span class="token number">1500</span> qdisc pfifo_fast state UP qlen <span class="token number">1000</span>
+    link/ether 00:0c:29:f5:2f:23 brd ff:ff:ff:ff:ff:ff
+    inet <span class="token number">192.168</span>.72.128/24 brd <span class="token number">192.168</span>.72.255 scope global dynamic ens33
+       valid_lft 1136sec preferred_lft 1136sec
+    inet6 fe80::a8c3:4ad0:8f12:c71e/64 scope <span class="token function">link</span> 
+       valid_lft forever preferred_lft forever
+<span class="token number">3</span>: virbr0: <span class="token operator">&lt;</span>NO-CARRIER,BROADCAST,MULTICAST,UP<span class="token operator">&gt;</span> mtu <span class="token number">1500</span> qdisc noqueue state DOWN qlen <span class="token number">1000</span>
+    link/ether <span class="token number">52</span>:54:00:6e:49:8c brd ff:ff:ff:ff:ff:ff
+    inet <span class="token number">192.168</span>.122.1/24 brd <span class="token number">192.168</span>.122.255 scope global virbr0
+       valid_lft forever preferred_lft forever
+<span class="token number">4</span>: virbr0-nic: <span class="token operator">&lt;</span>BROADCAST,MULTICAST<span class="token operator">&gt;</span> mtu <span class="token number">1500</span> qdisc pfifo_fast master virbr0 state DOWN qlen <span class="token number">1000</span>
+    link/ether <span class="token number">52</span>:54:00:6e:49:8c brd ff:ff:ff:ff:ff:ff
+<span class="token punctuation">[</span>jess@bogon ~<span class="token punctuation">]</span>$ ssh-copy-id <span class="token parameter variable">-i</span>  /home/jess/.ssh/id_rsa.pub jess@192.168.72.130
+/bin/ssh-copy-id: INFO: Source of key<span class="token punctuation">(</span>s<span class="token punctuation">)</span> to be installed: <span class="token string">&quot;/home/jess/.ssh/id_rsa.pub&quot;</span>
+/bin/ssh-copy-id: INFO: attempting to log <span class="token keyword">in</span> with the new key<span class="token punctuation">(</span>s<span class="token punctuation">)</span>, to filter out any that are already installed
+/bin/ssh-copy-id: INFO: <span class="token number">1</span> key<span class="token punctuation">(</span>s<span class="token punctuation">)</span> remain to be installed -- <span class="token keyword">if</span> you are prompted now it is to <span class="token function">install</span> the new keys
+jess@192.168.72.130<span class="token string">'s password: 
+
+Number of key(s) added: 1
+
+Now try logging into the machine, with:   &quot;ssh '</span>jess@192.168.72.130<span class="token string">'&quot;
+and check to make sure that only the key(s) you wanted were added.
+
+[jess@bogon ~]$ ssh jess@192.168.72.130
+Last login: Mon Oct 27 11:23:29 2025 from 192.168.72.128
+[jess@bogon ~]$ 
+
+
+
+[root@localhost ~]# vim   /etc/sudoers.d/jess
+[root@localhost ~]# scp   /etc/sudoers.d/jess     root@192.168.72.130:/etc/sudoers.d/
+The authenticity of host '</span><span class="token number">192.168</span>.72.130 <span class="token punctuation">(</span><span class="token number">192.168</span>.72.130<span class="token punctuation">)</span><span class="token string">' can'</span>t be established.
+ECDSA key fingerprint is SHA256:jLEBIr2vbp2q0OChP8oGXgY33I8PgY9hqYjUGbPuiEg.
+ECDSA key fingerprint is MD5:1e:0c:6e:12:67:b2:9c:cc:82:92:d0:02:5f:41:8a:02.
+Are you sure you want to <span class="token builtin class-name">continue</span> connecting <span class="token punctuation">(</span>yes/no<span class="token punctuation">)</span>? <span class="token function">yes</span>
+Warning: Permanently added <span class="token string">'192.168.72.130'</span> <span class="token punctuation">(</span>ECDSA<span class="token punctuation">)</span> to the list of known hosts.
+root@192.168.72.130<span class="token string">'s password: 
+Permission denied, please try again.
+root@192.168.72.130'</span>s password: 
+jess                                          <span class="token number">100</span>%   <span class="token number">28</span>    <span class="token number">28</span>.4KB/s   00:00    
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># ssh jess@192.168.72.130</span>
+jess@192.168.72.130<span class="token string">'s password: 
+Permission denied, please try again.
+jess@192.168.72.130'</span>s password: 
+Last login: Mon Oct <span class="token number">27</span> <span class="token number">11</span>:25:09 <span class="token number">2025</span> from <span class="token number">192.168</span>.72.128
+<span class="token punctuation">[</span>jess@bogon ~<span class="token punctuation">]</span>$ ssh-copy-id <span class="token parameter variable">-i</span>  /home/jess/.ssh/id_rsa.pub jess@192.168.72.130
+
+/usr/bin/ssh-copy-id: ERROR: failed to <span class="token function">open</span> ID <span class="token function">file</span> <span class="token string">'/home/jess/.ssh/id_rsa.pub'</span><span class="token builtin class-name">:</span> 没有那个文件或目录
+<span class="token punctuation">[</span>jess@bogon ~<span class="token punctuation">]</span>$ <span class="token builtin class-name">exit</span>
+登出
+Connection to <span class="token number">192.168</span>.72.130 closed.
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># ssh-copy-id -i  /home/jess/.ssh/id_rsa.pub jess@192.168.72.130</span>
+/usr/bin/ssh-copy-id: INFO: Source of key<span class="token punctuation">(</span>s<span class="token punctuation">)</span> to be installed: <span class="token string">&quot;/home/jess/.ssh/id_rsa.pub&quot;</span>
+/usr/bin/ssh-copy-id: INFO: attempting to log <span class="token keyword">in</span> with the new key<span class="token punctuation">(</span>s<span class="token punctuation">)</span>, to filter out any that are already installed
+
+/usr/bin/ssh-copy-id: WARNING: All keys were skipped because they already exist on the remote system.
+		<span class="token punctuation">(</span>if you think this is a mistake, you may want to use <span class="token parameter variable">-f</span> option<span class="token punctuation">)</span>
+
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment">#  ssh jess@192.168.72.130</span>
+jess@192.168.72.130's password: 
+Last login: Mon Oct <span class="token number">27</span> <span class="token number">11</span>:42:01 <span class="token number">2025</span> from <span class="token number">192.168</span>.72.128
+<span class="token punctuation">[</span>jess@bogon ~<span class="token punctuation">]</span>$ <span class="token builtin class-name">exit</span>
+登出
+Connection to <span class="token number">192.168</span>.72.130 closed.
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># su - jess</span>
+上一次登录：一 <span class="token number">10</span>月 <span class="token number">27</span> <span class="token number">11</span>:21:18 CST 2025pts/0 上
+<span class="token punctuation">[</span>jess@bogon ~<span class="token punctuation">]</span>$ <span class="token function">ssh</span> jess@192.168.72.130
+Last login: Mon Oct <span class="token number">27</span> <span class="token number">11</span>:44:09 <span class="token number">2025</span> from <span class="token number">192.168</span>.72.128
+<span class="token punctuation">[</span>jess@bogon ~<span class="token punctuation">]</span>$ packet_write_wait: Connection to <span class="token number">192.168</span>.72.130 port <span class="token number">22</span>: Broken pipe
+<span class="token punctuation">[</span>jess@bogon ~<span class="token punctuation">]</span>$ 
+<span class="token punctuation">[</span>jess@bogon ~<span class="token punctuation">]</span>$ <span class="token builtin class-name">exit</span>
+登出
+<span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># su jess</span>
+<span class="token punctuation">[</span>jess@localhost root<span class="token punctuation">]</span>$ <span class="token function">vim</span> /etc/ansible/hosts
+<span class="token punctuation">[</span>jess@localhost root<span class="token punctuation">]</span>$ <span class="token function">sudo</span> <span class="token function">vim</span> /etc/ansible/hosts
+<span class="token punctuation">[</span>jess@localhost root<span class="token punctuation">]</span>$ ansible opengroup --list-hosts
+  hosts <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>:
+    <span class="token number">192.168</span>.72.130
+<span class="token punctuation">[</span>jess@localhost root<span class="token punctuation">]</span>$ ll
+ls: 无法打开目录.: 权限不够
+<span class="token punctuation">[</span>jess@localhost root<span class="token punctuation">]</span>$ <span class="token function">sudo</span> ll
+sudo: ll：找不到命令
+<span class="token punctuation">[</span>jess@localhost root<span class="token punctuation">]</span>$ <span class="token function">sudo</span> <span class="token function">ls</span>
+anaconda-ks.cfg			  initial-setup-ks.cfg	模板  图片  下载  桌面
+CentOS-7-x86_64-Minimal-2009.iso  公共			视频  文档  音乐
+<span class="token punctuation">[</span>jess@localhost root<span class="token punctuation">]</span>$ ansible qf --list-host
+  hosts <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>:
+    <span class="token number">192.168</span>.72.130
+<span class="token punctuation">[</span>jess@localhost root<span class="token punctuation">]</span>$ <span class="token function">ping</span> <span class="token number">192.168</span>.72.130
+connect: 网络不可达
+<span class="token punctuation">[</span>jess@localhost root<span class="token punctuation">]</span>$ <span class="token function">ping</span> <span class="token number">192.168</span>.72.130
+connect: 网络不可达
+<span class="token punctuation">[</span>jess@localhost root<span class="token punctuation">]</span>$ <span class="token function">sudo</span> <span class="token function">ping</span> <span class="token number">192.168</span>.72.130
+connect: 网络不可达
+<span class="token punctuation">[</span>jess@localhost root<span class="token punctuation">]</span>$ <span class="token function">sudo</span> <span class="token function">ping</span> <span class="token number">192.168</span>.72.2
+connect: 网络不可达
+<span class="token punctuation">[</span>jess@localhost root<span class="token punctuation">]</span>$ <span class="token function">sudo</span> <span class="token function">ping</span> <span class="token number">192.168</span>.72.1
+connect: 网络不可达
+<span class="token punctuation">[</span>jess@localhost root<span class="token punctuation">]</span>$ <span class="token function">sudo</span> <span class="token function">ping</span> <span class="token number">192.168</span>.72.1
+PING <span class="token number">192.168</span>.72.1 <span class="token punctuation">(</span><span class="token number">192.168</span>.72.1<span class="token punctuation">)</span> <span class="token number">56</span><span class="token punctuation">(</span><span class="token number">84</span><span class="token punctuation">)</span> bytes of data.
+^C
+--- <span class="token number">192.168</span>.72.1 <span class="token function">ping</span> statistics ---
+<span class="token number">7</span> packets transmitted, <span class="token number">0</span> received, <span class="token number">100</span>% packet loss, <span class="token function">time</span> 6005ms
+
+<span class="token punctuation">[</span>jess@localhost root<span class="token punctuation">]</span>$ <span class="token function">sudo</span> <span class="token function">ping</span> <span class="token number">192.168</span>.72.130
+PING <span class="token number">192.168</span>.72.130 <span class="token punctuation">(</span><span class="token number">192.168</span>.72.130<span class="token punctuation">)</span> <span class="token number">56</span><span class="token punctuation">(</span><span class="token number">84</span><span class="token punctuation">)</span> bytes of data.
+<span class="token number">64</span> bytes from <span class="token number">192.168</span>.72.130: <span class="token assign-left variable">icmp_seq</span><span class="token operator">=</span><span class="token number">1</span> <span class="token assign-left variable">ttl</span><span class="token operator">=</span><span class="token number">64</span> <span class="token assign-left variable">time</span><span class="token operator">=</span><span class="token number">0.711</span> ms
+<span class="token number">64</span> bytes from <span class="token number">192.168</span>.72.130: <span class="token assign-left variable">icmp_seq</span><span class="token operator">=</span><span class="token number">2</span> <span class="token assign-left variable">ttl</span><span class="token operator">=</span><span class="token number">64</span> <span class="token assign-left variable">time</span><span class="token operator">=</span><span class="token number">0.850</span> ms
+<span class="token number">64</span> bytes from <span class="token number">192.168</span>.72.130: <span class="token assign-left variable">icmp_seq</span><span class="token operator">=</span><span class="token number">3</span> <span class="token assign-left variable">ttl</span><span class="token operator">=</span><span class="token number">64</span> <span class="token assign-left variable">time</span><span class="token operator">=</span><span class="token number">1.06</span> ms
+<span class="token number">64</span> bytes from <span class="token number">192.168</span>.72.130: <span class="token assign-left variable">icmp_seq</span><span class="token operator">=</span><span class="token number">4</span> <span class="token assign-left variable">ttl</span><span class="token operator">=</span><span class="token number">64</span> <span class="token assign-left variable">time</span><span class="token operator">=</span><span class="token number">0.971</span> ms
+<span class="token number">64</span> bytes from <span class="token number">192.168</span>.72.130: <span class="token assign-left variable">icmp_seq</span><span class="token operator">=</span><span class="token number">5</span> <span class="token assign-left variable">ttl</span><span class="token operator">=</span><span class="token number">64</span> <span class="token assign-left variable">time</span><span class="token operator">=</span><span class="token number">0.851</span> ms
+<span class="token number">64</span> bytes from <span class="token number">192.168</span>.72.130: <span class="token assign-left variable">icmp_seq</span><span class="token operator">=</span><span class="token number">6</span> <span class="token assign-left variable">ttl</span><span class="token operator">=</span><span class="token number">64</span> <span class="token assign-left variable">time</span><span class="token operator">=</span><span class="token number">0.849</span> ms
+^C
+--- <span class="token number">192.168</span>.72.130 <span class="token function">ping</span> statistics ---
+<span class="token number">6</span> packets transmitted, <span class="token number">6</span> received, <span class="token number">0</span>% packet loss, <span class="token function">time</span> 5006ms
+rtt min/avg/max/mdev <span class="token operator">=</span> <span class="token number">0.711</span>/0.882/1.063/0.114 ms
+<span class="token punctuation">[</span>jess@localhost root<span class="token punctuation">]</span>$ ansible qf --list-host
+  hosts <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>:
+    <span class="token number">192.168</span>.72.130
+<span class="token punctuation">[</span>jess@localhost root<span class="token punctuation">]</span>$ <span class="token builtin class-name">cd</span> /home
+<span class="token punctuation">[</span>jess@localhost home<span class="token punctuation">]</span>$ ll
+总用量 <span class="token number">4</span>
+drwx------.  <span class="token number">7</span> jess     jess      <span class="token number">172</span> <span class="token number">10</span>月 <span class="token number">27</span> <span class="token number">14</span>:35 jess
+drwx------. <span class="token number">15</span> qianfeng qianfeng <span class="token number">4096</span> <span class="token number">10</span>月 <span class="token number">27</span> <span class="token number">11</span>:31 qianfeng
+<span class="token punctuation">[</span>jess@localhost home<span class="token punctuation">]</span>$ <span class="token builtin class-name">cd</span> jess
+<span class="token punctuation">[</span>jess@localhost ~<span class="token punctuation">]</span>$ ll
+总用量 <span class="token number">0</span>
+<span class="token punctuation">[</span>jess@localhost ~<span class="token punctuation">]</span>$ <span class="token function">mkdir</span> <span class="token parameter variable">-p</span>  project
+<span class="token punctuation">[</span>jess@localhost ~<span class="token punctuation">]</span>$ ll
+总用量 <span class="token number">0</span>
+drwxrwxr-x. <span class="token number">2</span> jess jess <span class="token number">6</span> <span class="token number">10</span>月 <span class="token number">27</span> <span class="token number">15</span>:01 project
+<span class="token punctuation">[</span>jess@localhost ~<span class="token punctuation">]</span>$ <span class="token builtin class-name">cd</span> project
+<span class="token punctuation">[</span>jess@localhost project<span class="token punctuation">]</span>$ ll
+总用量 <span class="token number">0</span>
+<span class="token punctuation">[</span>jess@localhost project<span class="token punctuation">]</span>$ <span class="token builtin class-name">pwd</span>
+/home/jess/project
+<span class="token punctuation">[</span>jess@localhost project<span class="token punctuation">]</span>$ <span class="token function">sudo</span> <span class="token function">vim</span> /etc/ansible/hosts
+<span class="token punctuation">[</span>jess@localhost project<span class="token punctuation">]</span>$ <span class="token function">vim</span> inventory
+<span class="token punctuation">[</span>jess@localhost project<span class="token punctuation">]</span>$ ll
+总用量 <span class="token number">4</span>
+-rw-rw-r--. <span class="token number">1</span> jess jess <span class="token number">47</span> <span class="token number">10</span>月 <span class="token number">27</span> <span class="token number">15</span>:05 inventory
+<span class="token punctuation">[</span>jess@localhost project<span class="token punctuation">]</span>$ ansible qf1 --list-hosts
+<span class="token punctuation">[</span>WARNING<span class="token punctuation">]</span>: Could not match supplied <span class="token function">host</span> pattern, ignoring: qf1
+<span class="token punctuation">[</span>WARNING<span class="token punctuation">]</span>: No hosts matched, nothing to <span class="token keyword">do</span>
+  hosts <span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>:
+<span class="token punctuation">[</span>jess@localhost project<span class="token punctuation">]</span>$ ansible qf1 --list-hosts <span class="token parameter variable">--inventory</span> inventory
+  hosts <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>:
+    <span class="token number">192.168</span>.72.130
+<span class="token punctuation">[</span>jess@localhost project<span class="token punctuation">]</span>$ ansible qf1 --list-hosts <span class="token parameter variable">--i</span> inventory
+usage: ansible <span class="token punctuation">[</span>-h<span class="token punctuation">]</span> <span class="token punctuation">[</span>--version<span class="token punctuation">]</span> <span class="token punctuation">[</span>-v<span class="token punctuation">]</span> <span class="token punctuation">[</span>-b<span class="token punctuation">]</span> <span class="token punctuation">[</span>--become-method BECOME_METHOD<span class="token punctuation">]</span>
+               <span class="token punctuation">[</span>--become-user BECOME_USER<span class="token punctuation">]</span> <span class="token punctuation">[</span>-K<span class="token punctuation">]</span> <span class="token punctuation">[</span>-i INVENTORY<span class="token punctuation">]</span> <span class="token punctuation">[</span>--list-hosts<span class="token punctuation">]</span>
+               <span class="token punctuation">[</span>-l SUBSET<span class="token punctuation">]</span> <span class="token punctuation">[</span>-P POLL_INTERVAL<span class="token punctuation">]</span> <span class="token punctuation">[</span>-B <span class="token environment constant">SECONDS</span><span class="token punctuation">]</span> <span class="token punctuation">[</span>-o<span class="token punctuation">]</span> <span class="token punctuation">[</span>-t TREE<span class="token punctuation">]</span> <span class="token punctuation">[</span>-k<span class="token punctuation">]</span>
+               <span class="token punctuation">[</span>--private-key PRIVATE_KEY_FILE<span class="token punctuation">]</span> <span class="token punctuation">[</span>-u REMOTE_USER<span class="token punctuation">]</span>
+               <span class="token punctuation">[</span>-c CONNECTION<span class="token punctuation">]</span> <span class="token punctuation">[</span>-T TIMEOUT<span class="token punctuation">]</span>
+               <span class="token punctuation">[</span>--ssh-common-args SSH_COMMON_ARGS<span class="token punctuation">]</span>
+               <span class="token punctuation">[</span>--sftp-extra-args SFTP_EXTRA_ARGS<span class="token punctuation">]</span>
+               <span class="token punctuation">[</span>--scp-extra-args SCP_EXTRA_ARGS<span class="token punctuation">]</span>
+               <span class="token punctuation">[</span>--ssh-extra-args SSH_EXTRA_ARGS<span class="token punctuation">]</span> <span class="token punctuation">[</span>-C<span class="token punctuation">]</span> <span class="token punctuation">[</span>--syntax-check<span class="token punctuation">]</span> <span class="token punctuation">[</span>-D<span class="token punctuation">]</span>
+               <span class="token punctuation">[</span>-e EXTRA_VARS<span class="token punctuation">]</span> <span class="token punctuation">[</span>--vault-id VAULT_IDS<span class="token punctuation">]</span>
+               <span class="token punctuation">[</span>--ask-vault-pass <span class="token operator">|</span> --vault-password-file VAULT_PASSWORD_FILES<span class="token punctuation">]</span>
+               <span class="token punctuation">[</span>-f FORKS<span class="token punctuation">]</span> <span class="token punctuation">[</span>-M MODULE_PATH<span class="token punctuation">]</span> <span class="token punctuation">[</span>--playbook-dir BASEDIR<span class="token punctuation">]</span>
+               <span class="token punctuation">[</span>-a MODULE_ARGS<span class="token punctuation">]</span> <span class="token punctuation">[</span>-m MODULE_NAME<span class="token punctuation">]</span>
+               pattern
+ansible: error: ambiguous option: <span class="token parameter variable">--i</span> could match --inventory-file, <span class="token parameter variable">--inventory</span>
+<span class="token punctuation">[</span>jess@localhost project<span class="token punctuation">]</span>$ ansible qf1 --list-hosts <span class="token parameter variable">-i</span> inventory
+  hosts <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>:
+    <span class="token number">192.168</span>.72.130
+
+
+
+
+
+
+-------
+<span class="token number">192.168</span>.72.132 node1
+<span class="token number">192.168</span>.72.133 node2
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br><span class="line-number">84</span><br><span class="line-number">85</span><br><span class="line-number">86</span><br><span class="line-number">87</span><br><span class="line-number">88</span><br><span class="line-number">89</span><br><span class="line-number">90</span><br><span class="line-number">91</span><br><span class="line-number">92</span><br><span class="line-number">93</span><br><span class="line-number">94</span><br><span class="line-number">95</span><br><span class="line-number">96</span><br><span class="line-number">97</span><br><span class="line-number">98</span><br><span class="line-number">99</span><br><span class="line-number">100</span><br><span class="line-number">101</span><br><span class="line-number">102</span><br><span class="line-number">103</span><br><span class="line-number">104</span><br><span class="line-number">105</span><br><span class="line-number">106</span><br><span class="line-number">107</span><br><span class="line-number">108</span><br><span class="line-number">109</span><br><span class="line-number">110</span><br><span class="line-number">111</span><br><span class="line-number">112</span><br><span class="line-number">113</span><br><span class="line-number">114</span><br><span class="line-number">115</span><br><span class="line-number">116</span><br><span class="line-number">117</span><br><span class="line-number">118</span><br><span class="line-number">119</span><br><span class="line-number">120</span><br><span class="line-number">121</span><br><span class="line-number">122</span><br><span class="line-number">123</span><br><span class="line-number">124</span><br><span class="line-number">125</span><br><span class="line-number">126</span><br><span class="line-number">127</span><br><span class="line-number">128</span><br><span class="line-number">129</span><br><span class="line-number">130</span><br><span class="line-number">131</span><br><span class="line-number">132</span><br><span class="line-number">133</span><br><span class="line-number">134</span><br><span class="line-number">135</span><br><span class="line-number">136</span><br><span class="line-number">137</span><br><span class="line-number">138</span><br><span class="line-number">139</span><br><span class="line-number">140</span><br><span class="line-number">141</span><br><span class="line-number">142</span><br><span class="line-number">143</span><br><span class="line-number">144</span><br><span class="line-number">145</span><br><span class="line-number">146</span><br><span class="line-number">147</span><br><span class="line-number">148</span><br><span class="line-number">149</span><br><span class="line-number">150</span><br><span class="line-number">151</span><br><span class="line-number">152</span><br><span class="line-number">153</span><br><span class="line-number">154</span><br><span class="line-number">155</span><br><span class="line-number">156</span><br><span class="line-number">157</span><br><span class="line-number">158</span><br><span class="line-number">159</span><br><span class="line-number">160</span><br><span class="line-number">161</span><br><span class="line-number">162</span><br><span class="line-number">163</span><br><span class="line-number">164</span><br><span class="line-number">165</span><br><span class="line-number">166</span><br><span class="line-number">167</span><br><span class="line-number">168</span><br><span class="line-number">169</span><br><span class="line-number">170</span><br><span class="line-number">171</span><br><span class="line-number">172</span><br><span class="line-number">173</span><br><span class="line-number">174</span><br><span class="line-number">175</span><br><span class="line-number">176</span><br><span class="line-number">177</span><br><span class="line-number">178</span><br><span class="line-number">179</span><br><span class="line-number">180</span><br><span class="line-number">181</span><br><span class="line-number">182</span><br><span class="line-number">183</span><br><span class="line-number">184</span><br><span class="line-number">185</span><br><span class="line-number">186</span><br><span class="line-number">187</span><br><span class="line-number">188</span><br><span class="line-number">189</span><br><span class="line-number">190</span><br><span class="line-number">191</span><br><span class="line-number">192</span><br><span class="line-number">193</span><br><span class="line-number">194</span><br><span class="line-number">195</span><br><span class="line-number">196</span><br><span class="line-number">197</span><br><span class="line-number">198</span><br><span class="line-number">199</span><br><span class="line-number">200</span><br><span class="line-number">201</span><br><span class="line-number">202</span><br><span class="line-number">203</span><br><span class="line-number">204</span><br><span class="line-number">205</span><br><span class="line-number">206</span><br><span class="line-number">207</span><br><span class="line-number">208</span><br><span class="line-number">209</span><br><span class="line-number">210</span><br><span class="line-number">211</span><br><span class="line-number">212</span><br><span class="line-number">213</span><br><span class="line-number">214</span><br><span class="line-number">215</span><br><span class="line-number">216</span><br><span class="line-number">217</span><br><span class="line-number">218</span><br><span class="line-number">219</span><br><span class="line-number">220</span><br><span class="line-number">221</span><br><span class="line-number">222</span><br><span class="line-number">223</span><br><span class="line-number">224</span><br><span class="line-number">225</span><br><span class="line-number">226</span><br><span class="line-number">227</span><br><span class="line-number">228</span><br><span class="line-number">229</span><br><span class="line-number">230</span><br><span class="line-number">231</span><br><span class="line-number">232</span><br><span class="line-number">233</span><br><span class="line-number">234</span><br><span class="line-number">235</span><br><span class="line-number">236</span><br><span class="line-number">237</span><br><span class="line-number">238</span><br><span class="line-number">239</span><br><span class="line-number">240</span><br><span class="line-number">241</span><br><span class="line-number">242</span><br><span class="line-number">243</span><br><span class="line-number">244</span><br><span class="line-number">245</span><br><span class="line-number">246</span><br><span class="line-number">247</span><br><span class="line-number">248</span><br><span class="line-number">249</span><br><span class="line-number">250</span><br><span class="line-number">251</span><br><span class="line-number">252</span><br><span class="line-number">253</span><br><span class="line-number">254</span><br><span class="line-number">255</span><br><span class="line-number">256</span><br><span class="line-number">257</span><br><span class="line-number">258</span><br><span class="line-number">259</span><br><span class="line-number">260</span><br><span class="line-number">261</span><br><span class="line-number">262</span><br><span class="line-number">263</span><br><span class="line-number">264</span><br><span class="line-number">265</span><br><span class="line-number">266</span><br><span class="line-number">267</span><br><span class="line-number">268</span><br><span class="line-number">269</span><br><span class="line-number">270</span><br><span class="line-number">271</span><br><span class="line-number">272</span><br><span class="line-number">273</span><br><span class="line-number">274</span><br><span class="line-number">275</span><br><span class="line-number">276</span><br><span class="line-number">277</span><br><span class="line-number">278</span><br><span class="line-number">279</span><br><span class="line-number">280</span><br><span class="line-number">281</span><br><span class="line-number">282</span><br><span class="line-number">283</span><br><span class="line-number">284</span><br><span class="line-number">285</span><br><span class="line-number">286</span><br><span class="line-number">287</span><br><span class="line-number">288</span><br><span class="line-number">289</span><br><span class="line-number">290</span><br><span class="line-number">291</span><br><span class="line-number">292</span><br><span class="line-number">293</span><br><span class="line-number">294</span><br><span class="line-number">295</span><br><span class="line-number">296</span><br><span class="line-number">297</span><br><span class="line-number">298</span><br><span class="line-number">299</span><br><span class="line-number">300</span><br><span class="line-number">301</span><br><span class="line-number">302</span><br><span class="line-number">303</span><br><span class="line-number">304</span><br><span class="line-number">305</span><br><span class="line-number">306</span><br><span class="line-number">307</span><br><span class="line-number">308</span><br><span class="line-number">309</span><br><span class="line-number">310</span><br><span class="line-number">311</span><br><span class="line-number">312</span><br><span class="line-number">313</span><br><span class="line-number">314</span><br><span class="line-number">315</span><br><span class="line-number">316</span><br><span class="line-number">317</span><br><span class="line-number">318</span><br><span class="line-number">319</span><br><span class="line-number">320</span><br><span class="line-number">321</span><br><span class="line-number">322</span><br><span class="line-number">323</span><br><span class="line-number">324</span><br><span class="line-number">325</span><br><span class="line-number">326</span><br><span class="line-number">327</span><br><span class="line-number">328</span><br><span class="line-number">329</span><br><span class="line-number">330</span><br><span class="line-number">331</span><br><span class="line-number">332</span><br><span class="line-number">333</span><br><span class="line-number">334</span><br><span class="line-number">335</span><br><span class="line-number">336</span><br><span class="line-number">337</span><br><span class="line-number">338</span><br><span class="line-number">339</span><br><span class="line-number">340</span><br><span class="line-number">341</span><br><span class="line-number">342</span><br><span class="line-number">343</span><br><span class="line-number">344</span><br><span class="line-number">345</span><br><span class="line-number">346</span><br><span class="line-number">347</span><br><span class="line-number">348</span><br><span class="line-number">349</span><br><span class="line-number">350</span><br><span class="line-number">351</span><br><span class="line-number">352</span><br><span class="line-number">353</span><br><span class="line-number">354</span><br><span class="line-number">355</span><br><span class="line-number">356</span><br><span class="line-number">357</span><br><span class="line-number">358</span><br><span class="line-number">359</span><br><span class="line-number">360</span><br><span class="line-number">361</span><br><span class="line-number">362</span><br><span class="line-number">363</span><br><span class="line-number">364</span><br><span class="line-number">365</span><br></div></div><div class="language-bash line-numbers-mode"><pre class="language-bash"><code>Xshell <span class="token number">5</span> <span class="token punctuation">(</span>Build 0964<span class="token punctuation">)</span>
+Copyright <span class="token punctuation">(</span>c<span class="token punctuation">)</span> <span class="token number">2002</span>-2016 NetSarang Computer, Inc. All rights reserved.
+
+Type `help<span class="token string">' to learn how to use Xshell prompt.
+[d:\~]$ 
+
+Connecting to 192.168.72.131:22...
+Connection established.
+To escape to local shell, press '</span>Ctrl+Alt+<span class="token punctuation">]</span><span class="token string">'.
+
+Last login: Mon Oct 27 04:39:18 2025
+[root@bogon ~]# 
+[root@bogon ~]# 
+[root@bogon ~]# passwd jess
+Changing password for user jess.
+New password: 
+BAD PASSWORD: The password is shorter than 8 characters
+Retype new password: 
+passwd: all authentication tokens updated successfully.
+[root@bogon ~]# su -jess
+su: invalid option -- '</span>j<span class="token string">'
+
+Usage:
+ su [options] [-] [USER [arg]...]
+
+Change the effective user id and group id to that of USER.
+A mere - implies -l.   If USER not given, assume root.
+
+Options:
+ -m, -p, --preserve-environment  do not reset environment variables
+ -g, --group &lt;group&gt;             specify the primary group
+ -G, --supp-group &lt;group&gt;        specify a supplemental group
+
+ -, -l, --login                  make the shell a login shell
+ -c, --command &lt;command&gt;         pass a single command to the shell with -c
+ --session-command &lt;command&gt;     pass a single command to the shell with -c
+                                 and do not create a new session
+ -f, --fast                      pass -f to the shell (for csh or tcsh)
+ -s, --shell &lt;shell&gt;             run shell if /etc/shells allows it
+
+ -h, --help     display this help and exit
+ -V, --version  output version information and exit
+
+For more details see su(1).
+[root@bogon ~]# su --jess
+su: unrecognized option '</span>--jess<span class="token string">'
+
+Usage:
+ su [options] [-] [USER [arg]...]
+
+Change the effective user id and group id to that of USER.
+A mere - implies -l.   If USER not given, assume root.
+
+Options:
+ -m, -p, --preserve-environment  do not reset environment variables
+ -g, --group &lt;group&gt;             specify the primary group
+ -G, --supp-group &lt;group&gt;        specify a supplemental group
+
+ -, -l, --login                  make the shell a login shell
+ -c, --command &lt;command&gt;         pass a single command to the shell with -c
+ --session-command &lt;command&gt;     pass a single command to the shell with -c
+                                 and do not create a new session
+ -f, --fast                      pass -f to the shell (for csh or tcsh)
+ -s, --shell &lt;shell&gt;             run shell if /etc/shells allows it
+
+ -h, --help     display this help and exit
+ -V, --version  output version information and exit
+
+For more details see su(1).
+[root@bogon ~]# su -jess
+su: invalid option -- '</span>j<span class="token string">'
+
+Usage:
+ su [options] [-] [USER [arg]...]
+
+Change the effective user id and group id to that of USER.
+A mere - implies -l.   If USER not given, assume root.
+
+Options:
+ -m, -p, --preserve-environment  do not reset environment variables
+ -g, --group &lt;group&gt;             specify the primary group
+ -G, --supp-group &lt;group&gt;        specify a supplemental group
+
+ -, -l, --login                  make the shell a login shell
+ -c, --command &lt;command&gt;         pass a single command to the shell with -c
+ --session-command &lt;command&gt;     pass a single command to the shell with -c
+                                 and do not create a new session
+ -f, --fast                      pass -f to the shell (for csh or tcsh)
+ -s, --shell &lt;shell&gt;             run shell if /etc/shells allows it
+
+ -h, --help     display this help and exit
+ -V, --version  output version information and exit
+
+For more details see su(1).
+[root@bogon ~]# su - jess
+[jess@bogon ~]$ ssh-keygen
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/jess/.ssh/id_rsa): 
+Created directory '</span>/home/jess/.ssh<span class="token string">'.
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in /home/jess/.ssh/id_rsa.
+Your public key has been saved in /home/jess/.ssh/id_rsa.pub.
+The key fingerprint is:
+SHA256:1Xm8cSoSazt/dVbjFInrPPdtuDUjYpowglbtj5g8vBE jess@bogon
+The key'</span>s randomart image is:
++---<span class="token punctuation">[</span>RSA <span class="token number">2048</span><span class="token punctuation">]</span>----+
+<span class="token operator">|</span>              <span class="token builtin class-name">.</span> <span class="token builtin class-name">.</span><span class="token operator">|</span>
+<span class="token operator">|</span>           <span class="token builtin class-name">.</span> + o <span class="token operator">|</span>
+<span class="token operator">|</span>          o o <span class="token operator">=</span> o<span class="token operator">|</span>
+<span class="token operator">|</span>      <span class="token builtin class-name">.</span>  <span class="token builtin class-name">.</span> o o B.<span class="token operator">|</span>
+<span class="token operator">|</span>     E .S + + <span class="token operator">=</span> o<span class="token operator">|</span>
+<span class="token operator">|</span>    o o  <span class="token builtin class-name">.</span> o <span class="token operator">=</span> o+<span class="token operator">|</span>
+<span class="token operator">|</span>   o.o +  oo .o*<span class="token operator">=</span><span class="token operator">|</span>
+<span class="token operator">|</span>  <span class="token builtin class-name">.</span> .o<span class="token operator">=</span> <span class="token operator">=</span> +o. +.*<span class="token operator">|</span>
+<span class="token operator">|</span>     <span class="token operator">=</span>o. +  <span class="token punctuation">..</span>.o <span class="token operator">|</span>
++----<span class="token punctuation">[</span>SHA256<span class="token punctuation">]</span>-----+
+<span class="token punctuation">[</span>jess@bogon ~<span class="token punctuation">]</span>$ <span class="token function">sudo</span> <span class="token function">vi</span> /etc/hosts
+
+We trust you have received the usual lecture from the <span class="token builtin class-name">local</span> System
+Administrator. It usually boils down to these three things:
+
+    <span class="token comment">#1) Respect the privacy of others.</span>
+    <span class="token comment">#2) Think before you type.</span>
+    <span class="token comment">#3) With great power comes great responsibility.</span>
+
+<span class="token punctuation">[</span>sudo<span class="token punctuation">]</span> password <span class="token keyword">for</span> jess: 
+jess is not <span class="token keyword">in</span> the sudoers file.  This incident will be reported.
+<span class="token punctuation">[</span>jess@bogon ~<span class="token punctuation">]</span>$ <span class="token builtin class-name">exit</span>
+<span class="token builtin class-name">logout</span>
+You have mail <span class="token keyword">in</span> /var/spool/mail/root
+<span class="token punctuation">[</span>root@bogon ~<span class="token punctuation">]</span><span class="token comment"># sudo vi /etc/hosts</span>
+<span class="token punctuation">[</span>root@bogon ~<span class="token punctuation">]</span><span class="token comment"># su - jess</span>
+Last login: Mon Oct <span class="token number">27</span> 08:53:54 EDT <span class="token number">2025</span> on pts/0
+<span class="token punctuation">[</span>jess@bogon ~<span class="token punctuation">]</span>$ <span class="token function">ping</span> node1
+PING node1 <span class="token punctuation">(</span><span class="token number">192.168</span>.72.132<span class="token punctuation">)</span> <span class="token number">56</span><span class="token punctuation">(</span><span class="token number">84</span><span class="token punctuation">)</span> bytes of data.
+<span class="token number">64</span> bytes from node1 <span class="token punctuation">(</span><span class="token number">192.168</span>.72.132<span class="token punctuation">)</span>: <span class="token assign-left variable">icmp_seq</span><span class="token operator">=</span><span class="token number">1</span> <span class="token assign-left variable">ttl</span><span class="token operator">=</span><span class="token number">64</span> <span class="token assign-left variable">time</span><span class="token operator">=</span><span class="token number">1.20</span> ms
+<span class="token number">64</span> bytes from node1 <span class="token punctuation">(</span><span class="token number">192.168</span>.72.132<span class="token punctuation">)</span>: <span class="token assign-left variable">icmp_seq</span><span class="token operator">=</span><span class="token number">2</span> <span class="token assign-left variable">ttl</span><span class="token operator">=</span><span class="token number">64</span> <span class="token assign-left variable">time</span><span class="token operator">=</span><span class="token number">0.816</span> ms
+<span class="token number">64</span> bytes from node1 <span class="token punctuation">(</span><span class="token number">192.168</span>.72.132<span class="token punctuation">)</span>: <span class="token assign-left variable">icmp_seq</span><span class="token operator">=</span><span class="token number">3</span> <span class="token assign-left variable">ttl</span><span class="token operator">=</span><span class="token number">64</span> <span class="token assign-left variable">time</span><span class="token operator">=</span><span class="token number">0.764</span> ms
+<span class="token number">64</span> bytes from node1 <span class="token punctuation">(</span><span class="token number">192.168</span>.72.132<span class="token punctuation">)</span>: <span class="token assign-left variable">icmp_seq</span><span class="token operator">=</span><span class="token number">4</span> <span class="token assign-left variable">ttl</span><span class="token operator">=</span><span class="token number">64</span> <span class="token assign-left variable">time</span><span class="token operator">=</span><span class="token number">0.822</span> ms
+^C
+--- node1 <span class="token function">ping</span> statistics ---
+<span class="token number">4</span> packets transmitted, <span class="token number">4</span> received, <span class="token number">0</span>% packet loss, <span class="token function">time</span> 3010ms
+rtt min/avg/max/mdev <span class="token operator">=</span> <span class="token number">0.764</span>/0.901/1.202/0.175 ms
+<span class="token punctuation">[</span>jess@bogon ~<span class="token punctuation">]</span>$ <span class="token function">ping</span> node2
+PING node2 <span class="token punctuation">(</span><span class="token number">192.168</span>.72.133<span class="token punctuation">)</span> <span class="token number">56</span><span class="token punctuation">(</span><span class="token number">84</span><span class="token punctuation">)</span> bytes of data.
+<span class="token number">64</span> bytes from node2 <span class="token punctuation">(</span><span class="token number">192.168</span>.72.133<span class="token punctuation">)</span>: <span class="token assign-left variable">icmp_seq</span><span class="token operator">=</span><span class="token number">1</span> <span class="token assign-left variable">ttl</span><span class="token operator">=</span><span class="token number">64</span> <span class="token assign-left variable">time</span><span class="token operator">=</span><span class="token number">1.14</span> ms
+<span class="token number">64</span> bytes from node2 <span class="token punctuation">(</span><span class="token number">192.168</span>.72.133<span class="token punctuation">)</span>: <span class="token assign-left variable">icmp_seq</span><span class="token operator">=</span><span class="token number">2</span> <span class="token assign-left variable">ttl</span><span class="token operator">=</span><span class="token number">64</span> <span class="token assign-left variable">time</span><span class="token operator">=</span><span class="token number">0.945</span> ms
+<span class="token number">64</span> bytes from node2 <span class="token punctuation">(</span><span class="token number">192.168</span>.72.133<span class="token punctuation">)</span>: <span class="token assign-left variable">icmp_seq</span><span class="token operator">=</span><span class="token number">3</span> <span class="token assign-left variable">ttl</span><span class="token operator">=</span><span class="token number">64</span> <span class="token assign-left variable">time</span><span class="token operator">=</span><span class="token number">0.943</span> ms
+<span class="token number">64</span> bytes from node2 <span class="token punctuation">(</span><span class="token number">192.168</span>.72.133<span class="token punctuation">)</span>: <span class="token assign-left variable">icmp_seq</span><span class="token operator">=</span><span class="token number">4</span> <span class="token assign-left variable">ttl</span><span class="token operator">=</span><span class="token number">64</span> <span class="token assign-left variable">time</span><span class="token operator">=</span><span class="token number">0.845</span> ms
+<span class="token number">64</span> bytes from node2 <span class="token punctuation">(</span><span class="token number">192.168</span>.72.133<span class="token punctuation">)</span>: <span class="token assign-left variable">icmp_seq</span><span class="token operator">=</span><span class="token number">5</span> <span class="token assign-left variable">ttl</span><span class="token operator">=</span><span class="token number">64</span> <span class="token assign-left variable">time</span><span class="token operator">=</span><span class="token number">0.855</span> ms
+^C
+--- node2 <span class="token function">ping</span> statistics ---
+<span class="token number">5</span> packets transmitted, <span class="token number">5</span> received, <span class="token number">0</span>% packet loss, <span class="token function">time</span> 4042ms
+rtt min/avg/max/mdev <span class="token operator">=</span> <span class="token number">0.845</span>/0.946/1.146/0.114 ms
+<span class="token punctuation">[</span>jess@bogon ~<span class="token punctuation">]</span>$ ssh-copy-id-i /home/jess/.ssh/id_rsa.pub jess@node1
+-bash: ssh-copy-id-i: <span class="token builtin class-name">command</span> not found
+<span class="token punctuation">[</span>jess@bogon ~<span class="token punctuation">]</span>$ ssh-copy-id <span class="token parameter variable">-i</span> /home/jess/.ssh/id_rsa.pub jess@node1
+/bin/ssh-copy-id: INFO: Source of key<span class="token punctuation">(</span>s<span class="token punctuation">)</span> to be installed: <span class="token string">&quot;/home/jess/.ssh/id_rsa.pub&quot;</span>
+The authenticity of <span class="token function">host</span> <span class="token string">'node1 (192.168.72.132)'</span> can<span class="token string">'t be established.
+ECDSA key fingerprint is SHA256:4Mrsd1SuBlcerITMcoX0YBPtudm4m1OfarRyjx7dNns.
+ECDSA key fingerprint is MD5:7a:d9:c9:82:14:d1:d3:21:32:a1:01:b1:75:9b:f8:87.
+Are you sure you want to continue connecting (yes/no)? yes
+/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed
+/bin/ssh-copy-id: INFO: 1 key(s) remain to be installed -- if you are prompted now it is to install the new keys
+jess@node1'</span>s password: 
+
+Number of key<span class="token punctuation">(</span>s<span class="token punctuation">)</span> added: <span class="token number">1</span>
+
+Now try logging into the machine, with:   <span class="token string">&quot;ssh 'jess@node1'&quot;</span>
+and check to <span class="token function">make</span> sure that only the key<span class="token punctuation">(</span>s<span class="token punctuation">)</span> you wanted were added.
+
+<span class="token punctuation">[</span>jess@bogon ~<span class="token punctuation">]</span>$ <span class="token function">ssh</span> jess@node1
+Last login: Mon Oct <span class="token number">27</span> 08:53:04 <span class="token number">2025</span>
+<span class="token punctuation">[</span>jess@bogon ~<span class="token punctuation">]</span>$ <span class="token function">ifconfig</span>
+ens33: <span class="token assign-left variable">flags</span><span class="token operator">=</span><span class="token number">416</span><span class="token operator"><span class="token file-descriptor important">3</span>&lt;</span>UP,BROADCAST,RUNNING,MULTICAST<span class="token operator">&gt;</span>  mtu <span class="token number">1500</span>
+        inet <span class="token number">192.168</span>.72.132  netmask <span class="token number">255.255</span>.255.0  broadcast <span class="token number">192.168</span>.72.255
+        inet6 fe80::4b74:69c3:799e:b14b  prefixlen <span class="token number">64</span>  scopeid 0x2<span class="token operator"><span class="token file-descriptor important">0</span>&lt;</span>link<span class="token operator">&gt;</span>
+        ether 00:0c:29:8f:f0:ff  txqueuelen <span class="token number">1000</span>  <span class="token punctuation">(</span>Ethernet<span class="token punctuation">)</span>
+        RX packets <span class="token number">2113</span>  bytes <span class="token number">178479</span> <span class="token punctuation">(</span><span class="token number">174.2</span> KiB<span class="token punctuation">)</span>
+        RX errors <span class="token number">0</span>  dropped <span class="token number">0</span>  overruns <span class="token number">0</span>  frame <span class="token number">0</span>
+        TX packets <span class="token number">749</span>  bytes <span class="token number">81858</span> <span class="token punctuation">(</span><span class="token number">79.9</span> KiB<span class="token punctuation">)</span>
+        TX errors <span class="token number">0</span>  dropped <span class="token number">0</span> overruns <span class="token number">0</span>  carrier <span class="token number">0</span>  collisions <span class="token number">0</span>
+
+lo: <span class="token assign-left variable">flags</span><span class="token operator">=</span><span class="token number">7</span><span class="token operator"><span class="token file-descriptor important">3</span>&lt;</span>UP,LOOPBACK,RUNNING<span class="token operator">&gt;</span>  mtu <span class="token number">65536</span>
+        inet <span class="token number">127.0</span>.0.1  netmask <span class="token number">255.0</span>.0.0
+        inet6 ::1  prefixlen <span class="token number">128</span>  scopeid 0x1<span class="token operator"><span class="token file-descriptor important">0</span>&lt;</span>host<span class="token operator">&gt;</span>
+        loop  txqueuelen <span class="token number">1</span>  <span class="token punctuation">(</span>Local Loopback<span class="token punctuation">)</span>
+        RX packets <span class="token number">2</span>  bytes <span class="token number">98</span> <span class="token punctuation">(</span><span class="token number">98.0</span> B<span class="token punctuation">)</span>
+        RX errors <span class="token number">0</span>  dropped <span class="token number">0</span>  overruns <span class="token number">0</span>  frame <span class="token number">0</span>
+        TX packets <span class="token number">2</span>  bytes <span class="token number">98</span> <span class="token punctuation">(</span><span class="token number">98.0</span> B<span class="token punctuation">)</span>
+        TX errors <span class="token number">0</span>  dropped <span class="token number">0</span> overruns <span class="token number">0</span>  carrier <span class="token number">0</span>  collisions <span class="token number">0</span>
+
+<span class="token punctuation">[</span>jess@bogon ~<span class="token punctuation">]</span>$ <span class="token builtin class-name">exit</span>
+<span class="token builtin class-name">logout</span>
+Connection to node1 closed.
+<span class="token punctuation">[</span>jess@bogon ~<span class="token punctuation">]</span>$ ssh-copy-id <span class="token parameter variable">-i</span> /home/jess/.ssh/id_rsa.pub jess@node2
+/bin/ssh-copy-id: INFO: Source of key<span class="token punctuation">(</span>s<span class="token punctuation">)</span> to be installed: <span class="token string">&quot;/home/jess/.ssh/id_rsa.pub&quot;</span>
+The authenticity of <span class="token function">host</span> <span class="token string">'node2 (192.168.72.133)'</span> can<span class="token string">'t be established.
+ECDSA key fingerprint is SHA256:4Mrsd1SuBlcerITMcoX0YBPtudm4m1OfarRyjx7dNns.
+ECDSA key fingerprint is MD5:7a:d9:c9:82:14:d1:d3:21:32:a1:01:b1:75:9b:f8:87.
+Are you sure you want to continue connecting (yes/no)? yes
+/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed
+/bin/ssh-copy-id: INFO: 1 key(s) remain to be installed -- if you are prompted now it is to install the new keys
+jess@node2'</span>s password: 
+
+Number of key<span class="token punctuation">(</span>s<span class="token punctuation">)</span> added: <span class="token number">1</span>
+
+Now try logging into the machine, with:   <span class="token string">&quot;ssh 'jess@node2'&quot;</span>
+and check to <span class="token function">make</span> sure that only the key<span class="token punctuation">(</span>s<span class="token punctuation">)</span> you wanted were added.
+
+<span class="token punctuation">[</span>jess@bogon ~<span class="token punctuation">]</span>$ <span class="token function">ssh</span> jess@node2
+Last login: Mon Oct <span class="token number">27</span> 08:53:44 <span class="token number">2025</span>
+<span class="token punctuation">[</span>jess@bogon ~<span class="token punctuation">]</span>$ <span class="token function">vim</span>   /etc/sudoers.d/jess
+-bash: vim: <span class="token builtin class-name">command</span> not found
+<span class="token punctuation">[</span>jess@bogon ~<span class="token punctuation">]</span>$ <span class="token function">vi</span>   /etc/sudoers.d/jess
+<span class="token punctuation">[</span>jess@bogon ~<span class="token punctuation">]</span>$ <span class="token function">sudo</span> <span class="token function">vi</span>   /etc/sudoers.d/jess
+
+We trust you have received the usual lecture from the <span class="token builtin class-name">local</span> System
+Administrator. It usually boils down to these three things:
+
+    <span class="token comment">#1) Respect the privacy of others.</span>
+    <span class="token comment">#2) Think before you type.</span>
+    <span class="token comment">#3) With great power comes great responsibility.</span>
+
+<span class="token punctuation">[</span>sudo<span class="token punctuation">]</span> password <span class="token keyword">for</span> jess: 
+jess is not <span class="token keyword">in</span> the sudoers file.  This incident will be reported.
+<span class="token punctuation">[</span>jess@bogon ~<span class="token punctuation">]</span>$ <span class="token function">sudo</span> <span class="token function">vi</span>   /etc/sudoers.d/jess
+<span class="token punctuation">[</span>sudo<span class="token punctuation">]</span> password <span class="token keyword">for</span> jess: 
+jess is not <span class="token keyword">in</span> the sudoers file.  This incident will be reported.
+<span class="token punctuation">[</span>jess@bogon ~<span class="token punctuation">]</span>$ <span class="token builtin class-name">exit</span>
+<span class="token builtin class-name">logout</span>
+Connection to node2 closed.
+<span class="token punctuation">[</span>jess@bogon ~<span class="token punctuation">]</span>$ <span class="token function">sudo</span> <span class="token function">vi</span>   /etc/sudoers.d/jess
+<span class="token punctuation">[</span>sudo<span class="token punctuation">]</span> password <span class="token keyword">for</span> jess: 
+jess is not <span class="token keyword">in</span> the sudoers file.  This incident will be reported.
+<span class="token punctuation">[</span>jess@bogon ~<span class="token punctuation">]</span>$ <span class="token builtin class-name">exit</span>
+<span class="token builtin class-name">logout</span>
+You have new mail <span class="token keyword">in</span> /var/spool/mail/root
+<span class="token punctuation">[</span>root@bogon ~<span class="token punctuation">]</span><span class="token comment"># vim   /etc/sudoers.d/jess</span>
+-bash: vim: <span class="token builtin class-name">command</span> not found
+<span class="token punctuation">[</span>root@bogon ~<span class="token punctuation">]</span><span class="token comment"># vi   /etc/sudoers.d/jess</span>
+<span class="token punctuation">[</span>root@bogon ~<span class="token punctuation">]</span><span class="token comment"># scp   /etc/sudoers.d/jess     root@node1:/etc/sudoers.d/</span>
+The authenticity of <span class="token function">host</span> <span class="token string">'node1 (192.168.72.132)'</span> can<span class="token string">'t be established.
+ECDSA key fingerprint is SHA256:4Mrsd1SuBlcerITMcoX0YBPtudm4m1OfarRyjx7dNns.
+ECDSA key fingerprint is MD5:7a:d9:c9:82:14:d1:d3:21:32:a1:01:b1:75:9b:f8:87.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added '</span>node1,192.168.72.132<span class="token string">' (ECDSA) to the list of known hosts.
+root@node1'</span>s password: 
+jess                                                         <span class="token number">100</span>%   <span class="token number">28</span>    <span class="token number">23</span>.7KB/s   00:00    
+<span class="token punctuation">[</span>root@bogon ~<span class="token punctuation">]</span><span class="token comment"># scp   /etc/sudoers.d/jess     root@node2:/etc/sudoers.d/</span>
+The authenticity of <span class="token function">host</span> <span class="token string">'node2 (192.168.72.133)'</span> can<span class="token string">'t be established.
+ECDSA key fingerprint is SHA256:4Mrsd1SuBlcerITMcoX0YBPtudm4m1OfarRyjx7dNns.
+ECDSA key fingerprint is MD5:7a:d9:c9:82:14:d1:d3:21:32:a1:01:b1:75:9b:f8:87.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added '</span>node2,192.168.72.133<span class="token string">' (ECDSA) to the list of known hosts.
+root@node2'</span>s password: 
+jess                                                         <span class="token number">100</span>%   <span class="token number">28</span>    <span class="token number">19</span>.8KB/s   00:00    
+<span class="token punctuation">[</span>root@bogon ~<span class="token punctuation">]</span><span class="token comment"># su jess</span>
+<span class="token punctuation">[</span>jess@bogon root<span class="token punctuation">]</span>$ <span class="token function">sudo</span> <span class="token function">vi</span> /etc/ansible/hosts
+<span class="token punctuation">[</span>jess@bogon root<span class="token punctuation">]</span>$ ansible opengroup --list-hosts
+<span class="token punctuation">[</span>WARNING<span class="token punctuation">]</span>: Could not match supplied <span class="token function">host</span> pattern, ignoring: opengroup
+<span class="token punctuation">[</span>WARNING<span class="token punctuation">]</span>: No hosts matched, nothing to <span class="token keyword">do</span>
+  hosts <span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>:
+<span class="token punctuation">[</span>jess@bogon root<span class="token punctuation">]</span>$ ansible nodegroup --list-hosts
+  hosts <span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>:
+    node1
+    node2
+<span class="token punctuation">[</span>jess@bogon root<span class="token punctuation">]</span>$ <span class="token function">sudo</span> <span class="token function">vi</span> /etc/ansible/hosts
+<span class="token punctuation">[</span>jess@bogon root<span class="token punctuation">]</span>$ <span class="token function">mkdir</span> <span class="token parameter variable">-p</span>  project
+mkdir: cannot create directory ‘project’: Permission denied
+<span class="token punctuation">[</span>jess@bogon root<span class="token punctuation">]</span>$ <span class="token builtin class-name">cd</span> /home
+<span class="token punctuation">[</span>jess@bogon home<span class="token punctuation">]</span>$ <span class="token builtin class-name">cd</span> jess
+<span class="token punctuation">[</span>jess@bogon ~<span class="token punctuation">]</span>$ <span class="token function">mkdir</span> <span class="token parameter variable">-p</span>  project
+<span class="token punctuation">[</span>jess@bogon ~<span class="token punctuation">]</span>$ ll
+total <span class="token number">0</span>
+drwxrwxr-x. <span class="token number">2</span> jess jess <span class="token number">6</span> Oct <span class="token number">27</span> <span class="token number">10</span>:37 project
+<span class="token punctuation">[</span>jess@bogon ~<span class="token punctuation">]</span>$ <span class="token function">sudo</span> <span class="token function">vi</span> /etc/ansible/hosts
+<span class="token punctuation">[</span>jess@bogon ~<span class="token punctuation">]</span>$ <span class="token function">vi</span> inventory
+<span class="token punctuation">[</span>jess@bogon ~<span class="token punctuation">]</span>$ ansible opengroup --list-hosts
+<span class="token punctuation">[</span>WARNING<span class="token punctuation">]</span>: Could not match supplied <span class="token function">host</span> pattern, ignoring: opengroup
+<span class="token punctuation">[</span>WARNING<span class="token punctuation">]</span>: No hosts matched, nothing to <span class="token keyword">do</span>
+  hosts <span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>:
+<span class="token punctuation">[</span>jess@bogon ~<span class="token punctuation">]</span>$ ansible nodegroup --list-hosts
+  hosts <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>:
+    node1
+<span class="token punctuation">[</span>jess@bogon ~<span class="token punctuation">]</span>$ ansible nodegroup --list-hosts <span class="token parameter variable">--inventory</span> inventory
+<span class="token punctuation">[</span>WARNING<span class="token punctuation">]</span>:  * Failed to parse /home/jess/inventory with yaml plugin: We were unable to <span class="token builtin class-name">read</span>
+either as JSON nor YAML, these are the errors we got from each: JSON: No JSON object could be
+decoded  Syntax Error <span class="token keyword">while</span> loading YAML.   did not <span class="token function">find</span> expected <span class="token operator">&lt;</span>document start<span class="token operator">&gt;</span>  The error
+appears to be <span class="token keyword">in</span> <span class="token string">'/home/jess/inventory'</span><span class="token builtin class-name">:</span> line <span class="token number">2</span>, <span class="token function">column</span> <span class="token number">1</span>, but may be elsewhere <span class="token keyword">in</span> the <span class="token function">file</span>
+depending on the exact syntax problem.  The offending line appears to be:  <span class="token punctuation">[</span>qf2<span class="token punctuation">]</span> node2 ^ here
+<span class="token punctuation">[</span>WARNING<span class="token punctuation">]</span>:  * Failed to parse /home/jess/inventory with ini plugin: /home/jess/inventory:5:
+Section <span class="token punctuation">[</span>nodegroup:children<span class="token punctuation">]</span> includes undefined group: node2
+<span class="token punctuation">[</span>WARNING<span class="token punctuation">]</span>: Unable to parse /home/jess/inventory as an inventory <span class="token builtin class-name">source</span>
+<span class="token punctuation">[</span>WARNING<span class="token punctuation">]</span>: No inventory was parsed, only implicit localhost is available
+<span class="token punctuation">[</span>WARNING<span class="token punctuation">]</span>: provided hosts list is empty, only localhost is available. Note that the implicit
+localhost does not match <span class="token string">'all'</span>
+  hosts <span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>:
+<span class="token punctuation">[</span>jess@bogon ~<span class="token punctuation">]</span>$ <span class="token function">vi</span> inventory
+<span class="token punctuation">[</span>jess@bogon ~<span class="token punctuation">]</span>$ ansible nodegroup --list-hosts <span class="token parameter variable">--inventory</span> inventory
+  hosts <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>:
+    node2
+<span class="token punctuation">[</span>jess@bogon ~<span class="token punctuation">]</span>$ ansible nodegroup --list-hosts <span class="token parameter variable">--i</span> inventory
+usage: ansible <span class="token punctuation">[</span>-h<span class="token punctuation">]</span> <span class="token punctuation">[</span>--version<span class="token punctuation">]</span> <span class="token punctuation">[</span>-v<span class="token punctuation">]</span> <span class="token punctuation">[</span>-b<span class="token punctuation">]</span> <span class="token punctuation">[</span>--become-method BECOME_METHOD<span class="token punctuation">]</span>
+               <span class="token punctuation">[</span>--become-user BECOME_USER<span class="token punctuation">]</span> <span class="token punctuation">[</span>-K<span class="token punctuation">]</span> <span class="token punctuation">[</span>-i INVENTORY<span class="token punctuation">]</span> <span class="token punctuation">[</span>--list-hosts<span class="token punctuation">]</span>
+               <span class="token punctuation">[</span>-l SUBSET<span class="token punctuation">]</span> <span class="token punctuation">[</span>-P POLL_INTERVAL<span class="token punctuation">]</span> <span class="token punctuation">[</span>-B <span class="token environment constant">SECONDS</span><span class="token punctuation">]</span> <span class="token punctuation">[</span>-o<span class="token punctuation">]</span> <span class="token punctuation">[</span>-t TREE<span class="token punctuation">]</span> <span class="token punctuation">[</span>-k<span class="token punctuation">]</span>
+               <span class="token punctuation">[</span>--private-key PRIVATE_KEY_FILE<span class="token punctuation">]</span> <span class="token punctuation">[</span>-u REMOTE_USER<span class="token punctuation">]</span>
+               <span class="token punctuation">[</span>-c CONNECTION<span class="token punctuation">]</span> <span class="token punctuation">[</span>-T TIMEOUT<span class="token punctuation">]</span>
+               <span class="token punctuation">[</span>--ssh-common-args SSH_COMMON_ARGS<span class="token punctuation">]</span>
+               <span class="token punctuation">[</span>--sftp-extra-args SFTP_EXTRA_ARGS<span class="token punctuation">]</span>
+               <span class="token punctuation">[</span>--scp-extra-args SCP_EXTRA_ARGS<span class="token punctuation">]</span>
+               <span class="token punctuation">[</span>--ssh-extra-args SSH_EXTRA_ARGS<span class="token punctuation">]</span> <span class="token punctuation">[</span>-C<span class="token punctuation">]</span> <span class="token punctuation">[</span>--syntax-check<span class="token punctuation">]</span> <span class="token punctuation">[</span>-D<span class="token punctuation">]</span>
+               <span class="token punctuation">[</span>-e EXTRA_VARS<span class="token punctuation">]</span> <span class="token punctuation">[</span>--vault-id VAULT_IDS<span class="token punctuation">]</span>
+               <span class="token punctuation">[</span>--ask-vault-pass <span class="token operator">|</span> --vault-password-file VAULT_PASSWORD_FILES<span class="token punctuation">]</span>
+               <span class="token punctuation">[</span>-f FORKS<span class="token punctuation">]</span> <span class="token punctuation">[</span>-M MODULE_PATH<span class="token punctuation">]</span> <span class="token punctuation">[</span>--playbook-dir BASEDIR<span class="token punctuation">]</span>
+               <span class="token punctuation">[</span>-a MODULE_ARGS<span class="token punctuation">]</span> <span class="token punctuation">[</span>-m MODULE_NAME<span class="token punctuation">]</span>
+               pattern
+ansible: error: ambiguous option: <span class="token parameter variable">--i</span> could match --inventory-file, <span class="token parameter variable">--inventory</span>
+<span class="token punctuation">[</span>jess@bogon ~<span class="token punctuation">]</span>$ ansible nodegroup --list-hosts <span class="token parameter variable">-i</span> inventory
+  hosts <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>:
+    node2
+<span class="token punctuation">[</span>jess@bogon ~<span class="token punctuation">]</span>$ 
+
+
+
+
+
+<span class="token punctuation">[</span>privilege_escalation<span class="token punctuation">]</span>
+<span class="token assign-left variable">become</span><span class="token operator">=</span>True
+<span class="token assign-left variable">become_method</span><span class="token operator">=</span>sudo
+<span class="token assign-left variable">become_user</span><span class="token operator">=</span>root
+<span class="token assign-left variable">become_ask_pass</span><span class="token operator">=</span>False
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br><span class="line-number">84</span><br><span class="line-number">85</span><br><span class="line-number">86</span><br><span class="line-number">87</span><br><span class="line-number">88</span><br><span class="line-number">89</span><br><span class="line-number">90</span><br><span class="line-number">91</span><br><span class="line-number">92</span><br><span class="line-number">93</span><br><span class="line-number">94</span><br><span class="line-number">95</span><br><span class="line-number">96</span><br><span class="line-number">97</span><br><span class="line-number">98</span><br><span class="line-number">99</span><br><span class="line-number">100</span><br><span class="line-number">101</span><br><span class="line-number">102</span><br><span class="line-number">103</span><br><span class="line-number">104</span><br><span class="line-number">105</span><br><span class="line-number">106</span><br><span class="line-number">107</span><br><span class="line-number">108</span><br><span class="line-number">109</span><br><span class="line-number">110</span><br><span class="line-number">111</span><br><span class="line-number">112</span><br><span class="line-number">113</span><br><span class="line-number">114</span><br><span class="line-number">115</span><br><span class="line-number">116</span><br><span class="line-number">117</span><br><span class="line-number">118</span><br><span class="line-number">119</span><br><span class="line-number">120</span><br><span class="line-number">121</span><br><span class="line-number">122</span><br><span class="line-number">123</span><br><span class="line-number">124</span><br><span class="line-number">125</span><br><span class="line-number">126</span><br><span class="line-number">127</span><br><span class="line-number">128</span><br><span class="line-number">129</span><br><span class="line-number">130</span><br><span class="line-number">131</span><br><span class="line-number">132</span><br><span class="line-number">133</span><br><span class="line-number">134</span><br><span class="line-number">135</span><br><span class="line-number">136</span><br><span class="line-number">137</span><br><span class="line-number">138</span><br><span class="line-number">139</span><br><span class="line-number">140</span><br><span class="line-number">141</span><br><span class="line-number">142</span><br><span class="line-number">143</span><br><span class="line-number">144</span><br><span class="line-number">145</span><br><span class="line-number">146</span><br><span class="line-number">147</span><br><span class="line-number">148</span><br><span class="line-number">149</span><br><span class="line-number">150</span><br><span class="line-number">151</span><br><span class="line-number">152</span><br><span class="line-number">153</span><br><span class="line-number">154</span><br><span class="line-number">155</span><br><span class="line-number">156</span><br><span class="line-number">157</span><br><span class="line-number">158</span><br><span class="line-number">159</span><br><span class="line-number">160</span><br><span class="line-number">161</span><br><span class="line-number">162</span><br><span class="line-number">163</span><br><span class="line-number">164</span><br><span class="line-number">165</span><br><span class="line-number">166</span><br><span class="line-number">167</span><br><span class="line-number">168</span><br><span class="line-number">169</span><br><span class="line-number">170</span><br><span class="line-number">171</span><br><span class="line-number">172</span><br><span class="line-number">173</span><br><span class="line-number">174</span><br><span class="line-number">175</span><br><span class="line-number">176</span><br><span class="line-number">177</span><br><span class="line-number">178</span><br><span class="line-number">179</span><br><span class="line-number">180</span><br><span class="line-number">181</span><br><span class="line-number">182</span><br><span class="line-number">183</span><br><span class="line-number">184</span><br><span class="line-number">185</span><br><span class="line-number">186</span><br><span class="line-number">187</span><br><span class="line-number">188</span><br><span class="line-number">189</span><br><span class="line-number">190</span><br><span class="line-number">191</span><br><span class="line-number">192</span><br><span class="line-number">193</span><br><span class="line-number">194</span><br><span class="line-number">195</span><br><span class="line-number">196</span><br><span class="line-number">197</span><br><span class="line-number">198</span><br><span class="line-number">199</span><br><span class="line-number">200</span><br><span class="line-number">201</span><br><span class="line-number">202</span><br><span class="line-number">203</span><br><span class="line-number">204</span><br><span class="line-number">205</span><br><span class="line-number">206</span><br><span class="line-number">207</span><br><span class="line-number">208</span><br><span class="line-number">209</span><br><span class="line-number">210</span><br><span class="line-number">211</span><br><span class="line-number">212</span><br><span class="line-number">213</span><br><span class="line-number">214</span><br><span class="line-number">215</span><br><span class="line-number">216</span><br><span class="line-number">217</span><br><span class="line-number">218</span><br><span class="line-number">219</span><br><span class="line-number">220</span><br><span class="line-number">221</span><br><span class="line-number">222</span><br><span class="line-number">223</span><br><span class="line-number">224</span><br><span class="line-number">225</span><br><span class="line-number">226</span><br><span class="line-number">227</span><br><span class="line-number">228</span><br><span class="line-number">229</span><br><span class="line-number">230</span><br><span class="line-number">231</span><br><span class="line-number">232</span><br><span class="line-number">233</span><br><span class="line-number">234</span><br><span class="line-number">235</span><br><span class="line-number">236</span><br><span class="line-number">237</span><br><span class="line-number">238</span><br><span class="line-number">239</span><br><span class="line-number">240</span><br><span class="line-number">241</span><br><span class="line-number">242</span><br><span class="line-number">243</span><br><span class="line-number">244</span><br><span class="line-number">245</span><br><span class="line-number">246</span><br><span class="line-number">247</span><br><span class="line-number">248</span><br><span class="line-number">249</span><br><span class="line-number">250</span><br><span class="line-number">251</span><br><span class="line-number">252</span><br><span class="line-number">253</span><br><span class="line-number">254</span><br><span class="line-number">255</span><br><span class="line-number">256</span><br><span class="line-number">257</span><br><span class="line-number">258</span><br><span class="line-number">259</span><br><span class="line-number">260</span><br><span class="line-number">261</span><br><span class="line-number">262</span><br><span class="line-number">263</span><br><span class="line-number">264</span><br><span class="line-number">265</span><br><span class="line-number">266</span><br><span class="line-number">267</span><br><span class="line-number">268</span><br><span class="line-number">269</span><br><span class="line-number">270</span><br><span class="line-number">271</span><br><span class="line-number">272</span><br><span class="line-number">273</span><br><span class="line-number">274</span><br><span class="line-number">275</span><br><span class="line-number">276</span><br><span class="line-number">277</span><br><span class="line-number">278</span><br><span class="line-number">279</span><br><span class="line-number">280</span><br><span class="line-number">281</span><br><span class="line-number">282</span><br><span class="line-number">283</span><br><span class="line-number">284</span><br><span class="line-number">285</span><br><span class="line-number">286</span><br><span class="line-number">287</span><br><span class="line-number">288</span><br><span class="line-number">289</span><br><span class="line-number">290</span><br><span class="line-number">291</span><br><span class="line-number">292</span><br><span class="line-number">293</span><br><span class="line-number">294</span><br><span class="line-number">295</span><br><span class="line-number">296</span><br><span class="line-number">297</span><br><span class="line-number">298</span><br><span class="line-number">299</span><br><span class="line-number">300</span><br><span class="line-number">301</span><br><span class="line-number">302</span><br><span class="line-number">303</span><br><span class="line-number">304</span><br><span class="line-number">305</span><br><span class="line-number">306</span><br><span class="line-number">307</span><br><span class="line-number">308</span><br><span class="line-number">309</span><br><span class="line-number">310</span><br><span class="line-number">311</span><br><span class="line-number">312</span><br><span class="line-number">313</span><br><span class="line-number">314</span><br><span class="line-number">315</span><br><span class="line-number">316</span><br><span class="line-number">317</span><br><span class="line-number">318</span><br><span class="line-number">319</span><br><span class="line-number">320</span><br><span class="line-number">321</span><br><span class="line-number">322</span><br><span class="line-number">323</span><br><span class="line-number">324</span><br><span class="line-number">325</span><br><span class="line-number">326</span><br><span class="line-number">327</span><br><span class="line-number">328</span><br><span class="line-number">329</span><br><span class="line-number">330</span><br><span class="line-number">331</span><br><span class="line-number">332</span><br><span class="line-number">333</span><br><span class="line-number">334</span><br></div></div><div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token punctuation">[</span>qianfeng@bogon ~<span class="token punctuation">]</span>$ <span class="token function">su</span> - root
+密码：
+上一次登录：一 <span class="token number">10</span>月 <span class="token number">27</span> 09:48:05 CST <span class="token number">2025</span>:0 上
+<span class="token punctuation">[</span>root@bogon ~<span class="token punctuation">]</span><span class="token comment"># useradd jess</span>
+<span class="token punctuation">[</span>root@bogon ~<span class="token punctuation">]</span><span class="token comment"># passwd jess </span>
+更改用户 jess 的密码 。
+新的 密码：
+无效的密码： 密码少于 <span class="token number">8</span> 个字符
+重新输入新的 密码：
+passwd：所有的身份验证令牌已经成功更新。
+<span class="token punctuation">[</span>root@bogon ~<span class="token punctuation">]</span><span class="token comment"># ip </span>
+Usage: <span class="token function">ip</span> <span class="token punctuation">[</span> OPTIONS <span class="token punctuation">]</span> OBJECT <span class="token punctuation">{</span> COMMAND <span class="token operator">|</span> <span class="token builtin class-name">help</span> <span class="token punctuation">}</span>
+       <span class="token function">ip</span> <span class="token punctuation">[</span> <span class="token parameter variable">-force</span> <span class="token punctuation">]</span> <span class="token parameter variable">-batch</span> filename
+where  OBJECT :<span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token function">link</span> <span class="token operator">|</span> address <span class="token operator">|</span> addrlabel <span class="token operator">|</span> route <span class="token operator">|</span> rule <span class="token operator">|</span> neigh <span class="token operator">|</span> ntable <span class="token operator">|</span>
+                   tunnel <span class="token operator">|</span> tuntap <span class="token operator">|</span> maddress <span class="token operator">|</span> mroute <span class="token operator">|</span> mrule <span class="token operator">|</span> monitor <span class="token operator">|</span> xfrm <span class="token operator">|</span>
+                   netns <span class="token operator">|</span> l2tp <span class="token operator">|</span> macsec <span class="token operator">|</span> tcp_metrics <span class="token operator">|</span> token <span class="token punctuation">}</span>
+       OPTIONS :<span class="token operator">=</span> <span class="token punctuation">{</span> -V<span class="token punctuation">[</span>ersion<span class="token punctuation">]</span> <span class="token operator">|</span> -s<span class="token punctuation">[</span>tatistics<span class="token punctuation">]</span> <span class="token operator">|</span> -d<span class="token punctuation">[</span>etails<span class="token punctuation">]</span> <span class="token operator">|</span> -r<span class="token punctuation">[</span>esolve<span class="token punctuation">]</span> <span class="token operator">|</span>
+                    -h<span class="token punctuation">[</span>uman-readable<span class="token punctuation">]</span> <span class="token operator">|</span> <span class="token parameter variable">-iec</span> <span class="token operator">|</span>
+                    -f<span class="token punctuation">[</span>amily<span class="token punctuation">]</span> <span class="token punctuation">{</span> inet <span class="token operator">|</span> inet6 <span class="token operator">|</span> ipx <span class="token operator">|</span> dnet <span class="token operator">|</span> bridge <span class="token operator">|</span> <span class="token function">link</span> <span class="token punctuation">}</span> <span class="token operator">|</span>
+                    <span class="token parameter variable">-4</span> <span class="token operator">|</span> <span class="token parameter variable">-6</span> <span class="token operator">|</span> <span class="token parameter variable">-I</span> <span class="token operator">|</span> <span class="token parameter variable">-D</span> <span class="token operator">|</span> <span class="token parameter variable">-B</span> <span class="token operator">|</span> <span class="token parameter variable">-0</span> <span class="token operator">|</span>
+                    -l<span class="token punctuation">[</span>oops<span class="token punctuation">]</span> <span class="token punctuation">{</span> maximum-addr-flush-attempts <span class="token punctuation">}</span> <span class="token operator">|</span>
+                    -o<span class="token punctuation">[</span>neline<span class="token punctuation">]</span> <span class="token operator">|</span> -t<span class="token punctuation">[</span>imestamp<span class="token punctuation">]</span> <span class="token operator">|</span> -ts<span class="token punctuation">[</span>hort<span class="token punctuation">]</span> <span class="token operator">|</span> -b<span class="token punctuation">[</span>atch<span class="token punctuation">]</span> <span class="token punctuation">[</span>filename<span class="token punctuation">]</span> <span class="token operator">|</span>
+                    -rc<span class="token punctuation">[</span>vbuf<span class="token punctuation">]</span> <span class="token punctuation">[</span>size<span class="token punctuation">]</span> <span class="token operator">|</span> -n<span class="token punctuation">[</span>etns<span class="token punctuation">]</span> name <span class="token operator">|</span> -a<span class="token punctuation">[</span>ll<span class="token punctuation">]</span> <span class="token punctuation">}</span>
+<span class="token punctuation">[</span>root@bogon ~<span class="token punctuation">]</span><span class="token comment"># ip a</span>
+<span class="token number">1</span>: lo: <span class="token operator">&lt;</span>LOOPBACK,UP,LOWER_UP<span class="token operator">&gt;</span> mtu <span class="token number">65536</span> qdisc noqueue state UNKNOWN qlen <span class="token number">1</span>
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet <span class="token number">127.0</span>.0.1/8 scope <span class="token function">host</span> lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope <span class="token function">host</span> 
+       valid_lft forever preferred_lft forever
+<span class="token number">2</span>: ens33: <span class="token operator">&lt;</span>BROADCAST,MULTICAST,UP,LOWER_UP<span class="token operator">&gt;</span> mtu <span class="token number">1500</span> qdisc pfifo_fast state UP qlen <span class="token number">1000</span>
+    link/ether 00:0c:29:36:f1:6b brd ff:ff:ff:ff:ff:ff
+    inet <span class="token number">192.168</span>.72.130/24 brd <span class="token number">192.168</span>.72.255 scope global dynamic ens33
+       valid_lft 1618sec preferred_lft 1618sec
+    inet6 fe80::74bd:6b05:c195:28c9/64 scope <span class="token function">link</span> 
+       valid_lft forever preferred_lft forever
+    inet6 fe80::a8c3:4ad0:8f12:c71e/64 scope <span class="token function">link</span> tentative dadfailed 
+       valid_lft forever preferred_lft forever
+<span class="token number">3</span>: virbr0: <span class="token operator">&lt;</span>NO-CARRIER,BROADCAST,MULTICAST,UP<span class="token operator">&gt;</span> mtu <span class="token number">1500</span> qdisc noqueue state DOWN qlen <span class="token number">1000</span>
+    link/ether <span class="token number">52</span>:54:00:6e:49:8c brd ff:ff:ff:ff:ff:ff
+    inet <span class="token number">192.168</span>.122.1/24 brd <span class="token number">192.168</span>.122.255 scope global virbr0
+       valid_lft forever preferred_lft forever
+<span class="token number">4</span>: virbr0-nic: <span class="token operator">&lt;</span>BROADCAST,MULTICAST<span class="token operator">&gt;</span> mtu <span class="token number">1500</span> qdisc pfifo_fast master virbr0 state DOWN qlen <span class="token number">1000</span>
+    link/ether <span class="token number">52</span>:54:00:6e:49:8c brd ff:ff:ff:ff:ff:ff
+<span class="token punctuation">[</span>root@bogon ~<span class="token punctuation">]</span><span class="token comment"># </span>
+
+
+<span class="token punctuation">[</span>qianfeng@bogon ~<span class="token punctuation">]</span>$ <span class="token builtin class-name">cd</span> /etc/sudoers.d
+bash: cd: /etc/sudoers.d: 权限不够
+<span class="token punctuation">[</span>qianfeng@bogon ~<span class="token punctuation">]</span>$ <span class="token function">su</span>
+密码：
+<span class="token punctuation">[</span>root@bogon qianfeng<span class="token punctuation">]</span><span class="token comment"># cd /etc/sudoers.d</span>
+<span class="token punctuation">[</span>root@bogon sudoers.d<span class="token punctuation">]</span><span class="token comment"># ll</span>
+总用量 <span class="token number">4</span>
+-rw-r--r--. <span class="token number">1</span> root root <span class="token number">28</span> <span class="token number">10</span>月 <span class="token number">27</span> <span class="token number">11</span>:38 jess
+<span class="token punctuation">[</span>root@bogon sudoers.d<span class="token punctuation">]</span><span class="token comment"># exit</span>
+<span class="token builtin class-name">exit</span>
+<span class="token punctuation">[</span>qianfeng@bogon ~<span class="token punctuation">]</span>$  <span class="token function">su</span> jess
+密码：
+<span class="token punctuation">[</span>jess@bogon qianfeng<span class="token punctuation">]</span>$ <span class="token function">sudo</span> <span class="token function">useradd</span> uutest1
+<span class="token punctuation">[</span>jess@bogon qianfeng<span class="token punctuation">]</span>$ <span class="token function">ifconfig</span>
+ens33: <span class="token assign-left variable">flags</span><span class="token operator">=</span><span class="token number">416</span><span class="token operator"><span class="token file-descriptor important">3</span>&lt;</span>UP,BROADCAST,RUNNING,MULTICAST<span class="token operator">&gt;</span>  mtu <span class="token number">1500</span>
+        inet <span class="token number">192.168</span>.72.130  netmask <span class="token number">255.255</span>.255.0  broadcast <span class="token number">192.168</span>.72.255
+        inet6 fe80::74bd:6b05:c195:28c9  prefixlen <span class="token number">64</span>  scopeid 0x2<span class="token operator"><span class="token file-descriptor important">0</span>&lt;</span>link<span class="token operator">&gt;</span>
+        inet6 fe80::a8c3:4ad0:8f12:c71e  prefixlen <span class="token number">64</span>  scopeid 0x2<span class="token operator"><span class="token file-descriptor important">0</span>&lt;</span>link<span class="token operator">&gt;</span>
+        ether 00:0c:29:36:f1:6b  txqueuelen <span class="token number">1000</span>  <span class="token punctuation">(</span>Ethernet<span class="token punctuation">)</span>
+        RX packets <span class="token number">2431</span>  bytes <span class="token number">185342</span> <span class="token punctuation">(</span><span class="token number">180.9</span> KiB<span class="token punctuation">)</span>
+        RX errors <span class="token number">0</span>  dropped <span class="token number">0</span>  overruns <span class="token number">0</span>  frame <span class="token number">0</span>
+        TX packets <span class="token number">514</span>  bytes <span class="token number">62658</span> <span class="token punctuation">(</span><span class="token number">61.1</span> KiB<span class="token punctuation">)</span>
+        TX errors <span class="token number">0</span>  dropped <span class="token number">0</span> overruns <span class="token number">0</span>  carrier <span class="token number">0</span>  collisions <span class="token number">0</span>
+
+lo: <span class="token assign-left variable">flags</span><span class="token operator">=</span><span class="token number">7</span><span class="token operator"><span class="token file-descriptor important">3</span>&lt;</span>UP,LOOPBACK,RUNNING<span class="token operator">&gt;</span>  mtu <span class="token number">65536</span>
+        inet <span class="token number">127.0</span>.0.1  netmask <span class="token number">255.0</span>.0.0
+        inet6 ::1  prefixlen <span class="token number">128</span>  scopeid 0x1<span class="token operator"><span class="token file-descriptor important">0</span>&lt;</span>host<span class="token operator">&gt;</span>
+        loop  txqueuelen <span class="token number">1</span>  <span class="token punctuation">(</span>Local Loopback<span class="token punctuation">)</span>
+        RX packets <span class="token number">273</span>  bytes <span class="token number">23632</span> <span class="token punctuation">(</span><span class="token number">23.0</span> KiB<span class="token punctuation">)</span>
+        RX errors <span class="token number">0</span>  dropped <span class="token number">0</span>  overruns <span class="token number">0</span>  frame <span class="token number">0</span>
+        TX packets <span class="token number">273</span>  bytes <span class="token number">23632</span> <span class="token punctuation">(</span><span class="token number">23.0</span> KiB<span class="token punctuation">)</span>
+        TX errors <span class="token number">0</span>  dropped <span class="token number">0</span> overruns <span class="token number">0</span>  carrier <span class="token number">0</span>  collisions <span class="token number">0</span>
+
+virbr0: <span class="token assign-left variable">flags</span><span class="token operator">=</span><span class="token number">409</span><span class="token operator"><span class="token file-descriptor important">9</span>&lt;</span>UP,BROADCAST,MULTICAST<span class="token operator">&gt;</span>  mtu <span class="token number">1500</span>
+        inet <span class="token number">192.168</span>.122.1  netmask <span class="token number">255.255</span>.255.0  broadcast <span class="token number">192.168</span>.122.255
+        ether <span class="token number">52</span>:54:00:6e:49:8c  txqueuelen <span class="token number">1000</span>  <span class="token punctuation">(</span>Ethernet<span class="token punctuation">)</span>
+        RX packets <span class="token number">0</span>  bytes <span class="token number">0</span> <span class="token punctuation">(</span><span class="token number">0.0</span> B<span class="token punctuation">)</span>
+        RX errors <span class="token number">0</span>  dropped <span class="token number">0</span>  overruns <span class="token number">0</span>  frame <span class="token number">0</span>
+        TX packets <span class="token number">0</span>  bytes <span class="token number">0</span> <span class="token punctuation">(</span><span class="token number">0.0</span> B<span class="token punctuation">)</span>
+        TX errors <span class="token number">0</span>  dropped <span class="token number">0</span> overruns <span class="token number">0</span>  carrier <span class="token number">0</span>  collisions <span class="token number">0</span>
+
+<span class="token punctuation">[</span>jess@bogon qianfeng<span class="token punctuation">]</span>$ 
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br><span class="line-number">84</span><br><span class="line-number">85</span><br><span class="line-number">86</span><br><span class="line-number">87</span><br><span class="line-number">88</span><br><span class="line-number">89</span><br><span class="line-number">90</span><br></div></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/documents/study_notes/ops/linux/high-level/01.html" class="prev">
+        Linux 进阶 - 初识SELinux
+      </a></span> <span class="next"><a href="/documents/study_notes/ops/ansible/basic/02.html">
+        Ansible 初识二：playbook
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><!----></div></div>
+    <script src="/documents/assets/js/app.fb883db5.js" defer></script><script src="/documents/assets/js/2.e8bd7cca.js" defer></script><script src="/documents/assets/js/1.40c64e62.js" defer></script><script src="/documents/assets/js/43.7630c48b.js" defer></script>
+  </body>
+</html>

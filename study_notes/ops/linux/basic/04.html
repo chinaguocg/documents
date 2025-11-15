@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>磁盘分区及免密登录测试 | Documents</title>
+    <meta name="generator" content="VuePress 1.9.10">
+    <link rel="icon" href="/documents/img/logo.png">
+    <link rel="stylesheet" href="/documents/css/style.css">
+    <meta name="description" content="开发运维技术文档">
+    <meta name="keywords" content="Chinaguocg,Documents,DevOps,IT技术,文档博客,开发,运维,技术文档">
+    
+    <link rel="preload" href="/documents/assets/css/0.styles.b20f9c26.css" as="style"><link rel="preload" href="/documents/assets/js/app.fb883db5.js" as="script"><link rel="preload" href="/documents/assets/js/2.e8bd7cca.js" as="script"><link rel="preload" href="/documents/assets/js/1.40c64e62.js" as="script"><link rel="preload" href="/documents/assets/js/52.252c85c7.js" as="script"><link rel="prefetch" href="/documents/assets/js/10.b63d61ac.js"><link rel="prefetch" href="/documents/assets/js/11.23025be0.js"><link rel="prefetch" href="/documents/assets/js/12.9a27d63b.js"><link rel="prefetch" href="/documents/assets/js/13.e3dba2b7.js"><link rel="prefetch" href="/documents/assets/js/14.6d3d6a88.js"><link rel="prefetch" href="/documents/assets/js/15.30a4286e.js"><link rel="prefetch" href="/documents/assets/js/16.e4505b74.js"><link rel="prefetch" href="/documents/assets/js/17.255ebcfb.js"><link rel="prefetch" href="/documents/assets/js/18.a4c4f660.js"><link rel="prefetch" href="/documents/assets/js/19.2c33fa19.js"><link rel="prefetch" href="/documents/assets/js/20.fc453a90.js"><link rel="prefetch" href="/documents/assets/js/21.c52a45d9.js"><link rel="prefetch" href="/documents/assets/js/22.9b18a918.js"><link rel="prefetch" href="/documents/assets/js/23.8f24947d.js"><link rel="prefetch" href="/documents/assets/js/24.b943b232.js"><link rel="prefetch" href="/documents/assets/js/25.680bc1c4.js"><link rel="prefetch" href="/documents/assets/js/26.e3c64576.js"><link rel="prefetch" href="/documents/assets/js/27.df32cf0b.js"><link rel="prefetch" href="/documents/assets/js/28.32ebad55.js"><link rel="prefetch" href="/documents/assets/js/29.53cf73a3.js"><link rel="prefetch" href="/documents/assets/js/3.1bdb9756.js"><link rel="prefetch" href="/documents/assets/js/30.25959590.js"><link rel="prefetch" href="/documents/assets/js/31.63a77baa.js"><link rel="prefetch" href="/documents/assets/js/32.3c2bc0ff.js"><link rel="prefetch" href="/documents/assets/js/33.55b9dd1d.js"><link rel="prefetch" href="/documents/assets/js/34.72d68f93.js"><link rel="prefetch" href="/documents/assets/js/35.2f997e59.js"><link rel="prefetch" href="/documents/assets/js/36.c4dbef59.js"><link rel="prefetch" href="/documents/assets/js/37.de8e788f.js"><link rel="prefetch" href="/documents/assets/js/38.fa86566e.js"><link rel="prefetch" href="/documents/assets/js/39.ce80e044.js"><link rel="prefetch" href="/documents/assets/js/4.ce792ed0.js"><link rel="prefetch" href="/documents/assets/js/40.92c3a9f7.js"><link rel="prefetch" href="/documents/assets/js/41.9f09b338.js"><link rel="prefetch" href="/documents/assets/js/42.da4ce53b.js"><link rel="prefetch" href="/documents/assets/js/43.7630c48b.js"><link rel="prefetch" href="/documents/assets/js/44.101ff796.js"><link rel="prefetch" href="/documents/assets/js/45.cc48ac11.js"><link rel="prefetch" href="/documents/assets/js/46.ebf00827.js"><link rel="prefetch" href="/documents/assets/js/47.df6f26e6.js"><link rel="prefetch" href="/documents/assets/js/48.0d75469e.js"><link rel="prefetch" href="/documents/assets/js/49.90ac9cb8.js"><link rel="prefetch" href="/documents/assets/js/5.d956834b.js"><link rel="prefetch" href="/documents/assets/js/50.a0bed255.js"><link rel="prefetch" href="/documents/assets/js/51.4259bd8b.js"><link rel="prefetch" href="/documents/assets/js/53.a9ff8c3b.js"><link rel="prefetch" href="/documents/assets/js/54.c459c6d5.js"><link rel="prefetch" href="/documents/assets/js/55.846ad4da.js"><link rel="prefetch" href="/documents/assets/js/56.e95fa2b3.js"><link rel="prefetch" href="/documents/assets/js/57.b504be7f.js"><link rel="prefetch" href="/documents/assets/js/58.f8ef198d.js"><link rel="prefetch" href="/documents/assets/js/59.2d6ebab4.js"><link rel="prefetch" href="/documents/assets/js/6.118e9bad.js"><link rel="prefetch" href="/documents/assets/js/60.df495fd1.js"><link rel="prefetch" href="/documents/assets/js/61.a70a93c1.js"><link rel="prefetch" href="/documents/assets/js/62.342024d3.js"><link rel="prefetch" href="/documents/assets/js/63.192c720b.js"><link rel="prefetch" href="/documents/assets/js/64.98cbd251.js"><link rel="prefetch" href="/documents/assets/js/65.7553bc57.js"><link rel="prefetch" href="/documents/assets/js/66.503bab25.js"><link rel="prefetch" href="/documents/assets/js/67.41b52c62.js"><link rel="prefetch" href="/documents/assets/js/68.cbb4ad29.js"><link rel="prefetch" href="/documents/assets/js/7.a506e926.js"><link rel="prefetch" href="/documents/assets/js/vendors~docsearch.271bc088.js">
+    <link rel="stylesheet" href="/documents/assets/css/0.styles.b20f9c26.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/documents/" class="home-link router-link-active"><!----> <span class="site-name">Documents</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/documents/guide/" class="nav-link">
+  指南
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="文档" class="dropdown-title"><span class="title">文档</span> <span class="arrow down"></span></button> <button type="button" aria-label="文档" class="mobile-dropdown-title"><span class="title">文档</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/documents/study_notes/ops/" class="nav-link router-link-active">
+  运维
+</a></li><li class="dropdown-item"><!----> <a href="/documents/study_notes/dev/" class="nav-link">
+  开发
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="资源共享" class="dropdown-title"><span class="title">资源共享</span> <span class="arrow down"></span></button> <button type="button" aria-label="资源共享" class="mobile-dropdown-title"><span class="title">资源共享</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          在线工具
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://shields.io/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  图标徽章
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://tinypng.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  图片压缩
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://bigjpg.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  图片放大
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="http://cron.qqe2.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  CRON 表达式
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://tableconvert.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  MD 表格生成
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          在线服务
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.bootcdn.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Boot CDN
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          镜像资源
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://msdn.itellyou.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  MSDN
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://mirrors.tuna.tsinghua.edu.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  清华开源软件镜像站
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://developer.aliyun.com/mirror/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  阿里开源镜像站
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          网址导航
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.w3school.com.cn/index.html" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  W3School
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://www.runoob.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  菜鸟教程
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="http://www.h-ui.net/site.shtml" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  IT网址导航
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li></ul></div></div> <a href="https://github.com/chinaguocg/documents" target="_blank" rel="noopener noreferrer" class="repo-link">
+    查看源码
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/documents/guide/" class="nav-link">
+  指南
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="文档" class="dropdown-title"><span class="title">文档</span> <span class="arrow down"></span></button> <button type="button" aria-label="文档" class="mobile-dropdown-title"><span class="title">文档</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/documents/study_notes/ops/" class="nav-link router-link-active">
+  运维
+</a></li><li class="dropdown-item"><!----> <a href="/documents/study_notes/dev/" class="nav-link">
+  开发
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="资源共享" class="dropdown-title"><span class="title">资源共享</span> <span class="arrow down"></span></button> <button type="button" aria-label="资源共享" class="mobile-dropdown-title"><span class="title">资源共享</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          在线工具
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://shields.io/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  图标徽章
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://tinypng.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  图片压缩
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://bigjpg.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  图片放大
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="http://cron.qqe2.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  CRON 表达式
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://tableconvert.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  MD 表格生成
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          在线服务
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.bootcdn.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Boot CDN
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          镜像资源
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://msdn.itellyou.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  MSDN
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://mirrors.tuna.tsinghua.edu.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  清华开源软件镜像站
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://developer.aliyun.com/mirror/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  阿里开源镜像站
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          网址导航
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.w3school.com.cn/index.html" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  W3School
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://www.runoob.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  菜鸟教程
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="http://www.h-ui.net/site.shtml" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  IT网址导航
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li></ul></div></div> <a href="https://github.com/chinaguocg/documents" target="_blank" rel="noopener noreferrer" class="repo-link">
+    查看源码
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>Linux</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading open"><span>Linux 基础</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/documents/study_notes/ops/linux/basic/01.html" class="sidebar-link">Linux 基础</a></li><li><a href="/documents/study_notes/ops/linux/basic/02.html" class="sidebar-link">连接</a></li><li><a href="/documents/study_notes/ops/linux/basic/03.html" class="sidebar-link">防火墙</a></li><li><a href="/documents/study_notes/ops/linux/basic/04.html" aria-current="page" class="active sidebar-link">磁盘分区及免密登录测试</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/documents/study_notes/ops/linux/basic/04.html#_1-创建2g大小的分区-并要求重启后自动挂载到-test-下。" class="sidebar-link">1  创建2G大小的分区，并要求重启后自动挂载到/test/下。</a></li><li class="sidebar-sub-header"><a href="/documents/study_notes/ops/linux/basic/04.html#_2-创建700m的swap分区-要求开机后自动加载swap分区。" class="sidebar-link">2  创建700M的swap分区，要求开机后自动加载swap分区。</a></li><li class="sidebar-sub-header"><a href="/documents/study_notes/ops/linux/basic/04.html#_3-开两台系统-完成免密登录。" class="sidebar-link">3  开两台系统，完成免密登录。</a></li></ul></li><li><a href="/documents/study_notes/ops/linux/basic/05.html" class="sidebar-link">日志</a></li><li><a href="/documents/study_notes/ops/linux/basic/06Linux的由来.html" class="sidebar-link">Linux的由来</a></li><li><a href="/documents/study_notes/ops/linux/basic/07Linux文件管理基础.html" class="sidebar-link">Linux 文件管理基础</a></li><li><a href="/documents/study_notes/ops/linux/basic/08Linux文件权限管理.html" class="sidebar-link">Linux文件权限管理</a></li><li><a href="/documents/study_notes/ops/linux/basic/09Linux特殊权限.html" class="sidebar-link">Linux 特殊权限：SUID、SGID 和 Sticky Bit</a></li><li><a href="/documents/study_notes/ops/linux/basic/10Linux chattr.html" class="sidebar-link">Linux chattr</a></li><li><a href="/documents/study_notes/ops/linux/basic/11CentOS 软件包管理YUM.html" class="sidebar-link">CentOS 软件包管理DNF/YUM</a></li><li><a href="/documents/study_notes/ops/linux/basic/12CentOS Linux 软件包管理 RPM .html" class="sidebar-link">CentOS 软件包管理 RPM</a></li><li><a href="/documents/study_notes/ops/linux/basic/13CentOS Linux 源码安装 Nginx .html" class="sidebar-link">CentOS 源码安装 Nginx</a></li><li><a href="/documents/study_notes/ops/linux/basic/14安装openresty.html" class="sidebar-link">安装openresty</a></li><li><a href="/documents/study_notes/ops/linux/basic/15自定义YUM仓库.html" class="sidebar-link">自定义YUM仓库</a></li><li><a href="/documents/study_notes/ops/linux/basic/16Linux 进程管理.html" class="sidebar-link">Linux 进程管理</a></li><li><a href="/documents/study_notes/ops/linux/basic/17进程管理 练习.html" class="sidebar-link">Linux 基础运维实战练习题：进程管理篇</a></li></ul></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><span>Linux 进阶</span> <span class="arrow right"></span></p> <!----></section></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Ansible</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Disk</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Nginx</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Docker</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="磁盘分区及免密登录测试"><a href="#磁盘分区及免密登录测试" class="header-anchor">#</a> 磁盘分区及免密登录测试</h1> <p>使用root身份完成以下题目：</p> <p>1  创建2G大小的分区，并要求重启后自动挂载到/test/下。</p> <p>2  创建700M的swap分区，要求开机后自动加载swap分区。</p> <p>3  开两台系统，完成免密登录。</p> <h2 id="_1-创建2g大小的分区-并要求重启后自动挂载到-test-下。"><a href="#_1-创建2g大小的分区-并要求重启后自动挂载到-test-下。" class="header-anchor">#</a> 1  创建2G大小的分区，并要求重启后自动挂载到/test/下。</h2> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code>Xshell <span class="token keyword">for</span> Xmanager Enterprise <span class="token number">5</span> <span class="token punctuation">(</span>Build 0547<span class="token punctuation">)</span>
+Copyright <span class="token punctuation">(</span>c<span class="token punctuation">)</span> <span class="token number">2002</span>-2015 NetSarang Computer, Inc. All rights reserved.
+
+Type <span class="token variable"><span class="token variable">`</span><span class="token builtin class-name">help</span><span class="token string">' to learn how to use Xshell prompt.
+[c:\~]$ 
+
+Connecting to 192.168.230.129:22...
+Connection established.
+To escape to local shell, press '</span>Ctrl+Alt+<span class="token punctuation">]</span><span class="token string">'.
+
+WARNING! The remote SSH server rejected X11 forwarding request.
+Last login: Fri Nov  7 01:15:52 2025
+[root@node1 ~]# ll
+total 4
+-rw-------. 1 root root 1417 Nov  2 03:38 anaconda-ks.cfg
+[root@node1 ~]# df -h
+Filesystem               Size  Used Avail Use% Mounted on
+/dev/mapper/centos-root   17G  1.3G   16G   8% /
+devtmpfs                 478M     0  478M   0% /dev
+tmpfs                    489M     0  489M   0% /dev/shm
+tmpfs                    489M  6.8M  482M   2% /run
+tmpfs                    489M     0  489M   0% /sys/fs/cgroup
+/dev/sda1               1014M  143M  872M  15% /boot
+tmpfs                     98M     0   98M   0% /run/user/0
+[root@node1 ~]# fdisk -l
+
+Disk /dev/sdb: 10.7 GB, 10737418240 bytes, 20971520 sectors
+Units = sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+
+
+Disk /dev/sda: 21.5 GB, 21474836480 bytes, 41943040 sectors
+Units = sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disk label type: dos
+Disk identifier: 0x000b2969
+
+   Device Boot      Start         End      Blocks   Id  System
+/dev/sda1   *        2048     2099199     1048576   83  Linux
+/dev/sda2         2099200    41943039    19921920   8e  Linux LVM
+
+Disk /dev/mapper/centos-root: 18.2 GB, 18249416704 bytes, 35643392 sectors
+Units = sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+
+
+Disk /dev/mapper/centos-swap: 2147 MB, 2147483648 bytes, 4194304 sectors
+Units = sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+
+[root@node1 ~]# fdisk /dev/sdb
+Welcome to fdisk (util-linux 2.23.2).
+
+Changes will remain in memory only, until you decide to write them.
+Be careful before using the write command.
+
+Device does not contain a recognized partition table
+Building a new DOS disklabel with disk identifier 0x271ad2c1.
+
+Command (m for help): m
+Command action
+   a   toggle a bootable flag
+   b   edit bsd disklabel
+   c   toggle the dos compatibility flag
+   d   delete a partition
+   g   create a new empty GPT partition table
+   G   create an IRIX (SGI) partition table
+   l   list known partition types
+   m   print this menu
+   n   add a new partition
+   o   create a new empty DOS partition table
+   p   print the partition table
+   q   quit without saving changes
+   s   create a new empty Sun disklabel
+   t   change a partition'</span>s system <span class="token function">id</span>
+   u   change display/entry <span class="token function">units</span>
+   <span class="token function">v</span>   verify the partition table
+   w   <span class="token function">write</span> table to disk and <span class="token builtin class-name">exit</span>
+   x   extra functionality <span class="token punctuation">(</span>experts only<span class="token punctuation">)</span>
+
+Command <span class="token punctuation">(</span>m <span class="token keyword">for</span> <span class="token builtin class-name">help</span><span class="token punctuation">)</span>: n
+Partition type:
+   p   primary <span class="token punctuation">(</span><span class="token number">0</span> primary, <span class="token number">0</span> extended, <span class="token number">4</span> <span class="token function">free</span><span class="token punctuation">)</span>
+   e   extended
+Select <span class="token punctuation">(</span>default p<span class="token punctuation">)</span>: e
+Partition number <span class="token punctuation">(</span><span class="token number">1</span>-4, default <span class="token number">1</span><span class="token punctuation">)</span>: <span class="token number">2</span>^H
+Partition number <span class="token punctuation">(</span><span class="token number">1</span>-4, default <span class="token number">1</span><span class="token punctuation">)</span>: 
+First sector <span class="token punctuation">(</span><span class="token number">2048</span>-20971519, default <span class="token number">2048</span><span class="token punctuation">)</span>: 
+Using default value <span class="token number">2048</span>
+Last sector, +sectors or +size<span class="token punctuation">{</span>K,M,G<span class="token punctuation">}</span> <span class="token punctuation">(</span><span class="token number">2048</span>-20971519, default <span class="token number">20971519</span><span class="token punctuation">)</span>: 
+Using default value <span class="token number">20971519</span>
+Partition <span class="token number">1</span> of <span class="token builtin class-name">type</span> Extended and of size <span class="token number">10</span> GiB is <span class="token builtin class-name">set</span>
+
+Command <span class="token punctuation">(</span>m <span class="token keyword">for</span> <span class="token builtin class-name">help</span><span class="token punctuation">)</span>: n
+Partition type:
+   p   primary <span class="token punctuation">(</span><span class="token number">0</span> primary, <span class="token number">1</span> extended, <span class="token number">3</span> <span class="token function">free</span><span class="token punctuation">)</span>
+   l   logical <span class="token punctuation">(</span>numbered from <span class="token number">5</span><span class="token punctuation">)</span>
+Select <span class="token punctuation">(</span>default p<span class="token punctuation">)</span>: l
+Adding logical partition <span class="token number">5</span>
+First sector <span class="token punctuation">(</span><span class="token number">4096</span>-20971519, default <span class="token number">4096</span><span class="token punctuation">)</span>: 
+Using default value <span class="token number">4096</span>
+Last sector, +sectors or +size<span class="token punctuation">{</span>K,M,G<span class="token punctuation">}</span> <span class="token punctuation">(</span><span class="token number">4096</span>-20971519, default <span class="token number">20971519</span><span class="token punctuation">)</span>: +2G
+Partition <span class="token number">5</span> of <span class="token builtin class-name">type</span> Linux and of size <span class="token number">2</span> GiB is <span class="token builtin class-name">set</span>
+
+Command <span class="token punctuation">(</span>m <span class="token keyword">for</span> <span class="token builtin class-name">help</span><span class="token punctuation">)</span>: w
+The partition table has been altered<span class="token operator">!</span>
+
+Calling ioctl<span class="token punctuation">(</span><span class="token punctuation">)</span> to re-read partition table.
+Syncing disks.
+<span class="token punctuation">[</span>root@node1 ~<span class="token punctuation">]</span><span class="token comment"># fdisk -l</span>
+
+Disk /dev/sdb: <span class="token number">10.7</span> GB, <span class="token number">10737418240</span> bytes, <span class="token number">20971520</span> sectors
+Units <span class="token operator">=</span> sectors of <span class="token number">1</span> * <span class="token number">512</span> <span class="token operator">=</span> <span class="token number">512</span> bytes
+Sector size <span class="token punctuation">(</span>logical/physical<span class="token punctuation">)</span>: <span class="token number">512</span> bytes / <span class="token number">512</span> bytes
+I/O size <span class="token punctuation">(</span>minimum/optimal<span class="token punctuation">)</span>: <span class="token number">512</span> bytes / <span class="token number">512</span> bytes
+Disk label type: dos
+Disk identifier: 0x271ad2c1
+
+   Device Boot      Start         End      Blocks   Id  System
+/dev/sdb1            <span class="token number">2048</span>    <span class="token number">20971519</span>    <span class="token number">10484736</span>    <span class="token number">5</span>  Extended
+/dev/sdb5            <span class="token number">4096</span>     <span class="token number">4198399</span>     <span class="token number">2097152</span>   <span class="token number">83</span>  Linux
+
+Disk /dev/sda: <span class="token number">21.5</span> GB, <span class="token number">21474836480</span> bytes, <span class="token number">41943040</span> sectors
+Units <span class="token operator">=</span> sectors of <span class="token number">1</span> * <span class="token number">512</span> <span class="token operator">=</span> <span class="token number">512</span> bytes
+Sector size <span class="token punctuation">(</span>logical/physical<span class="token punctuation">)</span>: <span class="token number">512</span> bytes / <span class="token number">512</span> bytes
+I/O size <span class="token punctuation">(</span>minimum/optimal<span class="token punctuation">)</span>: <span class="token number">512</span> bytes / <span class="token number">512</span> bytes
+Disk label type: dos
+Disk identifier: 0x000b2969
+
+   Device Boot      Start         End      Blocks   Id  System
+/dev/sda1   *        <span class="token number">2048</span>     <span class="token number">2099199</span>     <span class="token number">1048576</span>   <span class="token number">83</span>  Linux
+/dev/sda2         <span class="token number">2099200</span>    <span class="token number">41943039</span>    <span class="token number">19921920</span>   8e  Linux LVM
+
+Disk /dev/mapper/centos-root: <span class="token number">18.2</span> GB, <span class="token number">18249416704</span> bytes, <span class="token number">35643392</span> sectors
+Units <span class="token operator">=</span> sectors of <span class="token number">1</span> * <span class="token number">512</span> <span class="token operator">=</span> <span class="token number">512</span> bytes
+Sector size <span class="token punctuation">(</span>logical/physical<span class="token punctuation">)</span>: <span class="token number">512</span> bytes / <span class="token number">512</span> bytes
+I/O size <span class="token punctuation">(</span>minimum/optimal<span class="token punctuation">)</span>: <span class="token number">512</span> bytes / <span class="token number">512</span> bytes
+
+
+Disk /dev/mapper/centos-swap: <span class="token number">2147</span> MB, <span class="token number">2147483648</span> bytes, <span class="token number">4194304</span> sectors
+Units <span class="token operator">=</span> sectors of <span class="token number">1</span> * <span class="token number">512</span> <span class="token operator">=</span> <span class="token number">512</span> bytes
+Sector size <span class="token punctuation">(</span>logical/physical<span class="token punctuation">)</span>: <span class="token number">512</span> bytes / <span class="token number">512</span> bytes
+I/O size <span class="token punctuation">(</span>minimum/optimal<span class="token punctuation">)</span>: <span class="token number">512</span> bytes / <span class="token number">512</span> bytes
+
+<span class="token punctuation">[</span>root@node1 ~<span class="token punctuation">]</span><span class="token comment"># cd 、</span>
+-bash: cd: 、: No such <span class="token function">file</span> or directory
+<span class="token punctuation">[</span>root@node1 ~<span class="token punctuation">]</span><span class="token comment"># cd /</span>
+<span class="token punctuation">[</span>root@node1 /<span class="token punctuation">]</span><span class="token comment"># mkdir test</span>
+<span class="token punctuation">[</span>root@node1 /<span class="token punctuation">]</span><span class="token comment"># ll</span>
+total <span class="token number">20</span>
+lrwxrwxrwx.   <span class="token number">1</span> root root    <span class="token number">7</span> Nov  <span class="token number">2</span> 03:33 bin -<span class="token operator">&gt;</span> usr/bin
+dr-xr-xr-x.   <span class="token number">5</span> root root <span class="token number">4096</span> Nov  <span class="token number">2</span> 03:40 boot
+drwxr-xr-x.  <span class="token number">20</span> root root <span class="token number">3320</span> Nov  <span class="token number">7</span> 01:24 dev
+drwxr-xr-x.  <span class="token number">75</span> root root <span class="token number">8192</span> Nov  <span class="token number">7</span> 01:15 etc
+drwxr-xr-x.   <span class="token number">3</span> root root   <span class="token number">16</span> Nov  <span class="token number">2</span> 03:37 home
+lrwxrwxrwx.   <span class="token number">1</span> root root    <span class="token number">7</span> Nov  <span class="token number">2</span> 03:33 lib -<span class="token operator">&gt;</span> usr/lib
+lrwxrwxrwx.   <span class="token number">1</span> root root    <span class="token number">9</span> Nov  <span class="token number">2</span> 03:33 lib64 -<span class="token operator">&gt;</span> usr/lib64
+drwxr-xr-x.   <span class="token number">2</span> root root    <span class="token number">6</span> Nov  <span class="token number">5</span>  <span class="token number">2016</span> media
+drwxr-xr-x.   <span class="token number">2</span> root root    <span class="token number">6</span> Nov  <span class="token number">5</span>  <span class="token number">2016</span> mnt
+drwxr-xr-x.   <span class="token number">2</span> root root    <span class="token number">6</span> Nov  <span class="token number">5</span>  <span class="token number">2016</span> opt
+dr-xr-xr-x. <span class="token number">165</span> root root    <span class="token number">0</span> Nov  <span class="token number">7</span> 01:15 proc
+dr-xr-x---.   <span class="token number">3</span> root root  <span class="token number">163</span> Nov  <span class="token number">2</span> 04:26 root
+drwxr-xr-x.  <span class="token number">24</span> root root  <span class="token number">720</span> Nov  <span class="token number">7</span> 01:15 run
+lrwxrwxrwx.   <span class="token number">1</span> root root    <span class="token number">8</span> Nov  <span class="token number">2</span> 03:33 sbin -<span class="token operator">&gt;</span> usr/sbin
+drwxr-xr-x.   <span class="token number">2</span> root root    <span class="token number">6</span> Nov  <span class="token number">5</span>  <span class="token number">2016</span> srv
+dr-xr-xr-x.  <span class="token number">13</span> root root    <span class="token number">0</span> Nov  <span class="token number">7</span> 01:15 sys
+drwxr-xr-x.   <span class="token number">2</span> root root    <span class="token number">6</span> Nov  <span class="token number">7</span> 01:27 <span class="token builtin class-name">test</span>
+drwxrwxrwt.  <span class="token number">10</span> root root <span class="token number">4096</span> Nov  <span class="token number">7</span> 01:16 tmp
+drwxr-xr-x.  <span class="token number">13</span> root root  <span class="token number">155</span> Nov  <span class="token number">2</span> 03:33 usr
+drwxr-xr-x.  <span class="token number">19</span> root root  <span class="token number">267</span> Nov  <span class="token number">2</span> 03:39 var
+<span class="token punctuation">[</span>root@node1 /<span class="token punctuation">]</span><span class="token comment"># mkfs.ext4 /dev/sdb5</span>
+<span class="token function">mke2fs</span> <span class="token number">1.42</span>.9 <span class="token punctuation">(</span><span class="token number">28</span>-Dec-2013<span class="token punctuation">)</span>
+Filesystem <span class="token assign-left variable">label</span><span class="token operator">=</span>
+OS type: Linux
+Block <span class="token assign-left variable">size</span><span class="token operator">=</span><span class="token number">4096</span> <span class="token punctuation">(</span>log<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">)</span>
+Fragment <span class="token assign-left variable">size</span><span class="token operator">=</span><span class="token number">4096</span> <span class="token punctuation">(</span>log<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">)</span>
+<span class="token assign-left variable">Stride</span><span class="token operator">=</span><span class="token number">0</span> blocks, Stripe <span class="token assign-left variable">width</span><span class="token operator">=</span><span class="token number">0</span> blocks
+<span class="token number">131072</span> inodes, <span class="token number">524288</span> blocks
+<span class="token number">26214</span> blocks <span class="token punctuation">(</span><span class="token number">5.00</span>%<span class="token punctuation">)</span> reserved <span class="token keyword">for</span> the super user
+First data <span class="token assign-left variable">block</span><span class="token operator">=</span><span class="token number">0</span>
+Maximum filesystem <span class="token assign-left variable">blocks</span><span class="token operator">=</span><span class="token number">536870912</span>
+<span class="token number">16</span> block <span class="token function">groups</span>
+<span class="token number">32768</span> blocks per group, <span class="token number">32768</span> fragments per group
+<span class="token number">8192</span> inodes per group
+Superblock backups stored on blocks: 
+	<span class="token number">32768</span>, <span class="token number">98304</span>, <span class="token number">163840</span>, <span class="token number">229376</span>, <span class="token number">294912</span>
+
+Allocating group tables: <span class="token keyword">done</span>                            
+Writing inode tables: <span class="token keyword">done</span>                            
+Creating journal <span class="token punctuation">(</span><span class="token number">16384</span> blocks<span class="token punctuation">)</span>: <span class="token keyword">done</span>
+Writing superblocks and filesystem accounting information: <span class="token keyword">done</span> 
+
+<span class="token punctuation">[</span>root@node1 /<span class="token punctuation">]</span><span class="token comment"># vim /etc/fstab</span>
+<span class="token punctuation">[</span>root@node1 /<span class="token punctuation">]</span><span class="token comment"># mount -a</span>
+<span class="token punctuation">[</span>root@node1 /<span class="token punctuation">]</span><span class="token comment"># cat /proc/partitions </span>
+major minor  <span class="token comment">#blocks  name</span>
+
+   <span class="token number">8</span>       <span class="token number">16</span>   <span class="token number">10485760</span> sdb
+   <span class="token number">8</span>       <span class="token number">17</span>          <span class="token number">1</span> sdb1
+   <span class="token number">8</span>       <span class="token number">21</span>    <span class="token number">2097152</span> sdb5
+   <span class="token number">8</span>        <span class="token number">0</span>   <span class="token number">20971520</span> sda
+   <span class="token number">8</span>        <span class="token number">1</span>    <span class="token number">1048576</span> sda1
+   <span class="token number">8</span>        <span class="token number">2</span>   <span class="token number">19921920</span> sda2
+  <span class="token number">11</span>        <span class="token number">0</span>    <span class="token number">4415488</span> sr0
+ <span class="token number">253</span>        <span class="token number">0</span>   <span class="token number">17821696</span> dm-0
+ <span class="token number">253</span>        <span class="token number">1</span>    <span class="token number">2097152</span> dm-1
+<span class="token punctuation">[</span>root@node1 /<span class="token punctuation">]</span><span class="token comment"># df -h</span>
+Filesystem               Size  Used Avail Use% Mounted on
+/dev/mapper/centos-root   17G  <span class="token number">1</span>.3G   16G   <span class="token number">8</span>% /
+devtmpfs                 478M     <span class="token number">0</span>  478M   <span class="token number">0</span>% /dev
+tmpfs                    489M     <span class="token number">0</span>  489M   <span class="token number">0</span>% /dev/shm
+tmpfs                    489M  <span class="token number">6</span>.8M  482M   <span class="token number">2</span>% /run
+tmpfs                    489M     <span class="token number">0</span>  489M   <span class="token number">0</span>% /sys/fs/cgroup
+/dev/sda1               1014M  143M  872M  <span class="token number">15</span>% /boot
+tmpfs                     98M     <span class="token number">0</span>   98M   <span class="token number">0</span>% /run/user/0
+/dev/sdb5                <span class="token number">2</span>.0G  <span class="token number">6</span>.0M  <span class="token number">1</span>.8G   <span class="token number">1</span>% /test
+<span class="token punctuation">[</span>root@node1 /<span class="token punctuation">]</span><span class="token comment"># fdisk -l</span>
+
+Disk /dev/sdb: <span class="token number">10.7</span> GB, <span class="token number">10737418240</span> bytes, <span class="token number">20971520</span> sectors
+Units <span class="token operator">=</span> sectors of <span class="token number">1</span> * <span class="token number">512</span> <span class="token operator">=</span> <span class="token number">512</span> bytes
+Sector size <span class="token punctuation">(</span>logical/physical<span class="token punctuation">)</span>: <span class="token number">512</span> bytes / <span class="token number">512</span> bytes
+I/O size <span class="token punctuation">(</span>minimum/optimal<span class="token punctuation">)</span>: <span class="token number">512</span> bytes / <span class="token number">512</span> bytes
+Disk label type: dos
+Disk identifier: 0x271ad2c1
+
+   Device Boot      Start         End      Blocks   Id  System
+/dev/sdb1            <span class="token number">2048</span>    <span class="token number">20971519</span>    <span class="token number">10484736</span>    <span class="token number">5</span>  Extended
+/dev/sdb5            <span class="token number">4096</span>     <span class="token number">4198399</span>     <span class="token number">2097152</span>   <span class="token number">83</span>  Linux
+
+Disk /dev/sda: <span class="token number">21.5</span> GB, <span class="token number">21474836480</span> bytes, <span class="token number">41943040</span> sectors
+Units <span class="token operator">=</span> sectors of <span class="token number">1</span> * <span class="token number">512</span> <span class="token operator">=</span> <span class="token number">512</span> bytes
+Sector size <span class="token punctuation">(</span>logical/physical<span class="token punctuation">)</span>: <span class="token number">512</span> bytes / <span class="token number">512</span> bytes
+I/O size <span class="token punctuation">(</span>minimum/optimal<span class="token punctuation">)</span>: <span class="token number">512</span> bytes / <span class="token number">512</span> bytes
+Disk label type: dos
+Disk identifier: 0x000b2969
+
+   Device Boot      Start         End      Blocks   Id  System
+/dev/sda1   *        <span class="token number">2048</span>     <span class="token number">2099199</span>     <span class="token number">1048576</span>   <span class="token number">83</span>  Linux
+/dev/sda2         <span class="token number">2099200</span>    <span class="token number">41943039</span>    <span class="token number">19921920</span>   8e  Linux LVM
+
+Disk /dev/mapper/centos-root: <span class="token number">18.2</span> GB, <span class="token number">18249416704</span> bytes, <span class="token number">35643392</span> sectors
+Units <span class="token operator">=</span> sectors of <span class="token number">1</span> * <span class="token number">512</span> <span class="token operator">=</span> <span class="token number">512</span> bytes
+Sector size <span class="token punctuation">(</span>logical/physical<span class="token punctuation">)</span>: <span class="token number">512</span> bytes / <span class="token number">512</span> bytes
+I/O size <span class="token punctuation">(</span>minimum/optimal<span class="token punctuation">)</span>: <span class="token number">512</span> bytes / <span class="token number">512</span> bytes
+
+
+Disk /dev/mapper/centos-swap: <span class="token number">2147</span> MB, <span class="token number">2147483648</span> bytes, <span class="token number">4194304</span> sectors
+Units <span class="token operator">=</span> sectors of <span class="token number">1</span> * <span class="token number">512</span> <span class="token operator">=</span> <span class="token number">512</span> bytes
+Sector size <span class="token punctuation">(</span>logical/physical<span class="token punctuation">)</span>: <span class="token number">512</span> bytes / <span class="token number">512</span> bytes
+I/O size <span class="token punctuation">(</span>minimum/optimal<span class="token punctuation">)</span>: <span class="token number">512</span> bytes / <span class="token number">512</span> bytes
+
+<span class="token punctuation">[</span>root@node1 /<span class="token punctuation">]</span><span class="token comment"># init 6</span>
+
+Connection closed by foreign host.
+
+Disconnected from remote host<span class="token punctuation">(</span>node4<span class="token punctuation">)</span> at <span class="token number">14</span>:32:00.
+
+Type <span class="token variable">`</span></span><span class="token builtin class-name">help</span><span class="token string">' to learn how to use Xshell prompt.
+[c:\~]$ 
+
+Connecting to 192.168.230.129:22...
+Connection established.
+To escape to local shell, press '</span>Ctrl+Alt+<span class="token punctuation">]</span>'.
+
+WARNING<span class="token operator">!</span> The remote SSH server rejected X11 forwarding request.
+Last login: Fri Nov  <span class="token number">7</span> 01:16:14 <span class="token number">2025</span> from <span class="token number">192.168</span>.230.1
+<span class="token punctuation">[</span>root@node1 ~<span class="token punctuation">]</span><span class="token comment"># fdisk -l</span>
+
+Disk /dev/sda: <span class="token number">21.5</span> GB, <span class="token number">21474836480</span> bytes, <span class="token number">41943040</span> sectors
+Units <span class="token operator">=</span> sectors of <span class="token number">1</span> * <span class="token number">512</span> <span class="token operator">=</span> <span class="token number">512</span> bytes
+Sector size <span class="token punctuation">(</span>logical/physical<span class="token punctuation">)</span>: <span class="token number">512</span> bytes / <span class="token number">512</span> bytes
+I/O size <span class="token punctuation">(</span>minimum/optimal<span class="token punctuation">)</span>: <span class="token number">512</span> bytes / <span class="token number">512</span> bytes
+Disk label type: dos
+Disk identifier: 0x000b2969
+
+   Device Boot      Start         End      Blocks   Id  System
+/dev/sda1   *        <span class="token number">2048</span>     <span class="token number">2099199</span>     <span class="token number">1048576</span>   <span class="token number">83</span>  Linux
+/dev/sda2         <span class="token number">2099200</span>    <span class="token number">41943039</span>    <span class="token number">19921920</span>   8e  Linux LVM
+
+Disk /dev/sdb: <span class="token number">10.7</span> GB, <span class="token number">10737418240</span> bytes, <span class="token number">20971520</span> sectors
+Units <span class="token operator">=</span> sectors of <span class="token number">1</span> * <span class="token number">512</span> <span class="token operator">=</span> <span class="token number">512</span> bytes
+Sector size <span class="token punctuation">(</span>logical/physical<span class="token punctuation">)</span>: <span class="token number">512</span> bytes / <span class="token number">512</span> bytes
+I/O size <span class="token punctuation">(</span>minimum/optimal<span class="token punctuation">)</span>: <span class="token number">512</span> bytes / <span class="token number">512</span> bytes
+Disk label type: dos
+Disk identifier: 0x271ad2c1
+
+   Device Boot      Start         End      Blocks   Id  System
+/dev/sdb1            <span class="token number">2048</span>    <span class="token number">20971519</span>    <span class="token number">10484736</span>    <span class="token number">5</span>  Extended
+/dev/sdb5            <span class="token number">4096</span>     <span class="token number">4198399</span>     <span class="token number">2097152</span>   <span class="token number">83</span>  Linux
+
+Disk /dev/mapper/centos-root: <span class="token number">18.2</span> GB, <span class="token number">18249416704</span> bytes, <span class="token number">35643392</span> sectors
+Units <span class="token operator">=</span> sectors of <span class="token number">1</span> * <span class="token number">512</span> <span class="token operator">=</span> <span class="token number">512</span> bytes
+Sector size <span class="token punctuation">(</span>logical/physical<span class="token punctuation">)</span>: <span class="token number">512</span> bytes / <span class="token number">512</span> bytes
+I/O size <span class="token punctuation">(</span>minimum/optimal<span class="token punctuation">)</span>: <span class="token number">512</span> bytes / <span class="token number">512</span> bytes
+
+
+Disk /dev/mapper/centos-swap: <span class="token number">2147</span> MB, <span class="token number">2147483648</span> bytes, <span class="token number">4194304</span> sectors
+Units <span class="token operator">=</span> sectors of <span class="token number">1</span> * <span class="token number">512</span> <span class="token operator">=</span> <span class="token number">512</span> bytes
+Sector size <span class="token punctuation">(</span>logical/physical<span class="token punctuation">)</span>: <span class="token number">512</span> bytes / <span class="token number">512</span> bytes
+I/O size <span class="token punctuation">(</span>minimum/optimal<span class="token punctuation">)</span>: <span class="token number">512</span> bytes / <span class="token number">512</span> bytes
+
+<span class="token punctuation">[</span>root@node1 ~<span class="token punctuation">]</span><span class="token comment"># df -h</span>
+Filesystem               Size  Used Avail Use% Mounted on
+/dev/mapper/centos-root   17G  <span class="token number">1</span>.3G   16G   <span class="token number">8</span>% /
+devtmpfs                 478M     <span class="token number">0</span>  478M   <span class="token number">0</span>% /dev
+tmpfs                    489M     <span class="token number">0</span>  489M   <span class="token number">0</span>% /dev/shm
+tmpfs                    489M  <span class="token number">6</span>.7M  482M   <span class="token number">2</span>% /run
+tmpfs                    489M     <span class="token number">0</span>  489M   <span class="token number">0</span>% /sys/fs/cgroup
+/dev/sda1               1014M  143M  872M  <span class="token number">15</span>% /boot
+/dev/sdb5                <span class="token number">2</span>.0G  <span class="token number">6</span>.0M  <span class="token number">1</span>.8G   <span class="token number">1</span>% /test
+tmpfs                     98M     <span class="token number">0</span>   98M   <span class="token number">0</span>% /run/user/0
+<span class="token punctuation">[</span>root@node1 ~<span class="token punctuation">]</span><span class="token comment"># </span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br><span class="line-number">84</span><br><span class="line-number">85</span><br><span class="line-number">86</span><br><span class="line-number">87</span><br><span class="line-number">88</span><br><span class="line-number">89</span><br><span class="line-number">90</span><br><span class="line-number">91</span><br><span class="line-number">92</span><br><span class="line-number">93</span><br><span class="line-number">94</span><br><span class="line-number">95</span><br><span class="line-number">96</span><br><span class="line-number">97</span><br><span class="line-number">98</span><br><span class="line-number">99</span><br><span class="line-number">100</span><br><span class="line-number">101</span><br><span class="line-number">102</span><br><span class="line-number">103</span><br><span class="line-number">104</span><br><span class="line-number">105</span><br><span class="line-number">106</span><br><span class="line-number">107</span><br><span class="line-number">108</span><br><span class="line-number">109</span><br><span class="line-number">110</span><br><span class="line-number">111</span><br><span class="line-number">112</span><br><span class="line-number">113</span><br><span class="line-number">114</span><br><span class="line-number">115</span><br><span class="line-number">116</span><br><span class="line-number">117</span><br><span class="line-number">118</span><br><span class="line-number">119</span><br><span class="line-number">120</span><br><span class="line-number">121</span><br><span class="line-number">122</span><br><span class="line-number">123</span><br><span class="line-number">124</span><br><span class="line-number">125</span><br><span class="line-number">126</span><br><span class="line-number">127</span><br><span class="line-number">128</span><br><span class="line-number">129</span><br><span class="line-number">130</span><br><span class="line-number">131</span><br><span class="line-number">132</span><br><span class="line-number">133</span><br><span class="line-number">134</span><br><span class="line-number">135</span><br><span class="line-number">136</span><br><span class="line-number">137</span><br><span class="line-number">138</span><br><span class="line-number">139</span><br><span class="line-number">140</span><br><span class="line-number">141</span><br><span class="line-number">142</span><br><span class="line-number">143</span><br><span class="line-number">144</span><br><span class="line-number">145</span><br><span class="line-number">146</span><br><span class="line-number">147</span><br><span class="line-number">148</span><br><span class="line-number">149</span><br><span class="line-number">150</span><br><span class="line-number">151</span><br><span class="line-number">152</span><br><span class="line-number">153</span><br><span class="line-number">154</span><br><span class="line-number">155</span><br><span class="line-number">156</span><br><span class="line-number">157</span><br><span class="line-number">158</span><br><span class="line-number">159</span><br><span class="line-number">160</span><br><span class="line-number">161</span><br><span class="line-number">162</span><br><span class="line-number">163</span><br><span class="line-number">164</span><br><span class="line-number">165</span><br><span class="line-number">166</span><br><span class="line-number">167</span><br><span class="line-number">168</span><br><span class="line-number">169</span><br><span class="line-number">170</span><br><span class="line-number">171</span><br><span class="line-number">172</span><br><span class="line-number">173</span><br><span class="line-number">174</span><br><span class="line-number">175</span><br><span class="line-number">176</span><br><span class="line-number">177</span><br><span class="line-number">178</span><br><span class="line-number">179</span><br><span class="line-number">180</span><br><span class="line-number">181</span><br><span class="line-number">182</span><br><span class="line-number">183</span><br><span class="line-number">184</span><br><span class="line-number">185</span><br><span class="line-number">186</span><br><span class="line-number">187</span><br><span class="line-number">188</span><br><span class="line-number">189</span><br><span class="line-number">190</span><br><span class="line-number">191</span><br><span class="line-number">192</span><br><span class="line-number">193</span><br><span class="line-number">194</span><br><span class="line-number">195</span><br><span class="line-number">196</span><br><span class="line-number">197</span><br><span class="line-number">198</span><br><span class="line-number">199</span><br><span class="line-number">200</span><br><span class="line-number">201</span><br><span class="line-number">202</span><br><span class="line-number">203</span><br><span class="line-number">204</span><br><span class="line-number">205</span><br><span class="line-number">206</span><br><span class="line-number">207</span><br><span class="line-number">208</span><br><span class="line-number">209</span><br><span class="line-number">210</span><br><span class="line-number">211</span><br><span class="line-number">212</span><br><span class="line-number">213</span><br><span class="line-number">214</span><br><span class="line-number">215</span><br><span class="line-number">216</span><br><span class="line-number">217</span><br><span class="line-number">218</span><br><span class="line-number">219</span><br><span class="line-number">220</span><br><span class="line-number">221</span><br><span class="line-number">222</span><br><span class="line-number">223</span><br><span class="line-number">224</span><br><span class="line-number">225</span><br><span class="line-number">226</span><br><span class="line-number">227</span><br><span class="line-number">228</span><br><span class="line-number">229</span><br><span class="line-number">230</span><br><span class="line-number">231</span><br><span class="line-number">232</span><br><span class="line-number">233</span><br><span class="line-number">234</span><br><span class="line-number">235</span><br><span class="line-number">236</span><br><span class="line-number">237</span><br><span class="line-number">238</span><br><span class="line-number">239</span><br><span class="line-number">240</span><br><span class="line-number">241</span><br><span class="line-number">242</span><br><span class="line-number">243</span><br><span class="line-number">244</span><br><span class="line-number">245</span><br><span class="line-number">246</span><br><span class="line-number">247</span><br><span class="line-number">248</span><br><span class="line-number">249</span><br><span class="line-number">250</span><br><span class="line-number">251</span><br><span class="line-number">252</span><br><span class="line-number">253</span><br><span class="line-number">254</span><br><span class="line-number">255</span><br><span class="line-number">256</span><br><span class="line-number">257</span><br><span class="line-number">258</span><br><span class="line-number">259</span><br><span class="line-number">260</span><br><span class="line-number">261</span><br><span class="line-number">262</span><br><span class="line-number">263</span><br><span class="line-number">264</span><br><span class="line-number">265</span><br><span class="line-number">266</span><br><span class="line-number">267</span><br><span class="line-number">268</span><br><span class="line-number">269</span><br><span class="line-number">270</span><br><span class="line-number">271</span><br><span class="line-number">272</span><br><span class="line-number">273</span><br><span class="line-number">274</span><br><span class="line-number">275</span><br><span class="line-number">276</span><br><span class="line-number">277</span><br><span class="line-number">278</span><br><span class="line-number">279</span><br><span class="line-number">280</span><br><span class="line-number">281</span><br><span class="line-number">282</span><br><span class="line-number">283</span><br><span class="line-number">284</span><br><span class="line-number">285</span><br><span class="line-number">286</span><br><span class="line-number">287</span><br><span class="line-number">288</span><br><span class="line-number">289</span><br><span class="line-number">290</span><br><span class="line-number">291</span><br><span class="line-number">292</span><br><span class="line-number">293</span><br><span class="line-number">294</span><br><span class="line-number">295</span><br><span class="line-number">296</span><br><span class="line-number">297</span><br><span class="line-number">298</span><br><span class="line-number">299</span><br><span class="line-number">300</span><br><span class="line-number">301</span><br><span class="line-number">302</span><br><span class="line-number">303</span><br><span class="line-number">304</span><br><span class="line-number">305</span><br><span class="line-number">306</span><br><span class="line-number">307</span><br><span class="line-number">308</span><br><span class="line-number">309</span><br><span class="line-number">310</span><br><span class="line-number">311</span><br><span class="line-number">312</span><br><span class="line-number">313</span><br><span class="line-number">314</span><br><span class="line-number">315</span><br><span class="line-number">316</span><br><span class="line-number">317</span><br></div></div><h2 id="_2-创建700m的swap分区-要求开机后自动加载swap分区。"><a href="#_2-创建700m的swap分区-要求开机后自动加载swap分区。" class="header-anchor">#</a> 2  创建700M的swap分区，要求开机后自动加载swap分区。</h2> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code>Connecting to <span class="token number">192.168</span>.230.129:22<span class="token punctuation">..</span>.
+Connection established.
+To escape to <span class="token builtin class-name">local</span> shell, press <span class="token string">'Ctrl+Alt+]'</span><span class="token builtin class-name">.</span>
+
+WARNING<span class="token operator">!</span> The remote SSH server rejected X11 forwarding request.
+Last login: Fri Nov  <span class="token number">7</span> 01:33:06 <span class="token number">2025</span> from <span class="token number">192.168</span>.230.1
+<span class="token punctuation">[</span>root@node1 ~<span class="token punctuation">]</span><span class="token comment"># fdisk -l</span>
+
+Disk /dev/sda: <span class="token number">21.5</span> GB, <span class="token number">21474836480</span> bytes, <span class="token number">41943040</span> sectors
+Units <span class="token operator">=</span> sectors of <span class="token number">1</span> * <span class="token number">512</span> <span class="token operator">=</span> <span class="token number">512</span> bytes
+Sector size <span class="token punctuation">(</span>logical/physical<span class="token punctuation">)</span>: <span class="token number">512</span> bytes / <span class="token number">512</span> bytes
+I/O size <span class="token punctuation">(</span>minimum/optimal<span class="token punctuation">)</span>: <span class="token number">512</span> bytes / <span class="token number">512</span> bytes
+Disk label type: dos
+Disk identifier: 0x000b2969
+
+   Device Boot      Start         End      Blocks   Id  System
+/dev/sda1   *        <span class="token number">2048</span>     <span class="token number">2099199</span>     <span class="token number">1048576</span>   <span class="token number">83</span>  Linux
+/dev/sda2         <span class="token number">2099200</span>    <span class="token number">41943039</span>    <span class="token number">19921920</span>   8e  Linux LVM
+
+Disk /dev/sdb: <span class="token number">10.7</span> GB, <span class="token number">10737418240</span> bytes, <span class="token number">20971520</span> sectors
+Units <span class="token operator">=</span> sectors of <span class="token number">1</span> * <span class="token number">512</span> <span class="token operator">=</span> <span class="token number">512</span> bytes
+Sector size <span class="token punctuation">(</span>logical/physical<span class="token punctuation">)</span>: <span class="token number">512</span> bytes / <span class="token number">512</span> bytes
+I/O size <span class="token punctuation">(</span>minimum/optimal<span class="token punctuation">)</span>: <span class="token number">512</span> bytes / <span class="token number">512</span> bytes
+Disk label type: dos
+Disk identifier: 0x271ad2c1
+
+   Device Boot      Start         End      Blocks   Id  System
+/dev/sdb1            <span class="token number">2048</span>    <span class="token number">20971519</span>    <span class="token number">10484736</span>    <span class="token number">5</span>  Extended
+/dev/sdb5            <span class="token number">4096</span>     <span class="token number">4198399</span>     <span class="token number">2097152</span>   <span class="token number">83</span>  Linux
+
+Disk /dev/sdc: <span class="token number">1073</span> MB, <span class="token number">1073741824</span> bytes, <span class="token number">2097152</span> sectors
+Units <span class="token operator">=</span> sectors of <span class="token number">1</span> * <span class="token number">512</span> <span class="token operator">=</span> <span class="token number">512</span> bytes
+Sector size <span class="token punctuation">(</span>logical/physical<span class="token punctuation">)</span>: <span class="token number">512</span> bytes / <span class="token number">512</span> bytes
+I/O size <span class="token punctuation">(</span>minimum/optimal<span class="token punctuation">)</span>: <span class="token number">512</span> bytes / <span class="token number">512</span> bytes
+
+
+Disk /dev/mapper/centos-root: <span class="token number">18.2</span> GB, <span class="token number">18249416704</span> bytes, <span class="token number">35643392</span> sectors
+Units <span class="token operator">=</span> sectors of <span class="token number">1</span> * <span class="token number">512</span> <span class="token operator">=</span> <span class="token number">512</span> bytes
+Sector size <span class="token punctuation">(</span>logical/physical<span class="token punctuation">)</span>: <span class="token number">512</span> bytes / <span class="token number">512</span> bytes
+I/O size <span class="token punctuation">(</span>minimum/optimal<span class="token punctuation">)</span>: <span class="token number">512</span> bytes / <span class="token number">512</span> bytes
+
+
+Disk /dev/mapper/centos-swap: <span class="token number">2147</span> MB, <span class="token number">2147483648</span> bytes, <span class="token number">4194304</span> sectors
+Units <span class="token operator">=</span> sectors of <span class="token number">1</span> * <span class="token number">512</span> <span class="token operator">=</span> <span class="token number">512</span> bytes
+Sector size <span class="token punctuation">(</span>logical/physical<span class="token punctuation">)</span>: <span class="token number">512</span> bytes / <span class="token number">512</span> bytes
+I/O size <span class="token punctuation">(</span>minimum/optimal<span class="token punctuation">)</span>: <span class="token number">512</span> bytes / <span class="token number">512</span> bytes
+
+<span class="token punctuation">[</span>root@node1 ~<span class="token punctuation">]</span><span class="token comment"># free -h</span>
+              total        used        <span class="token function">free</span>      shared  buff/cache   available
+Mem:           976M        144M        687M        <span class="token number">6</span>.7M        143M        668M
+Swap:          <span class="token number">2</span>.0G          0B        <span class="token number">2</span>.0G
+<span class="token punctuation">[</span>root@node1 ~<span class="token punctuation">]</span><span class="token comment"># fdisk /dev/sdc</span>
+Welcome to <span class="token function">fdisk</span> <span class="token punctuation">(</span>util-linux <span class="token number">2.23</span>.2<span class="token punctuation">)</span>.
+
+Changes will remain <span class="token keyword">in</span> memory only, <span class="token keyword">until</span> you decide to <span class="token function">write</span> them.
+Be careful before using the <span class="token function">write</span> command.
+
+Device does not contain a recognized partition table
+Building a new DOS disklabel with disk identifier 0x163333ec.
+
+Command <span class="token punctuation">(</span>m <span class="token keyword">for</span> <span class="token builtin class-name">help</span><span class="token punctuation">)</span>: n
+Partition type:
+   p   primary <span class="token punctuation">(</span><span class="token number">0</span> primary, <span class="token number">0</span> extended, <span class="token number">4</span> <span class="token function">free</span><span class="token punctuation">)</span>
+   e   extended
+Select <span class="token punctuation">(</span>default p<span class="token punctuation">)</span>: e
+Partition number <span class="token punctuation">(</span><span class="token number">1</span>-4, default <span class="token number">1</span><span class="token punctuation">)</span>: 
+First sector <span class="token punctuation">(</span><span class="token number">2048</span>-2097151, default <span class="token number">2048</span><span class="token punctuation">)</span>: 
+Using default value <span class="token number">2048</span>
+Last sector, +sectors or +size<span class="token punctuation">{</span>K,M,G<span class="token punctuation">}</span> <span class="token punctuation">(</span><span class="token number">2048</span>-2097151, default <span class="token number">2097151</span><span class="token punctuation">)</span>: 
+Using default value <span class="token number">2097151</span>
+Partition <span class="token number">1</span> of <span class="token builtin class-name">type</span> Extended and of size <span class="token number">1023</span> MiB is <span class="token builtin class-name">set</span>
+
+Command <span class="token punctuation">(</span>m <span class="token keyword">for</span> <span class="token builtin class-name">help</span><span class="token punctuation">)</span>: n
+Partition type:
+   p   primary <span class="token punctuation">(</span><span class="token number">0</span> primary, <span class="token number">1</span> extended, <span class="token number">3</span> <span class="token function">free</span><span class="token punctuation">)</span>
+   l   logical <span class="token punctuation">(</span>numbered from <span class="token number">5</span><span class="token punctuation">)</span>
+Select <span class="token punctuation">(</span>default p<span class="token punctuation">)</span>: l
+Adding logical partition <span class="token number">5</span>
+First sector <span class="token punctuation">(</span><span class="token number">4096</span>-2097151, default <span class="token number">4096</span><span class="token punctuation">)</span>: 
+Using default value <span class="token number">4096</span>
+Last sector, +sectors or +size<span class="token punctuation">{</span>K,M,G<span class="token punctuation">}</span> <span class="token punctuation">(</span><span class="token number">4096</span>-2097151, default <span class="token number">2097151</span><span class="token punctuation">)</span>: +700m^H
+Unsupported suffix: <span class="token string">''</span><span class="token builtin class-name">.</span>
+Supported: <span class="token number">10</span>^N: KB <span class="token punctuation">(</span>KiloByte<span class="token punctuation">)</span>, MB <span class="token punctuation">(</span>MegaByte<span class="token punctuation">)</span>, GB <span class="token punctuation">(</span>GigaByte<span class="token punctuation">)</span>
+            <span class="token number">2</span>^N: K  <span class="token punctuation">(</span>KibiByte<span class="token punctuation">)</span>, M  <span class="token punctuation">(</span>MebiByte<span class="token punctuation">)</span>, G  <span class="token punctuation">(</span>GibiByte<span class="token punctuation">)</span>
+Last sector, +sectors or +size<span class="token punctuation">{</span>K,M,G<span class="token punctuation">}</span> <span class="token punctuation">(</span><span class="token number">4096</span>-2097151, default <span class="token number">2097151</span><span class="token punctuation">)</span>: +700M
+Partition <span class="token number">5</span> of <span class="token builtin class-name">type</span> Linux and of size <span class="token number">700</span> MiB is <span class="token builtin class-name">set</span>
+
+Command <span class="token punctuation">(</span>m <span class="token keyword">for</span> <span class="token builtin class-name">help</span><span class="token punctuation">)</span>: n^H
+Partition type:
+   p   primary <span class="token punctuation">(</span><span class="token number">0</span> primary, <span class="token number">1</span> extended, <span class="token number">3</span> <span class="token function">free</span><span class="token punctuation">)</span>
+   l   logical <span class="token punctuation">(</span>numbered from <span class="token number">5</span><span class="token punctuation">)</span>
+Select <span class="token punctuation">(</span>default p<span class="token punctuation">)</span>: l
+Adding logical partition <span class="token number">6</span>
+First sector <span class="token punctuation">(</span><span class="token number">1439744</span>-2097151, default <span class="token number">1439744</span><span class="token punctuation">)</span>: ^C
+<span class="token punctuation">[</span>root@node1 ~<span class="token punctuation">]</span><span class="token comment"># fdisk /dev/sdc</span>
+Welcome to <span class="token function">fdisk</span> <span class="token punctuation">(</span>util-linux <span class="token number">2.23</span>.2<span class="token punctuation">)</span>.
+
+Changes will remain <span class="token keyword">in</span> memory only, <span class="token keyword">until</span> you decide to <span class="token function">write</span> them.
+Be careful before using the <span class="token function">write</span> command.
+
+Device does not contain a recognized partition table
+Building a new DOS disklabel with disk identifier 0x7e5f2e68.
+
+Command <span class="token punctuation">(</span>m <span class="token keyword">for</span> <span class="token builtin class-name">help</span><span class="token punctuation">)</span>: n
+Partition type:
+   p   primary <span class="token punctuation">(</span><span class="token number">0</span> primary, <span class="token number">0</span> extended, <span class="token number">4</span> <span class="token function">free</span><span class="token punctuation">)</span>
+   e   extended
+Select <span class="token punctuation">(</span>default p<span class="token punctuation">)</span>: e
+Partition number <span class="token punctuation">(</span><span class="token number">1</span>-4, default <span class="token number">1</span><span class="token punctuation">)</span>: 
+First sector <span class="token punctuation">(</span><span class="token number">2048</span>-2097151, default <span class="token number">2048</span><span class="token punctuation">)</span>: 
+Using default value <span class="token number">2048</span>
+Last sector, +sectors or +size<span class="token punctuation">{</span>K,M,G<span class="token punctuation">}</span> <span class="token punctuation">(</span><span class="token number">2048</span>-2097151, default <span class="token number">2097151</span><span class="token punctuation">)</span>: 
+Using default value <span class="token number">2097151</span>
+Partition <span class="token number">1</span> of <span class="token builtin class-name">type</span> Extended and of size <span class="token number">1023</span> MiB is <span class="token builtin class-name">set</span>
+
+Command <span class="token punctuation">(</span>m <span class="token keyword">for</span> <span class="token builtin class-name">help</span><span class="token punctuation">)</span>: n
+Partition type:
+   p   primary <span class="token punctuation">(</span><span class="token number">0</span> primary, <span class="token number">1</span> extended, <span class="token number">3</span> <span class="token function">free</span><span class="token punctuation">)</span>
+   l   logical <span class="token punctuation">(</span>numbered from <span class="token number">5</span><span class="token punctuation">)</span>
+Select <span class="token punctuation">(</span>default p<span class="token punctuation">)</span>: l
+Adding logical partition <span class="token number">5</span>
+First sector <span class="token punctuation">(</span><span class="token number">4096</span>-2097151, default <span class="token number">4096</span><span class="token punctuation">)</span>: 
+Using default value <span class="token number">4096</span>
+Last sector, +sectors or +size<span class="token punctuation">{</span>K,M,G<span class="token punctuation">}</span> <span class="token punctuation">(</span><span class="token number">4096</span>-2097151, default <span class="token number">2097151</span><span class="token punctuation">)</span>: +700M
+Partition <span class="token number">5</span> of <span class="token builtin class-name">type</span> Linux and of size <span class="token number">700</span> MiB is <span class="token builtin class-name">set</span>
+
+Command <span class="token punctuation">(</span>m <span class="token keyword">for</span> <span class="token builtin class-name">help</span><span class="token punctuation">)</span>: w
+The partition table has been altered<span class="token operator">!</span>
+
+Calling ioctl<span class="token punctuation">(</span><span class="token punctuation">)</span> to re-read partition table.
+Syncing disks.
+<span class="token punctuation">[</span>root@node1 ~<span class="token punctuation">]</span><span class="token comment"># cat /proc/partitions</span>
+major minor  <span class="token comment">#blocks  name</span>
+
+   <span class="token number">8</span>        <span class="token number">0</span>   <span class="token number">20971520</span> sda
+   <span class="token number">8</span>        <span class="token number">1</span>    <span class="token number">1048576</span> sda1
+   <span class="token number">8</span>        <span class="token number">2</span>   <span class="token number">19921920</span> sda2
+   <span class="token number">8</span>       <span class="token number">16</span>   <span class="token number">10485760</span> sdb
+   <span class="token number">8</span>       <span class="token number">17</span>          <span class="token number">1</span> sdb1
+   <span class="token number">8</span>       <span class="token number">21</span>    <span class="token number">2097152</span> sdb5
+   <span class="token number">8</span>       <span class="token number">32</span>    <span class="token number">1048576</span> sdc
+   <span class="token number">8</span>       <span class="token number">33</span>          <span class="token number">1</span> sdc1
+   <span class="token number">8</span>       <span class="token number">37</span>     <span class="token number">716800</span> sdc5
+  <span class="token number">11</span>        <span class="token number">0</span>    <span class="token number">4415488</span> sr0
+ <span class="token number">253</span>        <span class="token number">0</span>   <span class="token number">17821696</span> dm-0
+ <span class="token number">253</span>        <span class="token number">1</span>    <span class="token number">2097152</span> dm-1
+<span class="token punctuation">[</span>root@node1 ~<span class="token punctuation">]</span><span class="token comment">#  mkswap /dev/sdc5</span>
+Setting up swapspace version <span class="token number">1</span>, size <span class="token operator">=</span> <span class="token number">716796</span> KiB
+no label, <span class="token assign-left variable">UUID</span><span class="token operator">=</span>c28503a4-5595-4345-a4cb-8f2ac21d7593
+<span class="token punctuation">[</span>root@node1 ~<span class="token punctuation">]</span><span class="token comment"># swapon /dev/sdc5</span>
+<span class="token punctuation">[</span>root@node1 ~<span class="token punctuation">]</span><span class="token comment"># free -h</span>
+              total        used        <span class="token function">free</span>      shared  buff/cache   available
+Mem:           976M        144M        687M        <span class="token number">6</span>.7M        143M        668M
+Swap:          <span class="token number">2</span>.7G          0B        <span class="token number">2</span>.7G
+<span class="token punctuation">[</span>root@node1 ~<span class="token punctuation">]</span><span class="token comment"># blkid</span>
+/dev/sda1: <span class="token assign-left variable">UUID</span><span class="token operator">=</span><span class="token string">&quot;ce7c0b95-27ac-401a-80d2-a1376f6295aa&quot;</span> <span class="token assign-left variable">TYPE</span><span class="token operator">=</span><span class="token string">&quot;xfs&quot;</span> 
+/dev/sda2: <span class="token assign-left variable">UUID</span><span class="token operator">=</span><span class="token string">&quot;BYXMQQ-cBqc-TWj3-mQDS-vHaX-PRqH-oBTHMf&quot;</span> <span class="token assign-left variable">TYPE</span><span class="token operator">=</span><span class="token string">&quot;LVM2_member&quot;</span> 
+/dev/sdb5: <span class="token assign-left variable">UUID</span><span class="token operator">=</span><span class="token string">&quot;6cd87bf0-a537-4c8b-92ca-b63a5eb83b07&quot;</span> <span class="token assign-left variable">TYPE</span><span class="token operator">=</span><span class="token string">&quot;ext4&quot;</span> 
+/dev/sdc5: <span class="token assign-left variable">UUID</span><span class="token operator">=</span><span class="token string">&quot;c28503a4-5595-4345-a4cb-8f2ac21d7593&quot;</span> <span class="token assign-left variable">TYPE</span><span class="token operator">=</span><span class="token string">&quot;swap&quot;</span> 
+/dev/sr0: <span class="token assign-left variable">UUID</span><span class="token operator">=</span><span class="token string">&quot;2017-09-06-10-51-00-00&quot;</span> <span class="token assign-left variable">LABEL</span><span class="token operator">=</span><span class="token string">&quot;CentOS 7 x86_64&quot;</span> <span class="token assign-left variable">TYPE</span><span class="token operator">=</span><span class="token string">&quot;iso9660&quot;</span> <span class="token assign-left variable">PTTYPE</span><span class="token operator">=</span><span class="token string">&quot;dos&quot;</span> 
+/dev/mapper/centos-root: <span class="token assign-left variable">UUID</span><span class="token operator">=</span><span class="token string">&quot;e338ad7a-e18f-4eb5-9364-b020195186c1&quot;</span> <span class="token assign-left variable">TYPE</span><span class="token operator">=</span><span class="token string">&quot;xfs&quot;</span> 
+/dev/mapper/centos-swap: <span class="token assign-left variable">UUID</span><span class="token operator">=</span><span class="token string">&quot;e79e9f21-ef0f-44b9-8ad5-0fe05d8cfdea&quot;</span> <span class="token assign-left variable">TYPE</span><span class="token operator">=</span><span class="token string">&quot;swap&quot;</span> 
+<span class="token punctuation">[</span>root@node1 ~<span class="token punctuation">]</span><span class="token comment"># vim /etc/fstab</span>
+<span class="token punctuation">[</span>root@node1 ~<span class="token punctuation">]</span><span class="token comment"># mount -a</span>
+<span class="token punctuation">[</span>root@node1 ~<span class="token punctuation">]</span><span class="token comment"># free -h</span>
+              total        used        <span class="token function">free</span>      shared  buff/cache   available
+Mem:           976M        145M        678M        <span class="token number">6</span>.7M        152M        663M
+Swap:          <span class="token number">2</span>.7G          0B        <span class="token number">2</span>.7G
+<span class="token punctuation">[</span>root@node1 ~<span class="token punctuation">]</span><span class="token comment"># swapon -s</span>
+Filename				Type		Size	Used	Priority
+/dev/dm-1                              	partition	<span class="token number">2097148</span>	<span class="token number">0</span>	<span class="token parameter variable">-1</span>
+/dev/sdc5                              	partition	<span class="token number">716796</span>	<span class="token number">0</span>	<span class="token parameter variable">-2</span>
+<span class="token punctuation">[</span>root@node1 ~<span class="token punctuation">]</span><span class="token comment"># </span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br><span class="line-number">84</span><br><span class="line-number">85</span><br><span class="line-number">86</span><br><span class="line-number">87</span><br><span class="line-number">88</span><br><span class="line-number">89</span><br><span class="line-number">90</span><br><span class="line-number">91</span><br><span class="line-number">92</span><br><span class="line-number">93</span><br><span class="line-number">94</span><br><span class="line-number">95</span><br><span class="line-number">96</span><br><span class="line-number">97</span><br><span class="line-number">98</span><br><span class="line-number">99</span><br><span class="line-number">100</span><br><span class="line-number">101</span><br><span class="line-number">102</span><br><span class="line-number">103</span><br><span class="line-number">104</span><br><span class="line-number">105</span><br><span class="line-number">106</span><br><span class="line-number">107</span><br><span class="line-number">108</span><br><span class="line-number">109</span><br><span class="line-number">110</span><br><span class="line-number">111</span><br><span class="line-number">112</span><br><span class="line-number">113</span><br><span class="line-number">114</span><br><span class="line-number">115</span><br><span class="line-number">116</span><br><span class="line-number">117</span><br><span class="line-number">118</span><br><span class="line-number">119</span><br><span class="line-number">120</span><br><span class="line-number">121</span><br><span class="line-number">122</span><br><span class="line-number">123</span><br><span class="line-number">124</span><br><span class="line-number">125</span><br><span class="line-number">126</span><br><span class="line-number">127</span><br><span class="line-number">128</span><br><span class="line-number">129</span><br><span class="line-number">130</span><br><span class="line-number">131</span><br><span class="line-number">132</span><br><span class="line-number">133</span><br><span class="line-number">134</span><br><span class="line-number">135</span><br><span class="line-number">136</span><br><span class="line-number">137</span><br><span class="line-number">138</span><br><span class="line-number">139</span><br><span class="line-number">140</span><br><span class="line-number">141</span><br><span class="line-number">142</span><br><span class="line-number">143</span><br><span class="line-number">144</span><br><span class="line-number">145</span><br><span class="line-number">146</span><br><span class="line-number">147</span><br><span class="line-number">148</span><br><span class="line-number">149</span><br><span class="line-number">150</span><br><span class="line-number">151</span><br><span class="line-number">152</span><br><span class="line-number">153</span><br><span class="line-number">154</span><br><span class="line-number">155</span><br><span class="line-number">156</span><br><span class="line-number">157</span><br><span class="line-number">158</span><br><span class="line-number">159</span><br><span class="line-number">160</span><br><span class="line-number">161</span><br><span class="line-number">162</span><br><span class="line-number">163</span><br><span class="line-number">164</span><br><span class="line-number">165</span><br><span class="line-number">166</span><br><span class="line-number">167</span><br><span class="line-number">168</span><br><span class="line-number">169</span><br><span class="line-number">170</span><br><span class="line-number">171</span><br><span class="line-number">172</span><br><span class="line-number">173</span><br><span class="line-number">174</span><br></div></div><h2 id="_3-开两台系统-完成免密登录。"><a href="#_3-开两台系统-完成免密登录。" class="header-anchor">#</a> 3  开两台系统，完成免密登录。</h2> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token punctuation">[</span>root@node1 ~<span class="token punctuation">]</span><span class="token comment"># </span>
+<span class="token punctuation">[</span>root@node1 ~<span class="token punctuation">]</span><span class="token comment"># </span>
+<span class="token punctuation">[</span>root@node1 ~<span class="token punctuation">]</span><span class="token comment"># ssh-keygen</span>
+Generating public/private rsa key pair.
+Enter <span class="token function">file</span> <span class="token keyword">in</span> <span class="token function">which</span> to save the key <span class="token punctuation">(</span>/root/.ssh/id_rsa<span class="token punctuation">)</span>: 
+Created directory <span class="token string">'/root/.ssh'</span><span class="token builtin class-name">.</span>
+Enter passphrase <span class="token punctuation">(</span>empty <span class="token keyword">for</span> no passphrase<span class="token punctuation">)</span>: 
+Enter same passphrase again: 
+Your identification has been saved <span class="token keyword">in</span> /root/.ssh/id_rsa.
+Your public key has been saved <span class="token keyword">in</span> /root/.ssh/id_rsa.pub.
+The key fingerprint is:
+SHA256:pv+ybv2u5/jzCgDsucMcEJnYLTesjdT3xoAggUnz2Vc root@node1
+The key<span class="token string">'s randomart image is:
++---[RSA 2048]----+
+|.=o+oB . E       |
+|o +.OoB +        |
+|   +.Bo+ +       |
+|    oooo  +      |
+|      + S.       |
+|     o = .       |
+|      *  ..      |
+|       oo .oo    |
+|       o+++B*+.  |
++----[SHA256]-----+
+[root@node1 ~]# cd /
+[root@node1 /]# ll
+total 24
+lrwxrwxrwx.   1 root root    7 Nov  2 03:33 bin -&gt; usr/bin
+dr-xr-xr-x.   5 root root 4096 Nov  2 03:40 boot
+drwxr-xr-x.  20 root root 3400 Nov  7 01:49 dev
+drwxr-xr-x.  75 root root 8192 Nov  7 01:53 etc
+drwxr-xr-x.   3 root root   16 Nov  2 03:37 home
+lrwxrwxrwx.   1 root root    7 Nov  2 03:33 lib -&gt; usr/lib
+lrwxrwxrwx.   1 root root    9 Nov  2 03:33 lib64 -&gt; usr/lib64
+drwxr-xr-x.   2 root root    6 Nov  5  2016 media
+drwxr-xr-x.   2 root root    6 Nov  5  2016 mnt
+drwxr-xr-x.   2 root root    6 Nov  5  2016 opt
+dr-xr-xr-x. 167 root root    0 Nov  7 01:45 proc
+dr-xr-x---.   4 root root  175 Nov  7 02:03 root
+drwxr-xr-x.  25 root root  740 Nov  7 01:51 run
+lrwxrwxrwx.   1 root root    8 Nov  2 03:33 sbin -&gt; usr/sbin
+drwxr-xr-x.   2 root root    6 Nov  5  2016 srv
+dr-xr-xr-x.  13 root root    0 Nov  7 01:46 sys
+drwxr-xr-x.   3 root root 4096 Nov  7 01:28 test
+drwxrwxrwt.  10 root root 4096 Nov  7 01:46 tmp
+drwxr-xr-x.  13 root root  155 Nov  2 03:33 usr
+drwxr-xr-x.  19 root root  267 Nov  2 03:39 var
+[root@node1 /]# cd 
+[root@node1 ~]# ssh-copy-id -i /root/.ssh/id_rsa.pub root@192.168.230.131
+/usr/bin/ssh-copy-id: INFO: Source of key(s) to be installed: &quot;/root/.ssh/id_rsa.pub&quot;
+The authenticity of host '</span><span class="token number">192.168</span>.230.131 <span class="token punctuation">(</span><span class="token number">192.168</span>.230.131<span class="token punctuation">)</span><span class="token string">' can'</span>t be established.
+ECDSA key fingerprint is SHA256:mhvyLjhZcqqK5UYxJDP4tK8my9VZFLsp/b6o1L1F5EU.
+ECDSA key fingerprint is MD5:44:80:1f:d8:b4:13:a8:6f:f9:99:19:29:55:5e:b0:26.
+Are you sure you want to <span class="token builtin class-name">continue</span> connecting <span class="token punctuation">(</span>yes/no<span class="token punctuation">)</span>? <span class="token function">yes</span>
+/usr/bin/ssh-copy-id: INFO: attempting to log <span class="token keyword">in</span> with the new key<span class="token punctuation">(</span>s<span class="token punctuation">)</span>, to filter out any that are already installed
+/usr/bin/ssh-copy-id: INFO: <span class="token number">1</span> key<span class="token punctuation">(</span>s<span class="token punctuation">)</span> remain to be installed -- <span class="token keyword">if</span> you are prompted now it is to <span class="token function">install</span> the new keys
+root@192.168.230.131<span class="token string">'s password: 
+
+Number of key(s) added: 1
+
+Now try logging into the machine, with:   &quot;ssh '</span>root@192.168.230.131'&quot;
+and check to <span class="token function">make</span> sure that only the key<span class="token punctuation">(</span>s<span class="token punctuation">)</span> you wanted were added.
+
+<span class="token punctuation">[</span>root@node1 ~<span class="token punctuation">]</span><span class="token comment"># ssh root@192.168.230.131</span>
+Last login: Fri Nov  <span class="token number">7</span> 02:01:36 <span class="token number">2025</span> from <span class="token number">192.168</span>.230.1
+<span class="token punctuation">[</span>root@node3 ~<span class="token punctuation">]</span><span class="token comment"># exit</span>
+<span class="token builtin class-name">logout</span>
+Connection to <span class="token number">192.168</span>.230.131 closed.
+<span class="token punctuation">[</span>root@node1 ~<span class="token punctuation">]</span><span class="token comment"># </span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br></div></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/documents/study_notes/ops/linux/basic/03.html" class="prev">
+        防火墙
+      </a></span> <span class="next"><a href="/documents/study_notes/ops/linux/basic/05.html">
+        日志
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><!----></div></div>
+    <script src="/documents/assets/js/app.fb883db5.js" defer></script><script src="/documents/assets/js/2.e8bd7cca.js" defer></script><script src="/documents/assets/js/1.40c64e62.js" defer></script><script src="/documents/assets/js/52.252c85c7.js" defer></script>
+  </body>
+</html>

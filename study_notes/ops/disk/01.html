@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>磁盘管理 | Documents</title>
+    <meta name="generator" content="VuePress 1.9.10">
+    <link rel="icon" href="/documents/img/logo.png">
+    <link rel="stylesheet" href="/documents/css/style.css">
+    <meta name="description" content="开发运维技术文档">
+    <meta name="keywords" content="Chinaguocg,Documents,DevOps,IT技术,文档博客,开发,运维,技术文档">
+    
+    <link rel="preload" href="/documents/assets/css/0.styles.b20f9c26.css" as="style"><link rel="preload" href="/documents/assets/js/app.fb883db5.js" as="script"><link rel="preload" href="/documents/assets/js/2.e8bd7cca.js" as="script"><link rel="preload" href="/documents/assets/js/1.40c64e62.js" as="script"><link rel="preload" href="/documents/assets/js/46.ebf00827.js" as="script"><link rel="prefetch" href="/documents/assets/js/10.b63d61ac.js"><link rel="prefetch" href="/documents/assets/js/11.23025be0.js"><link rel="prefetch" href="/documents/assets/js/12.9a27d63b.js"><link rel="prefetch" href="/documents/assets/js/13.e3dba2b7.js"><link rel="prefetch" href="/documents/assets/js/14.6d3d6a88.js"><link rel="prefetch" href="/documents/assets/js/15.30a4286e.js"><link rel="prefetch" href="/documents/assets/js/16.e4505b74.js"><link rel="prefetch" href="/documents/assets/js/17.255ebcfb.js"><link rel="prefetch" href="/documents/assets/js/18.a4c4f660.js"><link rel="prefetch" href="/documents/assets/js/19.2c33fa19.js"><link rel="prefetch" href="/documents/assets/js/20.fc453a90.js"><link rel="prefetch" href="/documents/assets/js/21.c52a45d9.js"><link rel="prefetch" href="/documents/assets/js/22.9b18a918.js"><link rel="prefetch" href="/documents/assets/js/23.8f24947d.js"><link rel="prefetch" href="/documents/assets/js/24.b943b232.js"><link rel="prefetch" href="/documents/assets/js/25.680bc1c4.js"><link rel="prefetch" href="/documents/assets/js/26.e3c64576.js"><link rel="prefetch" href="/documents/assets/js/27.df32cf0b.js"><link rel="prefetch" href="/documents/assets/js/28.32ebad55.js"><link rel="prefetch" href="/documents/assets/js/29.53cf73a3.js"><link rel="prefetch" href="/documents/assets/js/3.1bdb9756.js"><link rel="prefetch" href="/documents/assets/js/30.25959590.js"><link rel="prefetch" href="/documents/assets/js/31.63a77baa.js"><link rel="prefetch" href="/documents/assets/js/32.3c2bc0ff.js"><link rel="prefetch" href="/documents/assets/js/33.55b9dd1d.js"><link rel="prefetch" href="/documents/assets/js/34.72d68f93.js"><link rel="prefetch" href="/documents/assets/js/35.2f997e59.js"><link rel="prefetch" href="/documents/assets/js/36.c4dbef59.js"><link rel="prefetch" href="/documents/assets/js/37.de8e788f.js"><link rel="prefetch" href="/documents/assets/js/38.fa86566e.js"><link rel="prefetch" href="/documents/assets/js/39.ce80e044.js"><link rel="prefetch" href="/documents/assets/js/4.ce792ed0.js"><link rel="prefetch" href="/documents/assets/js/40.92c3a9f7.js"><link rel="prefetch" href="/documents/assets/js/41.9f09b338.js"><link rel="prefetch" href="/documents/assets/js/42.da4ce53b.js"><link rel="prefetch" href="/documents/assets/js/43.7630c48b.js"><link rel="prefetch" href="/documents/assets/js/44.101ff796.js"><link rel="prefetch" href="/documents/assets/js/45.cc48ac11.js"><link rel="prefetch" href="/documents/assets/js/47.df6f26e6.js"><link rel="prefetch" href="/documents/assets/js/48.0d75469e.js"><link rel="prefetch" href="/documents/assets/js/49.90ac9cb8.js"><link rel="prefetch" href="/documents/assets/js/5.d956834b.js"><link rel="prefetch" href="/documents/assets/js/50.a0bed255.js"><link rel="prefetch" href="/documents/assets/js/51.4259bd8b.js"><link rel="prefetch" href="/documents/assets/js/52.252c85c7.js"><link rel="prefetch" href="/documents/assets/js/53.a9ff8c3b.js"><link rel="prefetch" href="/documents/assets/js/54.c459c6d5.js"><link rel="prefetch" href="/documents/assets/js/55.846ad4da.js"><link rel="prefetch" href="/documents/assets/js/56.e95fa2b3.js"><link rel="prefetch" href="/documents/assets/js/57.b504be7f.js"><link rel="prefetch" href="/documents/assets/js/58.f8ef198d.js"><link rel="prefetch" href="/documents/assets/js/59.2d6ebab4.js"><link rel="prefetch" href="/documents/assets/js/6.118e9bad.js"><link rel="prefetch" href="/documents/assets/js/60.df495fd1.js"><link rel="prefetch" href="/documents/assets/js/61.a70a93c1.js"><link rel="prefetch" href="/documents/assets/js/62.342024d3.js"><link rel="prefetch" href="/documents/assets/js/63.192c720b.js"><link rel="prefetch" href="/documents/assets/js/64.98cbd251.js"><link rel="prefetch" href="/documents/assets/js/65.7553bc57.js"><link rel="prefetch" href="/documents/assets/js/66.503bab25.js"><link rel="prefetch" href="/documents/assets/js/67.41b52c62.js"><link rel="prefetch" href="/documents/assets/js/68.cbb4ad29.js"><link rel="prefetch" href="/documents/assets/js/7.a506e926.js"><link rel="prefetch" href="/documents/assets/js/vendors~docsearch.271bc088.js">
+    <link rel="stylesheet" href="/documents/assets/css/0.styles.b20f9c26.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/documents/" class="home-link router-link-active"><!----> <span class="site-name">Documents</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/documents/guide/" class="nav-link">
+  指南
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="文档" class="dropdown-title"><span class="title">文档</span> <span class="arrow down"></span></button> <button type="button" aria-label="文档" class="mobile-dropdown-title"><span class="title">文档</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/documents/study_notes/ops/" class="nav-link router-link-active">
+  运维
+</a></li><li class="dropdown-item"><!----> <a href="/documents/study_notes/dev/" class="nav-link">
+  开发
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="资源共享" class="dropdown-title"><span class="title">资源共享</span> <span class="arrow down"></span></button> <button type="button" aria-label="资源共享" class="mobile-dropdown-title"><span class="title">资源共享</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          在线工具
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://shields.io/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  图标徽章
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://tinypng.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  图片压缩
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://bigjpg.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  图片放大
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="http://cron.qqe2.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  CRON 表达式
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://tableconvert.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  MD 表格生成
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          在线服务
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.bootcdn.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Boot CDN
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          镜像资源
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://msdn.itellyou.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  MSDN
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://mirrors.tuna.tsinghua.edu.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  清华开源软件镜像站
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://developer.aliyun.com/mirror/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  阿里开源镜像站
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          网址导航
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.w3school.com.cn/index.html" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  W3School
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://www.runoob.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  菜鸟教程
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="http://www.h-ui.net/site.shtml" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  IT网址导航
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li></ul></div></div> <a href="https://github.com/chinaguocg/documents" target="_blank" rel="noopener noreferrer" class="repo-link">
+    查看源码
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/documents/guide/" class="nav-link">
+  指南
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="文档" class="dropdown-title"><span class="title">文档</span> <span class="arrow down"></span></button> <button type="button" aria-label="文档" class="mobile-dropdown-title"><span class="title">文档</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/documents/study_notes/ops/" class="nav-link router-link-active">
+  运维
+</a></li><li class="dropdown-item"><!----> <a href="/documents/study_notes/dev/" class="nav-link">
+  开发
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="资源共享" class="dropdown-title"><span class="title">资源共享</span> <span class="arrow down"></span></button> <button type="button" aria-label="资源共享" class="mobile-dropdown-title"><span class="title">资源共享</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          在线工具
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://shields.io/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  图标徽章
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://tinypng.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  图片压缩
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://bigjpg.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  图片放大
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="http://cron.qqe2.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  CRON 表达式
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://tableconvert.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  MD 表格生成
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          在线服务
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.bootcdn.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Boot CDN
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          镜像资源
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://msdn.itellyou.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  MSDN
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://mirrors.tuna.tsinghua.edu.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  清华开源软件镜像站
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://developer.aliyun.com/mirror/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  阿里开源镜像站
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          网址导航
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.w3school.com.cn/index.html" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  W3School
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://www.runoob.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  菜鸟教程
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="http://www.h-ui.net/site.shtml" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  IT网址导航
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li></ul></div></div> <a href="https://github.com/chinaguocg/documents" target="_blank" rel="noopener noreferrer" class="repo-link">
+    查看源码
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Linux</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Ansible</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>Disk</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/documents/study_notes/ops/disk/01.html" aria-current="page" class="active sidebar-link">磁盘管理</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Nginx</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Docker</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="磁盘管理"><a href="#磁盘管理" class="header-anchor">#</a> 磁盘管理</h1> <p>磁盘管理非常重要：涉及存储。</p> <p>对于磁盘的操作要谨慎！！！</p> <p>1.硬盘分类</p> <p><code>HDD</code></p> <p><code>SSD</code></p> <p>扇区是硬盘中最小存储单元，默认是512字节(byte)，1字节=8位(bit)</p> <p>关于存储大小：T&lt;E&lt;Z&lt;Y</p> <p>机械硬盘慢就是因为有寻道时间。</p> <p>顺序读写（连续读写）快，磁头一把转过来。</p> <p>随机读写慢。</p> <p>性能调优：不要着急处理请求（滞后-磁头稍后调），合并扇区后一块查询出来相近的数据。</p> <p>块设备 block</p> <p>字符串设备</p> <p>队列</p> <p>2.<code>Linux</code>对硬盘接口的命名</p> <p><code>USB</code>、<code>SATA</code>、<code>SCSI</code>:<code>/dev/sd</code></p> <p><code>IDE</code>:<code>/dev/hd</code></p> <p><code>KVM</code>: <code>/dev/vd</code></p> <p><code>NVME</code>:<code>/dev/nvmeXX</code></p> <p>3.分区方案</p> <p><code>MBR</code>（master boot record - 主引导记录) 格式：</p> <p>446 <code>bootloader</code>+64分区记录表+2结束位</p> <p>每个<code>MBR</code>格式的硬盘，最大支持4个主分区</p> <p>每个P分区占用16个字节的分区记录表</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>                                    |----------扩展分区---------|
+MBR分区表 | 主分区C | 主分区D | 主分区E |逻辑分区F|逻辑分区G|逻辑分区H|
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p><code>GPT</code>格式：</p> <p>它最大支持128个分区。</p> <p>关于常见的文件系统格式：</p> <p>U盘默认<code>FAT32</code>, 拷贝不能超过<code>4T</code>以上的原因就在于 不同的<strong>文件系统管理数据</strong>的方式不同，因此需要格式化为<code>NTFS</code>格式</p> <p>Windows下默认<code>NTFS</code>格式</p> <p>关于Linux下的文件系统格式：</p> <p><code>XFS</code> 处理大数据，不易处理碎片文件</p> <p><code>EXT4</code> 适合普通场景</p> <p>需要根据适用场景选择</p> <p>详情参考红帽官方文档 https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/10#Storage</p> <p>专业称谓：根文件系统而不是根分区、<code>dev</code>文件系统而不是<code>dev</code>分区</p> <p>4.命令行管理磁盘存储</p> <p>步骤</p> <ul><li><p>a.分区</p> <p><code>fdisk -l</code>查看所有块设备和分区情况</p></li> <li><p>b.格式化</p> <p>格式化：创建文件系统的过程。</p> <p>没有格式化的，叫做裸设备</p> <p>一旦格式化的，就是块设备</p> <p>块设备其实是站在文件系统角度来考虑的。</p> <p>一个块对应8个扇区（4k）</p> <p>名词：<code>sectors</code>——扇区</p> <p><code>mkfs.格式 设备名称</code></p></li> <li><p>c.挂载</p> <p><u>为什么要挂载？</u></p> <p><u>挂载的意义在于将设备加入到这个文件系统树当中</u></p> <blockquote><p>临时挂载</p> <p>mkdir  /挂载点</p> <p>mount  /dev/设备   /挂载点</p> <p>df  -h  查看正在备挂载中的文件系统信息</p></blockquote> <p><code>df</code> 命令只能看正在挂载的信息</p> <blockquote><p>持久挂载</p> <p>修改文件启动表</p> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token punctuation">[</span>root@bogon ~<span class="token punctuation">]</span><span class="token comment"># vim /etc/fstab</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token comment"># 设备名   挂载点  文件系统格式  defaults        0 0</span>
+<span class="token comment"># 后面的 defaults 0 0 这三项都一样，可以照抄</span>
+
+/dev/sdb1             /hahaha     ext4             defaults        <span class="token number">0</span> <span class="token number">0</span>
+
+<span class="token assign-left variable">UUID</span><span class="token operator">=</span>8cabbd4c-3b96-4efc-8733-426417f25623             /hahahaha     ext4             defaults        <span class="token number">0</span> <span class="token number">0</span>
+
+<span class="token comment">##### [root@bogon ~]# blkid </span>
+<span class="token comment">##### 使用blkid命令获取查看uuid</span>
+<span class="token comment">##### 当我们对一个设备格式化以后就会分配一个uuid</span>
+<span class="token comment">##### [root@bogon ~]# lsblk -fs</span>
+<span class="token comment">##### 使用lsblk -fs命令也可以获取设备的uuid</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br></div></div><div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token comment">##### mount -a刷新</span>
+
+<span class="token punctuation">[</span>root@bogon ~<span class="token punctuation">]</span><span class="token comment"># mount -a</span>
+<span class="token punctuation">[</span>root@bogon ~<span class="token punctuation">]</span><span class="token comment"># cat /proc/partitions </span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div></blockquote></li></ul> <p>完整示例</p> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code>Xshell <span class="token number">5</span> <span class="token punctuation">(</span>Build 0964<span class="token punctuation">)</span>
+Copyright <span class="token punctuation">(</span>c<span class="token punctuation">)</span> <span class="token number">2002</span>-2016 NetSarang Computer, Inc. All rights reserved.
+
+Type `help<span class="token string">' to learn how to use Xshell prompt.
+[d:\~]$ 
+
+Connecting to 192.168.72.130:22...
+Connection established.
+To escape to local shell, press '</span>Ctrl+Alt+<span class="token punctuation">]</span><span class="token string">'.
+
+Last login: Thu Oct 30 11:22:23 2025
+[root@bogon ~]# cat /proc/partitions
+major minor  #blocks  name
+
+   8        0   20971520 sda
+   8        1    1048576 sda1
+   8        2   19921920 sda2
+   8       16    5242880 sdb
+  11        0    4415488 sr0
+ 253        0   17821696 dm-0
+ 253        1    2097152 dm-1
+[root@bogon ~]# fdisk -l
+
+磁盘 /dev/sda：21.5 GB, 21474836480 字节，41943040 个扇区
+Units = 扇区 of 1 * 512 = 512 bytes
+扇区大小(逻辑/物理)：512 字节 / 512 字节
+I/O 大小(最小/最佳)：512 字节 / 512 字节
+磁盘标签类型：dos
+磁盘标识符：0x000e720d
+
+   设备 Boot      Start         End      Blocks   Id  System
+/dev/sda1   *        2048     2099199     1048576   83  Linux
+/dev/sda2         2099200    41943039    19921920   8e  Linux LVM
+
+磁盘 /dev/sdb：5368 MB, 5368709120 字节，10485760 个扇区
+Units = 扇区 of 1 * 512 = 512 bytes
+扇区大小(逻辑/物理)：512 字节 / 512 字节
+I/O 大小(最小/最佳)：512 字节 / 512 字节
+
+
+磁盘 /dev/mapper/centos-root：18.2 GB, 18249416704 字节，35643392 个扇区
+Units = 扇区 of 1 * 512 = 512 bytes
+扇区大小(逻辑/物理)：512 字节 / 512 字节
+I/O 大小(最小/最佳)：512 字节 / 512 字节
+
+
+磁盘 /dev/mapper/centos-swap：2147 MB, 2147483648 字节，4194304 个扇区
+Units = 扇区 of 1 * 512 = 512 bytes
+扇区大小(逻辑/物理)：512 字节 / 512 字节
+I/O 大小(最小/最佳)：512 字节 / 512 字节
+
+[root@bogon ~]# fdisk /dev/sdb
+欢迎使用 fdisk (util-linux 2.23.2)。
+
+更改将停留在内存中，直到您决定将更改写入磁盘。
+使用写入命令前请三思。
+
+Device does not contain a recognized partition table
+使用磁盘标识符 0x8ea19066 创建新的 DOS 磁盘标签。
+
+命令(输入 m 获取帮助)：m
+命令操作
+   a   toggle a bootable flag
+   b   edit bsd disklabel
+   c   toggle the dos compatibility flag
+   d   delete a partition
+   g   create a new empty GPT partition table
+   G   create an IRIX (SGI) partition table
+   l   list known partition types
+   m   print this menu
+   n   add a new partition
+   o   create a new empty DOS partition table
+   p   print the partition table
+   q   quit without saving changes
+   s   create a new empty Sun disklabel
+   t   change a partition'</span>s system <span class="token function">id</span>
+   u   change display/entry <span class="token function">units</span>
+   <span class="token function">v</span>   verify the partition table
+   w   <span class="token function">write</span> table to disk and <span class="token builtin class-name">exit</span>
+   x   extra functionality <span class="token punctuation">(</span>experts only<span class="token punctuation">)</span>
+
+命令<span class="token punctuation">(</span>输入 m 获取帮助<span class="token punctuation">)</span>：n
+Partition type:
+   p   primary <span class="token punctuation">(</span><span class="token number">0</span> primary, <span class="token number">0</span> extended, <span class="token number">4</span> <span class="token function">free</span><span class="token punctuation">)</span>
+   e   extended
+Select <span class="token punctuation">(</span>default p<span class="token punctuation">)</span>: p
+分区号 <span class="token punctuation">(</span><span class="token number">1</span>-4，默认 <span class="token number">1</span><span class="token punctuation">)</span>：1
+起始 扇区 <span class="token punctuation">(</span><span class="token number">2048</span>-10485759，默认为 <span class="token number">2048</span><span class="token punctuation">)</span>：
+将使用默认值 <span class="token number">2048</span>
+Last 扇区, +扇区 or +size<span class="token punctuation">{</span>K,M,G<span class="token punctuation">}</span> <span class="token punctuation">(</span><span class="token number">2048</span>-10485759，默认为 <span class="token number">10485759</span><span class="token punctuation">)</span>：+1G
+分区 <span class="token number">1</span> 已设置为 Linux 类型，大小设为 <span class="token number">1</span> GiB
+
+命令<span class="token punctuation">(</span>输入 m 获取帮助<span class="token punctuation">)</span>：p
+
+磁盘 /dev/sdb：5368 MB, <span class="token number">5368709120</span> 字节，10485760 个扇区
+Units <span class="token operator">=</span> 扇区 of <span class="token number">1</span> * <span class="token number">512</span> <span class="token operator">=</span> <span class="token number">512</span> bytes
+扇区大小<span class="token punctuation">(</span>逻辑/物理<span class="token punctuation">)</span>：512 字节 / <span class="token number">512</span> 字节
+I/O 大小<span class="token punctuation">(</span>最小/最佳<span class="token punctuation">)</span>：512 字节 / <span class="token number">512</span> 字节
+磁盘标签类型：dos
+磁盘标识符：0x8ea19066
+
+   设备 Boot      Start         End      Blocks   Id  System
+/dev/sdb1            <span class="token number">2048</span>     <span class="token number">2099199</span>     <span class="token number">1048576</span>   <span class="token number">83</span>  Linux
+
+命令<span class="token punctuation">(</span>输入 m 获取帮助<span class="token punctuation">)</span>：w
+The partition table has been altered<span class="token operator">!</span>
+
+Calling ioctl<span class="token punctuation">(</span><span class="token punctuation">)</span> to re-read partition table.
+正在同步磁盘。
+<span class="token punctuation">[</span>root@bogon ~<span class="token punctuation">]</span><span class="token comment"># mkfs.</span>
+mkfs.btrfs   mkfs.ext2    mkfs.ext4    mkfs.minix   mkfs.vfat    
+mkfs.cramfs  mkfs.ext3    mkfs.fat     mkfs.msdos   mkfs.xfs     
+<span class="token punctuation">[</span>root@bogon ~<span class="token punctuation">]</span><span class="token comment"># mkfs.ext4 /dev/sdb1</span>
+<span class="token function">mke2fs</span> <span class="token number">1.42</span>.9 <span class="token punctuation">(</span><span class="token number">28</span>-Dec-2013<span class="token punctuation">)</span>
+文件系统标签<span class="token operator">=</span>
+OS type: Linux
+块大小<span class="token operator">=</span><span class="token number">4096</span> <span class="token punctuation">(</span>log<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">)</span>
+分块大小<span class="token operator">=</span><span class="token number">4096</span> <span class="token punctuation">(</span>log<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">)</span>
+<span class="token assign-left variable">Stride</span><span class="token operator">=</span><span class="token number">0</span> blocks, Stripe <span class="token assign-left variable">width</span><span class="token operator">=</span><span class="token number">0</span> blocks
+<span class="token number">65536</span> inodes, <span class="token number">262144</span> blocks
+<span class="token number">13107</span> blocks <span class="token punctuation">(</span><span class="token number">5.00</span>%<span class="token punctuation">)</span> reserved <span class="token keyword">for</span> the super user
+第一个数据块<span class="token operator">=</span><span class="token number">0</span>
+Maximum filesystem <span class="token assign-left variable">blocks</span><span class="token operator">=</span><span class="token number">268435456</span>
+<span class="token number">8</span> block <span class="token function">groups</span>
+<span class="token number">32768</span> blocks per group, <span class="token number">32768</span> fragments per group
+<span class="token number">8192</span> inodes per group
+Superblock backups stored on blocks: 
+	<span class="token number">32768</span>, <span class="token number">98304</span>, <span class="token number">163840</span>, <span class="token number">229376</span>
+
+Allocating group tables: 完成                            
+正在写入inode表: 完成                            
+Creating journal <span class="token punctuation">(</span><span class="token number">8192</span> blocks<span class="token punctuation">)</span>: 完成
+Writing superblocks and filesystem accounting information: 完成
+
+<span class="token punctuation">[</span>root@bogon ~<span class="token punctuation">]</span><span class="token comment"># mkdir /hahaha</span>
+<span class="token punctuation">[</span>root@bogon ~<span class="token punctuation">]</span><span class="token comment"># mount /dev/sdb1 /hahaha</span>
+<span class="token punctuation">[</span>root@bogon ~<span class="token punctuation">]</span><span class="token comment"># df   -h </span>
+文件系统                 容量  已用  可用 已用% 挂载点
+/dev/mapper/centos-root   17G   15G  <span class="token number">2</span>.6G   <span class="token number">85</span>% /
+devtmpfs                 897M     <span class="token number">0</span>  897M    <span class="token number">0</span>% /dev
+tmpfs                    912M     <span class="token number">0</span>  912M    <span class="token number">0</span>% /dev/shm
+tmpfs                    912M  <span class="token number">9</span>.0M  903M    <span class="token number">1</span>% /run
+tmpfs                    912M     <span class="token number">0</span>  912M    <span class="token number">0</span>% /sys/fs/cgroup
+/dev/sda1               1014M  179M  836M   <span class="token number">18</span>% /boot
+tmpfs                    183M   24K  183M    <span class="token number">1</span>% /run/user/0
+/dev/sr0                 <span class="token number">4</span>.3G  <span class="token number">4</span>.3G     <span class="token number">0</span>  <span class="token number">100</span>% /run/media/root/CentOS <span class="token number">7</span> x86_64
+/dev/sdb1                976M  <span class="token number">2</span>.6M  907M    <span class="token number">1</span>% /hahaha
+<span class="token punctuation">[</span>root@bogon ~<span class="token punctuation">]</span><span class="token comment"># cd /haha</span>
+-bash: cd: /haha: 没有那个文件或目录
+<span class="token punctuation">[</span>root@bogon ~<span class="token punctuation">]</span><span class="token comment"># cd /hahaha</span>
+<span class="token punctuation">[</span>root@bogon hahaha<span class="token punctuation">]</span><span class="token comment"># touch 123</span>
+<span class="token punctuation">[</span>root@bogon hahaha<span class="token punctuation">]</span><span class="token comment"># ll</span>
+总用量 <span class="token number">16</span>
+-rw-r--r--. <span class="token number">1</span> root root     <span class="token number">0</span> <span class="token number">10</span>月 <span class="token number">30</span> <span class="token number">11</span>:46 <span class="token number">123</span>
+drwx------. <span class="token number">2</span> root root <span class="token number">16384</span> <span class="token number">10</span>月 <span class="token number">30</span> <span class="token number">11</span>:43 lost+found
+<span class="token punctuation">[</span>root@bogon hahaha<span class="token punctuation">]</span><span class="token comment"># ls</span>
+<span class="token number">123</span>  lost+found
+<span class="token punctuation">[</span>root@bogon hahaha<span class="token punctuation">]</span><span class="token comment"># df -Th</span>
+文件系统                类型      容量  已用  可用 已用% 挂载点
+/dev/mapper/centos-root xfs        17G   15G  <span class="token number">2</span>.6G   <span class="token number">85</span>% /
+devtmpfs                devtmpfs  897M     <span class="token number">0</span>  897M    <span class="token number">0</span>% /dev
+tmpfs                   tmpfs     912M     <span class="token number">0</span>  912M    <span class="token number">0</span>% /dev/shm
+tmpfs                   tmpfs     912M  <span class="token number">9</span>.0M  903M    <span class="token number">1</span>% /run
+tmpfs                   tmpfs     912M     <span class="token number">0</span>  912M    <span class="token number">0</span>% /sys/fs/cgroup
+/dev/sda1               xfs      1014M  179M  836M   <span class="token number">18</span>% /boot
+tmpfs                   tmpfs     183M   28K  183M    <span class="token number">1</span>% /run/user/0
+/dev/sr0                iso9660   <span class="token number">4</span>.3G  <span class="token number">4</span>.3G     <span class="token number">0</span>  <span class="token number">100</span>% /run/media/root/CentOS <span class="token number">7</span> x86_64
+/dev/sdb1               ext4      976M  <span class="token number">2</span>.6M  907M    <span class="token number">1</span>% /hahaha
+<span class="token punctuation">[</span>root@bogon hahaha<span class="token punctuation">]</span><span class="token comment"># </span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br><span class="line-number">84</span><br><span class="line-number">85</span><br><span class="line-number">86</span><br><span class="line-number">87</span><br><span class="line-number">88</span><br><span class="line-number">89</span><br><span class="line-number">90</span><br><span class="line-number">91</span><br><span class="line-number">92</span><br><span class="line-number">93</span><br><span class="line-number">94</span><br><span class="line-number">95</span><br><span class="line-number">96</span><br><span class="line-number">97</span><br><span class="line-number">98</span><br><span class="line-number">99</span><br><span class="line-number">100</span><br><span class="line-number">101</span><br><span class="line-number">102</span><br><span class="line-number">103</span><br><span class="line-number">104</span><br><span class="line-number">105</span><br><span class="line-number">106</span><br><span class="line-number">107</span><br><span class="line-number">108</span><br><span class="line-number">109</span><br><span class="line-number">110</span><br><span class="line-number">111</span><br><span class="line-number">112</span><br><span class="line-number">113</span><br><span class="line-number">114</span><br><span class="line-number">115</span><br><span class="line-number">116</span><br><span class="line-number">117</span><br><span class="line-number">118</span><br><span class="line-number">119</span><br><span class="line-number">120</span><br><span class="line-number">121</span><br><span class="line-number">122</span><br><span class="line-number">123</span><br><span class="line-number">124</span><br><span class="line-number">125</span><br><span class="line-number">126</span><br><span class="line-number">127</span><br><span class="line-number">128</span><br><span class="line-number">129</span><br><span class="line-number">130</span><br><span class="line-number">131</span><br><span class="line-number">132</span><br><span class="line-number">133</span><br><span class="line-number">134</span><br><span class="line-number">135</span><br><span class="line-number">136</span><br><span class="line-number">137</span><br><span class="line-number">138</span><br><span class="line-number">139</span><br><span class="line-number">140</span><br><span class="line-number">141</span><br><span class="line-number">142</span><br><span class="line-number">143</span><br><span class="line-number">144</span><br><span class="line-number">145</span><br><span class="line-number">146</span><br><span class="line-number">147</span><br><span class="line-number">148</span><br><span class="line-number">149</span><br><span class="line-number">150</span><br><span class="line-number">151</span><br><span class="line-number">152</span><br><span class="line-number">153</span><br><span class="line-number">154</span><br><span class="line-number">155</span><br><span class="line-number">156</span><br><span class="line-number">157</span><br><span class="line-number">158</span><br><span class="line-number">159</span><br><span class="line-number">160</span><br><span class="line-number">161</span><br><span class="line-number">162</span><br><span class="line-number">163</span><br><span class="line-number">164</span><br><span class="line-number">165</span><br><span class="line-number">166</span><br><span class="line-number">167</span><br><span class="line-number">168</span><br><span class="line-number">169</span><br><span class="line-number">170</span><br></div></div><p>上面是临时挂载</p> <p>得需要永久挂载</p> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code>Xshell <span class="token number">5</span> <span class="token punctuation">(</span>Build 0964<span class="token punctuation">)</span>
+Copyright <span class="token punctuation">(</span>c<span class="token punctuation">)</span> <span class="token number">2002</span>-2016 NetSarang Computer, Inc. All rights reserved.
+
+Type <span class="token variable"><span class="token variable">`</span><span class="token builtin class-name">help</span><span class="token string">' to learn how to use Xshell prompt.
+[d:\~]$ 
+
+Connecting to 192.168.72.130:22...
+Connection established.
+To escape to local shell, press '</span>Ctrl+Alt+<span class="token punctuation">]</span><span class="token string">'.
+
+Last login: Thu Oct 30 14:20:45 2025
+[root@bogon ~]# df -h
+文件系统                 容量  已用  可用 已用% 挂载点
+/dev/mapper/centos-root   17G   15G  2.6G   85% /
+devtmpfs                 897M     0  897M    0% /dev
+tmpfs                    912M     0  912M    0% /dev/shm
+tmpfs                    912M  9.1M  903M    1% /run
+tmpfs                    912M     0  912M    0% /sys/fs/cgroup
+/dev/sda1               1014M  179M  836M   18% /boot
+tmpfs                    183M  4.0K  183M    1% /run/user/42
+tmpfs                    183M   20K  183M    1% /run/user/0
+/dev/sr0                 4.3G  4.3G     0  100% /run/media/root/CentOS 7 x86_64
+[root@bogon ~]# vim /etc/fstab
+[root@bogon ~]# cat /etc/fstab
+
+#
+# /etc/fstab
+# Created by anaconda on Fri Oct 24 18:22:56 2025
+#
+# Accessible filesystems, by reference, are maintained under '</span>/dev/disk'
+<span class="token comment"># See man pages fstab(5), findfs(8), mount(8) and/or blkid(8) for more info</span>
+<span class="token comment">#</span>
+/dev/mapper/centos-root /                       xfs     defaults        <span class="token number">0</span> <span class="token number">0</span>
+<span class="token assign-left variable">UUID</span><span class="token operator">=</span>676ed796-023c-4200-880e-a476bb69df97 /boot                   xfs     defaults        <span class="token number">0</span> <span class="token number">0</span>
+/dev/mapper/centos-swap swap                    swap    defaults        <span class="token number">0</span> <span class="token number">0</span>
+
+/dev/sdb1             /hahaha     ext4             defaults        <span class="token number">0</span> <span class="token number">0</span>
+
+<span class="token punctuation">[</span>root@bogon ~<span class="token punctuation">]</span><span class="token comment"># mount -a</span>
+<span class="token punctuation">[</span>root@bogon ~<span class="token punctuation">]</span><span class="token comment"># df -h</span>
+文件系统                 容量  已用  可用 已用% 挂载点
+/dev/mapper/centos-root   17G   15G  <span class="token number">2</span>.6G   <span class="token number">85</span>% /
+devtmpfs                 897M     <span class="token number">0</span>  897M    <span class="token number">0</span>% /dev
+tmpfs                    912M     <span class="token number">0</span>  912M    <span class="token number">0</span>% /dev/shm
+tmpfs                    912M  <span class="token number">9</span>.1M  903M    <span class="token number">1</span>% /run
+tmpfs                    912M     <span class="token number">0</span>  912M    <span class="token number">0</span>% /sys/fs/cgroup
+/dev/sda1               1014M  179M  836M   <span class="token number">18</span>% /boot
+tmpfs                    183M  <span class="token number">4</span>.0K  183M    <span class="token number">1</span>% /run/user/42
+tmpfs                    183M   24K  183M    <span class="token number">1</span>% /run/user/0
+/dev/sr0                 <span class="token number">4</span>.3G  <span class="token number">4</span>.3G     <span class="token number">0</span>  <span class="token number">100</span>% /run/media/root/CentOS <span class="token number">7</span> x86_64
+/dev/sdb1                976M  <span class="token number">2</span>.6M  907M    <span class="token number">1</span>% /hahaha
+<span class="token punctuation">[</span>root@bogon ~<span class="token punctuation">]</span><span class="token comment"># init 6</span>
+
+Connection closed by foreign host.
+
+Disconnected from remote host<span class="token punctuation">(</span>磁盘挂载<span class="token punctuation">)</span> at <span class="token number">14</span>:45:35.
+
+Type <span class="token variable">`</span></span>help' to learn how to use Xshell prompt.
+<span class="token punctuation">[</span>d:<span class="token punctuation">\</span>~<span class="token punctuation">]</span>$ 
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br></div></div><p>关于扩展分区和逻辑分区</p> <p>EX: 为系统增加2G的空间，要求开机后自动挂载到/hahahaha/目录下，文件系统类型为ext4</p> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token punctuation">[</span>root@bogon ~<span class="token punctuation">]</span><span class="token comment"># fdisk /dev/sdb</span>
+欢迎使用 <span class="token function">fdisk</span> <span class="token punctuation">(</span>util-linux <span class="token number">2.23</span>.2<span class="token punctuation">)</span>。
+
+更改将停留在内存中，直到您决定将更改写入磁盘。
+使用写入命令前请三思。
+
+
+命令<span class="token punctuation">(</span>输入 m 获取帮助<span class="token punctuation">)</span>：n
+Partition type:
+   p   primary <span class="token punctuation">(</span><span class="token number">1</span> primary, <span class="token number">0</span> extended, <span class="token number">3</span> <span class="token function">free</span><span class="token punctuation">)</span>
+   e   extended
+Select <span class="token punctuation">(</span>default p<span class="token punctuation">)</span>: e
+分区号 <span class="token punctuation">(</span><span class="token number">2</span>-4，默认 <span class="token number">2</span><span class="token punctuation">)</span>：4
+起始 扇区 <span class="token punctuation">(</span><span class="token number">2099200</span>-10485759，默认为 <span class="token number">2099200</span><span class="token punctuation">)</span>：
+将使用默认值 <span class="token number">2099200</span>
+Last 扇区, +扇区 or +size<span class="token punctuation">{</span>K,M,G<span class="token punctuation">}</span> <span class="token punctuation">(</span><span class="token number">2099200</span>-10485759，默认为 <span class="token number">10485759</span><span class="token punctuation">)</span>：
+将使用默认值 <span class="token number">10485759</span>
+分区 <span class="token number">4</span> 已设置为 Extended 类型，大小设为 <span class="token number">4</span> GiB
+
+命令<span class="token punctuation">(</span>输入 m 获取帮助<span class="token punctuation">)</span>：n
+Partition type:
+   p   primary <span class="token punctuation">(</span><span class="token number">1</span> primary, <span class="token number">1</span> extended, <span class="token number">2</span> <span class="token function">free</span><span class="token punctuation">)</span>
+   l   logical <span class="token punctuation">(</span>numbered from <span class="token number">5</span><span class="token punctuation">)</span>
+Select <span class="token punctuation">(</span>default p<span class="token punctuation">)</span>: l
+添加逻辑分区 <span class="token number">5</span>
+起始 扇区 <span class="token punctuation">(</span><span class="token number">2101248</span>-10485759，默认为 <span class="token number">2101248</span><span class="token punctuation">)</span>：
+将使用默认值 <span class="token number">2101248</span>
+Last 扇区, +扇区 or +size<span class="token punctuation">{</span>K,M,G<span class="token punctuation">}</span> <span class="token punctuation">(</span><span class="token number">2101248</span>-10485759，默认为 <span class="token number">10485759</span><span class="token punctuation">)</span>：+2G
+分区 <span class="token number">5</span> 已设置为 Linux 类型，大小设为 <span class="token number">2</span> GiB
+
+命令<span class="token punctuation">(</span>输入 m 获取帮助<span class="token punctuation">)</span>：w
+The partition table has been altered<span class="token operator">!</span>
+
+Calling ioctl<span class="token punctuation">(</span><span class="token punctuation">)</span> to re-read partition table.
+
+WARNING: Re-reading the partition table failed with error <span class="token number">16</span>: 设备或资源忙.
+The kernel still uses the old table. The new table will be used at
+the next <span class="token function">reboot</span> or after you run partprobe<span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">)</span> or kpartx<span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">)</span>
+正在同步磁盘。
+<span class="token punctuation">[</span>root@bogon ~<span class="token punctuation">]</span><span class="token comment"># partprobe</span>
+Warning: 无法以读写方式打开 /dev/sr0 <span class="token punctuation">(</span>只读文件系统<span class="token punctuation">)</span>。/dev/sr0 已按照只读方式打开。
+<span class="token punctuation">[</span>root@bogon ~<span class="token punctuation">]</span><span class="token comment"># mkfs.</span>
+mkfs.btrfs   mkfs.ext2    mkfs.ext4    mkfs.minix   mkfs.vfat    
+mkfs.cramfs  mkfs.ext3    mkfs.fat     mkfs.msdos   mkfs.xfs     
+<span class="token punctuation">[</span>root@bogon ~<span class="token punctuation">]</span><span class="token comment"># mkfs.ext4 /dev/sdb5</span>
+<span class="token function">mke2fs</span> <span class="token number">1.42</span>.9 <span class="token punctuation">(</span><span class="token number">28</span>-Dec-2013<span class="token punctuation">)</span>
+文件系统标签<span class="token operator">=</span>
+OS type: Linux
+块大小<span class="token operator">=</span><span class="token number">4096</span> <span class="token punctuation">(</span>log<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">)</span>
+分块大小<span class="token operator">=</span><span class="token number">4096</span> <span class="token punctuation">(</span>log<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">)</span>
+<span class="token assign-left variable">Stride</span><span class="token operator">=</span><span class="token number">0</span> blocks, Stripe <span class="token assign-left variable">width</span><span class="token operator">=</span><span class="token number">0</span> blocks
+<span class="token number">131072</span> inodes, <span class="token number">524288</span> blocks
+<span class="token number">26214</span> blocks <span class="token punctuation">(</span><span class="token number">5.00</span>%<span class="token punctuation">)</span> reserved <span class="token keyword">for</span> the super user
+第一个数据块<span class="token operator">=</span><span class="token number">0</span>
+Maximum filesystem <span class="token assign-left variable">blocks</span><span class="token operator">=</span><span class="token number">536870912</span>
+<span class="token number">16</span> block <span class="token function">groups</span>
+<span class="token number">32768</span> blocks per group, <span class="token number">32768</span> fragments per group
+<span class="token number">8192</span> inodes per group
+Superblock backups stored on blocks: 
+	<span class="token number">32768</span>, <span class="token number">98304</span>, <span class="token number">163840</span>, <span class="token number">229376</span>, <span class="token number">294912</span>
+
+Allocating group tables: 完成                            
+正在写入inode表: 完成                            
+Creating journal <span class="token punctuation">(</span><span class="token number">16384</span> blocks<span class="token punctuation">)</span>: 完成
+Writing superblocks and filesystem accounting information: 完成 
+
+<span class="token punctuation">[</span>root@bogon ~<span class="token punctuation">]</span><span class="token comment"># cd /</span>
+<span class="token punctuation">[</span>root@bogon /<span class="token punctuation">]</span><span class="token comment"># mkdir hahahaha</span>
+<span class="token punctuation">[</span>root@bogon /<span class="token punctuation">]</span><span class="token comment"># ls</span>
+bin   dev  hahaha    home  lib64  mnt  proc  run   srv  tmp  var
+boot  etc  hahahaha  lib   media  opt  root  sbin  sys  usr
+
+<span class="token punctuation">[</span>root@bogon ~<span class="token punctuation">]</span><span class="token comment"># vim /etc/fstab</span>
+<span class="token punctuation">[</span>root@bogon ~<span class="token punctuation">]</span><span class="token comment"># cat  /etc/fstab</span>
+
+<span class="token comment">#</span>
+<span class="token comment"># /etc/fstab</span>
+<span class="token comment"># Created by anaconda on Fri Oct 24 18:22:56 2025</span>
+<span class="token comment">#</span>
+<span class="token comment"># Accessible filesystems, by reference, are maintained under '/dev/disk'</span>
+<span class="token comment"># See man pages fstab(5), findfs(8), mount(8) and/or blkid(8) for more info</span>
+<span class="token comment">#</span>
+/dev/mapper/centos-root /                       xfs     defaults        <span class="token number">0</span> <span class="token number">0</span>
+<span class="token assign-left variable">UUID</span><span class="token operator">=</span>676ed796-023c-4200-880e-a476bb69df97 /boot                   xfs     defaults        <span class="token number">0</span> <span class="token number">0</span>
+/dev/mapper/centos-swap swap                    swap    defaults        <span class="token number">0</span> <span class="token number">0</span>
+
+/dev/sdb1             /hahaha     ext4             defaults        <span class="token number">0</span> <span class="token number">0</span>
+
+/dev/sdb5             /hahahaha     ext4             defaults        <span class="token number">0</span> <span class="token number">0</span>
+
+<span class="token punctuation">[</span>root@bogon ~<span class="token punctuation">]</span><span class="token comment"># mount -a</span>
+<span class="token punctuation">[</span>root@bogon ~<span class="token punctuation">]</span><span class="token comment"># cat /proc/partitions </span>
+major minor  <span class="token comment">#blocks  name</span>
+
+   <span class="token number">8</span>        <span class="token number">0</span>   <span class="token number">20971520</span> sda
+   <span class="token number">8</span>        <span class="token number">1</span>    <span class="token number">1048576</span> sda1
+   <span class="token number">8</span>        <span class="token number">2</span>   <span class="token number">19921920</span> sda2
+   <span class="token number">8</span>       <span class="token number">16</span>    <span class="token number">5242880</span> sdb
+   <span class="token number">8</span>       <span class="token number">17</span>    <span class="token number">1048576</span> sdb1
+   <span class="token number">8</span>       <span class="token number">20</span>          <span class="token number">0</span> sdb4
+   <span class="token number">8</span>       <span class="token number">21</span>    <span class="token number">2097152</span> sdb5
+  <span class="token number">11</span>        <span class="token number">0</span>    <span class="token number">4415488</span> sr0
+ <span class="token number">253</span>        <span class="token number">0</span>   <span class="token number">17821696</span> dm-0
+ <span class="token number">253</span>        <span class="token number">1</span>    <span class="token number">2097152</span> dm-1
+<span class="token punctuation">[</span>root@bogon ~<span class="token punctuation">]</span><span class="token comment"># </span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br><span class="line-number">84</span><br><span class="line-number">85</span><br><span class="line-number">86</span><br><span class="line-number">87</span><br><span class="line-number">88</span><br><span class="line-number">89</span><br><span class="line-number">90</span><br><span class="line-number">91</span><br><span class="line-number">92</span><br><span class="line-number">93</span><br><span class="line-number">94</span><br><span class="line-number">95</span><br><span class="line-number">96</span><br><span class="line-number">97</span><br><span class="line-number">98</span><br><span class="line-number">99</span><br><span class="line-number">100</span><br><span class="line-number">101</span><br><span class="line-number">102</span><br><span class="line-number">103</span><br><span class="line-number">104</span><br><span class="line-number">105</span><br></div></div><p><u>做集群时，做共享存储时，可能会出现盘符漂移的情况，这种情况下必用<code>UUID</code>号</u></p> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token punctuation">[</span>root@bogon ~<span class="token punctuation">]</span><span class="token comment"># blkid</span>
+/dev/mapper/centos-root: <span class="token assign-left variable">UUID</span><span class="token operator">=</span><span class="token string">&quot;051ba4cb-eff7-45ef-a4f9-05e124b5dbf5&quot;</span> <span class="token assign-left variable">TYPE</span><span class="token operator">=</span><span class="token string">&quot;xfs&quot;</span> 
+/dev/sda2: <span class="token assign-left variable">UUID</span><span class="token operator">=</span><span class="token string">&quot;6b1pHT-CkP1-wecN-WgLT-UZt0-aBFL-hfAuNR&quot;</span> <span class="token assign-left variable">TYPE</span><span class="token operator">=</span><span class="token string">&quot;LVM2_member&quot;</span> 
+/dev/sda1: <span class="token assign-left variable">UUID</span><span class="token operator">=</span><span class="token string">&quot;676ed796-023c-4200-880e-a476bb69df97&quot;</span> <span class="token assign-left variable">TYPE</span><span class="token operator">=</span><span class="token string">&quot;xfs&quot;</span> 
+/dev/mapper/centos-swap: <span class="token assign-left variable">UUID</span><span class="token operator">=</span><span class="token string">&quot;3d7a8449-a8c2-4397-8702-a9347273ba09&quot;</span> <span class="token assign-left variable">TYPE</span><span class="token operator">=</span><span class="token string">&quot;swap&quot;</span> 
+/dev/sdb1: <span class="token assign-left variable">UUID</span><span class="token operator">=</span><span class="token string">&quot;c6b93704-22f6-4a5b-9036-b9c60fc52502&quot;</span> <span class="token assign-left variable">TYPE</span><span class="token operator">=</span><span class="token string">&quot;ext4&quot;</span> 
+/dev/sdb5: <span class="token assign-left variable">UUID</span><span class="token operator">=</span><span class="token string">&quot;8cabbd4c-3b96-4efc-8733-426417f25623&quot;</span> <span class="token assign-left variable">TYPE</span><span class="token operator">=</span><span class="token string">&quot;ext4&quot;</span> 
+/dev/sr0: <span class="token assign-left variable">UUID</span><span class="token operator">=</span><span class="token string">&quot;2017-09-06-10-51-00-00&quot;</span> <span class="token assign-left variable">LABEL</span><span class="token operator">=</span><span class="token string">&quot;CentOS 7 x86_64&quot;</span> <span class="token assign-left variable">TYPE</span><span class="token operator">=</span><span class="token string">&quot;iso9660&quot;</span> <span class="token assign-left variable">PTTYPE</span><span class="token operator">=</span><span class="token string">&quot;dos&quot;</span> 
+<span class="token punctuation">[</span>root@bogon ~<span class="token punctuation">]</span><span class="token comment"># </span>
+<span class="token punctuation">[</span>root@bogon ~<span class="token punctuation">]</span><span class="token comment"># vim /etc/fstab</span>
+<span class="token punctuation">[</span>root@bogon ~<span class="token punctuation">]</span><span class="token comment"># vim /etc/fstab</span>
+<span class="token punctuation">[</span>root@bogon ~<span class="token punctuation">]</span><span class="token comment"># cat /etc/fstab</span>
+
+<span class="token comment">#</span>
+<span class="token comment"># /etc/fstab</span>
+<span class="token comment"># Created by anaconda on Fri Oct 24 18:22:56 2025</span>
+<span class="token comment">#</span>
+<span class="token comment"># Accessible filesystems, by reference, are maintained under '/dev/disk'</span>
+<span class="token comment"># See man pages fstab(5), findfs(8), mount(8) and/or blkid(8) for more info</span>
+<span class="token comment">#</span>
+/dev/mapper/centos-root /                       xfs     defaults        <span class="token number">0</span> <span class="token number">0</span>
+<span class="token assign-left variable">UUID</span><span class="token operator">=</span>676ed796-023c-4200-880e-a476bb69df97 /boot                   xfs     defaults        <span class="token number">0</span> <span class="token number">0</span>
+/dev/mapper/centos-swap swap                    swap    defaults        <span class="token number">0</span> <span class="token number">0</span>
+
+/dev/sdb1             /hahaha     ext4             defaults        <span class="token number">0</span> <span class="token number">0</span>
+
+<span class="token assign-left variable">UUID</span><span class="token operator">=</span>8cabbd4c-3b96-4efc-8733-426417f25623             /hahahaha     ext4             defaults        <span class="token number">0</span> <span class="token number">0</span>
+
+<span class="token punctuation">[</span>root@bogon ~<span class="token punctuation">]</span><span class="token comment"># mount -a</span>
+<span class="token punctuation">[</span>root@bogon ~<span class="token punctuation">]</span><span class="token comment"># cat /proc/partitions </span>
+major minor  <span class="token comment">#blocks  name</span>
+
+   <span class="token number">8</span>        <span class="token number">0</span>   <span class="token number">20971520</span> sda
+   <span class="token number">8</span>        <span class="token number">1</span>    <span class="token number">1048576</span> sda1
+   <span class="token number">8</span>        <span class="token number">2</span>   <span class="token number">19921920</span> sda2
+   <span class="token number">8</span>       <span class="token number">16</span>    <span class="token number">5242880</span> sdb
+   <span class="token number">8</span>       <span class="token number">17</span>    <span class="token number">1048576</span> sdb1
+   <span class="token number">8</span>       <span class="token number">20</span>          <span class="token number">1</span> sdb4
+   <span class="token number">8</span>       <span class="token number">21</span>    <span class="token number">2097152</span> sdb5
+  <span class="token number">11</span>        <span class="token number">0</span>    <span class="token number">4415488</span> sr0
+ <span class="token number">253</span>        <span class="token number">0</span>   <span class="token number">17821696</span> dm-0
+ <span class="token number">253</span>        <span class="token number">1</span>    <span class="token number">2097152</span> dm-1
+<span class="token punctuation">[</span>root@bogon ~<span class="token punctuation">]</span><span class="token comment"># </span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br></div></div><p>重启后查看</p> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token punctuation">[</span>root@bogon ~<span class="token punctuation">]</span><span class="token comment"># fdisk -l</span>
+
+磁盘 /dev/sda：21.5 GB, <span class="token number">21474836480</span> 字节，41943040 个扇区
+Units <span class="token operator">=</span> 扇区 of <span class="token number">1</span> * <span class="token number">512</span> <span class="token operator">=</span> <span class="token number">512</span> bytes
+扇区大小<span class="token punctuation">(</span>逻辑/物理<span class="token punctuation">)</span>：512 字节 / <span class="token number">512</span> 字节
+I/O 大小<span class="token punctuation">(</span>最小/最佳<span class="token punctuation">)</span>：512 字节 / <span class="token number">512</span> 字节
+磁盘标签类型：dos
+磁盘标识符：0x000e720d
+
+   设备 Boot      Start         End      Blocks   Id  System
+/dev/sda1   *        <span class="token number">2048</span>     <span class="token number">2099199</span>     <span class="token number">1048576</span>   <span class="token number">83</span>  Linux
+/dev/sda2         <span class="token number">2099200</span>    <span class="token number">41943039</span>    <span class="token number">19921920</span>   8e  Linux LVM
+
+磁盘 /dev/sdb：5368 MB, <span class="token number">5368709120</span> 字节，10485760 个扇区
+Units <span class="token operator">=</span> 扇区 of <span class="token number">1</span> * <span class="token number">512</span> <span class="token operator">=</span> <span class="token number">512</span> bytes
+扇区大小<span class="token punctuation">(</span>逻辑/物理<span class="token punctuation">)</span>：512 字节 / <span class="token number">512</span> 字节
+I/O 大小<span class="token punctuation">(</span>最小/最佳<span class="token punctuation">)</span>：512 字节 / <span class="token number">512</span> 字节
+磁盘标签类型：dos
+磁盘标识符：0x8ea19066
+
+   设备 Boot      Start         End      Blocks   Id  System
+/dev/sdb1            <span class="token number">2048</span>     <span class="token number">2099199</span>     <span class="token number">1048576</span>   <span class="token number">83</span>  Linux
+/dev/sdb4         <span class="token number">2099200</span>    <span class="token number">10485759</span>     <span class="token number">4193280</span>    <span class="token number">5</span>  Extended
+/dev/sdb5         <span class="token number">2101248</span>     <span class="token number">6295551</span>     <span class="token number">2097152</span>   <span class="token number">83</span>  Linux
+
+磁盘 /dev/mapper/centos-root：18.2 GB, <span class="token number">18249416704</span> 字节，35643392 个扇区
+Units <span class="token operator">=</span> 扇区 of <span class="token number">1</span> * <span class="token number">512</span> <span class="token operator">=</span> <span class="token number">512</span> bytes
+扇区大小<span class="token punctuation">(</span>逻辑/物理<span class="token punctuation">)</span>：512 字节 / <span class="token number">512</span> 字节
+I/O 大小<span class="token punctuation">(</span>最小/最佳<span class="token punctuation">)</span>：512 字节 / <span class="token number">512</span> 字节
+
+
+磁盘 /dev/mapper/centos-swap：2147 MB, <span class="token number">2147483648</span> 字节，4194304 个扇区
+Units <span class="token operator">=</span> 扇区 of <span class="token number">1</span> * <span class="token number">512</span> <span class="token operator">=</span> <span class="token number">512</span> bytes
+扇区大小<span class="token punctuation">(</span>逻辑/物理<span class="token punctuation">)</span>：512 字节 / <span class="token number">512</span> 字节
+I/O 大小<span class="token punctuation">(</span>最小/最佳<span class="token punctuation">)</span>：512 字节 / <span class="token number">512</span> 字节
+
+<span class="token punctuation">[</span>root@bogon ~<span class="token punctuation">]</span><span class="token comment"># df -h</span>
+文件系统                 容量  已用  可用 已用% 挂载点
+/dev/mapper/centos-root   17G   15G  <span class="token number">2</span>.6G   <span class="token number">85</span>% /
+devtmpfs                 897M     <span class="token number">0</span>  897M    <span class="token number">0</span>% /dev
+tmpfs                    912M     <span class="token number">0</span>  912M    <span class="token number">0</span>% /dev/shm
+tmpfs                    912M  <span class="token number">9</span>.1M  903M    <span class="token number">1</span>% /run
+tmpfs                    912M     <span class="token number">0</span>  912M    <span class="token number">0</span>% /sys/fs/cgroup
+/dev/sdb5                <span class="token number">2</span>.0G  <span class="token number">6</span>.0M  <span class="token number">1</span>.8G    <span class="token number">1</span>% /hahahaha
+/dev/sdb1                976M  <span class="token number">2</span>.6M  907M    <span class="token number">1</span>% /hahaha
+/dev/sda1               1014M  179M  836M   <span class="token number">18</span>% /boot
+tmpfs                    183M   16K  183M    <span class="token number">1</span>% /run/user/0
+/dev/sr0                 <span class="token number">4</span>.3G  <span class="token number">4</span>.3G     <span class="token number">0</span>  <span class="token number">100</span>% /run/media/root/CentOS <span class="token number">7</span> x86_64
+<span class="token punctuation">[</span>root@bogon ~<span class="token punctuation">]</span><span class="token comment"># </span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br></div></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/documents/study_notes/ops/ansible/basic/03.html" class="prev">
+        Ansible 初识三：Ansible 定义变量
+      </a></span> <span class="next"><a href="/documents/study_notes/ops/nginx/01.html">
+        Nginx 基础
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><!----></div></div>
+    <script src="/documents/assets/js/app.fb883db5.js" defer></script><script src="/documents/assets/js/2.e8bd7cca.js" defer></script><script src="/documents/assets/js/1.40c64e62.js" defer></script><script src="/documents/assets/js/46.ebf00827.js" defer></script>
+  </body>
+</html>
