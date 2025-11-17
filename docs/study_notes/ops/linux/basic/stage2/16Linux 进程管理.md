@@ -617,6 +617,8 @@ Found a awap file by the name "/etc/.hosts.swp"	 # 产生了交换文件
 
 #### **2. 查看内存使用**
 
+写脚本时尽量不用h
+
 ```bash
 [root@tianyun ~]# free -m
               total        used        free      shared  buff/cache   available
@@ -632,7 +634,7 @@ Swap:          2.0G         16M        2.0G
 #### **3. 查看系统的版本和内核**
 
 ```bash
-[root@tianyun ~]# cat /etc/redhat-release  	#查看操作系统版本
+[root@tianyun ~]# cat /etc/redhat-release  	#查看操作系统版本，初始化脚本判断是什么版本的就用这个
 CentOS Linux release 7.4.1708 (Core)
 
 [root@tianyun ~]# uname -r  				#查看内核版本
@@ -784,6 +786,9 @@ root      16167  0.0  0.0 112808   964 pts/0    S+   09:40   0:00 grep --color=a
 | **向日葵远程控制** |       |                               |
 
 #### 5. 文件共享协议【了解】
+
+不要用NFS
+
 | 协议      | 端口 | 说明            |
 | --------- | ---- | --------------- |
 | **SMB**   | 445  | Windows文件共享 |
@@ -793,6 +798,9 @@ root      16167  0.0  0.0 112808   964 pts/0    S+   09:40   0:00 grep --color=a
 ---
 
 #### 6. 网络安全协议
+
+翻墙可以用**OpenVPN**
+
 | 协议          | 端口     | 用途                  |
 | ------------- | -------- | --------------------- |
 | **IPSec**     | 500/4500 | VPN加密通道           |
