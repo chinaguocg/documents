@@ -39,6 +39,10 @@ module.exports = [
                                 '/study_notes/ops/linux/basic/stage2/19Jumpserver堡垒机',
                                 '/study_notes/ops/linux/basic/stage2/19管道及IO重定向',
                                 '/study_notes/ops/linux/basic/stage2/20基础输入输出重定向练习题',
+                                '/study_notes/ops/linux/basic/stage2/21CentOS Linux 文件查找',
+                                '/study_notes/ops/linux/basic/stage2/21查找命令相关练习',
+                                '/study_notes/ops/linux/basic/stage2/22CentOS Linux 计划任务',
+                                '/study_notes/ops/linux/basic/stage2/23CentOS Linux 存储管理',
 
                             ]
                         },
