@@ -43,6 +43,7 @@ module.exports = [
                                 '/study_notes/ops/linux/basic/stage2/21查找命令相关练习',
                                 '/study_notes/ops/linux/basic/stage2/22CentOS Linux 计划任务',
                                 '/study_notes/ops/linux/basic/stage2/23CentOS Linux 存储管理',
+                                '/study_notes/ops/linux/basic/stage2/24CentOS Linux 日志管理',
 
                             ]
                         },
@@ -76,7 +77,8 @@ module.exports = [
 			collapsable: true,
 			children:[
 				'/study_notes/ops/disk/01',
-                
+				'/study_notes/ops/disk/02',
+                '/study_notes/ops/disk/03',
 			]
 		},
 		{

@@ -325,6 +325,14 @@ tmpfs                               99572       0     99572   0% /run/user/0
 /dev/sdb2                         1038336   32992   1005344   4% /mnt/disk2
 ```
 
+![](/documents/img/ops/linux/basic/disk/09.png)
+
+![](/documents/img/ops/linux/basic/disk/10.png)
+
+![](/documents/img/ops/linux/basic/disk/11.png)
+
+![](/documents/img/ops/linux/basic/disk/12.png)
+
 #### 3、fdisk（MBR）
 
 1. 分区操作
@@ -528,6 +536,10 @@ LVM（Logical Volume Manager，逻辑卷管理）是Linux环境下对磁盘分�
 - **卷组（VG, Volume Group）**：由多个PV组成的存储池
 - **逻辑卷（LV, Logical Volume）**：从VG中划分出的逻辑存储单元
 - **物理扩展（PE, Physical Extent）**：LVM管理的最小存储单元（默认4MB）
+
+![](/documents/img/ops/linux/basic/disk/13.png)
+
+![](/documents/img/ops/linux/basic/disk/14.png)
 
 ![](/documents/img/ops/linux/basic/disk/lvm.png)
 
@@ -870,6 +882,44 @@ xfs:		`xfs_growfs`
 ext:		`resize2fs`
 ```
 
+![](/documents/img/ops/linux/basic/disk/33.png)
+
+![](/documents/img/ops/linux/basic/disk/35.png)
+
+![](/documents/img/ops/linux/basic/disk/37.png)
+
+![](/documents/img/ops/linux/basic/disk/39.png)
+
+![](/documents/img/ops/linux/basic/disk/40.png)
+
+![](/documents/img/ops/linux/basic/disk/41.png)
+
+![](/documents/img/ops/linux/basic/disk/42.png)
+
+- 为根目录扩容示例
+
+  ![](/documents/img/ops/linux/basic/disk/45.png)
+
+  ![](/documents/img/ops/linux/basic/disk/46.png)
+
+  ![](/documents/img/ops/linux/basic/disk/47.png)
+
+  ![](/documents/img/ops/linux/basic/disk/48.png)
+
+  ![](/documents/img/ops/linux/basic/disk/49.png)
+
+  ![](/documents/img/ops/linux/basic/disk/50.png)
+
+  ![](/documents/img/ops/linux/basic/disk/51.png)
+
+  ![](/documents/img/ops/linux/basic/disk/52.png)
+
+  ![](/documents/img/ops/linux/basic/disk/53.png)
+
+  ![](/documents/img/ops/linux/basic/disk/54.png)
+
+
+
 ### 四、从VG 中删除PV
 
 #### 1、PV未被使用
@@ -1090,6 +1140,10 @@ Filename                                Type            Size    Used    Priority
 /home/swap2                             file    		1048572 0       -5
 ```
 
+![](/documents/img/ops/linux/basic/disk/55.png)
+
+![](/documents/img/ops/linux/basic/disk/56.png)
+
 ## 挂载选项详解【扩展】
 
 #### 1、常见的挂载选项
@@ -1255,3 +1309,18 @@ RAID的中文全称是 **独立磁盘冗余阵列**，通常简称为 **磁盘�
 - （5-1）* 8T + 1热备盘 = 32T
 ```
 
+![](/documents/img/ops/linux/basic/disk/57.png)
+
+![](/documents/img/ops/linux/basic/disk/58.png)
+
+![](/documents/img/ops/linux/basic/disk/59.png)
+
+![](/documents/img/ops/linux/basic/disk/60.png)
+
+![](/documents/img/ops/linux/basic/disk/61.png)
+
+**虚拟机移除一块磁盘**（模拟真实服务器中的磁盘损坏）
+
+![](/documents/img/ops/linux/basic/disk/62.png)
+
+![](/documents/img/ops/linux/basic/disk/63.png)
