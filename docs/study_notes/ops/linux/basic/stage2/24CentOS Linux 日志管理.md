@@ -181,12 +181,15 @@ lastb  # 查看失败登录尝试
 `vi /etc/rsyslog.conf`
 
 `$ModLoad imudp` 
-`$UDPServerRun 514`
+`$UDPServerRun 514`                  #开放接受日志服务的端口UDP协议
+
+`$ModLoad imtcp`
+`$InputTCPServerRun 514`        #开放接受日志服务的端口TCP协议
 
 配置文件最后：
 
-`$template RemoteLog,"/var/log/%FROMHOST-IP%/%PROGRAMNAME%.log"                               
-*.* ?RemoteLog`
+`$template RemoteLog,"/var/log/%FROMHOST-IP%/%PROGRAMNAME%.log"      #定义接受模版                         
+*.* ?RemoteLog`                             #定义模版使用者，例如：日志设备，日志级别
 
  `systemctl restart rsyslog`
 
@@ -199,7 +202,7 @@ lastb  # 查看失败登录尝试
 $ActionQueueSaveOnShutdown on  
 $ActionQueueType LinkedList    
 $ActionResumeRetryCount -1` 
-`*.* @192.168.31.80`
+`*.* @10.9.41.5`
 
 `systemctl restart rsyslog`
 
@@ -416,7 +419,7 @@ logrotate 是 Linux 系统自带的日志轮转工具，主要功能包括：
 - 压缩旧日志节省空间
 - 删除过期的日志文件
 - 按大小或时间触发轮转
-- 轮转后执行自定义命令
+- 轮转后执行自定义命令*
 
 ```bash
 [root@bogon ~]# ls -il /var/log/secure*
@@ -512,6 +515,26 @@ root      50756  0.0  0.1 239124  3432 ?        Ssl  09:58   0:01 /usr/sbin/rsys
 | create        | 轮转后创建新文件，create 0644 nginx nginx |
 
 ## 四、轮转实战案例
+
+### 4.0自定义日志轮转
+
+```conf
+# 要轮转的日志文件路径（绝对路径）
+/var/log/nginx/access.log {
+    daily        # 轮转频率：每天1次（可选：weekly/monthly/yearly）
+    size 100M    # 额外条件：日志达到100M时强制轮转（优先级高于时间）
+    rotate 7     # 保留7份历史日志（超过7份则删除最旧的）
+    compress     # 压缩旧日志（默认gzip，后缀.gz）
+    delaycompress# 延迟压缩：只压缩前一天的日志（避免正在写入的日志被压缩）
+    missingok    # 日志文件不存在时不报错（防止误删日志后执行失败）
+    notifempty   # 日志为空时不执行轮转
+    create 0644 nginx nginx  # 切割后创建新日志：权限 所有者 所属组
+    sharedscripts# 多个日志文件时，只执行一次后续脚本（单日志可省略）
+    postrotate   # 轮转后执行的脚本（比如重新加载服务，避免日志写入旧文件）
+        systemctl reload nginx > /dev/null 2>&1
+    endscript
+}
+```
 
 ### 4.1 安装Nginx软件
 
