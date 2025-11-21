@@ -44,6 +44,9 @@ module.exports = [
                                 '/study_notes/ops/linux/basic/stage2/22CentOS Linux 计划任务',
                                 '/study_notes/ops/linux/basic/stage2/23CentOS Linux 存储管理',
                                 '/study_notes/ops/linux/basic/stage2/24CentOS Linux 日志管理',
+                                '/study_notes/ops/linux/basic/stage2/25CentOS Linux 网络配置',
+                                '/study_notes/ops/linux/basic/stage2/25CentOS Linux 路由器功能实现',
+                                '/study_notes/ops/linux/basic/stage2/25nmcli命令实例',
 
                             ]
                         },
