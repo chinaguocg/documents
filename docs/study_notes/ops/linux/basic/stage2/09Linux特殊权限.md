@@ -151,13 +151,13 @@ rm: cannot remove ‘alice.txt’: OPSeration not permitted
 | SGID       | s (所属组x位)   | 2      | 目录     | 目录: 继承目录属组                 |
 | Sticky Bit | t (其他用户x位) | 1      | 目录     | 仅所有者可删除文件                 |
 
-![](/documents/img/ops/linux/basic/tsqx/01.png)
-![](/documents/img/ops/linux/basic/tsqx/02.png)
-![](/documents/img/ops/linux/basic/tsqx/03.png)
-![](/documents/img/ops/linux/basic/tsqx/04.png)
-![](/documents/img/ops/linux/basic/tsqx/05.png)
-![](/documents/img/ops/linux/basic/tsqx/06.png)
-![](/documents/img/ops/linux/basic/tsqx/07.png)
-![](/documents/img/ops/linux/basic/tsqx/08.png)
-![](/documents/img/ops/linux/basic/tsqx/09.png)
-![](/documents/img/ops/linux/basic/tsqx/10.png)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfH6fskkaT7FFmaoRGLrgVZPb5ibysZ5KkdFymTQmicCnukKvN0vCNyDLg/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&usePicPrefetch=1&watermark=1)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfGC9wN9JPlCWia3EZjsCL8RzJlXibnSw083gS77v7pyespJdgeZhmTPzQ/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfJfibnU0ia4fGwSyKtgtkdoD9neCUJuTQB2Xs05KN9MXyickarsFGO2GFA/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfz44H2ZENS3zpqlafcBXDiafw6icrdocMEQXCcXSrAiaJ4DzB3sGuHs25A/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfZ33C19bV4ib5d8uYRoiagpPoNJ46HPYc8Ux9JqDVkff5N43WGWfsKIfw/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfUFR2zR9Ysr28Rwsy15kqLa3a4lzOwJOVEh8yHichD4lews5qTLulJ7w/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsf1GJqlWy4n4z9jzA0ibnIgtQd4xibOA2kFbt3DKSapLicN9uTs1QMBewsg/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfBfibg5XYqsuH5bkic44Vgwva2sy9K47IDOHibyGliaU1XLGCnzVuhjEu7Q/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsf99pUFxKsGvbvXOn87eIM3a4SbC7he0gValeyPa2NEXcWRvkfollRsw/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfNDeIqNick9tKASUdUkicgtcBdeHMuJto76T63VavLe3eatEdVt1W2FTg/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)

@@ -14,7 +14,7 @@
 *   **用户组 (Group)**：用户的集合。每个文件都属于一个特定的组，称为 **属组 (Group)**。组用于简化对多个用户的权限分配。
 *   **其他人 (Others)**：不属于文件属主，也不在文件属组中的任何其他用户。
 
-![](/documents/img/ops/linux/basic/file_manage/39.png)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfPG1SeJzbPdDpWNficIQByyGOyBiaNOibL1BpvlPib1V6NhrbgRP9YytEAg/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
 
 #### 2. 权限类型 
 权限作用于三类实体：**属主 (u)**、**属组 (g)**、**其他人 (o)**
@@ -56,10 +56,10 @@
   [root@yangge ~]# chown -R alice:QA dir1					# 递归修改 dir1 目录下所有内容的属主和属组
   ```
 
-![](/documents/img/ops/linux/basic/file_manage/40.png)
-![](/documents/img/ops/linux/basic/file_manage/41.png)
-![](/documents/img/ops/linux/basic/file_manage/42.png)
-![](/documents/img/ops/linux/basic/file_manage/43.png)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfFiaaVehP52p5TUf5fdnqTLuibr4mq9ViarArNXcOiap38r0nZ7HjicGlFAQ/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsf44ILbW7hlBViaA45emEsKvCcbwTBhlPxKnXpZYUvMiaAhMW8ByObPicPA/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&usePicPrefetch=1&watermark=1)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfyiciaibYzbhH6CQeefrMuKB41MCWtS0jV9xcxex2p3UuiaapAXGzM8KB6Q/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfdCs2WqofiatFLCZZUDiapLOFjKrvwtf1Cu1AGzK9vvibwdyfojtwz3Hfw/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
 
 #### 2. `chgrp`-  修改文件属组
 
@@ -101,12 +101,12 @@
 
 ---
 
-![](/documents/img/ops/linux/basic/file_manage/44.png)
-![](/documents/img/ops/linux/basic/file_manage/45.png)
-![](/documents/img/ops/linux/basic/file_manage/46.png)
-![](/documents/img/ops/linux/basic/file_manage/47.png)
-![](/documents/img/ops/linux/basic/file_manage/48.png)
-![](/documents/img/ops/linux/basic/file_manage/49.png)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfydRNia58FpYRF5F1lMjhspxN2Stw0g3RFpmh3G8b5dbHBpGtGH1smEA/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfFDR9D2E8ogzfg1HEric5tRrnn2LM5VeldYoMwOtKZaFdZgFdUQu2m3A/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfpQNdGnxU8q9R0pNC6RWaCZck7Nm9wsHribvNuiacQ7Cgdeib3YicJGDMfQ/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfKibwTGenjzXKXtCsexdFFibXsMoAasWo7msGtIv5ibjZJiaEl3aibHudbibA/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfElfXpWF0zwsNqI6OtvuCjlxmQUCqgibUcwZMvREWibf76F8BHgrNQjvg/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsf3ibztEia9MsL1mtqKzZGtH85HazNTfQzOTm0ibY03po5Euia6LswHDDXug/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
 
 ### 三、案例实战
 

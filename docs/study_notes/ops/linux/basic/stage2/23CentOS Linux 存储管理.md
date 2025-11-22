@@ -44,14 +44,14 @@ MBR 支持小于2T（严格来说是<2.1T）的硬盘    最多4个主分区
 
 两种分区方案互转：危险！！！从MBR转GPT并不是无损的（要看具体分区方案），从GPT转传统MBR不能向下兼容，肯定丢失数据！
 
-![](/documents/img/ops/linux/basic/disk/01.png)
-![](/documents/img/ops/linux/basic/disk/02.png)
-![](/documents/img/ops/linux/basic/disk/03.png)
-![](/documents/img/ops/linux/basic/disk/04.png)
-![](/documents/img/ops/linux/basic/disk/05.png)
-![](/documents/img/ops/linux/basic/disk/06.png)
-![](/documents/img/ops/linux/basic/disk/07.png)
-![](/documents/img/ops/linux/basic/disk/08.png)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfk8JaCCK6R7P8yMOk5qKUy8uxdsWdMic3GLrOF29soc7yvSATIV0Fp9A/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&usePicPrefetch=1&watermark=1)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfqLj1Ll5NWrb9sD60hmeuYvRUj7wibzxCcWftNmibO7tt7Sl4s9uPibmGQ/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfTyrLicxyph8JudhMic0aHkdkpicYu3nB4iareCyyMic9J2x5MoR6hRv6Wsg/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfuahTsWouNoRE8michouCxOBcI8wMPMuSxoYWibGtu3H0jvGCTfIqaicrQ/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfoWgqdrpdYsz0ia1TglLZ9F9PVXUY1lxBvEy57cymVeONnctn9Vn7Nag/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfMQPicJ5W7RSNw8Gay4XTKyQVPaZBIiaXziaT8Or5VoUcgPIF2VQekicWTw/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsf4XvWp9NNUAMn2BdIuiaz1GMOx9kONoRGW7wxUJiaysm0S9ibaufFpkPMg/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfFKY9WTIXbShVSTPIOicGia3aCx5OYfj1FLjHAMtcq3m3pV2O3IVhw88g/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
 
 GPT（GUID Partition Table，全局唯一标识分区表）是一种现代的分区表格式，相比传统的MBR（主引导记录）分区方案有许多优势。
 
@@ -325,13 +325,13 @@ tmpfs                               99572       0     99572   0% /run/user/0
 /dev/sdb2                         1038336   32992   1005344   4% /mnt/disk2
 ```
 
-![](/documents/img/ops/linux/basic/disk/09.png)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfuo04zAZtpmSlrEf5kjKhbQxjEC4W0l3RaQnSKIszYkYSq1BlHyewnw/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
 
-![](/documents/img/ops/linux/basic/disk/10.png)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfOks2RIO8iajo7MxNUiaJSoTYmwogdSTqKkyTB00U7IJCg6dvZNW6tHFQ/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
 
-![](/documents/img/ops/linux/basic/disk/11.png)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfL6y7miayG5WcD6R41Bt2otB120pClVuYd1W45FLtiaf8O5QSwnYFqSWw/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
 
-![](/documents/img/ops/linux/basic/disk/12.png)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsf7CDTdlrgKAbuTwunFqaPE5Cc7uXpmUpmYpFflaKY3icmicibibNw0lQk1w/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
 
 #### 3、fdisk（MBR）
 
@@ -537,9 +537,9 @@ LVM（Logical Volume Manager，逻辑卷管理）是Linux环境下对磁盘分�
 - **逻辑卷（LV, Logical Volume）**：从VG中划分出的逻辑存储单元
 - **物理扩展（PE, Physical Extent）**：LVM管理的最小存储单元（默认4MB）
 
-![](/documents/img/ops/linux/basic/disk/13.png)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfqn794jGVwaB01XEJ2qUTk47h8xKyj4XGKcfUH6fPzic8ESjL3Yq1Eiaw/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
 
-![](/documents/img/ops/linux/basic/disk/14.png)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfMntKaNrS31qicmhLvWtAvkevgE3Fq2RLzJ3bG6KOQ1yhKia4GZSETiblg/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
 
 ![](/documents/img/ops/linux/basic/disk/lvm.png)
 
@@ -882,41 +882,41 @@ xfs:		`xfs_growfs`
 ext:		`resize2fs`
 ```
 
-![](/documents/img/ops/linux/basic/disk/33.png)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsf4SNAQJJOEB9JTP8x0voF6PgdDzhqsLEnqzHFNccCkaSTg8OZLbdhww/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
 
-![](/documents/img/ops/linux/basic/disk/35.png)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfheJx2XuuxSia7gPhOUDgY1Z0FxjCExyNaTNwQ02rI21P9usWdictZ6YA/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
 
-![](/documents/img/ops/linux/basic/disk/37.png)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfd6MvjljluZlKdh05T4v2ctedyz2u3loyzSrhhIicYT4nkFALS6Pkleg/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
 
-![](/documents/img/ops/linux/basic/disk/39.png)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfMNX1gguZ1BIM0KebU4NqiaiaVxngq5zew57FQIicO4lurH7epN7NDx3sg/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
 
-![](/documents/img/ops/linux/basic/disk/40.png)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfbrnq4rPoHECR2PZaib4gurYKnGU3ykOibrZw4zHxhDpnJ111GDYoKSSg/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
 
-![](/documents/img/ops/linux/basic/disk/41.png)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfA6uEicjQ4meicD2q9rQfIF3WtzegKFlUru8ibMlhcTa3T3CPCsv3CPz3w/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
 
-![](/documents/img/ops/linux/basic/disk/42.png)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsffrVlriagy12R5PyuglmztxkZ0MKcLQPLzkT6eZdkBwfW838kGSwaP4w/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&usePicPrefetch=1&watermark=1)
 
 - 为根目录扩容示例
 
-  ![](/documents/img/ops/linux/basic/disk/45.png)
+  ![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsflpdGDpBQNFHEuotnphibwvNtTGgbibtTSMZibWGFGqykvLRAP38pF7q7Q/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
 
-  ![](/documents/img/ops/linux/basic/disk/46.png)
+  ![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfPnU2D0yRFjJ6MSNxEAfg4ct95fvy97hsRZXcckNLVf0jbSF0xiaDmGg/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
 
-  ![](/documents/img/ops/linux/basic/disk/47.png)
+  ![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfJDJly0so8UgQVtNZVeFKGjZMglf2Sw8l97sfnJb7JqpjWxejYao3GQ/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp)
 
-  ![](/documents/img/ops/linux/basic/disk/48.png)
+  ![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfDBhlMHW7BELu9ibxoFvO5nrCIF7c2FuorUMs6kQpUVlxbz07qXib7Arg/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
 
-  ![](/documents/img/ops/linux/basic/disk/49.png)
+  ![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfMEph42dXcDm6KkUiaszdx2rcRetI8EWNG4sMpcxPaeyPjldCtbWQNYQ/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
 
-  ![](/documents/img/ops/linux/basic/disk/50.png)
+  ![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfYcM6elI9PSyzricEJcSdBLmbDuqvThicpYeib0GacbCAicSwpW16VzLJ6g/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
 
-  ![](/documents/img/ops/linux/basic/disk/51.png)
+  ![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfTPQ8hE3suuSat1dVMOK8DkDbypl69a4Po1YGjTwlTzBtuy3kOScOVQ/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
 
-  ![](/documents/img/ops/linux/basic/disk/52.png)
+  ![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfrqnCIzVzqQPe19MgetqbWsbB7wZ5BG0MNSbVcwx9f0hbrZJOQsYZfQ/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
 
-  ![](/documents/img/ops/linux/basic/disk/53.png)
+  ![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfQTLia9AZNx0gyeuc44ibYwajjmaQ9yquxNhAchUFK2pz2cUVPrtUic7Nw/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
 
-  ![](/documents/img/ops/linux/basic/disk/54.png)
+  ![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsf1bI8PRLs7gRGxbAls9jYibP0CeENGMuK5xmJyicOAX3K4uf3ibU7f2KYw/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
 
 
 
@@ -1140,9 +1140,9 @@ Filename                                Type            Size    Used    Priority
 /home/swap2                             file    		1048572 0       -5
 ```
 
-![](/documents/img/ops/linux/basic/disk/55.png)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfic0KpRGNrabQtpvIuwpAGIicveGmQer8mk7S793ibX3L4uk94uc2CTibVw/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
 
-![](/documents/img/ops/linux/basic/disk/56.png)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfpJ2KqDyXFjHiaUx0iapibH4umtqSl10oFyJian3h6u3GcacXvu6hv8wKKQ/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
 
 ## 挂载选项详解【扩展】
 
@@ -1309,18 +1309,18 @@ RAID的中文全称是 **独立磁盘冗余阵列**，通常简称为 **磁盘�
 - （5-1）* 8T + 1热备盘 = 32T
 ```
 
-![](/documents/img/ops/linux/basic/disk/57.png)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsf5DDicodgKeMqXjCu3mFLSX3F96yqp6DibuLuzcdZsAW76rYFicD2lg6Bw/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
 
-![](/documents/img/ops/linux/basic/disk/58.png)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsf5rBSlQxk9Oy5dG9HNV9z1Eq66qxPV54DFIqaqR0987VokQ9xUKTiaVA/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
 
-![](/documents/img/ops/linux/basic/disk/59.png)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfq95AtibKtvqlo3eu7X8QeIQGDPia4rr5bEYu6gQTEl1JaRxPcYVuR5jQ/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
 
-![](/documents/img/ops/linux/basic/disk/60.png)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfonJlqyDwQnWEABLwP4NNDeOog8lx1glTzr5DytFh71YpLia9CYXKYNQ/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
 
-![](/documents/img/ops/linux/basic/disk/61.png)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfLkyzO6xU7Mqx3H1FoBIMjsLSdTvOtHS04tiaMLm2ic9ibQ89usgm6UG4Q/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
 
 **虚拟机移除一块磁盘**（模拟真实服务器中的磁盘损坏）
 
-![](/documents/img/ops/linux/basic/disk/62.png)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfJMMh6FJmtF4Y9cxVPuGv60juicshQ76z5eZB9qC4gNC7iaICvboZVIQQ/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
 
-![](/documents/img/ops/linux/basic/disk/63.png)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfnE01EeiaNj55jEXpHb0TfFoU5ag60qqzibvTkHxAZww6rE4gk1RUhgtQ/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)

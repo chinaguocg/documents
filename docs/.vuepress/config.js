@@ -6,6 +6,7 @@ module.exports = {
 	base: '/documents/',
     head: [
 		['meta', { name: 'keywords', content: 'Chinaguocg,Documents,DevOps,IT技术,文档博客,开发,运维,技术文档' }],
+        ['meta', { name: 'referrer', content: 'never' }],
         ['link', {rel: 'icon', href: '/img/logo.png'}],
 		['link', {rel: 'stylesheet', href: '/css/style.css'}]
     ],

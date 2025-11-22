@@ -65,8 +65,8 @@ updates/7/x86_64              CentOS-7 - Updates - mirrors.aliyun.com           
 repolist: 30,562
 ```
 
-![](/documents/img/ops/linux/basic/yum/01.png)
-![](/documents/img/ops/linux/basic/yum/02.png)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfsIiam3s01U9rphxibJm5TT0z4E7DEn3yafWo7N1oXibicUmwaHBw2b9YNg/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&usePicPrefetch=1&watermark=1)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsf7Cd2Wzgwa0xZ35D8FUeCgtdico54T0RH7IxPdVuZvgbqCWsxotM3cdA/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
 
 ## **二、实战安装示例**
 
@@ -401,13 +401,13 @@ systemctl disable firewalld.service
 - 如果没有rz命令，可以使用其它方法上传文件
 ```
 
-![](/documents/img/ops/linux/basic/yum/03/01.png)
-![](/documents/img/ops/linux/basic/yum/03/02.png)
-![](/documents/img/ops/linux/basic/yum/03/03.png)
-![](/documents/img/ops/linux/basic/yum/03/04.png)
-![](/documents/img/ops/linux/basic/yum/03/05.png)
-![](/documents/img/ops/linux/basic/yum/03/06.png)
-![](/documents/img/ops/linux/basic/yum/03/07.png)
-![](/documents/img/ops/linux/basic/yum/03/08.png)
-![](/documents/img/ops/linux/basic/yum/03/09.png)
-![](/documents/img/ops/linux/basic/yum/03/10.png)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfHzicic0DYsACo8IIaHYojZzW5PLTiaIhoLoyg0OXDL1MndWdiaicW8NSITw/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsf8icmA7QB4MNgMXemtciaLp7DDoicDpuv1X1zNCJbtyo4XELKCibhlC882g/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfTzibLBHYASl8F2hBL9ko4cqXHOEuKjeIBgicibtmYt0Iibf5y2dUU01d0w/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfc1rAMLDJ4d0qG9wQFEb2EkRva8hvQGEnica6BNb6XNaFHg4fPVEm1GQ/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfvJMc6mMiciciaPZ1aQK6vcr9yRicaicbjRxic5nXBrk2BC7iaZ0iaPLNJcLsmA/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfurOJItmicjoMibA6Vt8JfJcrRhonaa4CHga3VnDgLA9CPwrWEJib0MMrQ/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsf5xQ0Hqf5VvIhsTq7LZINK0zNpicqBUtx94sib9ibiaRfWo5EBYAKFGBalg/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfibKzHBn1Skyc9ORxBMTuvicbB477Ktkib7hQRr4tMRYrKmwxlg9iblLSEg/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsf45cXAoGcluFqG7s5k5zJcwHoeOs7FcqfAaKWQaIInGVhYP1ypX4b0A/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfDlPl40Mcia6yTibbDKvqkibLG4b3Q3PQEF6mAgmbV8cOX3FGOPNSZwibWg/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)

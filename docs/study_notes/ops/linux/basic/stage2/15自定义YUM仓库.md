@@ -33,12 +33,12 @@ gvfs-archive-1.36.2-7.el7_9.x86_64.rpm             openresty-openssl3-3.5.0-1.el
 createrepo  -v   /opt/rpms
 ```
 
-![](/documents/img/ops/linux/basic/custom_yum_reop/01.png)
-![](/documents/img/ops/linux/basic/custom_yum_reop/02.png)
-![](/documents/img/ops/linux/basic/custom_yum_reop/03.png)
-![](/documents/img/ops/linux/basic/custom_yum_reop/04.png)
-![](/documents/img/ops/linux/basic/custom_yum_reop/05.png)
-![](/documents/img/ops/linux/basic/custom_yum_reop/06.png)
-![](/documents/img/ops/linux/basic/custom_yum_reop/07.png)
-![](/documents/img/ops/linux/basic/custom_yum_reop/08.png)
-![](/documents/img/ops/linux/basic/custom_yum_reop/09.png)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfsRKzIzwO9esnvDqrArTpgWCUhEe3uY3dTxAyiceROKJcO2HH94OXPng/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&usePicPrefetch=1&watermark=1)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfq5Q7U4nAIZL2WU4icicbJr6B0KaMzOZxFgicCbbcicCO6KfSCEndKkicvicw/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfKCoVxic3kqLjxbUicmy0ibuWVaDuXNycEdMepTfaHomyCDVwaianZtKfRg/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfy9e541Y8Gauz4nWIn9RrenaJ8QJmUsj93a5x9mKWyxgSL5RjLkXpGg/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfpQPu9nDqdfIiakaAwUVtNLGnDXV8gdsXlcjk8evjnD93cBBW79jvR6w/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfg4YY6ciagaE0WbPBmPqNQUwcfPWibEO2Cy1jN0icq0PhIEfobbp82Jt0w/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfVWXyZTqFyughm7cBhzWZyg8SXEKZ3KvnE9k45pJ2mmUQYMnkUW2GKA/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfgTicliaIQMJaDw0lGelwbQcgggsP46gHCv9IyLoSy44yicSGMzauw3OCw/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfHF7txltKlr22XtSOA91NauEVGODxeWf0DnYOjkwKHm8mfBGwQibia33Q/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)

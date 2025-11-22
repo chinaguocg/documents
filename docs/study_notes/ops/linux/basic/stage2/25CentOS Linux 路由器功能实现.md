@@ -490,3 +490,20 @@ DNS1=114.114.114.114
 
 - 测试各主机间的连通性。
 - 至此，双网卡静态路由配置完成。
+
+- 截图合集
+
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsflGDQn6jPmiaWwgIX0zNBgL96vTp4l5LQJG4OwQpsXNUIsicUssleG02Q/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&usePicPrefetch=1&watermark=1)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfZzcGTIVuzbTJoClextkhXG3XFsT9ATIBwmsq8OIibrrX0R5GT6eNk5A/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfXERFXWzZVbBawVUX4J70zotibmYGgyvctNOs3YJdc78KRibPUmbJfnFw/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfFDEnMTJUnPA6nhHawe2WFibz7xlqYN0YIZ8XfZpT9FbAzEAXPlUfW1g/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfhfV04ib01PdFtmNzylD0lkd67jLc9pmDlfFusChR61BJK4uViaJbBdZg/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsf189y7vkgZguCEOCM3V4m5bo1MgeIQxBtT1I1KCpz7Unm1C1BOlGW9Q/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsf1LQicicu27iaa7hXM0dDC4GxOBLwfibPobIfibKdgVjOxDtqiciaTrlcMeo7w/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfdibtfgA2DDcY3iaGKpgTbQtzXdTiaf8RtBcvK9dGLlRicpBBJl56Z9hnvg/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfjYkQpiajaf5dVGiaoam1ICP6uv9IrVP8wjWssKKvMRvpUvricC4iaPllog/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsf2vDvCzJ2BELty3nJSqo0MTO1Yk4JN0nPmSjMrlkTO7YGo5FgoIhdtQ/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfulLouJGdgzBNwXRU1uBlTMTCnSg1F3a45xrF6NykiaopSpHQ9CwGcZw/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfNZZLdB2fnw4jJuzhIUm4e0nZDUF4JkyYcHJYGuQ7ibABNIAtFpqCvibg/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfvh3B1tcjQtNI7CPJFcQLZJkHx5wd2htNqVxVmmPZYajLyT0QoGGsKw/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfiakwMC3h472RsXzhbWmlA8AkmT57OWa6icBQGdLT62FKZyxV8iakIQjNw/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp)

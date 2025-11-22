@@ -4,44 +4,44 @@
 
 ### 图片预览 
 
-![](/documents/img/ops/linux/basic/file_manage/01.png)
-![](/documents/img/ops/linux/basic/file_manage/02.png)
-![](/documents/img/ops/linux/basic/file_manage/03.png)
-![](/documents/img/ops/linux/basic/file_manage/04.png)
-![](/documents/img/ops/linux/basic/file_manage/05.png)
-![](/documents/img/ops/linux/basic/file_manage/06.png)
-![](/documents/img/ops/linux/basic/file_manage/07.png)
-![](/documents/img/ops/linux/basic/file_manage/08.png)
-![](/documents/img/ops/linux/basic/file_manage/09.png)
-![](/documents/img/ops/linux/basic/file_manage/10.png)
-![](/documents/img/ops/linux/basic/file_manage/11.png)
-![](/documents/img/ops/linux/basic/file_manage/12.png)
-![](/documents/img/ops/linux/basic/file_manage/13.png)
-![](/documents/img/ops/linux/basic/file_manage/14.png)
-![](/documents/img/ops/linux/basic/file_manage/15.png)
-![](/documents/img/ops/linux/basic/file_manage/16.png)
-![](/documents/img/ops/linux/basic/file_manage/17.png)
-![](/documents/img/ops/linux/basic/file_manage/18.png)
-![](/documents/img/ops/linux/basic/file_manage/22.png)
-![](/documents/img/ops/linux/basic/file_manage/19.png)
-![](/documents/img/ops/linux/basic/file_manage/20.png)
-![](/documents/img/ops/linux/basic/file_manage/21.png)
-![](/documents/img/ops/linux/basic/file_manage/23.png)
-![](/documents/img/ops/linux/basic/file_manage/24.png)
-![](/documents/img/ops/linux/basic/file_manage/25.png)
-![](/documents/img/ops/linux/basic/file_manage/26.png)
-![](/documents/img/ops/linux/basic/file_manage/27.png)
-![](/documents/img/ops/linux/basic/file_manage/28.png)
-![](/documents/img/ops/linux/basic/file_manage/29.png)
-![](/documents/img/ops/linux/basic/file_manage/30.png)
-![](/documents/img/ops/linux/basic/file_manage/31.png)
-![](/documents/img/ops/linux/basic/file_manage/32.png)
-![](/documents/img/ops/linux/basic/file_manage/33.png)
-![](/documents/img/ops/linux/basic/file_manage/34.png)
-![](/documents/img/ops/linux/basic/file_manage/35.png)
-![](/documents/img/ops/linux/basic/file_manage/36.png)
-![](/documents/img/ops/linux/basic/file_manage/37.png)
-![](/documents/img/ops/linux/basic/file_manage/38.png)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfREyeswtBFUTMOfBkTvCdNxYzNotuyZpaE54QN3hia4jp1apsnbbOWIw/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&usePicPrefetch=1&watermark=1)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfESUzoPsHl3lXVnd5SDAdjU0ibiaOLE5icoqtpvlTT7UNzdT7QSDQ9X5yQ/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfm3DEN0z6VKA1V5P9Zw3Z7j0pmc1STlUJIlxMRVBr8Nv7G64eNuYibzg/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfdIMibSlcg7I5vHTaI60j1FoECH9UTLIScqD1uhvwB0hkrWxiaxy4mDeQ/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfp44aPOCxicAD5x1qDiaIlZAJaHrqzlSib6ia4hRyU0zpKUxNGIJGTCXaOg/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfS2yw6h3bqIYzf5D28O7xUib3eKNIjevsmymMEz9b2neiarD9weULC9LA/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfXYdOeY3yeFZ4te2mg08qjPmFpQiawCmLwJHUCIrFIZrVqIGsS5iabWeQ/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsftKMN2lwkuxYQiczlTfibWVeWva5ic0Y9YYdbGjomGL77z32icbCeD59ibWg/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfI5G6v7UrRgnesdwmicmlfndzCvogTy6qQa9fznICGaThFosqvIQQ7kw/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsf4WgKJpzicylYCTNmiclWOAAxicZSLG41MyBPk4nj8KNSedtgvL9QiafSfg/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfuQ1KOac5gTTC8YJZibH8jFChabjCvmk8qANJiaeJPHke9f9ic6xaA4F7w/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsftB6ZGZSpOA84qqwvp7WBElOibQ6Hia4rncAyKZp5ficwcbk4kPkOS7kgQ/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfKhfc9ZiaoLlgUGicEk52tvSjpvBUR01oTDhmKSeicftAVbWO7SjNKVttg/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfHa58Yynribtns03iclVEvnt6fib63RU56iakzXl0x2fL0cArM8xJTbIS3A/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfrH0eJl6HTs2Osv8fe4DGmX7RHZcvMRkxE4LcpvXibTN6CuibeCSe9YLQ/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfDY85z5kwXB4RMTABZpSZ0E01py6tf7gwOVydUpuLcYy17SjVLLoKWA/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfGjE4VH64drkSnP7l31sHE1ZpfOSmTLliamCnTrwzStThRrJ18Kq48Gg/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfscWM9D8J9iatVgic0fgsUKicotQxO2TpdCZyDzE4CWpMClzdSJxMwqZyQ/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsf5aINOcNbPHVibtrdLguZ8Wxl3D2WxIQwaVjYphITNAoVaI0K77VNCtA/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfQ6F6RC5Tgez36xaGtCvxARsyGBFia9pjIfaweRTgKfRWwFZms2JsnVg/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfnZCQ6H0fP5hpSAeoib5vkGZdxreIeMBCfw1vrSd4QnHeHgGkphBJwMg/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&usePicPrefetch=1&watermark=1)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfKGXaPe7EeO3uSlWmyrCZv0QSQ9NRynyqBx2kLJcrvVTNIp9LkK45lw/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsf83E6OQrIhDF8ic8rseXT1taVhwg3QghufBMDWlndQSRxnqxSfg5UzPQ/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfDwBicbgaK32E7Seug4LCzvYW1LMc2DTxqEIEGvOxMlfEBu0qOZF6aVw/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfd6Opibvq8cl3VmtibI8RWDc68IjlrctB7E7P9lFic2ej4BTAIInIjhPug/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfeZDMdrQffPOwUMBj8h5dFVYyrVtpQFNmrKp4bfuPekjdic9m2pPoYxA/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsficwMn9fUNO5koTJNd7xC82jswJ5iaaHpWjFLrbavkDpEIROA7sud16DA/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfRMZr4CdN1L8kOia3UHLGkeRJw90IPFfTmfYvC3qbJWD04ttw9MyHiaEw/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfTAVzWOuDkhkPnySCjQGibodlsKXrDic9AnUnPvgwq1icviaSuUOHkxElbA/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfibgeR3QPtib6utNPyTlzCeGVhjsVFdpdoSTRFbrPyHeZa7aNU4icRKfnw/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfpC0NesALXq1JicH9pHcPr6ddA3Ym4kusCEx06QveEiafWRMgdvzT8sNA/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfK3N7VeGB0MF6LQbAHvkmqYczF3iaeP9Az08JVsr3jy8NhrxD0fwV7Cw/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsf23gXgXiaS3lZEZCkicXQaibAeaiaBtN27mE88cSIViabGiapQXyBWktAEPhw/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfyW6XOogzbXKVB48443ibQapwHW50xepzrl2xTr9txD3N0yqBZxiboTOw/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfSR1X36EaicfDfYuSlcojMARIZOmB3kY899eicxYhdmlXBzjiaZhmhDgFw/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfpP7Nac0qgXHTibgThQOIJTe7T563XQ7zaX77Wl5LI0F9BUv5fBibygZA/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfuFuv4YoWyGrETg0kRDvPjtF8icU0XpHRhtTvibIEQHkFddwAias9O43aw/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfkBtoap8YP4GxXz71cOtHa11e8HHiaTTw0JTnvykd0poXb3dDyJAuEPQ/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
 
 
 *   **当前工作目录**：当前在文件系统中所处的位置。
@@ -49,8 +49,9 @@
     *   **绝对路径**：从根目录 `/` 开始的完整路径，如 `/etc/passwd`  `/home/dir1/passwd`
     *   **相对路径**：相对于当前工作目录的路径，如 `./yangge.txt` (当前目录) 或 `../home/alice` (上级目录)
 
-![](/documents/img/ops/linux/basic/file_manage/FSH.png)
-
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfXN4wJF7l71zc3TibwiahsjSVXqPk47lfTEJfvodLPGCTX9AEECUmcGkw/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&usePicPrefetch=1&watermark=1)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfpIgmqJHKOT147eQpl0EBBlicUicASMjYwINicLgOR3MFtibB2W5SHriaZvQ/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsfUTa17ojKu9buD2fFsgyTI6wmviaos9tbbviabXL0dvXA9qb0ZWdHPbpQ/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&watermark=1)
 
 **一级目录介绍**
 
@@ -435,7 +436,7 @@ Vim（**Vi IMproved**）是 Unix 系统上经典编辑器 `vi` 的增强版。
 3. **高度可定制**：通过 `.vimrc` 配置文件和各种插件，可以打造专属的 IDE。
 4. **模态编辑**：这是 Vim 的核心特色，也是初学者最大的障碍。
 
-![](/documents/img/ops/linux/basic/file_manage/vim4model.png)
+![](https://mmbiz.qpic.cn/sz_mmbiz_png/15LnGBjmcIH384IDdKdCtVFgtGOHKXsf7pXGShvTDsmd98W31elo00BtzNibkCI81ibicov71YjLPfEn52kc9pkPg/0?from=appmsg&wxfrom=12&wx_fmt=png&tp=webp&usePicPrefetch=1&watermark=1)
 
 ```bash
 # 准备练习文件
