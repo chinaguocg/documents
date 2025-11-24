@@ -1,4 +1,4 @@
-# nmcli命令实例：
+# nmcli命令实例
 
 ```
 nmcli device status  # 缩写：nmcli d status
