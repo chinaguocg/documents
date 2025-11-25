@@ -47,6 +47,7 @@ module.exports = [
                                 '/study_notes/ops/linux/basic/stage2/25CentOS Linux 网络配置',
                                 '/study_notes/ops/linux/basic/stage2/25CentOS Linux 路由器功能实现',
                                 '/study_notes/ops/linux/basic/stage2/25nmcli命令实例',
+                                '/study_notes/ops/linux/basic/stage2/26CentOS Linux Web服务器Nginx',
 
                             ]
                         },
