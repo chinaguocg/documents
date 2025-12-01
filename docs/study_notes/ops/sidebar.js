@@ -48,6 +48,7 @@ module.exports = [
                                 '/study_notes/ops/linux/basic/stage2/25CentOS Linux 路由器功能实现',
                                 '/study_notes/ops/linux/basic/stage2/25nmcli命令实例',
                                 '/study_notes/ops/linux/basic/stage2/26CentOS Linux Web服务器Nginx',
+                                '/study_notes/ops/linux/basic/stage2/27CentOS Linux SSH服务配置',
 
                             ]
                         },
@@ -73,6 +74,8 @@ module.exports = [
 				'/study_notes/ops/ansible/basic/01',
                 '/study_notes/ops/ansible/basic/02',
                 '/study_notes/ops/ansible/basic/03',
+                '/study_notes/ops/ansible/basic/04ansible理论',
+                '/study_notes/ops/ansible/basic/04ansible实验一',
                 
 			]
 		},
