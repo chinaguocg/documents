@@ -105,4 +105,20 @@ module.exports = [
                 
 			]
 		},
+		{
+			title:'Shell',
+			collapsable: true,
+			children:[
+				'/study_notes/ops/shell/00 Shell 配置文件执行顺序',
+                '/study_notes/ops/shell/00 实现Ubuntu类似的motd',
+				'/study_notes/ops/shell/01 Shell 变量',
+				'/study_notes/ops/shell/02 Shell 条件测试',
+				'/study_notes/ops/shell/02shell初识 练习题',
+				'/study_notes/ops/shell/03 Shell 条件判断 if',
+				'/study_notes/ops/shell/04 Shell 模式匹配 case',
+				'/study_notes/ops/shell/05 Shell 循环 for',
+				'/study_notes/ops/shell/06 Shell 循环 while',
+				
+			]
+		},
 	]
