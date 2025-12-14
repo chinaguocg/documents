@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Ansible 初识四：理论 | Documents</title>
+    <meta name="generator" content="VuePress 1.9.10">
+    <link rel="icon" href="/documents/img/logo.png">
+    <link rel="stylesheet" href="/documents/css/style.css">
+    <meta name="description" content="开发运维技术文档">
+    <meta name="keywords" content="Chinaguocg,Documents,DevOps,IT技术,文档博客,开发,运维,技术文档">
+    <meta name="referrer" content="never">
+    
+    <link rel="preload" href="/documents/assets/css/0.styles.b20f9c26.css" as="style"><link rel="preload" href="/documents/assets/js/app.9341f639.js" as="script"><link rel="preload" href="/documents/assets/js/2.e8bd7cca.js" as="script"><link rel="preload" href="/documents/assets/js/1.40c64e62.js" as="script"><link rel="preload" href="/documents/assets/js/41.c7bc95f8.js" as="script"><link rel="prefetch" href="/documents/assets/js/10.b63d61ac.js"><link rel="prefetch" href="/documents/assets/js/11.23025be0.js"><link rel="prefetch" href="/documents/assets/js/12.9a27d63b.js"><link rel="prefetch" href="/documents/assets/js/13.e3dba2b7.js"><link rel="prefetch" href="/documents/assets/js/14.6d3d6a88.js"><link rel="prefetch" href="/documents/assets/js/15.30a4286e.js"><link rel="prefetch" href="/documents/assets/js/16.e4505b74.js"><link rel="prefetch" href="/documents/assets/js/17.255ebcfb.js"><link rel="prefetch" href="/documents/assets/js/18.a4c4f660.js"><link rel="prefetch" href="/documents/assets/js/19.2c33fa19.js"><link rel="prefetch" href="/documents/assets/js/20.fc453a90.js"><link rel="prefetch" href="/documents/assets/js/21.c52a45d9.js"><link rel="prefetch" href="/documents/assets/js/22.faa840f0.js"><link rel="prefetch" href="/documents/assets/js/23.ef1366ba.js"><link rel="prefetch" href="/documents/assets/js/24.b943b232.js"><link rel="prefetch" href="/documents/assets/js/25.4c0d5c0d.js"><link rel="prefetch" href="/documents/assets/js/26.c1467af0.js"><link rel="prefetch" href="/documents/assets/js/27.09371cea.js"><link rel="prefetch" href="/documents/assets/js/28.3a65b93c.js"><link rel="prefetch" href="/documents/assets/js/29.e3615fad.js"><link rel="prefetch" href="/documents/assets/js/3.1bdb9756.js"><link rel="prefetch" href="/documents/assets/js/30.53aed7d2.js"><link rel="prefetch" href="/documents/assets/js/31.71d55b08.js"><link rel="prefetch" href="/documents/assets/js/32.1bd237a9.js"><link rel="prefetch" href="/documents/assets/js/33.a671388e.js"><link rel="prefetch" href="/documents/assets/js/34.f6046c03.js"><link rel="prefetch" href="/documents/assets/js/35.ce72f783.js"><link rel="prefetch" href="/documents/assets/js/36.e0906615.js"><link rel="prefetch" href="/documents/assets/js/37.bec7159a.js"><link rel="prefetch" href="/documents/assets/js/38.115418fc.js"><link rel="prefetch" href="/documents/assets/js/39.307f0445.js"><link rel="prefetch" href="/documents/assets/js/4.ce792ed0.js"><link rel="prefetch" href="/documents/assets/js/40.c75eb27b.js"><link rel="prefetch" href="/documents/assets/js/42.005040f2.js"><link rel="prefetch" href="/documents/assets/js/43.d98cc47d.js"><link rel="prefetch" href="/documents/assets/js/44.6eafbfdd.js"><link rel="prefetch" href="/documents/assets/js/45.b3027c59.js"><link rel="prefetch" href="/documents/assets/js/46.6e1f63e6.js"><link rel="prefetch" href="/documents/assets/js/47.d5743853.js"><link rel="prefetch" href="/documents/assets/js/48.df552625.js"><link rel="prefetch" href="/documents/assets/js/49.4e1eb1ee.js"><link rel="prefetch" href="/documents/assets/js/5.d956834b.js"><link rel="prefetch" href="/documents/assets/js/50.fe8055d2.js"><link rel="prefetch" href="/documents/assets/js/51.faf86540.js"><link rel="prefetch" href="/documents/assets/js/52.94ef29cc.js"><link rel="prefetch" href="/documents/assets/js/53.25511ab8.js"><link rel="prefetch" href="/documents/assets/js/54.250ad07b.js"><link rel="prefetch" href="/documents/assets/js/55.40ae5eb0.js"><link rel="prefetch" href="/documents/assets/js/56.74d7901e.js"><link rel="prefetch" href="/documents/assets/js/57.63b2c97e.js"><link rel="prefetch" href="/documents/assets/js/58.dbbff67e.js"><link rel="prefetch" href="/documents/assets/js/59.52f3d2e8.js"><link rel="prefetch" href="/documents/assets/js/6.118e9bad.js"><link rel="prefetch" href="/documents/assets/js/60.28d21fe8.js"><link rel="prefetch" href="/documents/assets/js/61.d63e7c58.js"><link rel="prefetch" href="/documents/assets/js/62.86a1eac9.js"><link rel="prefetch" href="/documents/assets/js/63.8d5669ec.js"><link rel="prefetch" href="/documents/assets/js/64.6885c7c2.js"><link rel="prefetch" href="/documents/assets/js/65.0391c4dc.js"><link rel="prefetch" href="/documents/assets/js/66.c66aaf4b.js"><link rel="prefetch" href="/documents/assets/js/67.67136c5b.js"><link rel="prefetch" href="/documents/assets/js/68.3a92a11c.js"><link rel="prefetch" href="/documents/assets/js/69.bdd480f6.js"><link rel="prefetch" href="/documents/assets/js/7.a506e926.js"><link rel="prefetch" href="/documents/assets/js/70.21345979.js"><link rel="prefetch" href="/documents/assets/js/71.ea6eceb1.js"><link rel="prefetch" href="/documents/assets/js/72.6d24c19d.js"><link rel="prefetch" href="/documents/assets/js/73.72bc9345.js"><link rel="prefetch" href="/documents/assets/js/74.3845ef15.js"><link rel="prefetch" href="/documents/assets/js/75.8fb57d7b.js"><link rel="prefetch" href="/documents/assets/js/76.f04050fc.js"><link rel="prefetch" href="/documents/assets/js/77.577ba1fb.js"><link rel="prefetch" href="/documents/assets/js/78.0a64a5d6.js"><link rel="prefetch" href="/documents/assets/js/79.a1e874e4.js"><link rel="prefetch" href="/documents/assets/js/80.f125d856.js"><link rel="prefetch" href="/documents/assets/js/81.691ca23f.js"><link rel="prefetch" href="/documents/assets/js/82.596e89cd.js"><link rel="prefetch" href="/documents/assets/js/83.b7f56ccf.js"><link rel="prefetch" href="/documents/assets/js/84.67d2ff28.js"><link rel="prefetch" href="/documents/assets/js/85.0b691fe9.js"><link rel="prefetch" href="/documents/assets/js/86.c0d8fa6a.js"><link rel="prefetch" href="/documents/assets/js/87.b6453afd.js"><link rel="prefetch" href="/documents/assets/js/88.4ca33017.js"><link rel="prefetch" href="/documents/assets/js/89.97b8ef07.js"><link rel="prefetch" href="/documents/assets/js/90.3bb0e532.js"><link rel="prefetch" href="/documents/assets/js/91.49f16846.js"><link rel="prefetch" href="/documents/assets/js/92.07267235.js"><link rel="prefetch" href="/documents/assets/js/93.b769f2db.js"><link rel="prefetch" href="/documents/assets/js/94.b1ec52a7.js"><link rel="prefetch" href="/documents/assets/js/95.9d4a6378.js"><link rel="prefetch" href="/documents/assets/js/vendors~docsearch.271bc088.js">
+    <link rel="stylesheet" href="/documents/assets/css/0.styles.b20f9c26.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/documents/" class="home-link router-link-active"><!----> <span class="site-name">Documents</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/documents/guide/" class="nav-link">
+  指南
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="文档" class="dropdown-title"><span class="title">文档</span> <span class="arrow down"></span></button> <button type="button" aria-label="文档" class="mobile-dropdown-title"><span class="title">文档</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/documents/study_notes/ops/" class="nav-link router-link-active">
+  运维
+</a></li><li class="dropdown-item"><!----> <a href="/documents/study_notes/dev/" class="nav-link">
+  开发
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="资源共享" class="dropdown-title"><span class="title">资源共享</span> <span class="arrow down"></span></button> <button type="button" aria-label="资源共享" class="mobile-dropdown-title"><span class="title">资源共享</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          在线工具
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://shields.io/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  图标徽章
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://tinypng.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  图片压缩
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://bigjpg.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  图片放大
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="http://cron.qqe2.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  CRON 表达式
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://tableconvert.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  MD 表格生成
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          在线服务
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.bootcdn.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Boot CDN
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          镜像资源
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://msdn.itellyou.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  MSDN
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://mirrors.tuna.tsinghua.edu.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  清华开源软件镜像站
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://developer.aliyun.com/mirror/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  阿里开源镜像站
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          网址导航
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.w3school.com.cn/index.html" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  W3School
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://www.runoob.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  菜鸟教程
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="http://www.h-ui.net/site.shtml" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  IT网址导航
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li></ul></div></div> <a href="https://github.com/chinaguocg/documents" target="_blank" rel="noopener noreferrer" class="repo-link">
+    查看源码
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/documents/guide/" class="nav-link">
+  指南
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="文档" class="dropdown-title"><span class="title">文档</span> <span class="arrow down"></span></button> <button type="button" aria-label="文档" class="mobile-dropdown-title"><span class="title">文档</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/documents/study_notes/ops/" class="nav-link router-link-active">
+  运维
+</a></li><li class="dropdown-item"><!----> <a href="/documents/study_notes/dev/" class="nav-link">
+  开发
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="资源共享" class="dropdown-title"><span class="title">资源共享</span> <span class="arrow down"></span></button> <button type="button" aria-label="资源共享" class="mobile-dropdown-title"><span class="title">资源共享</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          在线工具
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://shields.io/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  图标徽章
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://tinypng.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  图片压缩
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://bigjpg.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  图片放大
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="http://cron.qqe2.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  CRON 表达式
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://tableconvert.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  MD 表格生成
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          在线服务
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.bootcdn.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Boot CDN
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          镜像资源
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://msdn.itellyou.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  MSDN
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://mirrors.tuna.tsinghua.edu.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  清华开源软件镜像站
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://developer.aliyun.com/mirror/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  阿里开源镜像站
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          网址导航
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.w3school.com.cn/index.html" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  W3School
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://www.runoob.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  菜鸟教程
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="http://www.h-ui.net/site.shtml" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  IT网址导航
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li></ul></div></div> <a href="https://github.com/chinaguocg/documents" target="_blank" rel="noopener noreferrer" class="repo-link">
+    查看源码
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Linux</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>Ansible</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/documents/study_notes/ops/ansible/basic/01.html" class="sidebar-link">Ansible 初识一：控制与被控</a></li><li><a href="/documents/study_notes/ops/ansible/basic/02.html" class="sidebar-link">Ansible 初识二：playbook</a></li><li><a href="/documents/study_notes/ops/ansible/basic/03.html" class="sidebar-link">Ansible 初识三：Ansible 定义变量</a></li><li><a href="/documents/study_notes/ops/ansible/basic/04ansible理论.html" class="active sidebar-link">Ansible 初识四：理论</a></li><li><a href="/documents/study_notes/ops/ansible/basic/04ansible实验一.html" class="sidebar-link">Ansible 初识四：Ansible 实验一</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Disk</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Nginx</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Docker</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Shell</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="ansible-初识四-理论"><a href="#ansible-初识四-理论" class="header-anchor">#</a> Ansible 初识四：理论</h1> <p>Ansible是一款基于Python开发的自动化运维工具，采用SSH协议与远程主机通信，无需在被管理端安装客户端或代理程序。其核心功能包括批量系统配置、程序部署、运行命令及多任务编排，支持通过模块化设计和Playbook实现复杂运维操作 。Ansible以部署简单、扩展性强著称，提供大量内置模块（如文件管理、服务控制等）并支持自定义开发。截至2023年，该工具已被<a href="https://baike.baidu.com/item/%E7%BA%A2%E5%B8%BD%E5%85%AC%E5%8F%B8/10418953?fromModule=lemma_inlink" target="_blank" rel="noopener noreferrer">红帽公司<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>收购，成为自动化运维领域认可度较高的解决方案之一。</p> <h5 id="一、基础入门-必备"><a href="#一、基础入门-必备" class="header-anchor">#</a> 一、基础入门（必备）</h5> <h5 id="_1、核心概念"><a href="#_1、核心概念" class="header-anchor">#</a> 1、核心概念：</h5> <p><strong>控制节点（管理机）</strong>：只能是 Linux/macOS（Windows 需用 WSL2），推荐 CentOS 7/8/9 或 Ubuntu。</p> <p>安装方式（CentOS 示例）：</p> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code>yum <span class="token function">install</span> <span class="token parameter variable">-y</span> epel-release  <span class="token comment"># Ansible 依赖 EPEL 仓库</span>
+yum <span class="token function">install</span> <span class="token parameter variable">-y</span> ansible       <span class="token comment"># 安装 Ansible</span>
+ansible <span class="token parameter variable">--version</span>            <span class="token comment"># 验证安装（需显示版本号，如 2.9.x 或 2.14+）</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><p><strong>被控节点（目标机）</strong>：支持 Linux/Windows（Windows 需额外配置 WinRM），核心要求：</p> <ul><li>控制节点能通过 SSH 免密登录被控节点（即之前学的 SSH 密钥登录，Ansible 核心依赖）。</li> <li>被控节点需安装 Python（2.7 或 3.5+，CentOS 7 默认已装 Python 2.7）。<strong>（其他发行版需要验证Python环境）</strong></li></ul> <p><strong>环境验证</strong>：控制节点执行 <code>ansible all -m ping</code>，能返回 <code>pong</code> 说明通信正常。</p> <p>需要截图：</p> <h5 id="_2、术语解析"><a href="#_2、术语解析" class="header-anchor">#</a> 2、术语解析：</h5> <ul><li><strong>控制节点（Control Node）</strong>：安装 Ansible 的机器，负责下发命令和执行剧本。</li> <li><strong>被控节点（Managed Nodes）</strong>：被管理的服务器（如你之前的 innerServer、innerServernode2）。</li> <li><strong>Inventory（主机清单）</strong>：记录所有被控节点的配置文件（默认 <code>/etc/ansible/hosts</code>），用于分组管理主机。</li> <li><strong>模块（Module）</strong>：Ansible 执行具体任务的 “工具”（如 <code>ping</code> 测试连通性、<code>yum</code> 安装软件、<code>copy</code> 复制文件），是 Ansible 的核心功能单元。</li> <li><strong>剧本（Playbook）</strong>：用 YAML 语法编写的任务集合，能按顺序执行多个模块，实现复杂自动化（如 “安装 Nginx→配置文件→启动服务”）。</li> <li>角色（Role）：剧本的结构化拆分，用于复用和维护（如把 “Nginx 部署” 封装为一个 Role，可在多个项目中调用）。</li> <li><strong>变量（Variable）</strong>：用于动态配置（如定义软件版本、文件路径，避免硬编码）。</li> <li>事实（Facts）：Ansible 自动收集被控节点的系统信息（如 IP、系统版本、内存大小），可在剧本中直接使用。</li></ul> <h5 id="二、主要功能-inventory-模块-playbook-重点"><a href="#二、主要功能-inventory-模块-playbook-重点" class="header-anchor">#</a> 二、主要功能：Inventory + 模块 + Playbook（重点）</h5> <p>（Inventory + 模块 + Playbook）是 Ansible 最常用的核心功能，学会后能解决 80% 的日常运维场景（批量执行命令、安装软件、配置服务等）。</p> <h5 id="_1-inventory-主机清单-分组-配置"><a href="#_1-inventory-主机清单-分组-配置" class="header-anchor">#</a> 1. Inventory 主机清单（分组 + 配置）</h5> <p>Inventory 是管理被控节点的入口，重点学习 “分组、变量、动态清单”：</p> <p><strong>基础格式（静态清单）</strong>：</p> <div class="language-ini line-numbers-mode"><pre class="language-ini"><code><span class="token comment"># 单主机</span>
+192.168.247.163
+
+<span class="token comment"># 分组：web 服务器组（包含 2 台主机）</span>
+<span class="token section"><span class="token punctuation">[</span><span class="token section-name selector">web_servers</span><span class="token punctuation">]</span></span>
+<span class="token key attr-name">innerServer ansible_host</span><span class="token punctuation">=</span><span class="token value attr-value">192.168.247.163 ansible_user=root  # 对应之前的 SSH 配置</span>
+<span class="token key attr-name">innerServernode2 ansible_host</span><span class="token punctuation">=</span><span class="token value attr-value">192.168.247.165 ansible_user=root</span>
+
+<span class="token comment"># 分组：数据库服务器组</span>
+<span class="token section"><span class="token punctuation">[</span><span class="token section-name selector">db_servers</span><span class="token punctuation">]</span></span>
+<span class="token key attr-name">192.168.247.166 ansible_user</span><span class="token punctuation">=</span><span class="token value attr-value">root ansible_port=2222  # 自定义 SSH 端口</span>
+
+<span class="token comment"># 嵌套分组（父组包含子组）</span>
+<span class="token section"><span class="token punctuation">[</span><span class="token section-name selector">all_servers:children</span><span class="token punctuation">]</span></span>
+web_servers
+db_servers
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br></div></div><ul><li><strong>参数</strong>：
+<ul><li><code>ansible_host</code>：被控节点 IP（若 Host 名称不是 IP，需指定）。</li> <li><code>ansible_user</code>：登录用户名（如 root）。</li> <li><code>ansible_port</code>：SSH 端口（默认 22）。</li> <li><code>ansible_ssh_private_key_file</code>：SSH 私钥路径（免密登录用）（不常用）。</li></ul></li></ul> <p><strong>1 .1、分组变量（批量配置）（了解）</strong>：</p> <p>给整个组设置统一变量（避免重复配置），在 Inventory 中添加：</p> <div class="language-ini line-numbers-mode"><pre class="language-ini"><code><span class="token section"><span class="token punctuation">[</span><span class="token section-name selector">web_servers:vars</span><span class="token punctuation">]</span></span>
+<span class="token key attr-name">ansible_ssh_private_key_file</span><span class="token punctuation">=</span><span class="token value attr-value">~/.ssh/id_rsa  # web 组所有主机共用私钥</span>
+<span class="token key attr-name">nginx_version</span><span class="token punctuation">=</span><span class="token value attr-value">1.20.1                        # 自定义变量（后续剧本用）</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><p><strong>1.2、动态清单（可选）</strong>：当主机数量多（如百台以上），用脚本 / API 生成清单（如从云厂商接口拉取主机列表），核心是输出自定义格式的主机信息。</p> <h5 id="_2-模块-module-执行具体任务"><a href="#_2-模块-module-执行具体任务" class="header-anchor">#</a> 2. 模块（Module）：执行具体任务</h5> <p>核心模块：</p> <table><thead><tr><th>模块名</th> <th>功能描述</th> <th>示例命令（控制节点执行）</th> <th></th></tr></thead> <tbody><tr><td><strong><code>ping</code></strong></td> <td><strong>测试被控节点连通性</strong></td> <td><strong><code>ansible web_servers -m ping</code>（批量测试 web 组主机）</strong></td> <td></td></tr> <tr><td><strong><code>command</code></strong></td> <td><strong>执行 Linux 命令（无 Shell 解析）</strong></td> <td><strong><code>ansible db_servers -m command -a &quot;df -h&quot;</code>（查看 db 组主机磁盘使用率）</strong></td> <td></td></tr> <tr><td><strong><code>shell</code></strong></td> <td><strong>执行 Linux 命令（支持管道、变量）</strong></td> <td><strong>`ansible web_servers -m shell -a &quot;ps -ef&quot;</strong></td> <td></td></tr> <tr><td><code>yum</code></td> <td><strong>安装 / 卸载 RPM 包（CentOS）</strong></td> <td><code>ansible web_servers -m yum -a &quot;name=nginx state=present&quot;</code>（批量安装 Nginx）</td> <td></td></tr> <tr><td><code>apt</code></td> <td>安装 / 卸载 DEB 包（Ubuntu）</td> <td><code>ansible web_servers -m apt -a &quot;name=nginx state=present&quot;</code></td> <td></td></tr> <tr><td><strong><code>copy</code></strong></td> <td><strong>本地文件复制到被控节点</strong></td> <td><strong><code>ansible web_servers -m copy -a &quot;src=/local/nginx.conf dest=/etc/nginx/nginx.conf mode=644&quot;</code></strong></td> <td></td></tr> <tr><td><code>template</code></td> <td>复制带变量的模板文件</td> <td><code>ansible web_servers -m template -a &quot;src=/local/nginx.conf.j2 dest=/etc/nginx/nginx.conf&quot;</code></td> <td></td></tr> <tr><td><strong><code>service</code></strong></td> <td><strong>管理系统服务（启动 / 停止 / 开机自启）</strong></td> <td><strong><code>ansible web_servers -m service -a &quot;name=nginx state=started enabled=yes&quot;</code>（启动 Nginx 并设开机自启）</strong></td> <td></td></tr> <tr><td><code>file</code></td> <td>管理文件 / 目录（创建 / 删除 / 权限）</td> <td><code>ansible web_servers -m file -a &quot;path=/data/logs state=directory mode=755&quot;</code>（创建日志目录）</td> <td></td></tr> <tr><td><code>user</code></td> <td>管理系统用户</td> <td><code>ansible all_servers -m user -a &quot;name=ops state=present shell=/bin/bash&quot;</code>（创建 ops 用户）</td> <td></td></tr></tbody></table> <h5 id="例外-管道的应用"><a href="#例外-管道的应用" class="header-anchor">#</a> 例外（管道的应用）：</h5> <p>ansible wlan_nginx -m command -a &quot;<strong>bash -c</strong> 'netstat -anlp |grep :80'&quot;</p> <p>ansible wlan_nginx -m shell -a &quot;netstat -anlp |grep :80&quot;</p> <h5 id="_3-playbook-自动化剧本-核心中的核心"><a href="#_3-playbook-自动化剧本-核心中的核心" class="header-anchor">#</a> 3. Playbook：自动化剧本（核心中的核心）</h5> <p>Playbook 是 Ansible 自动化的核心，用 YAML 语法编写，能按顺序执行多个任务，实现 “一键部署”（如部署 Nginx、MySQL 等）。</p> <p><strong>YAML 语法基础（必须掌握）</strong>：</p> <ul><li>缩进：用 2 个空格（不能用 tab），缩进代表层级关系。</li> <li>键值对：<code>key: value</code>（冒号后必须加空格）。</li> <li>列表：用 <code>-</code> 开头（如 <code>- task1</code>、<code>- task2</code>）。</li> <li>注释：<code># 注释内容</code>。</li></ul> <p><strong>Playbook 基本结构</strong>：</p> <p>一个 Playbook 包含多个 <code>play</code>，每个 <code>play</code> 对应一组主机和一系列任务。示例（部署 Nginx 的 playbook：<code>deploy_nginx.yml</code>）：</p> <div class="language-yaml line-numbers-mode"><pre class="language-yaml"><code><span class="token punctuation">---</span>
+<span class="token comment"># 第一个 play：给 web_servers 组部署 Nginx</span>
+<span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> Deploy Nginx to web servers  <span class="token comment"># play 名称（自定义，便于查看日志）</span>
+  <span class="token key atrule">hosts</span><span class="token punctuation">:</span> web_servers                 <span class="token comment"># 目标主机组（对应 Inventory 中的分组）</span>
+  <span class="token key atrule">remote_user</span><span class="token punctuation">:</span> root                  <span class="token comment"># 登录用户</span>
+  <span class="token key atrule">vars</span><span class="token punctuation">:</span>                              <span class="token comment"># 自定义变量（也可在 Inventory 中定义）</span>
+    <span class="token key atrule">nginx_conf_path</span><span class="token punctuation">:</span> /etc/nginx/nginx.conf
+    <span class="token key atrule">nginx_log_path</span><span class="token punctuation">:</span> /var/log/nginx
+
+  <span class="token key atrule">tasks</span><span class="token punctuation">:</span>                             <span class="token comment"># 任务列表（按顺序执行）</span>
+    <span class="token comment"># 任务1：安装 Nginx</span>
+    <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> Install Nginx package
+      <span class="token key atrule">yum</span><span class="token punctuation">:</span>
+        <span class="token key atrule">name</span><span class="token punctuation">:</span> nginx
+        <span class="token key atrule">state</span><span class="token punctuation">:</span> present  <span class="token comment"># present=安装，absent=卸载</span>
+
+    <span class="token comment"># 任务2：复制 Nginx 配置文件（用 template 支持变量）</span>
+    <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> Copy Nginx config file
+      <span class="token key atrule">template</span><span class="token punctuation">:</span>
+        <span class="token key atrule">src</span><span class="token punctuation">:</span> ./templates/nginx.conf      <span class="token comment"># 本地模板文件（带变量）</span>
+        <span class="token key atrule">dest</span><span class="token punctuation">:</span> <span class="token string">&quot;{{ nginx_conf_path }}&quot;</span>    <span class="token comment"># 引用变量（双大括号包裹）</span>
+        <span class="token key atrule">mode</span><span class="token punctuation">:</span> <span class="token number">644</span>                        <span class="token comment"># 文件权限</span>
+
+    <span class="token comment"># 任务3：创建 Nginx 日志目录</span>
+    <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> Create Nginx log directory
+      <span class="token key atrule">file</span><span class="token punctuation">:</span>
+        <span class="token key atrule">path</span><span class="token punctuation">:</span> <span class="token string">&quot;{{ nginx_log_path }}&quot;</span>
+        <span class="token key atrule">state</span><span class="token punctuation">:</span> directory
+        <span class="token key atrule">mode</span><span class="token punctuation">:</span> <span class="token number">755</span>
+
+    <span class="token comment"># 任务4：启动 Nginx 并设开机自启</span>
+    <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> Start and enable Nginx service
+      <span class="token key atrule">service</span><span class="token punctuation">:</span>
+        <span class="token key atrule">name</span><span class="token punctuation">:</span> nginx
+        <span class="token key atrule">state</span><span class="token punctuation">:</span> started
+        <span class="token key atrule">enabled</span><span class="token punctuation">:</span> yes
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br></div></div><p><strong>Playbook 执行与调试</strong>：</p> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token comment"># 执行 playbook（核心命令）</span>
+ansible-playbook deploy_nginx.yml
+
+<span class="token comment"># 加 -v 查看详细输出（调试用），-vvv 更详细（显示模块执行过程）</span>
+ansible-playbook deploy_nginx.yml <span class="token parameter variable">-v</span>
+
+<span class="token comment"># 检查语法错误（执行前必做）</span>
+ansible-playbook deploy_nginx.yml --syntax-check
+
+<span class="token comment"># 模拟执行（不实际修改被控节点，验证任务是否正确）</span>
+ansible-playbook deploy_nginx.yml <span class="token parameter variable">--check</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><p><strong>变量与模板（提升 Playbook 灵活性）</strong>：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>- 变量来源：Inventory 分组变量、Playbook 内 `vars` 定义、 Facts 自动收集、命令行传参（`-e &quot;nginx_version=1.21.0&quot;`）。
+- Jinja2 模板：在文件中嵌入变量和逻辑（如 `nginx.conf.j2` 中用 `{{ ansible_default_ipv4.address }}` 引用被控节点的 IP），配合 `template` 模块使用。
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><h5 id="实战"><a href="#实战" class="header-anchor">#</a> 实战：</h5> <p><strong>需求：</strong></p> <p>1、研发上线了一个新接口(api02.rex.com)对应一组内网java项目（ipA、ipB）。</p> <p>2、使用ansible批量设置外网nginx，并且使新配置生效。</p> <p><strong>准备环境：</strong>（自行准备，简化拓扑）</p> <p>0、准备api02两台项目机器：</p> <p>​	1） yum install java-1.8.0-openjdk* -y       #安装环境</p> <p>​         2）java -jar 包名.jar</p> <p>1、部署yum源、安装ansible使用ssh远程部署。</p> <p><strong>任务一：（无需剧本，使用ansible分组即可，因为不经常安装）</strong></p> <p>1、安装nginx（4台），模拟外网nginx。</p> <p>2、启动nginx，看到欢迎界面即可。</p> <p><strong>任务二：（asible剧本实现）</strong></p> <p>1、批量设置4台外网nginx，使得4台nginx可以访问新项目api02.rex.com</p> <h5 id="剧本提示"><a href="#剧本提示" class="header-anchor">#</a> 剧本提示:</h5> <div class="language- line-numbers-mode"><pre class="language-text"><code>---
+- name: updata config nginx
+  hosts: wlan_nginx
+  remote_user: root
+  vars:
+    nginx_confd_path: /etc/nginx/conf.d
+    local_nginx_confd_path: ./nginx_confd
+
+  tasks:
+    - name: Copy Nginx config file
+      template:
+        src: &quot;{{ local_nginx_confd_path }}/web01.conf&quot;
+        dest: &quot;{{ nginx_confd_path }}/web01.conf&quot;
+        mode: 644
+      notify: reload nginx
+
+  handlers:
+   - name: reload nginx
+     service:
+       name: nginx
+       state: reloaded
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br></div></div><p><strong>服务操作：</strong></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>- name: Start a service
+  service:
+    name: nginx
+    state: started
+
+- name: Stop a service
+  service:
+    name: nginx
+    state: stopped
+
+- name: Restart a service
+  service:
+    name: nginx
+    state: restarted
+
+- name: Reload a service (不中断)
+  service:
+    name: nginx
+    state: reloaded
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br></div></div><p><strong>变量的使用：</strong></p> <p>常用变量：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>- name: 显示系统信息
+  hosts: all
+  tasks:
+    - debug:
+        msg: |
+          主机名: {{ ansible_hostname }}
+          操作系统: {{ ansible_os_family }}
+          系统版本: {{ ansible_distribution }} {{ ansible_distribution_version }}
+          架构: {{ ansible_architecture }}
+          内核版本: {{ ansible_kernel }}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><div class="language- line-numbers-mode"><pre class="language-text"><code>    - name: Display network information
+      debug:
+        msg: |
+          默认IP: {{ ansible_default_ipv4.address | default('未知') }}
+          所有IPv4: {{ ansible_all_ipv4_addresses | default([]) | join(', ') }}
+          MAC地址: {{ ansible_default_ipv4.macaddress | default('未知') }}
+          FQDN: {{ ansible_fqdn | default('未知') }}
+          默认接口: {{ ansible_default_ipv4.interface | default('未知') }}
+          IP地址: {{ ansible_default_ipv4.address | default('未知') }}
+          网络掩码: {{ ansible_default_ipv4.netmask | default('未知') }}
+          网关: {{ ansible_default_ipv4.gateway | default('未知') }}
+          广播地址: {{ ansible_default_ipv4.broadcast | default('未知') }}
+          CIDR表示法: {{ ansible_default_ipv4.network | default('未知') }}/{{ ansible_default_ipv4.netmask | replace('255.255.255.0', '24') | replace('255.255.0.0', '16') | replace('255.0.0.0', '8') | default('24') }}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><div class="language- line-numbers-mode"><pre class="language-text"><code>- debug:
+    msg: |
+      内存总量: {{ ansible_memtotal_mb }} MB
+      内存可用: {{ ansible_memfree_mb }} MB
+      CPU核心数: {{ ansible_processor_cores }}
+      CPU型号: {{ ansible_processor[1] }}
+      挂载点: {{ ansible_mounts }}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><div class="language- line-numbers-mode"><pre class="language-text"><code>- debug:
+    msg: |
+      当前主机: {{ inventory_hostname }}
+      主机组: {{ group_names }}
+      所有主机: {{ ansible_play_hosts }}
+      当前用户: {{ ansible_user_id }}
+      Play名称: {{ ansible_play_name }}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><p>引用结果：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>- name: Get current date
+  shell: date +%Y-%m-%d
+  register: current_date
+
+- name: Use registered variable
+  debug:
+    msg: &quot;今天是 {{ current_date.stdout }}&quot;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><div class="language- line-numbers-mode"><pre class="language-text"><code>- name: Example with multiple attributes
+  command: &quot;ls -l /etc/nginx/nginx.conf&quot;
+  register: file_info
+
+- name: Use different attributes
+  debug:
+    msg: |
+      标准输出: {{ file_info.stdout }}
+      错误输出: {{ file_info.stderr }}
+      返回码: {{ file_info.rc }}
+      是否改变: {{ file_info.changed }}
+      行输出: {{ file_info.stdout_lines }}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br></div></div><p><strong>文件操作：</strong></p> <p><strong>方法1：</strong></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>- name: Get system info for file
+  shell: |
+    echo &quot;System Report&quot;
+    echo &quot;==============&quot;
+    echo &quot;Hostname: $(hostname)&quot;
+    echo &quot;IP: $(hostname -I)&quot;
+    echo &quot;Date: $(date)&quot;
+    echo &quot;Uptime: $(uptime)&quot;
+  register: system_info
+
+- name: Write system info to file
+  copy:
+    content: &quot;{{ system_info.stdout }}&quot;
+    dest: /tmp/system-report.txt
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br></div></div><p><strong>方法2：</strong></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>    - name: Create JSON configuration file
+      vars:
+        db_host: &quot;db_host123&quot;
+        db_port: &quot;db_port123&quot;
+        db_name: &quot;db_name123&quot;
+        app_port: &quot;app_port123&quot;
+        debug_mode: &quot;debug_mode123&quot;
+      copy:
+        content: |
+          {
+            &quot;database&quot;: {
+              &quot;host&quot;: &quot;{{ db_host | default('localhost') }}&quot;,
+              &quot;port&quot;: {{ db_port | default(5432) }},
+              &quot;name&quot;: &quot;{{ db_name | default('myapp') }}&quot;
+            },
+            &quot;server&quot;: {
+              &quot;port&quot;: {{ app_port | default(3000) }},
+              &quot;debug&quot;: {{ debug_mode | default(false) | lower }}
+            }
+          }
+        dest: /opt/config.json
+        owner: root
+        group: root
+        mode: 0600
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br></div></div><h5 id="实验室环境-需求"><a href="#实验室环境-需求" class="header-anchor">#</a> 实验室环境-需求：</h5> <p>1、制作虚拟机模版，动态获取网卡IP（DHCP）；</p> <p>2、将动态IP、网关、DNS固化成静态IP防止改变；</p> <p>3、自行实验，有问题问rex哟；</p> <p><strong>剧本提示：</strong></p> <h5 id="方法1-直接调用变量"><a href="#方法1-直接调用变量" class="header-anchor">#</a> 方法1：直接调用变量：</h5> <div class="language- line-numbers-mode"><pre class="language-text"><code>---
+- name: Configure network interface  # 修正play名称
+  hosts: wlan_nginx
+  remote_user: root
+  gather_facts: yes  # 必须开启才能获取网络变量
+
+  tasks:
+    # 任务：配置网络接口
+    - name: Configure network interface file
+      copy:
+        content: |
+          TYPE=Ethernet
+          BOOTPROTO=static
+          NAME={{ ansible_default_ipv4.interface }}
+          DEVICE={{ ansible_default_ipv4.interface }}
+          ONBOOT=yes
+          IPADDR={{ ansible_default_ipv4.address }}
+          NETMASK={{ ansible_default_ipv4.netmask }}
+          GATEWAY={{ ansible_default_ipv4.gateway }}
+          DNS1=114.114.114.114
+        dest: /etc/sysconfig/network-scripts/ifcfg-{{ ansible_default_ipv4.interface }}
+        owner: root
+        group: root
+        mode: 0644
+      when: ansible_os_family == &quot;RedHat&quot;  # 仅适用于RedHat系系统
+      notify: reload nginx
+  handlers:
+   - name: reload network
+     service:
+       name: network
+       state: reloaded
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br></div></div><p><strong>注册变量：</strong></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>---
+- name: Get command output as variable
+  hosts: all
+  tasks:
+    - name: Execute command and register output
+      command: hostname -I
+      register: ip_output  # 注册命令输出到变量
+
+    - name: Display registered variable
+      debug:
+        msg: &quot;IP地址: {{ ip_output.stdout }}&quot;
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br></div></div><p><strong>方法2：</strong></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>---
+- name: Configure network interface  # 修正play名称
+  hosts: wlan_nginx
+  remote_user: root
+  gather_facts: yes  # 必须开启才能获取网络变量
+
+  tasks:
+    # 任务：配置网络接口
+    - name: Execute command and register output
+      shell: ifconfig ens33 | grep 'inet ' | awk '{print $2}'
+      register: ip_output  # 注册命令输出到变量
+    - name: Configure network interface file
+      copy:
+        content: |
+          TYPE=Ethernet
+          BOOTPROTO=static
+          NAME={{ ansible_default_ipv4.interface }}
+          DEVICE={{ ansible_default_ipv4.interface }}
+          ONBOOT=yes
+          IPADDR={{ ip_output.stdout }}
+          NETMASK={{ ansible_default_ipv4.netmask }}
+          GATEWAY={{ ansible_default_ipv4.gateway }}
+          DNS1=114.114.114.114
+        dest: /etc/sysconfig/network-scripts/ifcfg-{{ ansible_default_ipv4.interface }}
+        owner: root
+        group: root
+        mode: 0644
+      when: ansible_os_family == &quot;RedHat&quot;  # 仅适用于RedHat系系统
+      notify: reload network
+  handlers:
+   - name: reload network
+     service:
+       name: network
+       state: restarted
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br></div></div><div class="language- line-numbers-mode"><pre class="language-text"><code>- name: 显示系统信息
+  hosts: nginxserver
+  tasks:
+    - name: IPADRR
+      shell: ip a s ens33|grep 'inet '|awk -F&quot;[ ]*|/&quot; '{print $3}'
+      register: ipaddr
+    - name: Use different attributes
+      debug:
+        msg: |
+          标准输出: {{ ipaddr.stdout }}
+    - name: 写入系统信息到文件
+      copy:
+        content: |
+          IPADDR={{ ipaddr.stdout }}
+          GATEWAY={{ ipaddr.stdout }}
+        dest: /opt/ip.config
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br></div></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/documents/study_notes/ops/ansible/basic/03.html" class="prev">
+        Ansible 初识三：Ansible 定义变量
+      </a></span> <span class="next"><a href="/documents/study_notes/ops/ansible/basic/04ansible实验一.html">
+        Ansible 初识四：Ansible 实验一
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><!----></div></div>
+    <script src="/documents/assets/js/app.9341f639.js" defer></script><script src="/documents/assets/js/2.e8bd7cca.js" defer></script><script src="/documents/assets/js/1.40c64e62.js" defer></script><script src="/documents/assets/js/41.c7bc95f8.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>shell 变量 | Documents</title>
+    <meta name="generator" content="VuePress 1.9.10">
+    <link rel="icon" href="/documents/img/logo.png">
+    <link rel="stylesheet" href="/documents/css/style.css">
+    <meta name="description" content="开发运维技术文档">
+    <meta name="keywords" content="Chinaguocg,Documents,DevOps,IT技术,文档博客,开发,运维,技术文档">
+    <meta name="referrer" content="never">
+    
+    <link rel="preload" href="/documents/assets/css/0.styles.b20f9c26.css" as="style"><link rel="preload" href="/documents/assets/js/app.9341f639.js" as="script"><link rel="preload" href="/documents/assets/js/2.e8bd7cca.js" as="script"><link rel="preload" href="/documents/assets/js/1.40c64e62.js" as="script"><link rel="preload" href="/documents/assets/js/84.67d2ff28.js" as="script"><link rel="prefetch" href="/documents/assets/js/10.b63d61ac.js"><link rel="prefetch" href="/documents/assets/js/11.23025be0.js"><link rel="prefetch" href="/documents/assets/js/12.9a27d63b.js"><link rel="prefetch" href="/documents/assets/js/13.e3dba2b7.js"><link rel="prefetch" href="/documents/assets/js/14.6d3d6a88.js"><link rel="prefetch" href="/documents/assets/js/15.30a4286e.js"><link rel="prefetch" href="/documents/assets/js/16.e4505b74.js"><link rel="prefetch" href="/documents/assets/js/17.255ebcfb.js"><link rel="prefetch" href="/documents/assets/js/18.a4c4f660.js"><link rel="prefetch" href="/documents/assets/js/19.2c33fa19.js"><link rel="prefetch" href="/documents/assets/js/20.fc453a90.js"><link rel="prefetch" href="/documents/assets/js/21.c52a45d9.js"><link rel="prefetch" href="/documents/assets/js/22.faa840f0.js"><link rel="prefetch" href="/documents/assets/js/23.ef1366ba.js"><link rel="prefetch" href="/documents/assets/js/24.b943b232.js"><link rel="prefetch" href="/documents/assets/js/25.4c0d5c0d.js"><link rel="prefetch" href="/documents/assets/js/26.c1467af0.js"><link rel="prefetch" href="/documents/assets/js/27.09371cea.js"><link rel="prefetch" href="/documents/assets/js/28.3a65b93c.js"><link rel="prefetch" href="/documents/assets/js/29.e3615fad.js"><link rel="prefetch" href="/documents/assets/js/3.1bdb9756.js"><link rel="prefetch" href="/documents/assets/js/30.53aed7d2.js"><link rel="prefetch" href="/documents/assets/js/31.71d55b08.js"><link rel="prefetch" href="/documents/assets/js/32.1bd237a9.js"><link rel="prefetch" href="/documents/assets/js/33.a671388e.js"><link rel="prefetch" href="/documents/assets/js/34.f6046c03.js"><link rel="prefetch" href="/documents/assets/js/35.ce72f783.js"><link rel="prefetch" href="/documents/assets/js/36.e0906615.js"><link rel="prefetch" href="/documents/assets/js/37.bec7159a.js"><link rel="prefetch" href="/documents/assets/js/38.115418fc.js"><link rel="prefetch" href="/documents/assets/js/39.307f0445.js"><link rel="prefetch" href="/documents/assets/js/4.ce792ed0.js"><link rel="prefetch" href="/documents/assets/js/40.c75eb27b.js"><link rel="prefetch" href="/documents/assets/js/41.c7bc95f8.js"><link rel="prefetch" href="/documents/assets/js/42.005040f2.js"><link rel="prefetch" href="/documents/assets/js/43.d98cc47d.js"><link rel="prefetch" href="/documents/assets/js/44.6eafbfdd.js"><link rel="prefetch" href="/documents/assets/js/45.b3027c59.js"><link rel="prefetch" href="/documents/assets/js/46.6e1f63e6.js"><link rel="prefetch" href="/documents/assets/js/47.d5743853.js"><link rel="prefetch" href="/documents/assets/js/48.df552625.js"><link rel="prefetch" href="/documents/assets/js/49.4e1eb1ee.js"><link rel="prefetch" href="/documents/assets/js/5.d956834b.js"><link rel="prefetch" href="/documents/assets/js/50.fe8055d2.js"><link rel="prefetch" href="/documents/assets/js/51.faf86540.js"><link rel="prefetch" href="/documents/assets/js/52.94ef29cc.js"><link rel="prefetch" href="/documents/assets/js/53.25511ab8.js"><link rel="prefetch" href="/documents/assets/js/54.250ad07b.js"><link rel="prefetch" href="/documents/assets/js/55.40ae5eb0.js"><link rel="prefetch" href="/documents/assets/js/56.74d7901e.js"><link rel="prefetch" href="/documents/assets/js/57.63b2c97e.js"><link rel="prefetch" href="/documents/assets/js/58.dbbff67e.js"><link rel="prefetch" href="/documents/assets/js/59.52f3d2e8.js"><link rel="prefetch" href="/documents/assets/js/6.118e9bad.js"><link rel="prefetch" href="/documents/assets/js/60.28d21fe8.js"><link rel="prefetch" href="/documents/assets/js/61.d63e7c58.js"><link rel="prefetch" href="/documents/assets/js/62.86a1eac9.js"><link rel="prefetch" href="/documents/assets/js/63.8d5669ec.js"><link rel="prefetch" href="/documents/assets/js/64.6885c7c2.js"><link rel="prefetch" href="/documents/assets/js/65.0391c4dc.js"><link rel="prefetch" href="/documents/assets/js/66.c66aaf4b.js"><link rel="prefetch" href="/documents/assets/js/67.67136c5b.js"><link rel="prefetch" href="/documents/assets/js/68.3a92a11c.js"><link rel="prefetch" href="/documents/assets/js/69.bdd480f6.js"><link rel="prefetch" href="/documents/assets/js/7.a506e926.js"><link rel="prefetch" href="/documents/assets/js/70.21345979.js"><link rel="prefetch" href="/documents/assets/js/71.ea6eceb1.js"><link rel="prefetch" href="/documents/assets/js/72.6d24c19d.js"><link rel="prefetch" href="/documents/assets/js/73.72bc9345.js"><link rel="prefetch" href="/documents/assets/js/74.3845ef15.js"><link rel="prefetch" href="/documents/assets/js/75.8fb57d7b.js"><link rel="prefetch" href="/documents/assets/js/76.f04050fc.js"><link rel="prefetch" href="/documents/assets/js/77.577ba1fb.js"><link rel="prefetch" href="/documents/assets/js/78.0a64a5d6.js"><link rel="prefetch" href="/documents/assets/js/79.a1e874e4.js"><link rel="prefetch" href="/documents/assets/js/80.f125d856.js"><link rel="prefetch" href="/documents/assets/js/81.691ca23f.js"><link rel="prefetch" href="/documents/assets/js/82.596e89cd.js"><link rel="prefetch" href="/documents/assets/js/83.b7f56ccf.js"><link rel="prefetch" href="/documents/assets/js/85.0b691fe9.js"><link rel="prefetch" href="/documents/assets/js/86.c0d8fa6a.js"><link rel="prefetch" href="/documents/assets/js/87.b6453afd.js"><link rel="prefetch" href="/documents/assets/js/88.4ca33017.js"><link rel="prefetch" href="/documents/assets/js/89.97b8ef07.js"><link rel="prefetch" href="/documents/assets/js/90.3bb0e532.js"><link rel="prefetch" href="/documents/assets/js/91.49f16846.js"><link rel="prefetch" href="/documents/assets/js/92.07267235.js"><link rel="prefetch" href="/documents/assets/js/93.b769f2db.js"><link rel="prefetch" href="/documents/assets/js/94.b1ec52a7.js"><link rel="prefetch" href="/documents/assets/js/95.9d4a6378.js"><link rel="prefetch" href="/documents/assets/js/vendors~docsearch.271bc088.js">
+    <link rel="stylesheet" href="/documents/assets/css/0.styles.b20f9c26.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/documents/" class="home-link router-link-active"><!----> <span class="site-name">Documents</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/documents/guide/" class="nav-link">
+  指南
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="文档" class="dropdown-title"><span class="title">文档</span> <span class="arrow down"></span></button> <button type="button" aria-label="文档" class="mobile-dropdown-title"><span class="title">文档</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/documents/study_notes/ops/" class="nav-link router-link-active">
+  运维
+</a></li><li class="dropdown-item"><!----> <a href="/documents/study_notes/dev/" class="nav-link">
+  开发
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="资源共享" class="dropdown-title"><span class="title">资源共享</span> <span class="arrow down"></span></button> <button type="button" aria-label="资源共享" class="mobile-dropdown-title"><span class="title">资源共享</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          在线工具
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://shields.io/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  图标徽章
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://tinypng.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  图片压缩
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://bigjpg.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  图片放大
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="http://cron.qqe2.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  CRON 表达式
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://tableconvert.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  MD 表格生成
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          在线服务
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.bootcdn.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Boot CDN
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          镜像资源
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://msdn.itellyou.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  MSDN
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://mirrors.tuna.tsinghua.edu.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  清华开源软件镜像站
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://developer.aliyun.com/mirror/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  阿里开源镜像站
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          网址导航
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.w3school.com.cn/index.html" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  W3School
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://www.runoob.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  菜鸟教程
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="http://www.h-ui.net/site.shtml" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  IT网址导航
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li></ul></div></div> <a href="https://github.com/chinaguocg/documents" target="_blank" rel="noopener noreferrer" class="repo-link">
+    查看源码
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/documents/guide/" class="nav-link">
+  指南
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="文档" class="dropdown-title"><span class="title">文档</span> <span class="arrow down"></span></button> <button type="button" aria-label="文档" class="mobile-dropdown-title"><span class="title">文档</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/documents/study_notes/ops/" class="nav-link router-link-active">
+  运维
+</a></li><li class="dropdown-item"><!----> <a href="/documents/study_notes/dev/" class="nav-link">
+  开发
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="资源共享" class="dropdown-title"><span class="title">资源共享</span> <span class="arrow down"></span></button> <button type="button" aria-label="资源共享" class="mobile-dropdown-title"><span class="title">资源共享</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          在线工具
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://shields.io/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  图标徽章
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://tinypng.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  图片压缩
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://bigjpg.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  图片放大
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="http://cron.qqe2.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  CRON 表达式
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://tableconvert.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  MD 表格生成
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          在线服务
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.bootcdn.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Boot CDN
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          镜像资源
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://msdn.itellyou.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  MSDN
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://mirrors.tuna.tsinghua.edu.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  清华开源软件镜像站
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://developer.aliyun.com/mirror/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  阿里开源镜像站
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          网址导航
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.w3school.com.cn/index.html" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  W3School
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://www.runoob.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  菜鸟教程
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="http://www.h-ui.net/site.shtml" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  IT网址导航
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li></ul></div></div> <a href="https://github.com/chinaguocg/documents" target="_blank" rel="noopener noreferrer" class="repo-link">
+    查看源码
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Linux</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Ansible</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Disk</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Nginx</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Docker</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>Shell</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/documents/study_notes/ops/shell/00 Shell 配置文件执行顺序.html" class="sidebar-link">Shell 配置文件执行顺序</a></li><li><a href="/documents/study_notes/ops/shell/00 实现Ubuntu类似的motd.html" class="sidebar-link">实现Ubuntu类似的motd</a></li><li><a href="/documents/study_notes/ops/shell/01 Shell 变量.html" class="active sidebar-link">shell 变量</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/documents/study_notes/ops/shell/01 Shell 变量.html#shell-变量" class="sidebar-link">shell 变量</a></li></ul></li><li><a href="/documents/study_notes/ops/shell/02 Shell 条件测试.html" class="sidebar-link">Shell 条件测试</a></li><li><a href="/documents/study_notes/ops/shell/02shell初识 练习题.html" class="sidebar-link">初识shell 练习</a></li><li><a href="/documents/study_notes/ops/shell/03 Shell 条件判断 if.html" class="sidebar-link">Shell 条件语句if</a></li><li><a href="/documents/study_notes/ops/shell/04 Shell 模式匹配 case.html" class="sidebar-link">Shell `case` 语句</a></li><li><a href="/documents/study_notes/ops/shell/05 Shell 循环 for.html" class="sidebar-link">Linux Shell `for` 循环</a></li><li><a href="/documents/study_notes/ops/shell/06 Shell 循环 while.html" class="sidebar-link">Linux Shell `while` 循环</a></li><li><a href="/documents/study_notes/ops/shell/07 Linux Expect+Shell结合.html" class="sidebar-link">Linux Expect及Shell结合</a></li><li><a href="/documents/study_notes/ops/shell/08 Linux 正则表达式RE.html" class="sidebar-link">Linux 正则表达式</a></li><li><a href="/documents/study_notes/ops/shell/09 Linux grep与正则表达式应用.html" class="sidebar-link">Linux grep命令与正则表达式应用</a></li><li><a href="/documents/study_notes/ops/shell/10 Linux sed 实战.html" class="sidebar-link">Linux 流编辑器 sed</a></li><li><a href="/documents/study_notes/ops/shell/11 Linux awk 实战.html" class="sidebar-link">文本处理 awk</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h2 id="shell-变量"><a href="#shell-变量" class="header-anchor">#</a> shell 变量</h2> <ul><li>什么是shell变量?</li> <li>变量的类型</li> <li>变量的定义方式</li> <li>变量的运算</li> <li>变量&quot;内容&quot;的删除和替换</li></ul> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code>shell 变量? 用一个固定的字符串去表示不固定的内容
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><h3 id="一、变量的类型"><a href="#一、变量的类型" class="header-anchor">#</a> 一、变量的类型</h3> <h4 id="_1、自定义变量"><a href="#_1、自定义变量" class="header-anchor">#</a> 1、自定义变量</h4> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code>定义变量：	变量名<span class="token operator">=</span>变量值 变量名必须以字母或下划线开头，区分大小写   <span class="token assign-left variable">ip1</span><span class="token operator">=</span><span class="token number">192.168</span>.2.115 
+引用变量：	$变量名 或 <span class="token variable">${变量名}</span>
+查看变量：	<span class="token builtin class-name">echo</span> $变量名  set<span class="token punctuation">(</span>所有变量：包括自定义变量和环境变量<span class="token punctuation">)</span>
+取消变量：	<span class="token builtin class-name">unset</span> 变量名
+作用范围：	仅在当前shell中有效
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><h4 id="_2、环境变量"><a href="#_2、环境变量" class="header-anchor">#</a> 2、环境变量</h4> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code>定义环境变量：	方法一 <span class="token builtin class-name">export</span> <span class="token assign-left variable">back_dir2</span><span class="token operator">=</span>/home/backup 
+			 方法二 <span class="token builtin class-name">export</span> back_dir1 将自定义变量转换成环境变量
+引用环境变量：	$变量名 或 <span class="token variable">${变量名}</span>
+查看环境变量：	<span class="token builtin class-name">echo</span> $变量名  <span class="token function">env</span>   例如env <span class="token operator">|</span><span class="token function">grep</span> back_dir2
+取消环境变量：	<span class="token builtin class-name">unset</span> 变量名
+变量作用范围：	在当前shell和子shell有效
+
+<span class="token punctuation">[</span>root@yangge ~<span class="token punctuation">]</span><span class="token comment"># env</span>
+
+<span class="token punctuation">[</span>root@yangge ~<span class="token punctuation">]</span><span class="token comment"># echo $HOSTNAME</span>
+yangge
+<span class="token punctuation">[</span>root@yangge ~<span class="token punctuation">]</span><span class="token comment"># echo $USER</span>
+root
+<span class="token punctuation">[</span>root@yangge ~<span class="token punctuation">]</span><span class="token comment"># echo $PWD</span>
+/root
+<span class="token punctuation">[</span>root@yangge ~<span class="token punctuation">]</span><span class="token comment"># echo $HOME</span>
+/root
+
+示例：将MySQL的命令路径加入到<span class="token environment constant">PATH</span>环境变量
+没加前 - /usr/local/mysql/bin/mysql <span class="token parameter variable">-uroot</span> -p<span class="token string">'123'</span>
+
+<span class="token comment"># vim /etc/profile</span>
+<span class="token builtin class-name">export</span> <span class="token assign-left variable"><span class="token environment constant">PATH</span></span><span class="token operator">=</span><span class="token environment constant">$PATH</span>:/usr/local/mysql/bin
+<span class="token comment"># source /etc/profile</span>
+添加后 - mysql <span class="token parameter variable">-uroot</span> -p<span class="token string">'123'</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br></div></div><h4 id="_3、位置变量"><a href="#_3、位置变量" class="header-anchor">#</a> 3、位置变量</h4> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token variable">$1</span> <span class="token variable">$2</span> <span class="token variable">$3</span> <span class="token variable">$4</span> <span class="token variable">$5</span> <span class="token variable">$6</span> <span class="token variable">$7</span> <span class="token variable">$8</span> <span class="token variable">$9</span> <span class="token variable">${10}</span> <span class="token variable">${11}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><h4 id="_4、预定义变量"><a href="#_4、预定义变量" class="header-anchor">#</a> 4、预定义变量</h4> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token variable">$0</span>  脚本名
+<span class="token variable">$*</span>	所有的参数
+<span class="token variable">$@</span> 	所有的参数
+<span class="token variable">$#</span> 	参数的个数
+<span class="token variable">$$</span> 	当前进程的PID
+<span class="token variable">$!</span>  上一个后台进程的PID
+<span class="token variable">$?</span>	上一个命令的返回值 <span class="token number">0</span>表示成功	
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><div class="language-bash line-numbers-mode"><pre class="language-bash"><code>示例1：位置变量和预定义变量
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># vim test1.sh</span>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;第2个位置参数是<span class="token variable">$2</span>&quot;</span>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;第1个位置参数是<span class="token variable">$1</span>&quot;</span>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;第4个位置参数是<span class="token variable">$4</span>&quot;</span>
+
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;所有参数是: <span class="token variable">$*</span>&quot;</span>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;所有参数是: <span class="token variable">$@</span>&quot;</span>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;参数的个数是: <span class="token variable">$#</span>&quot;</span>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;当前进程的PID是: <span class="token variable">$$</span>&quot;</span>
+
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># chmod +x test.sh</span>
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># ./test.sh yang tianyun alice jack tom 100</span>
+第2个位置参数是tianyun
+第1个位置参数是yang
+第4个位置参数是jack
+所有参数是: yang tianyun alice jack tom <span class="token number">100</span>
+所有参数是: yang tianyun alice jack tom <span class="token number">100</span>
+参数的个数是: <span class="token number">6</span>
+当前进程的PID是: <span class="token number">76416</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br></div></div><p><em><em>作业：了解 $</em> 和 $@ 区别</em>*</p> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code>-- 示例2：修改IP和主机名v1.0
+<span class="token punctuation">[</span>root@yangge ~<span class="token punctuation">]</span><span class="token comment"># vim modify_ip.sh</span>
+hostnamectl set-hostname <span class="token variable">$4</span>
+
+nmcli connection modify ens33 ipv4.method manual <span class="token punctuation">\</span>
+ipv4.addresses <span class="token variable">$1</span>/24 ipv4.gateway <span class="token variable">$2</span> ipv4.dns <span class="token variable">$3</span> autoconnect <span class="token function">yes</span>   
+
+nmcli connection up ens33
+
+<span class="token punctuation">[</span>root@yangge ~<span class="token punctuation">]</span><span class="token comment"># chmod +x modify_ip.sh</span>
+<span class="token punctuation">[</span>root@yangge ~<span class="token punctuation">]</span><span class="token comment"># ./modify_ip.sh 192.168.92.101 192.168.92.2 4.4.4.4 web01</span>
+<span class="token punctuation">[</span>root@yangge ~<span class="token punctuation">]</span><span class="token comment"># ./modify_ip.sh 192.168.92.102 192.168.92.2 4.4.4.4 web02</span>
+<span class="token punctuation">[</span>root@yangge ~<span class="token punctuation">]</span><span class="token comment"># ./modify_ip.sh 192.168.92.103 192.168.92.2 4.4.4.4 web03</span>
+
+-- 示例3：Ping测试主机
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># vim ping.sh</span>
+<span class="token comment">#!/bin/bash</span>
+<span class="token function">ping</span> <span class="token parameter variable">-c2</span> <span class="token variable">$1</span> <span class="token operator">&amp;&gt;</span>/dev/null
+<span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token variable">$?</span> <span class="token operator">=</span> <span class="token number">0</span> <span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token keyword">then</span>
+        <span class="token builtin class-name">echo</span> <span class="token string">&quot;host <span class="token variable">$1</span> is ok&quot;</span>
+<span class="token keyword">else</span>
+        <span class="token builtin class-name">echo</span> <span class="token string">&quot;host <span class="token variable">$1</span> is fail&quot;</span>
+<span class="token keyword">fi</span>										
+
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># chmod a+x ping.sh</span>
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># ./ping.sh www.baidu.com</span>
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># ./ping.sh 192.168.92.100</span>
+
+作业：
+正确的结果 <span class="token builtin class-name">echo</span> <span class="token string">&quot;host <span class="token variable">$1</span> is ok&quot;</span> 用绿色显示
+失败的结果 <span class="token builtin class-name">echo</span> <span class="token string">&quot;host <span class="token variable">$1</span> is fail&quot;</span> 用红色显示
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br></div></div><h3 id="二、变量的赋值方式"><a href="#二、变量的赋值方式" class="header-anchor">#</a> 二、变量的赋值方式</h3> <h4 id="_1、显式赋值"><a href="#_1、显式赋值" class="header-anchor">#</a> 1、显式赋值</h4> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code>变量名<span class="token operator">=</span>变量值
+示例：
+<span class="token assign-left variable">ip1</span><span class="token operator">=</span><span class="token string">&quot;192.168.1.251&quot;</span>
+<span class="token assign-left variable">school</span><span class="token operator">=</span><span class="token string">&quot;BeiJing qfedu&quot;</span>
+<span class="token assign-left variable">today1</span><span class="token operator">=</span><span class="token variable"><span class="token variable">`</span><span class="token function">date</span> +%F<span class="token variable">`</span></span>				<span class="token comment"># 命令替换</span>
+<span class="token assign-left variable">today2</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span><span class="token function">date</span> +%F<span class="token variable">)</span></span>				<span class="token comment"># 命令替换</span>
+
+<span class="token function">touch</span> yangge_<span class="token variable"><span class="token variable">$(</span><span class="token function">date</span> +%F<span class="token variable">)</span></span>.txt
+<span class="token function">mkdir</span> <span class="token parameter variable">-p</span> /backups/<span class="token variable"><span class="token variable">$(</span><span class="token function">date</span> +%u<span class="token variable">)</span></span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><h4 id="_2、read-从键盘读入变量值"><a href="#_2、read-从键盘读入变量值" class="header-anchor">#</a> 2、read 从键盘读入变量值</h4> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code>语法：
+<span class="token builtin class-name">read</span> 变量名
+<span class="token builtin class-name">read</span> <span class="token parameter variable">-p</span> <span class="token string">&quot;提示信息: &quot;</span>  变量名
+<span class="token builtin class-name">read</span> <span class="token parameter variable">-t</span> <span class="token number">5</span> <span class="token parameter variable">-p</span> <span class="token string">&quot;提示信息: &quot;</span>  变量名
+<span class="token builtin class-name">read</span> <span class="token parameter variable">-n</span> <span class="token number">2</span> 变量名
+
+
+<span class="token builtin class-name">read</span> <span class="token function">ip</span>
+<span class="token builtin class-name">read</span> <span class="token parameter variable">-p</span> <span class="token string">&quot;请输入IP地址: &quot;</span> <span class="token function">ip</span>
+<span class="token builtin class-name">read</span> <span class="token parameter variable">-t</span> <span class="token number">5</span> <span class="token parameter variable">-p</span> <span class="token string">&quot;请输入IP地址: &quot;</span> <span class="token function">ip</span>
+<span class="token builtin class-name">read</span> <span class="token parameter variable">-n</span> <span class="token number">1</span> <span class="token function">ip</span>
+<span class="token builtin class-name">read</span> <span class="token parameter variable">-n</span> <span class="token number">1</span> <span class="token parameter variable">-p</span> <span class="token string">&quot;按任意键继续...&quot;</span>
+
+示例3：修改IP和主机名v2.0
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># vim modify_ip_v2.0.sh</span>
+<span class="token comment">#!/bin/bash</span>
+<span class="token builtin class-name">read</span> <span class="token parameter variable">-p</span> <span class="token string">&quot;请输入[IP 网关 DNS 主机名]: &quot;</span> <span class="token function">ip</span> gateway dns <span class="token function">hostname</span>
+
+<span class="token comment">#修改主机名</span>
+hostnamectl set-hostname <span class="token variable">${hostname}</span>
+
+<span class="token comment">#修改IP</span>
+nmcli connection modify ens33 <span class="token punctuation">\</span>
+ipv4.method manual <span class="token punctuation">\</span>
+ipv4.addresses <span class="token variable">${ip}</span>/24 <span class="token punctuation">\</span>
+ipv4.gateway <span class="token variable">${gateway}</span> <span class="token punctuation">\</span>
+ipv4.dns <span class="token variable">${dns}</span> <span class="token punctuation">\</span>
+autoconnect <span class="token function">yes</span>
+
+<span class="token comment">#激活IP</span>
+nmcli connection up ens33
+
+
+示例4：
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># vim ping2.sh</span>
+<span class="token comment">#!/bin/bash							</span>
+<span class="token builtin class-name">read</span> <span class="token parameter variable">-p</span> <span class="token string">&quot;请输入要测试的主机名或IP: &quot;</span> <span class="token function">ip</span>                
+<span class="token function">ping</span> <span class="token parameter variable">-c2</span> <span class="token variable">$ip</span> <span class="token operator">&amp;&gt;</span>/dev/null                
+<span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token variable">$?</span> <span class="token operator">=</span> <span class="token number">0</span> <span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token keyword">then</span>                                      
+        <span class="token builtin class-name">echo</span> <span class="token string">&quot;host <span class="token variable">$ip</span> is ok&quot;</span>       
+<span class="token keyword">else</span>                                                                                    
+        <span class="token builtin class-name">echo</span> <span class="token string">&quot;host <span class="token variable">$ip</span> is fail&quot;</span>     
+<span class="token keyword">fi</span>										
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># chmod a+x ping2.sh</span>
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># ./ping.sh</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br></div></div><p><strong>定义或引用变量时注意事项</strong></p> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token string">&quot; &quot;</span>  	弱引用
+<span class="token string">' '</span> 	强引用
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># school=1000phone</span>
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># echo &quot;${school} is good&quot;</span>
+1000phone is good
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># echo '${school} is good'</span>
+<span class="token variable">${school}</span> is good
+	
+<span class="token variable"><span class="token variable">`</span> <span class="token variable">`</span></span>  	命令替换 等价于 <span class="token punctuation">$(</span><span class="token punctuation">)</span>   反引号中的shell命令会被先执行
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># touch `date +%F`_file1.txt  </span>
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># touch $(date +%F)_file2.txt </span>
+		   
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># disk_free3=&quot;df -Ph |grep '/$' |awk '{print $4}'&quot;		# 错误</span>
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># disk_free4=$(df -Ph |grep '/$' |awk '{print $4}')</span>
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># disk_free5=`df -Ph |grep '/$' |awk '{print $4}'`		   </span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br></div></div><h3 id="三、变量的运算"><a href="#三、变量的运算" class="header-anchor">#</a> 三、变量的运算</h3> <h4 id="_1、整数运算"><a href="#_1、整数运算" class="header-anchor">#</a> 1、整数运算</h4> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># num1=2</span>
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># num2=5</span>
+
+方法一：expr
+<span class="token function">expr</span> <span class="token number">1</span> + <span class="token number">2</span>
+<span class="token function">expr</span> <span class="token variable">$num1</span> + <span class="token variable">$num2</span>    		+  -  <span class="token punctuation">\</span>*  /  %		
+
+方法二：<span class="token variable"><span class="token variable">$((</span><span class="token punctuation">))</span>
+echo $<span class="token punctuation">((</span>$num1<span class="token operator">+</span>$num2<span class="token variable">))</span></span>      	+  -  *  /   %
+<span class="token builtin class-name">echo</span> <span class="token variable"><span class="token variable">$((</span>num1<span class="token operator">+</span>num2<span class="token variable">))</span></span>
+<span class="token builtin class-name">echo</span> <span class="token variable"><span class="token variable">$((</span><span class="token number">5</span><span class="token operator">-</span><span class="token number">3</span><span class="token operator">*</span><span class="token number">2</span><span class="token variable">))</span></span>	 
+<span class="token builtin class-name">echo</span> <span class="token variable"><span class="token variable">$((</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token operator">-</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token number">2</span><span class="token variable">))</span></span>
+<span class="token builtin class-name">echo</span> <span class="token variable"><span class="token variable">$((</span><span class="token number">2</span><span class="token operator">**</span><span class="token number">3</span><span class="token variable">))</span></span>
+<span class="token assign-left variable">sum</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$((</span><span class="token number">1</span><span class="token operator">+</span><span class="token number">2</span><span class="token variable">))</span></span><span class="token punctuation">;</span> <span class="token builtin class-name">echo</span> <span class="token variable">$sum</span>
+
+方法三：$<span class="token punctuation">[</span><span class="token punctuation">]</span>
+<span class="token builtin class-name">echo</span> $<span class="token punctuation">[</span><span class="token number">5</span>+2<span class="token punctuation">]</span>					+  -  *  /  %
+<span class="token builtin class-name">echo</span> $<span class="token punctuation">[</span><span class="token number">5</span>**2<span class="token punctuation">]</span>
+
+方法四：let
+<span class="token builtin class-name">let</span> <span class="token assign-left variable">sum</span><span class="token operator">=</span><span class="token number">2</span>+3<span class="token punctuation">;</span> <span class="token builtin class-name">echo</span> <span class="token variable">$sum</span>
+<span class="token builtin class-name">let</span> i++<span class="token punctuation">;</span> <span class="token builtin class-name">echo</span> <span class="token variable">$i</span>
+
+
+<span class="token punctuation">[</span>root@web02 ~<span class="token punctuation">]</span><span class="token comment"># i=1</span>
+<span class="token punctuation">[</span>root@web02 ~<span class="token punctuation">]</span><span class="token comment"># let i=i+1</span>
+<span class="token punctuation">[</span>root@web02 ~<span class="token punctuation">]</span><span class="token comment"># echo $i</span>
+<span class="token number">2</span>
+
+<span class="token punctuation">[</span>root@web02 ~<span class="token punctuation">]</span><span class="token comment"># k=1</span>
+<span class="token punctuation">[</span>root@web02 ~<span class="token punctuation">]</span><span class="token comment"># let k++</span>
+<span class="token punctuation">[</span>root@web02 ~<span class="token punctuation">]</span><span class="token comment"># echo $k</span>
+<span class="token number">2</span>
+<span class="token punctuation">[</span>root@web02 ~<span class="token punctuation">]</span><span class="token comment"># k++  等价  k=k+1 		</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br></div></div><h4 id="_2、小数运算"><a href="#_2、小数运算" class="header-anchor">#</a> 2、小数运算</h4> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code>方法一：bc
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;2*4&quot;</span> <span class="token operator">|</span><span class="token function">bc</span>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;2^4&quot;</span> <span class="token operator">|</span><span class="token function">bc</span>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;scale=2;6/4&quot;</span> <span class="token operator">|</span><span class="token function">bc</span>
+
+方法二：awk
+<span class="token function">awk</span> <span class="token string">'BEGIN{print 1/2}'</span>
+
+方法三：python
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;print 5.0/2&quot;</span> <span class="token operator">|</span>python
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><h3 id="四、变量-内容-的删除和替换-扩展了解"><a href="#四、变量-内容-的删除和替换-扩展了解" class="header-anchor">#</a> 四、变量&quot;内容&quot;的删除和替换（扩展了解）</h3> <h4 id="_1、变量-内容-的删除"><a href="#_1、变量-内容-的删除" class="header-anchor">#</a> 1、变量&quot;内容&quot;的删除</h4> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># url=www.sina.com.cn</span>
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># echo ${#url}				# 获取变量值的长度</span>
+<span class="token number">15</span>
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># echo ${url}			    # 标准查看</span>
+www.sina.com.cn
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># echo ${url#*.}			# 从前往后，最短匹配（*任意字符，匹配到第一个.）</span>
+sina.com.cn
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># echo ${url##*.}			# 从前往后，最长匹配	贪婪匹配</span>
+cn
+
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># url=www.sina.com.cn</span>
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># echo ${url}</span>
+www.sina.com.cn
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># echo ${url%.*}			# 从后往前，最短匹配</span>
+www.sina.com
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># echo ${url%%.*}			# 从后往前，最长匹配	贪婪匹配</span>
+www
+
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># url=www.sina.com.cn</span>
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># echo ${url#a.}</span>
+www.sina.com.cn
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># echo ${url#*sina.}</span>
+com.cn
+
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># hostname tianyun.1000phone.com		# 设置临时主机名</span>
+退出shell，重新连接
+
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># echo $HOSTNAME</span>
+tianyun.1000phone.com
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># echo ${HOSTNAME%%.*}</span>
+tianyun
+
+索引及切片
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># url=www.sina.com.cn</span>
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># echo ${url:0:5}						# 从第一个（0）字符开始，取5个字符</span>
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># echo ${url:5:5}		</span>
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># echo ${url:5}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br></div></div><h4 id="_2、变量-内容-的替换"><a href="#_2、变量-内容-的替换" class="header-anchor">#</a> 2、变量&quot;内容&quot;的替换</h4> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># url=www.sina.com.cn</span>
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># echo ${url/sina/baidu}</span>
+www.baidu.com.cn
+
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># url=www.sina.com.cn</span>
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># echo ${url/n/N}			# /替换第一个</span>
+www.siNa.com.cn
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># echo ${url//n/N}			# //替换全部 贪婪匹配</span>
+www.siNa.com.cN
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><h4 id="_4、变量的替代【难度】"><a href="#_4、变量的替代【难度】" class="header-anchor">#</a> 4、变量的替代【难度】</h4> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code>准备场景
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># unset var1</span>
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># unset var2</span>
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># unset var3</span>
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># 									# var1没有定义</span>
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># var2=								# var2有定义，但为空值</span>
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># var3=111							# var3有定义，有值</span>
+
+第一种替代 <span class="token variable">${变量名-新的变量值}</span>
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># echo ${var1-aaaa}</span>
+aaaa
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># echo ${var2-aaaa}</span>
+
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># echo ${var3-aaaa}</span>
+<span class="token number">111</span>
+变量没有被赋值：会使用“新的变量值“ 替代
+变量有被赋值（包括空值）： 不会被替代
+
+第二种替代 <span class="token variable">${变量名<span class="token operator">:-</span>新的变量值}</span>
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># echo ${var1:-aaaa}</span>
+aaaa
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># echo ${var2:-aaaa}</span>
+aaaa
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># echo ${var3:-aaaa}</span>
+<span class="token number">111</span>
+变量没有被赋值（包括空值）：都会使用“新的变量值“ 替代
+变量有被赋值： 不会被替代
+
+结论：<span class="token variable">${变量名-新的变量值}</span> 和 <span class="token variable">${变量名<span class="token operator">:-</span>新的变量值}</span> 仅对空值变量有影响 var2
+
+<span class="token punctuation">[</span>root@tianyun scripts<span class="token punctuation">]</span><span class="token comment"># vim var1.sh</span>
+<span class="token comment">#!/bin/bash</span>
+<span class="token builtin class-name">read</span> <span class="token parameter variable">-p</span> <span class="token string">&quot;输入端口[默认为80]: &quot;</span> port
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;你输入的端口为: <span class="token variable">$port</span>&quot;</span>
+
+<span class="token punctuation">[</span>root@tianyun scripts<span class="token punctuation">]</span><span class="token comment"># chmod +x var1.sh </span>
+<span class="token punctuation">[</span>root@tianyun scripts<span class="token punctuation">]</span><span class="token comment"># ./var1.sh </span>
+输入端口<span class="token punctuation">[</span>默认为80<span class="token punctuation">]</span>: 								<span class="token comment"># 直接回车，没有输入</span>
+你输入的端口为: 
+
+<span class="token punctuation">[</span>root@tianyun scripts<span class="token punctuation">]</span><span class="token comment"># vim var2.sh</span>
+<span class="token comment">#!/bin/bash</span>
+<span class="token builtin class-name">read</span> <span class="token parameter variable">-p</span> <span class="token string">&quot;输入端口[默认为80]: &quot;</span> port
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;你输入的端口为: <span class="token variable">${port<span class="token operator">:-</span>80}</span>&quot;</span>
+
+<span class="token punctuation">[</span>root@tianyun scripts<span class="token punctuation">]</span><span class="token comment"># ./var2.sh </span>
+输入端口<span class="token punctuation">[</span>默认为80<span class="token punctuation">]</span>: <span class="token number">21</span>
+你输入的端口为: <span class="token number">21</span>
+<span class="token punctuation">[</span>root@tianyun scripts<span class="token punctuation">]</span><span class="token comment"># ./var2.sh </span>
+输入端口<span class="token punctuation">[</span>默认为80<span class="token punctuation">]</span>: 
+你输入的端口为: <span class="token number">80</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br></div></div><div class="language-bash line-numbers-mode"><pre class="language-bash"><code>其它方式【额外了解】
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># echo ${var3+aaaa}</span>
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># echo ${var3:+aaaa}</span>
+
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># echo ${var3=aaaa}</span>
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># echo ${var3:=aaaa}</span>
+
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># echo ${var3?aaaa}</span>
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># echo ${var3:?aaaa}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><h3 id="五、i-和-i-扩展了解"><a href="#五、i-和-i-扩展了解" class="header-anchor">#</a> 五、i++ 和 ++i （扩展了解）</h3> <h4 id="_1、对变量的值的影响"><a href="#_1、对变量的值的影响" class="header-anchor">#</a> 1、对变量的值的影响</h4> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># i=1</span>
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># let i++</span>
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># echo $i</span>
+<span class="token number">2</span>
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># j=1</span>
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># let ++j</span>
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># echo $j</span>
+<span class="token number">2</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><h4 id="_2、对表达式的值的影响"><a href="#_2、对表达式的值的影响" class="header-anchor">#</a> 2、对表达式的值的影响</h4> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># unset i</span>
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># unset j</span>
+
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># i=1</span>
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># j=1</span>
+
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># let x=i++         # 先赋值，再运算</span>
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># let y=++j         # 先运算，再赋值</span>
+
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># echo $i</span>
+<span class="token number">2</span>
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># echo $j</span>
+<span class="token number">2</span>
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># </span>
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># echo $x</span>
+<span class="token number">1</span>
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># echo $y</span>
+<span class="token number">2</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br></div></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/documents/study_notes/ops/shell/00 实现Ubuntu类似的motd.html" class="prev">
+        实现Ubuntu类似的motd
+      </a></span> <span class="next"><a href="/documents/study_notes/ops/shell/02 Shell 条件测试.html">
+        Shell 条件测试
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><!----></div></div>
+    <script src="/documents/assets/js/app.9341f639.js" defer></script><script src="/documents/assets/js/2.e8bd7cca.js" defer></script><script src="/documents/assets/js/1.40c64e62.js" defer></script><script src="/documents/assets/js/84.67d2ff28.js" defer></script>
+  </body>
+</html>

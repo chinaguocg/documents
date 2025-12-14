@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>lvm | Documents</title>
+    <meta name="generator" content="VuePress 1.9.10">
+    <link rel="icon" href="/documents/img/logo.png">
+    <link rel="stylesheet" href="/documents/css/style.css">
+    <meta name="description" content="开发运维技术文档">
+    <meta name="keywords" content="Chinaguocg,Documents,DevOps,IT技术,文档博客,开发,运维,技术文档">
+    <meta name="referrer" content="never">
+    
+    <link rel="preload" href="/documents/assets/css/0.styles.b20f9c26.css" as="style"><link rel="preload" href="/documents/assets/js/app.9341f639.js" as="script"><link rel="preload" href="/documents/assets/js/2.e8bd7cca.js" as="script"><link rel="preload" href="/documents/assets/js/1.40c64e62.js" as="script"><link rel="preload" href="/documents/assets/js/44.6eafbfdd.js" as="script"><link rel="prefetch" href="/documents/assets/js/10.b63d61ac.js"><link rel="prefetch" href="/documents/assets/js/11.23025be0.js"><link rel="prefetch" href="/documents/assets/js/12.9a27d63b.js"><link rel="prefetch" href="/documents/assets/js/13.e3dba2b7.js"><link rel="prefetch" href="/documents/assets/js/14.6d3d6a88.js"><link rel="prefetch" href="/documents/assets/js/15.30a4286e.js"><link rel="prefetch" href="/documents/assets/js/16.e4505b74.js"><link rel="prefetch" href="/documents/assets/js/17.255ebcfb.js"><link rel="prefetch" href="/documents/assets/js/18.a4c4f660.js"><link rel="prefetch" href="/documents/assets/js/19.2c33fa19.js"><link rel="prefetch" href="/documents/assets/js/20.fc453a90.js"><link rel="prefetch" href="/documents/assets/js/21.c52a45d9.js"><link rel="prefetch" href="/documents/assets/js/22.faa840f0.js"><link rel="prefetch" href="/documents/assets/js/23.ef1366ba.js"><link rel="prefetch" href="/documents/assets/js/24.b943b232.js"><link rel="prefetch" href="/documents/assets/js/25.4c0d5c0d.js"><link rel="prefetch" href="/documents/assets/js/26.c1467af0.js"><link rel="prefetch" href="/documents/assets/js/27.09371cea.js"><link rel="prefetch" href="/documents/assets/js/28.3a65b93c.js"><link rel="prefetch" href="/documents/assets/js/29.e3615fad.js"><link rel="prefetch" href="/documents/assets/js/3.1bdb9756.js"><link rel="prefetch" href="/documents/assets/js/30.53aed7d2.js"><link rel="prefetch" href="/documents/assets/js/31.71d55b08.js"><link rel="prefetch" href="/documents/assets/js/32.1bd237a9.js"><link rel="prefetch" href="/documents/assets/js/33.a671388e.js"><link rel="prefetch" href="/documents/assets/js/34.f6046c03.js"><link rel="prefetch" href="/documents/assets/js/35.ce72f783.js"><link rel="prefetch" href="/documents/assets/js/36.e0906615.js"><link rel="prefetch" href="/documents/assets/js/37.bec7159a.js"><link rel="prefetch" href="/documents/assets/js/38.115418fc.js"><link rel="prefetch" href="/documents/assets/js/39.307f0445.js"><link rel="prefetch" href="/documents/assets/js/4.ce792ed0.js"><link rel="prefetch" href="/documents/assets/js/40.c75eb27b.js"><link rel="prefetch" href="/documents/assets/js/41.c7bc95f8.js"><link rel="prefetch" href="/documents/assets/js/42.005040f2.js"><link rel="prefetch" href="/documents/assets/js/43.d98cc47d.js"><link rel="prefetch" href="/documents/assets/js/45.b3027c59.js"><link rel="prefetch" href="/documents/assets/js/46.6e1f63e6.js"><link rel="prefetch" href="/documents/assets/js/47.d5743853.js"><link rel="prefetch" href="/documents/assets/js/48.df552625.js"><link rel="prefetch" href="/documents/assets/js/49.4e1eb1ee.js"><link rel="prefetch" href="/documents/assets/js/5.d956834b.js"><link rel="prefetch" href="/documents/assets/js/50.fe8055d2.js"><link rel="prefetch" href="/documents/assets/js/51.faf86540.js"><link rel="prefetch" href="/documents/assets/js/52.94ef29cc.js"><link rel="prefetch" href="/documents/assets/js/53.25511ab8.js"><link rel="prefetch" href="/documents/assets/js/54.250ad07b.js"><link rel="prefetch" href="/documents/assets/js/55.40ae5eb0.js"><link rel="prefetch" href="/documents/assets/js/56.74d7901e.js"><link rel="prefetch" href="/documents/assets/js/57.63b2c97e.js"><link rel="prefetch" href="/documents/assets/js/58.dbbff67e.js"><link rel="prefetch" href="/documents/assets/js/59.52f3d2e8.js"><link rel="prefetch" href="/documents/assets/js/6.118e9bad.js"><link rel="prefetch" href="/documents/assets/js/60.28d21fe8.js"><link rel="prefetch" href="/documents/assets/js/61.d63e7c58.js"><link rel="prefetch" href="/documents/assets/js/62.86a1eac9.js"><link rel="prefetch" href="/documents/assets/js/63.8d5669ec.js"><link rel="prefetch" href="/documents/assets/js/64.6885c7c2.js"><link rel="prefetch" href="/documents/assets/js/65.0391c4dc.js"><link rel="prefetch" href="/documents/assets/js/66.c66aaf4b.js"><link rel="prefetch" href="/documents/assets/js/67.67136c5b.js"><link rel="prefetch" href="/documents/assets/js/68.3a92a11c.js"><link rel="prefetch" href="/documents/assets/js/69.bdd480f6.js"><link rel="prefetch" href="/documents/assets/js/7.a506e926.js"><link rel="prefetch" href="/documents/assets/js/70.21345979.js"><link rel="prefetch" href="/documents/assets/js/71.ea6eceb1.js"><link rel="prefetch" href="/documents/assets/js/72.6d24c19d.js"><link rel="prefetch" href="/documents/assets/js/73.72bc9345.js"><link rel="prefetch" href="/documents/assets/js/74.3845ef15.js"><link rel="prefetch" href="/documents/assets/js/75.8fb57d7b.js"><link rel="prefetch" href="/documents/assets/js/76.f04050fc.js"><link rel="prefetch" href="/documents/assets/js/77.577ba1fb.js"><link rel="prefetch" href="/documents/assets/js/78.0a64a5d6.js"><link rel="prefetch" href="/documents/assets/js/79.a1e874e4.js"><link rel="prefetch" href="/documents/assets/js/80.f125d856.js"><link rel="prefetch" href="/documents/assets/js/81.691ca23f.js"><link rel="prefetch" href="/documents/assets/js/82.596e89cd.js"><link rel="prefetch" href="/documents/assets/js/83.b7f56ccf.js"><link rel="prefetch" href="/documents/assets/js/84.67d2ff28.js"><link rel="prefetch" href="/documents/assets/js/85.0b691fe9.js"><link rel="prefetch" href="/documents/assets/js/86.c0d8fa6a.js"><link rel="prefetch" href="/documents/assets/js/87.b6453afd.js"><link rel="prefetch" href="/documents/assets/js/88.4ca33017.js"><link rel="prefetch" href="/documents/assets/js/89.97b8ef07.js"><link rel="prefetch" href="/documents/assets/js/90.3bb0e532.js"><link rel="prefetch" href="/documents/assets/js/91.49f16846.js"><link rel="prefetch" href="/documents/assets/js/92.07267235.js"><link rel="prefetch" href="/documents/assets/js/93.b769f2db.js"><link rel="prefetch" href="/documents/assets/js/94.b1ec52a7.js"><link rel="prefetch" href="/documents/assets/js/95.9d4a6378.js"><link rel="prefetch" href="/documents/assets/js/vendors~docsearch.271bc088.js">
+    <link rel="stylesheet" href="/documents/assets/css/0.styles.b20f9c26.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/documents/" class="home-link router-link-active"><!----> <span class="site-name">Documents</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/documents/guide/" class="nav-link">
+  指南
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="文档" class="dropdown-title"><span class="title">文档</span> <span class="arrow down"></span></button> <button type="button" aria-label="文档" class="mobile-dropdown-title"><span class="title">文档</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/documents/study_notes/ops/" class="nav-link router-link-active">
+  运维
+</a></li><li class="dropdown-item"><!----> <a href="/documents/study_notes/dev/" class="nav-link">
+  开发
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="资源共享" class="dropdown-title"><span class="title">资源共享</span> <span class="arrow down"></span></button> <button type="button" aria-label="资源共享" class="mobile-dropdown-title"><span class="title">资源共享</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          在线工具
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://shields.io/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  图标徽章
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://tinypng.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  图片压缩
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://bigjpg.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  图片放大
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="http://cron.qqe2.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  CRON 表达式
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://tableconvert.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  MD 表格生成
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          在线服务
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.bootcdn.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Boot CDN
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          镜像资源
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://msdn.itellyou.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  MSDN
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://mirrors.tuna.tsinghua.edu.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  清华开源软件镜像站
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://developer.aliyun.com/mirror/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  阿里开源镜像站
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          网址导航
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.w3school.com.cn/index.html" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  W3School
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://www.runoob.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  菜鸟教程
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="http://www.h-ui.net/site.shtml" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  IT网址导航
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li></ul></div></div> <a href="https://github.com/chinaguocg/documents" target="_blank" rel="noopener noreferrer" class="repo-link">
+    查看源码
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/documents/guide/" class="nav-link">
+  指南
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="文档" class="dropdown-title"><span class="title">文档</span> <span class="arrow down"></span></button> <button type="button" aria-label="文档" class="mobile-dropdown-title"><span class="title">文档</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/documents/study_notes/ops/" class="nav-link router-link-active">
+  运维
+</a></li><li class="dropdown-item"><!----> <a href="/documents/study_notes/dev/" class="nav-link">
+  开发
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="资源共享" class="dropdown-title"><span class="title">资源共享</span> <span class="arrow down"></span></button> <button type="button" aria-label="资源共享" class="mobile-dropdown-title"><span class="title">资源共享</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          在线工具
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://shields.io/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  图标徽章
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://tinypng.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  图片压缩
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://bigjpg.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  图片放大
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="http://cron.qqe2.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  CRON 表达式
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://tableconvert.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  MD 表格生成
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          在线服务
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.bootcdn.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Boot CDN
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          镜像资源
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://msdn.itellyou.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  MSDN
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://mirrors.tuna.tsinghua.edu.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  清华开源软件镜像站
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://developer.aliyun.com/mirror/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  阿里开源镜像站
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          网址导航
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.w3school.com.cn/index.html" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  W3School
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://www.runoob.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  菜鸟教程
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="http://www.h-ui.net/site.shtml" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  IT网址导航
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li></ul></div></div> <a href="https://github.com/chinaguocg/documents" target="_blank" rel="noopener noreferrer" class="repo-link">
+    查看源码
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Linux</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Ansible</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>Disk</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/documents/study_notes/ops/disk/01.html" class="sidebar-link">磁盘管理</a></li><li><a href="/documents/study_notes/ops/disk/02.html" class="sidebar-link">磁盘管理-SWAP交换分区</a></li><li><a href="/documents/study_notes/ops/disk/03.html" aria-current="page" class="active sidebar-link">lvm</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/documents/study_notes/ops/disk/03.html#创建逻辑卷" class="sidebar-link">创建逻辑卷</a></li><li class="sidebar-sub-header"><a href="/documents/study_notes/ops/disk/03.html#扩容-lv-逻辑卷-xfs文件系统" class="sidebar-link">扩容-LV(逻辑卷)-XFS文件系统</a></li><li class="sidebar-sub-header"><a href="/documents/study_notes/ops/disk/03.html#扩容-vg-卷组-xfs文件系统" class="sidebar-link">扩容-VG(卷组)-XFS文件系统</a></li></ul></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Nginx</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Docker</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Shell</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="lvm"><a href="#lvm" class="header-anchor">#</a> lvm</h1> <h2 id="创建逻辑卷"><a href="#创建逻辑卷" class="header-anchor">#</a> 创建逻辑卷</h2> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token punctuation">[</span>root@node3 ~<span class="token punctuation">]</span><span class="token comment"># lsblk</span>
+NAME            MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+sda               <span class="token number">8</span>:0    <span class="token number">0</span>   20G  <span class="token number">0</span> disk 
+├─sda1            <span class="token number">8</span>:1    <span class="token number">0</span>    1G  <span class="token number">0</span> part /boot
+└─sda2            <span class="token number">8</span>:2    <span class="token number">0</span>   19G  <span class="token number">0</span> part 
+  ├─centos-root <span class="token number">253</span>:0    <span class="token number">0</span>   17G  <span class="token number">0</span> lvm  /
+  └─centos-swap <span class="token number">253</span>:1    <span class="token number">0</span>    2G  <span class="token number">0</span> lvm  <span class="token punctuation">[</span>SWAP<span class="token punctuation">]</span>
+sdb               <span class="token number">8</span>:16   <span class="token number">0</span>    1G  <span class="token number">0</span> disk 
+sdc               <span class="token number">8</span>:32   <span class="token number">0</span>    1G  <span class="token number">0</span> disk 
+sdd               <span class="token number">8</span>:48   <span class="token number">0</span>    1G  <span class="token number">0</span> disk 
+sde               <span class="token number">8</span>:64   <span class="token number">0</span>    1G  <span class="token number">0</span> disk 
+sr0              <span class="token number">11</span>:0    <span class="token number">1</span>  <span class="token number">4</span>.2G  <span class="token number">0</span> rom  
+<span class="token punctuation">[</span>root@node3 ~<span class="token punctuation">]</span><span class="token comment"># pvcreate /dev/sdb /dev/sdc</span>
+  Physical volume <span class="token string">&quot;/dev/sdb&quot;</span> successfully created.
+  Physical volume <span class="token string">&quot;/dev/sdc&quot;</span> successfully created.
+<span class="token punctuation">[</span>root@node3 ~<span class="token punctuation">]</span><span class="token comment"># pvdisplay</span>
+  --- Physical volume ---
+  PV Name               /dev/sda2
+  VG Name               centos
+  PV Size               <span class="token operator">&lt;</span><span class="token number">19.00</span> GiB / not usable <span class="token number">3.00</span> MiB
+  Allocatable           <span class="token function">yes</span> <span class="token punctuation">(</span>but full<span class="token punctuation">)</span>
+  PE Size               <span class="token number">4.00</span> MiB
+  Total PE              <span class="token number">4863</span>
+  Free PE               <span class="token number">0</span>
+  Allocated PE          <span class="token number">4863</span>
+  PV UUID               BYXMQQ-cBqc-TWj3-mQDS-vHaX-PRqH-oBTHMf
+   
+  <span class="token string">&quot;/dev/sdc&quot;</span> is a new physical volume of <span class="token string">&quot;1.00 GiB&quot;</span>
+  --- NEW Physical volume ---
+  PV Name               /dev/sdc
+  VG Name               
+  PV Size               <span class="token number">1.00</span> GiB
+  Allocatable           NO
+  PE Size               <span class="token number">0</span>   
+  Total PE              <span class="token number">0</span>
+  Free PE               <span class="token number">0</span>
+  Allocated PE          <span class="token number">0</span>
+  PV UUID               07z4XJ-9owh-WQZM-OfNW-frfl-IXd8-LcSp8D
+   
+  <span class="token string">&quot;/dev/sdb&quot;</span> is a new physical volume of <span class="token string">&quot;1.00 GiB&quot;</span>
+  --- NEW Physical volume ---
+  PV Name               /dev/sdb
+  VG Name               
+  PV Size               <span class="token number">1.00</span> GiB
+  Allocatable           NO
+  PE Size               <span class="token number">0</span>   
+  Total PE              <span class="token number">0</span>
+  Free PE               <span class="token number">0</span>
+  Allocated PE          <span class="token number">0</span>
+  PV UUID               a5Xns3-v7Ca-eQMN-tBCE-epAI-NkBt-BRlxU5
+   
+<span class="token punctuation">[</span>root@node3 ~<span class="token punctuation">]</span><span class="token comment"># vgcreate vg-01 /dev/s</span>
+sda       sdb       sde       sg2       sg5       snd/      stdin     
+sda1      sdc       sg0       sg3       shm/      sr0       stdout    
+sda2      sdd       sg1       sg4       snapshot  stderr    
+<span class="token punctuation">[</span>root@node3 ~<span class="token punctuation">]</span><span class="token comment"># vgcreate vg-01 /dev/sdb /dev/sdc</span>
+  Volume group <span class="token string">&quot;vg-01&quot;</span> successfully created
+<span class="token punctuation">[</span>root@node3 ~<span class="token punctuation">]</span><span class="token comment"># vgdisplay</span>
+  --- Volume group ---
+  VG Name               centos
+  System ID             
+  Format                lvm2
+  Metadata Areas        <span class="token number">1</span>
+  Metadata Sequence No  <span class="token number">3</span>
+  VG Access             read/write
+  VG Status             resizable
+  MAX LV                <span class="token number">0</span>
+  Cur LV                <span class="token number">2</span>
+  Open LV               <span class="token number">2</span>
+  Max PV                <span class="token number">0</span>
+  Cur PV                <span class="token number">1</span>
+  Act PV                <span class="token number">1</span>
+  VG Size               <span class="token operator">&lt;</span><span class="token number">19.00</span> GiB
+  PE Size               <span class="token number">4.00</span> MiB
+  Total PE              <span class="token number">4863</span>
+  Alloc PE / Size       <span class="token number">4863</span> / <span class="token operator">&lt;</span><span class="token number">19.00</span> GiB
+  Free  PE / Size       <span class="token number">0</span> / <span class="token number">0</span>   
+  VG UUID               xIxKsd-svjP-Ak5f-zBWW-N8Bl-AoyZ-5pePP9
+   
+  --- Volume group ---
+  VG Name               vg-01
+  System ID             
+  Format                lvm2
+  Metadata Areas        <span class="token number">2</span>
+  Metadata Sequence No  <span class="token number">1</span>
+  VG Access             read/write
+  VG Status             resizable
+  MAX LV                <span class="token number">0</span>
+  Cur LV                <span class="token number">0</span>
+  Open LV               <span class="token number">0</span>
+  Max PV                <span class="token number">0</span>
+  Cur PV                <span class="token number">2</span>
+  Act PV                <span class="token number">2</span>
+  VG Size               <span class="token number">1.99</span> GiB
+  PE Size               <span class="token number">4.00</span> MiB
+  Total PE              <span class="token number">510</span>
+  Alloc PE / Size       <span class="token number">0</span> / <span class="token number">0</span>   
+  Free  PE / Size       <span class="token number">510</span> / <span class="token number">1.99</span> GiB
+  VG UUID               Bscl6F-ufld-zfBK-Xi4Z-F4z8-bops-HFTwtO
+   
+<span class="token punctuation">[</span>root@node3 ~<span class="token punctuation">]</span><span class="token comment"># lvcreate -n httpd-lv -L 1G vg-01</span>
+  Logical volume <span class="token string">&quot;httpd-lv&quot;</span> created.
+<span class="token punctuation">[</span>root@node3 ~<span class="token punctuation">]</span><span class="token comment"># lvs</span>
+  LV       VG     Attr       LSize   Pool Origin Data%  Meta%  Move Log Cpy%Sync Convert
+  root     centos -wi-ao---- <span class="token operator">&lt;</span><span class="token number">17</span>.00g                                                    
+  swap     centos -wi-ao----   <span class="token number">2</span>.00g                                                    
+  httpd-lv vg-01  -wi-a-----   <span class="token number">1</span>.00g                                                    
+<span class="token punctuation">[</span>root@node3 ~<span class="token punctuation">]</span><span class="token comment"># mkfs.xfs /dev/vg-01/httpd-lv</span>
+meta-data<span class="token operator">=</span>/dev/vg-01/httpd-lv    <span class="token assign-left variable">isize</span><span class="token operator">=</span><span class="token number">512</span>    <span class="token assign-left variable">agcount</span><span class="token operator">=</span><span class="token number">4</span>, <span class="token assign-left variable">agsize</span><span class="token operator">=</span><span class="token number">65536</span> blks
+         <span class="token operator">=</span>                       <span class="token assign-left variable">sectsz</span><span class="token operator">=</span><span class="token number">512</span>   <span class="token assign-left variable">attr</span><span class="token operator">=</span><span class="token number">2</span>, <span class="token assign-left variable">projid32bit</span><span class="token operator">=</span><span class="token number">1</span>
+         <span class="token operator">=</span>                       <span class="token assign-left variable">crc</span><span class="token operator">=</span><span class="token number">1</span>        <span class="token assign-left variable">finobt</span><span class="token operator">=</span><span class="token number">0</span>, <span class="token assign-left variable">sparse</span><span class="token operator">=</span><span class="token number">0</span>
+data     <span class="token operator">=</span>                       <span class="token assign-left variable">bsize</span><span class="token operator">=</span><span class="token number">4096</span>   <span class="token assign-left variable">blocks</span><span class="token operator">=</span><span class="token number">262144</span>, <span class="token assign-left variable">imaxpct</span><span class="token operator">=</span><span class="token number">25</span>
+         <span class="token operator">=</span>                       <span class="token assign-left variable">sunit</span><span class="token operator">=</span><span class="token number">0</span>      <span class="token assign-left variable">swidth</span><span class="token operator">=</span><span class="token number">0</span> blks
+naming   <span class="token operator">=</span>version <span class="token number">2</span>              <span class="token assign-left variable">bsize</span><span class="token operator">=</span><span class="token number">4096</span>   ascii-ci<span class="token operator">=</span><span class="token number">0</span> <span class="token assign-left variable">ftype</span><span class="token operator">=</span><span class="token number">1</span>
+log      <span class="token operator">=</span>internal log           <span class="token assign-left variable">bsize</span><span class="token operator">=</span><span class="token number">4096</span>   <span class="token assign-left variable">blocks</span><span class="token operator">=</span><span class="token number">2560</span>, <span class="token assign-left variable">version</span><span class="token operator">=</span><span class="token number">2</span>
+         <span class="token operator">=</span>                       <span class="token assign-left variable">sectsz</span><span class="token operator">=</span><span class="token number">512</span>   <span class="token assign-left variable">sunit</span><span class="token operator">=</span><span class="token number">0</span> blks, lazy-count<span class="token operator">=</span><span class="token number">1</span>
+realtime <span class="token operator">=</span>none                   <span class="token assign-left variable">extsz</span><span class="token operator">=</span><span class="token number">4096</span>   <span class="token assign-left variable">blocks</span><span class="token operator">=</span><span class="token number">0</span>, <span class="token assign-left variable">rtextents</span><span class="token operator">=</span><span class="token number">0</span>
+<span class="token punctuation">[</span>root@node3 ~<span class="token punctuation">]</span><span class="token comment"># vi /etc/fstab</span>
+<span class="token punctuation">[</span>root@node3 ~<span class="token punctuation">]</span><span class="token comment"># vi /etc/fstab</span>
+<span class="token punctuation">[</span>root@node3 ~<span class="token punctuation">]</span><span class="token comment"># cat /etc/fstab</span>
+
+<span class="token comment">#</span>
+<span class="token comment"># /etc/fstab</span>
+<span class="token comment"># Created by anaconda on Sun Nov  2 03:33:10 2025</span>
+<span class="token comment">#</span>
+<span class="token comment"># Accessible filesystems, by reference, are maintained under '/dev/disk'</span>
+<span class="token comment"># See man pages fstab(5), findfs(8), mount(8) and/or blkid(8) for more info</span>
+<span class="token comment">#</span>
+/dev/mapper/centos-root /                       xfs     defaults        <span class="token number">0</span> <span class="token number">0</span>
+<span class="token assign-left variable">UUID</span><span class="token operator">=</span>ce7c0b95-27ac-401a-80d2-a1376f6295aa /boot                   xfs     defaults        <span class="token number">0</span> <span class="token number">0</span>
+/dev/mapper/centos-swap swap                    swap    defaults        <span class="token number">0</span> <span class="token number">0</span>
+/dev/vg-01/httpd-lv     /opt/httpd-lv    xfs  defaults   <span class="token number">0</span>  <span class="token number">0</span>
+<span class="token punctuation">[</span>root@node3 ~<span class="token punctuation">]</span><span class="token comment"># mount -a</span>
+mount: <span class="token function">mount</span> point /opt/httpd-lv does not exist
+<span class="token punctuation">[</span>root@node3 ~<span class="token punctuation">]</span><span class="token comment"># mkdir /opt/httpd-lv</span>
+<span class="token punctuation">[</span>root@node3 ~<span class="token punctuation">]</span><span class="token comment"># mount -a</span>
+<span class="token punctuation">[</span>root@node3 ~<span class="token punctuation">]</span><span class="token comment"># lsblk</span>
+NAME               MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+sda                  <span class="token number">8</span>:0    <span class="token number">0</span>   20G  <span class="token number">0</span> disk 
+├─sda1               <span class="token number">8</span>:1    <span class="token number">0</span>    1G  <span class="token number">0</span> part /boot
+└─sda2               <span class="token number">8</span>:2    <span class="token number">0</span>   19G  <span class="token number">0</span> part 
+  ├─centos-root    <span class="token number">253</span>:0    <span class="token number">0</span>   17G  <span class="token number">0</span> lvm  /
+  └─centos-swap    <span class="token number">253</span>:1    <span class="token number">0</span>    2G  <span class="token number">0</span> lvm  <span class="token punctuation">[</span>SWAP<span class="token punctuation">]</span>
+sdb                  <span class="token number">8</span>:16   <span class="token number">0</span>    1G  <span class="token number">0</span> disk 
+└─vg--01-httpd--lv <span class="token number">253</span>:2    <span class="token number">0</span>    1G  <span class="token number">0</span> lvm  /opt/httpd-lv
+sdc                  <span class="token number">8</span>:32   <span class="token number">0</span>    1G  <span class="token number">0</span> disk 
+└─vg--01-httpd--lv <span class="token number">253</span>:2    <span class="token number">0</span>    1G  <span class="token number">0</span> lvm  /opt/httpd-lv
+sdd                  <span class="token number">8</span>:48   <span class="token number">0</span>    1G  <span class="token number">0</span> disk 
+sde                  <span class="token number">8</span>:64   <span class="token number">0</span>    1G  <span class="token number">0</span> disk 
+sr0                 <span class="token number">11</span>:0    <span class="token number">1</span>  <span class="token number">4</span>.2G  <span class="token number">0</span> rom  
+<span class="token punctuation">[</span>root@node3 ~<span class="token punctuation">]</span><span class="token comment"># vgdisplay</span>
+  --- Volume group ---
+  VG Name               centos
+  System ID             
+  Format                lvm2
+  Metadata Areas        <span class="token number">1</span>
+  Metadata Sequence No  <span class="token number">3</span>
+  VG Access             read/write
+  VG Status             resizable
+  MAX LV                <span class="token number">0</span>
+  Cur LV                <span class="token number">2</span>
+  Open LV               <span class="token number">2</span>
+  Max PV                <span class="token number">0</span>
+  Cur PV                <span class="token number">1</span>
+  Act PV                <span class="token number">1</span>
+  VG Size               <span class="token operator">&lt;</span><span class="token number">19.00</span> GiB
+  PE Size               <span class="token number">4.00</span> MiB
+  Total PE              <span class="token number">4863</span>
+  Alloc PE / Size       <span class="token number">4863</span> / <span class="token operator">&lt;</span><span class="token number">19.00</span> GiB
+  Free  PE / Size       <span class="token number">0</span> / <span class="token number">0</span>   
+  VG UUID               xIxKsd-svjP-Ak5f-zBWW-N8Bl-AoyZ-5pePP9
+   
+  --- Volume group ---
+  VG Name               vg-01
+  System ID             
+  Format                lvm2
+  Metadata Areas        <span class="token number">2</span>
+  Metadata Sequence No  <span class="token number">2</span>
+  VG Access             read/write
+  VG Status             resizable
+  MAX LV                <span class="token number">0</span>
+  Cur LV                <span class="token number">1</span>
+  Open LV               <span class="token number">1</span>
+  Max PV                <span class="token number">0</span>
+  Cur PV                <span class="token number">2</span>
+  Act PV                <span class="token number">2</span>
+  VG Size               <span class="token number">1.99</span> GiB
+  PE Size               <span class="token number">4.00</span> MiB
+  Total PE              <span class="token number">510</span>
+  Alloc PE / Size       <span class="token number">256</span> / <span class="token number">1.00</span> GiB
+  Free  PE / Size       <span class="token number">254</span> / <span class="token number">1016.00</span> MiB
+  VG UUID               Bscl6F-ufld-zfBK-Xi4Z-F4z8-bops-HFTwtO
+   
+<span class="token punctuation">[</span>root@node3 ~<span class="token punctuation">]</span><span class="token comment"># </span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br><span class="line-number">84</span><br><span class="line-number">85</span><br><span class="line-number">86</span><br><span class="line-number">87</span><br><span class="line-number">88</span><br><span class="line-number">89</span><br><span class="line-number">90</span><br><span class="line-number">91</span><br><span class="line-number">92</span><br><span class="line-number">93</span><br><span class="line-number">94</span><br><span class="line-number">95</span><br><span class="line-number">96</span><br><span class="line-number">97</span><br><span class="line-number">98</span><br><span class="line-number">99</span><br><span class="line-number">100</span><br><span class="line-number">101</span><br><span class="line-number">102</span><br><span class="line-number">103</span><br><span class="line-number">104</span><br><span class="line-number">105</span><br><span class="line-number">106</span><br><span class="line-number">107</span><br><span class="line-number">108</span><br><span class="line-number">109</span><br><span class="line-number">110</span><br><span class="line-number">111</span><br><span class="line-number">112</span><br><span class="line-number">113</span><br><span class="line-number">114</span><br><span class="line-number">115</span><br><span class="line-number">116</span><br><span class="line-number">117</span><br><span class="line-number">118</span><br><span class="line-number">119</span><br><span class="line-number">120</span><br><span class="line-number">121</span><br><span class="line-number">122</span><br><span class="line-number">123</span><br><span class="line-number">124</span><br><span class="line-number">125</span><br><span class="line-number">126</span><br><span class="line-number">127</span><br><span class="line-number">128</span><br><span class="line-number">129</span><br><span class="line-number">130</span><br><span class="line-number">131</span><br><span class="line-number">132</span><br><span class="line-number">133</span><br><span class="line-number">134</span><br><span class="line-number">135</span><br><span class="line-number">136</span><br><span class="line-number">137</span><br><span class="line-number">138</span><br><span class="line-number">139</span><br><span class="line-number">140</span><br><span class="line-number">141</span><br><span class="line-number">142</span><br><span class="line-number">143</span><br><span class="line-number">144</span><br><span class="line-number">145</span><br><span class="line-number">146</span><br><span class="line-number">147</span><br><span class="line-number">148</span><br><span class="line-number">149</span><br><span class="line-number">150</span><br><span class="line-number">151</span><br><span class="line-number">152</span><br><span class="line-number">153</span><br><span class="line-number">154</span><br><span class="line-number">155</span><br><span class="line-number">156</span><br><span class="line-number">157</span><br><span class="line-number">158</span><br><span class="line-number">159</span><br><span class="line-number">160</span><br><span class="line-number">161</span><br><span class="line-number">162</span><br><span class="line-number">163</span><br><span class="line-number">164</span><br><span class="line-number">165</span><br><span class="line-number">166</span><br><span class="line-number">167</span><br><span class="line-number">168</span><br><span class="line-number">169</span><br><span class="line-number">170</span><br><span class="line-number">171</span><br><span class="line-number">172</span><br><span class="line-number">173</span><br><span class="line-number">174</span><br><span class="line-number">175</span><br><span class="line-number">176</span><br><span class="line-number">177</span><br><span class="line-number">178</span><br><span class="line-number">179</span><br><span class="line-number">180</span><br><span class="line-number">181</span><br><span class="line-number">182</span><br><span class="line-number">183</span><br><span class="line-number">184</span><br><span class="line-number">185</span><br><span class="line-number">186</span><br><span class="line-number">187</span><br><span class="line-number">188</span><br><span class="line-number">189</span><br><span class="line-number">190</span><br><span class="line-number">191</span><br><span class="line-number">192</span><br><span class="line-number">193</span><br><span class="line-number">194</span><br><span class="line-number">195</span><br></div></div><h2 id="扩容-lv-逻辑卷-xfs文件系统"><a href="#扩容-lv-逻辑卷-xfs文件系统" class="header-anchor">#</a> 扩容-LV(逻辑卷)-XFS文件系统</h2> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token punctuation">[</span>root@node3 ~<span class="token punctuation">]</span><span class="token comment"># vgdisplay</span>
+  --- Volume group ---
+  VG Name               centos
+  System ID             
+  Format                lvm2
+  Metadata Areas        <span class="token number">1</span>
+  Metadata Sequence No  <span class="token number">3</span>
+  VG Access             read/write
+  VG Status             resizable
+  MAX LV                <span class="token number">0</span>
+  Cur LV                <span class="token number">2</span>
+  Open LV               <span class="token number">2</span>
+  Max PV                <span class="token number">0</span>
+  Cur PV                <span class="token number">1</span>
+  Act PV                <span class="token number">1</span>
+  VG Size               <span class="token operator">&lt;</span><span class="token number">19.00</span> GiB
+  PE Size               <span class="token number">4.00</span> MiB
+  Total PE              <span class="token number">4863</span>
+  Alloc PE / Size       <span class="token number">4863</span> / <span class="token operator">&lt;</span><span class="token number">19.00</span> GiB
+  Free  PE / Size       <span class="token number">0</span> / <span class="token number">0</span>   
+  VG UUID               xIxKsd-svjP-Ak5f-zBWW-N8Bl-AoyZ-5pePP9
+   
+  --- Volume group ---
+  VG Name               vg-01
+  System ID             
+  Format                lvm2
+  Metadata Areas        <span class="token number">2</span>
+  Metadata Sequence No  <span class="token number">2</span>
+  VG Access             read/write
+  VG Status             resizable
+  MAX LV                <span class="token number">0</span>
+  Cur LV                <span class="token number">1</span>
+  Open LV               <span class="token number">1</span>
+  Max PV                <span class="token number">0</span>
+  Cur PV                <span class="token number">2</span>
+  Act PV                <span class="token number">2</span>
+  VG Size               <span class="token number">1.99</span> GiB
+  PE Size               <span class="token number">4.00</span> MiB
+  Total PE              <span class="token number">510</span>
+  Alloc PE / Size       <span class="token number">256</span> / <span class="token number">1.00</span> GiB
+  Free  PE / Size       <span class="token number">254</span> / <span class="token number">1016.00</span> MiB
+  VG UUID               Bscl6F-ufld-zfBK-Xi4Z-F4z8-bops-HFTwtO
+   
+<span class="token punctuation">[</span>root@node3 ~<span class="token punctuation">]</span><span class="token comment"># lvdisplay</span>
+  --- Logical volume ---
+  LV Path                /dev/centos/swap
+  LV Name                swap
+  VG Name                centos
+  LV UUID                eUcP3v-EKDY-xAvZ-A9bY-mqNf-pA07-sNo0mo
+  LV Write Access        read/write
+  LV Creation host, <span class="token function">time</span> bogon, <span class="token number">2025</span>-11-02 03:33:09 <span class="token parameter variable">-0500</span>
+  LV Status              available
+  <span class="token comment"># open                 2</span>
+  LV Size                <span class="token number">2.00</span> GiB
+  Current LE             <span class="token number">512</span>
+  Segments               <span class="token number">1</span>
+  Allocation             inherit
+  Read ahead sectors     auto
+  - currently <span class="token builtin class-name">set</span> to     <span class="token number">8192</span>
+  Block device           <span class="token number">253</span>:1
+   
+  --- Logical volume ---
+  LV Path                /dev/centos/root
+  LV Name                root
+  VG Name                centos
+  LV UUID                Dbiy7Y-TQlw-7fdf-6KW3-XFHg-KkZB-XtYBdw
+  LV Write Access        read/write
+  LV Creation host, <span class="token function">time</span> bogon, <span class="token number">2025</span>-11-02 03:33:10 <span class="token parameter variable">-0500</span>
+  LV Status              available
+  <span class="token comment"># open                 1</span>
+  LV Size                <span class="token operator">&lt;</span><span class="token number">17.00</span> GiB
+  Current LE             <span class="token number">4351</span>
+  Segments               <span class="token number">1</span>
+  Allocation             inherit
+  Read ahead sectors     auto
+  - currently <span class="token builtin class-name">set</span> to     <span class="token number">8192</span>
+  Block device           <span class="token number">253</span>:0
+   
+  --- Logical volume ---
+  LV Path                /dev/vg-01/httpd-lv
+  LV Name                httpd-lv
+  VG Name                vg-01
+  LV UUID                US6sco-lspL-T72r-n8bb-CTki-2xg2-i3v8B1
+  LV Write Access        read/write
+  LV Creation host, <span class="token function">time</span> node3, <span class="token number">2025</span>-11-18 <span class="token number">21</span>:11:49 <span class="token parameter variable">-0500</span>
+  LV Status              available
+  <span class="token comment"># open                 1</span>
+  LV Size                <span class="token number">1.00</span> GiB
+  Current LE             <span class="token number">256</span>
+  Segments               <span class="token number">2</span>
+  Allocation             inherit
+  Read ahead sectors     auto
+  - currently <span class="token builtin class-name">set</span> to     <span class="token number">8192</span>
+  Block device           <span class="token number">253</span>:2
+  
+<span class="token punctuation">[</span>root@node3 ~<span class="token punctuation">]</span><span class="token comment"># lvextend -l +100%FREE /dev/vg-01/httpd-lv</span>
+  Size of logical volume vg-01/httpd-lv changed from <span class="token number">1.00</span> GiB <span class="token punctuation">(</span><span class="token number">256</span> extents<span class="token punctuation">)</span> to <span class="token number">1.99</span> GiB <span class="token punctuation">(</span><span class="token number">510</span> extents<span class="token punctuation">)</span>.
+  Logical volume vg-01/httpd-lv successfully resized.
+<span class="token punctuation">[</span>root@node3 ~<span class="token punctuation">]</span><span class="token comment"># df -hTP</span>
+Filesystem                   Type      Size  Used Avail Use% Mounted on
+/dev/mapper/centos-root      xfs        17G  <span class="token number">4</span>.9G   13G  <span class="token number">29</span>% /
+devtmpfs                     devtmpfs  <span class="token number">1</span>.9G     <span class="token number">0</span>  <span class="token number">1</span>.9G   <span class="token number">0</span>% /dev
+tmpfs                        tmpfs     <span class="token number">1</span>.9G     <span class="token number">0</span>  <span class="token number">1</span>.9G   <span class="token number">0</span>% /dev/shm
+tmpfs                        tmpfs     <span class="token number">1</span>.9G  <span class="token number">9</span>.3M  <span class="token number">1</span>.9G   <span class="token number">1</span>% /run
+tmpfs                        tmpfs     <span class="token number">1</span>.9G     <span class="token number">0</span>  <span class="token number">1</span>.9G   <span class="token number">0</span>% /sys/fs/cgroup
+/dev/sda1                    xfs      1014M  143M  872M  <span class="token number">15</span>% /boot
+overlay                      overlay    17G  <span class="token number">4</span>.9G   13G  <span class="token number">29</span>% /var/lib/docker/overlay2/95a175f4dff1f816dfb5c750de381f1704acb49946c3b28b2749036405fd1297/merged
+overlay                      overlay    17G  <span class="token number">4</span>.9G   13G  <span class="token number">29</span>% /var/lib/docker/overlay2/cbb4302b85a199145d6d9c0248418b5b580c0972d6faa44395cea8f110fa442a/merged
+overlay                      overlay    17G  <span class="token number">4</span>.9G   13G  <span class="token number">29</span>% /var/lib/docker/overlay2/5e2a1bb72624a75d5e9501a0bf7c5b8eea09c378871e0757c0bfd8d0e2534148/merged
+overlay                      overlay    17G  <span class="token number">4</span>.9G   13G  <span class="token number">29</span>% /var/lib/docker/overlay2/2c188d42a46f052bc311b48b329173b52a76f4d77b7dad897120f53cd48e1863/merged
+overlay                      overlay    17G  <span class="token number">4</span>.9G   13G  <span class="token number">29</span>% /var/lib/docker/overlay2/d3b25d227bf15991d8178953871bb2d973ad3cbbf0382aa2b407d62a7792de87/merged
+overlay                      overlay    17G  <span class="token number">4</span>.9G   13G  <span class="token number">29</span>% /var/lib/docker/overlay2/fe48dacc5ad1699a15133a9078784be232570c3c7808982c07b6f74e6c9990e2/merged
+overlay                      overlay    17G  <span class="token number">4</span>.9G   13G  <span class="token number">29</span>% /var/lib/docker/overlay2/0b33c7e1786741f80f92899d33b79f608811256a233b29c542207ed013de5508/merged
+overlay                      overlay    17G  <span class="token number">4</span>.9G   13G  <span class="token number">29</span>% /var/lib/docker/overlay2/01d41b2f1d2ee45b9dd39700b239ff66b631b89f51fdc41c61aa729a03c27cde/merged
+tmpfs                        tmpfs     378M     <span class="token number">0</span>  378M   <span class="token number">0</span>% /run/user/0
+/dev/mapper/vg--01-httpd--lv xfs      1014M   33M  982M   <span class="token number">4</span>% /opt/httpd-lv
+<span class="token punctuation">[</span>root@node3 ~<span class="token punctuation">]</span><span class="token comment"># xfs_growfs /dev/vg-01/httpd-lv</span>
+meta-data<span class="token operator">=</span>/dev/mapper/vg--01-httpd--lv <span class="token assign-left variable">isize</span><span class="token operator">=</span><span class="token number">512</span>    <span class="token assign-left variable">agcount</span><span class="token operator">=</span><span class="token number">4</span>, <span class="token assign-left variable">agsize</span><span class="token operator">=</span><span class="token number">65536</span> blks
+         <span class="token operator">=</span>                       <span class="token assign-left variable">sectsz</span><span class="token operator">=</span><span class="token number">512</span>   <span class="token assign-left variable">attr</span><span class="token operator">=</span><span class="token number">2</span>, <span class="token assign-left variable">projid32bit</span><span class="token operator">=</span><span class="token number">1</span>
+         <span class="token operator">=</span>                       <span class="token assign-left variable">crc</span><span class="token operator">=</span><span class="token number">1</span>        <span class="token assign-left variable">finobt</span><span class="token operator">=</span><span class="token number">0</span> <span class="token assign-left variable">spinodes</span><span class="token operator">=</span><span class="token number">0</span>
+data     <span class="token operator">=</span>                       <span class="token assign-left variable">bsize</span><span class="token operator">=</span><span class="token number">4096</span>   <span class="token assign-left variable">blocks</span><span class="token operator">=</span><span class="token number">262144</span>, <span class="token assign-left variable">imaxpct</span><span class="token operator">=</span><span class="token number">25</span>
+         <span class="token operator">=</span>                       <span class="token assign-left variable">sunit</span><span class="token operator">=</span><span class="token number">0</span>      <span class="token assign-left variable">swidth</span><span class="token operator">=</span><span class="token number">0</span> blks
+naming   <span class="token operator">=</span>version <span class="token number">2</span>              <span class="token assign-left variable">bsize</span><span class="token operator">=</span><span class="token number">4096</span>   ascii-ci<span class="token operator">=</span><span class="token number">0</span> <span class="token assign-left variable">ftype</span><span class="token operator">=</span><span class="token number">1</span>
+log      <span class="token operator">=</span>internal               <span class="token assign-left variable">bsize</span><span class="token operator">=</span><span class="token number">4096</span>   <span class="token assign-left variable">blocks</span><span class="token operator">=</span><span class="token number">2560</span>, <span class="token assign-left variable">version</span><span class="token operator">=</span><span class="token number">2</span>
+         <span class="token operator">=</span>                       <span class="token assign-left variable">sectsz</span><span class="token operator">=</span><span class="token number">512</span>   <span class="token assign-left variable">sunit</span><span class="token operator">=</span><span class="token number">0</span> blks, lazy-count<span class="token operator">=</span><span class="token number">1</span>
+realtime <span class="token operator">=</span>none                   <span class="token assign-left variable">extsz</span><span class="token operator">=</span><span class="token number">4096</span>   <span class="token assign-left variable">blocks</span><span class="token operator">=</span><span class="token number">0</span>, <span class="token assign-left variable">rtextents</span><span class="token operator">=</span><span class="token number">0</span>
+data blocks changed from <span class="token number">262144</span> to <span class="token number">522240</span>
+<span class="token punctuation">[</span>root@node3 ~<span class="token punctuation">]</span><span class="token comment"># df -hTP</span>
+Filesystem                   Type      Size  Used Avail Use% Mounted on
+/dev/mapper/centos-root      xfs        17G  <span class="token number">4</span>.9G   13G  <span class="token number">29</span>% /
+devtmpfs                     devtmpfs  <span class="token number">1</span>.9G     <span class="token number">0</span>  <span class="token number">1</span>.9G   <span class="token number">0</span>% /dev
+tmpfs                        tmpfs     <span class="token number">1</span>.9G     <span class="token number">0</span>  <span class="token number">1</span>.9G   <span class="token number">0</span>% /dev/shm
+tmpfs                        tmpfs     <span class="token number">1</span>.9G  <span class="token number">9</span>.3M  <span class="token number">1</span>.9G   <span class="token number">1</span>% /run
+tmpfs                        tmpfs     <span class="token number">1</span>.9G     <span class="token number">0</span>  <span class="token number">1</span>.9G   <span class="token number">0</span>% /sys/fs/cgroup
+/dev/sda1                    xfs      1014M  143M  872M  <span class="token number">15</span>% /boot
+overlay                      overlay    17G  <span class="token number">4</span>.9G   13G  <span class="token number">29</span>% /var/lib/docker/overlay2/95a175f4dff1f816dfb5c750de381f1704acb49946c3b28b2749036405fd1297/merged
+overlay                      overlay    17G  <span class="token number">4</span>.9G   13G  <span class="token number">29</span>% /var/lib/docker/overlay2/cbb4302b85a199145d6d9c0248418b5b580c0972d6faa44395cea8f110fa442a/merged
+overlay                      overlay    17G  <span class="token number">4</span>.9G   13G  <span class="token number">29</span>% /var/lib/docker/overlay2/5e2a1bb72624a75d5e9501a0bf7c5b8eea09c378871e0757c0bfd8d0e2534148/merged
+overlay                      overlay    17G  <span class="token number">4</span>.9G   13G  <span class="token number">29</span>% /var/lib/docker/overlay2/2c188d42a46f052bc311b48b329173b52a76f4d77b7dad897120f53cd48e1863/merged
+overlay                      overlay    17G  <span class="token number">4</span>.9G   13G  <span class="token number">29</span>% /var/lib/docker/overlay2/d3b25d227bf15991d8178953871bb2d973ad3cbbf0382aa2b407d62a7792de87/merged
+overlay                      overlay    17G  <span class="token number">4</span>.9G   13G  <span class="token number">29</span>% /var/lib/docker/overlay2/fe48dacc5ad1699a15133a9078784be232570c3c7808982c07b6f74e6c9990e2/merged
+overlay                      overlay    17G  <span class="token number">4</span>.9G   13G  <span class="token number">29</span>% /var/lib/docker/overlay2/0b33c7e1786741f80f92899d33b79f608811256a233b29c542207ed013de5508/merged
+overlay                      overlay    17G  <span class="token number">4</span>.9G   13G  <span class="token number">29</span>% /var/lib/docker/overlay2/01d41b2f1d2ee45b9dd39700b239ff66b631b89f51fdc41c61aa729a03c27cde/merged
+tmpfs                        tmpfs     378M     <span class="token number">0</span>  378M   <span class="token number">0</span>% /run/user/0
+/dev/mapper/vg--01-httpd--lv xfs       <span class="token number">2</span>.0G   33M  <span class="token number">2</span>.0G   <span class="token number">2</span>% /opt/httpd-lv
+<span class="token punctuation">[</span>root@node3 ~<span class="token punctuation">]</span><span class="token comment"># </span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br><span class="line-number">84</span><br><span class="line-number">85</span><br><span class="line-number">86</span><br><span class="line-number">87</span><br><span class="line-number">88</span><br><span class="line-number">89</span><br><span class="line-number">90</span><br><span class="line-number">91</span><br><span class="line-number">92</span><br><span class="line-number">93</span><br><span class="line-number">94</span><br><span class="line-number">95</span><br><span class="line-number">96</span><br><span class="line-number">97</span><br><span class="line-number">98</span><br><span class="line-number">99</span><br><span class="line-number">100</span><br><span class="line-number">101</span><br><span class="line-number">102</span><br><span class="line-number">103</span><br><span class="line-number">104</span><br><span class="line-number">105</span><br><span class="line-number">106</span><br><span class="line-number">107</span><br><span class="line-number">108</span><br><span class="line-number">109</span><br><span class="line-number">110</span><br><span class="line-number">111</span><br><span class="line-number">112</span><br><span class="line-number">113</span><br><span class="line-number">114</span><br><span class="line-number">115</span><br><span class="line-number">116</span><br><span class="line-number">117</span><br><span class="line-number">118</span><br><span class="line-number">119</span><br><span class="line-number">120</span><br><span class="line-number">121</span><br><span class="line-number">122</span><br><span class="line-number">123</span><br><span class="line-number">124</span><br><span class="line-number">125</span><br><span class="line-number">126</span><br><span class="line-number">127</span><br><span class="line-number">128</span><br><span class="line-number">129</span><br><span class="line-number">130</span><br><span class="line-number">131</span><br><span class="line-number">132</span><br><span class="line-number">133</span><br><span class="line-number">134</span><br><span class="line-number">135</span><br><span class="line-number">136</span><br><span class="line-number">137</span><br><span class="line-number">138</span><br><span class="line-number">139</span><br><span class="line-number">140</span><br><span class="line-number">141</span><br><span class="line-number">142</span><br><span class="line-number">143</span><br><span class="line-number">144</span><br><span class="line-number">145</span><br><span class="line-number">146</span><br><span class="line-number">147</span><br></div></div><h2 id="扩容-vg-卷组-xfs文件系统"><a href="#扩容-vg-卷组-xfs文件系统" class="header-anchor">#</a> 扩容-VG(卷组)-XFS文件系统</h2> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token punctuation">[</span>root@node3 ~<span class="token punctuation">]</span><span class="token comment"># </span>
+<span class="token punctuation">[</span>root@node3 ~<span class="token punctuation">]</span><span class="token comment"># </span>
+<span class="token punctuation">[</span>root@node3 ~<span class="token punctuation">]</span><span class="token comment"># </span>
+<span class="token punctuation">[</span>root@node3 ~<span class="token punctuation">]</span><span class="token comment"># </span>
+<span class="token punctuation">[</span>root@node3 ~<span class="token punctuation">]</span><span class="token comment"># vgdisplay</span>
+  --- Volume group ---
+  VG Name               centos
+  System ID             
+  Format                lvm2
+  Metadata Areas        <span class="token number">1</span>
+  Metadata Sequence No  <span class="token number">3</span>
+  VG Access             read/write
+  VG Status             resizable
+  MAX LV                <span class="token number">0</span>
+  Cur LV                <span class="token number">2</span>
+  Open LV               <span class="token number">2</span>
+  Max PV                <span class="token number">0</span>
+  Cur PV                <span class="token number">1</span>
+  Act PV                <span class="token number">1</span>
+  VG Size               <span class="token operator">&lt;</span><span class="token number">19.00</span> GiB
+  PE Size               <span class="token number">4.00</span> MiB
+  Total PE              <span class="token number">4863</span>
+  Alloc PE / Size       <span class="token number">4863</span> / <span class="token operator">&lt;</span><span class="token number">19.00</span> GiB
+  Free  PE / Size       <span class="token number">0</span> / <span class="token number">0</span>   
+  VG UUID               xIxKsd-svjP-Ak5f-zBWW-N8Bl-AoyZ-5pePP9
+   
+  --- Volume group ---
+  VG Name               vg-01
+  System ID             
+  Format                lvm2
+  Metadata Areas        <span class="token number">2</span>
+  Metadata Sequence No  <span class="token number">3</span>
+  VG Access             read/write
+  VG Status             resizable
+  MAX LV                <span class="token number">0</span>
+  Cur LV                <span class="token number">1</span>
+  Open LV               <span class="token number">1</span>
+  Max PV                <span class="token number">0</span>
+  Cur PV                <span class="token number">2</span>
+  Act PV                <span class="token number">2</span>
+  VG Size               <span class="token number">1.99</span> GiB
+  PE Size               <span class="token number">4.00</span> MiB
+  Total PE              <span class="token number">510</span>
+  Alloc PE / Size       <span class="token number">510</span> / <span class="token number">1.99</span> GiB
+  Free  PE / Size       <span class="token number">0</span> / <span class="token number">0</span>   
+  VG UUID               Bscl6F-ufld-zfBK-Xi4Z-F4z8-bops-HFTwtO
+   
+<span class="token punctuation">[</span>root@node3 ~<span class="token punctuation">]</span><span class="token comment"># lvdisplay</span>
+  --- Logical volume ---
+  LV Path                /dev/centos/swap
+  LV Name                swap
+  VG Name                centos
+  LV UUID                eUcP3v-EKDY-xAvZ-A9bY-mqNf-pA07-sNo0mo
+  LV Write Access        read/write
+  LV Creation host, <span class="token function">time</span> bogon, <span class="token number">2025</span>-11-02 03:33:09 <span class="token parameter variable">-0500</span>
+  LV Status              available
+  <span class="token comment"># open                 2</span>
+  LV Size                <span class="token number">2.00</span> GiB
+  Current LE             <span class="token number">512</span>
+  Segments               <span class="token number">1</span>
+  Allocation             inherit
+  Read ahead sectors     auto
+  - currently <span class="token builtin class-name">set</span> to     <span class="token number">8192</span>
+  Block device           <span class="token number">253</span>:1
+   
+  --- Logical volume ---
+  LV Path                /dev/centos/root
+  LV Name                root
+  VG Name                centos
+  LV UUID                Dbiy7Y-TQlw-7fdf-6KW3-XFHg-KkZB-XtYBdw
+  LV Write Access        read/write
+  LV Creation host, <span class="token function">time</span> bogon, <span class="token number">2025</span>-11-02 03:33:10 <span class="token parameter variable">-0500</span>
+  LV Status              available
+  <span class="token comment"># open                 1</span>
+  LV Size                <span class="token operator">&lt;</span><span class="token number">17.00</span> GiB
+  Current LE             <span class="token number">4351</span>
+  Segments               <span class="token number">1</span>
+  Allocation             inherit
+  Read ahead sectors     auto
+  - currently <span class="token builtin class-name">set</span> to     <span class="token number">8192</span>
+  Block device           <span class="token number">253</span>:0
+   
+  --- Logical volume ---
+  LV Path                /dev/vg-01/httpd-lv
+  LV Name                httpd-lv
+  VG Name                vg-01
+  LV UUID                US6sco-lspL-T72r-n8bb-CTki-2xg2-i3v8B1
+  LV Write Access        read/write
+  LV Creation host, <span class="token function">time</span> node3, <span class="token number">2025</span>-11-18 <span class="token number">21</span>:11:49 <span class="token parameter variable">-0500</span>
+  LV Status              available
+  <span class="token comment"># open                 1</span>
+  LV Size                <span class="token number">1.99</span> GiB
+  Current LE             <span class="token number">510</span>
+  Segments               <span class="token number">2</span>
+  Allocation             inherit
+  Read ahead sectors     auto
+  - currently <span class="token builtin class-name">set</span> to     <span class="token number">8192</span>
+  Block device           <span class="token number">253</span>:2
+   
+<span class="token punctuation">[</span>root@node3 ~<span class="token punctuation">]</span><span class="token comment"># lsblk</span>
+NAME               MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+sda                  <span class="token number">8</span>:0    <span class="token number">0</span>   20G  <span class="token number">0</span> disk 
+├─sda1               <span class="token number">8</span>:1    <span class="token number">0</span>    1G  <span class="token number">0</span> part /boot
+└─sda2               <span class="token number">8</span>:2    <span class="token number">0</span>   19G  <span class="token number">0</span> part 
+  ├─centos-root    <span class="token number">253</span>:0    <span class="token number">0</span>   17G  <span class="token number">0</span> lvm  /
+  └─centos-swap    <span class="token number">253</span>:1    <span class="token number">0</span>    2G  <span class="token number">0</span> lvm  <span class="token punctuation">[</span>SWAP<span class="token punctuation">]</span>
+sdb                  <span class="token number">8</span>:16   <span class="token number">0</span>    1G  <span class="token number">0</span> disk 
+└─vg--01-httpd--lv <span class="token number">253</span>:2    <span class="token number">0</span>    2G  <span class="token number">0</span> lvm  /opt/httpd-lv
+sdc                  <span class="token number">8</span>:32   <span class="token number">0</span>    1G  <span class="token number">0</span> disk 
+└─vg--01-httpd--lv <span class="token number">253</span>:2    <span class="token number">0</span>    2G  <span class="token number">0</span> lvm  /opt/httpd-lv
+sdd                  <span class="token number">8</span>:48   <span class="token number">0</span>    1G  <span class="token number">0</span> disk 
+sde                  <span class="token number">8</span>:64   <span class="token number">0</span>    1G  <span class="token number">0</span> disk 
+sr0                 <span class="token number">11</span>:0    <span class="token number">1</span>  <span class="token number">4</span>.2G  <span class="token number">0</span> rom  
+<span class="token punctuation">[</span>root@node3 ~<span class="token punctuation">]</span><span class="token comment"># vgextend vg-01 /dev/sdd</span>
+  Physical volume <span class="token string">&quot;/dev/sdd&quot;</span> successfully created.
+  Volume group <span class="token string">&quot;vg-01&quot;</span> successfully extended
+<span class="token punctuation">[</span>root@node3 ~<span class="token punctuation">]</span><span class="token comment"># vgdisplay</span>
+  --- Volume group ---
+  VG Name               centos
+  System ID             
+  Format                lvm2
+  Metadata Areas        <span class="token number">1</span>
+  Metadata Sequence No  <span class="token number">3</span>
+  VG Access             read/write
+  VG Status             resizable
+  MAX LV                <span class="token number">0</span>
+  Cur LV                <span class="token number">2</span>
+  Open LV               <span class="token number">2</span>
+  Max PV                <span class="token number">0</span>
+  Cur PV                <span class="token number">1</span>
+  Act PV                <span class="token number">1</span>
+  VG Size               <span class="token operator">&lt;</span><span class="token number">19.00</span> GiB
+  PE Size               <span class="token number">4.00</span> MiB
+  Total PE              <span class="token number">4863</span>
+  Alloc PE / Size       <span class="token number">4863</span> / <span class="token operator">&lt;</span><span class="token number">19.00</span> GiB
+  Free  PE / Size       <span class="token number">0</span> / <span class="token number">0</span>   
+  VG UUID               xIxKsd-svjP-Ak5f-zBWW-N8Bl-AoyZ-5pePP9
+   
+  --- Volume group ---
+  VG Name               vg-01
+  System ID             
+  Format                lvm2
+  Metadata Areas        <span class="token number">3</span>
+  Metadata Sequence No  <span class="token number">4</span>
+  VG Access             read/write
+  VG Status             resizable
+  MAX LV                <span class="token number">0</span>
+  Cur LV                <span class="token number">1</span>
+  Open LV               <span class="token number">1</span>
+  Max PV                <span class="token number">0</span>
+  Cur PV                <span class="token number">3</span>
+  Act PV                <span class="token number">3</span>
+  VG Size               <span class="token operator">&lt;</span><span class="token number">2.99</span> GiB
+  PE Size               <span class="token number">4.00</span> MiB
+  Total PE              <span class="token number">765</span>
+  Alloc PE / Size       <span class="token number">510</span> / <span class="token number">1.99</span> GiB
+  Free  PE / Size       <span class="token number">255</span> / <span class="token number">1020.00</span> MiB
+  VG UUID               Bscl6F-ufld-zfBK-Xi4Z-F4z8-bops-HFTwtO
+   
+<span class="token punctuation">[</span>root@node3 ~<span class="token punctuation">]</span><span class="token comment"># lvextend -r -l +100 /dev/vg-01/httpd-lv</span>
+  Size of logical volume vg-01/httpd-lv changed from <span class="token number">1.99</span> GiB <span class="token punctuation">(</span><span class="token number">510</span> extents<span class="token punctuation">)</span> to <span class="token number">2.38</span> GiB <span class="token punctuation">(</span><span class="token number">610</span> extents<span class="token punctuation">)</span>.
+  Logical volume vg-01/httpd-lv successfully resized.
+meta-data<span class="token operator">=</span>/dev/mapper/vg--01-httpd--lv <span class="token assign-left variable">isize</span><span class="token operator">=</span><span class="token number">512</span>    <span class="token assign-left variable">agcount</span><span class="token operator">=</span><span class="token number">8</span>, <span class="token assign-left variable">agsize</span><span class="token operator">=</span><span class="token number">65536</span> blks
+         <span class="token operator">=</span>                       <span class="token assign-left variable">sectsz</span><span class="token operator">=</span><span class="token number">512</span>   <span class="token assign-left variable">attr</span><span class="token operator">=</span><span class="token number">2</span>, <span class="token assign-left variable">projid32bit</span><span class="token operator">=</span><span class="token number">1</span>
+         <span class="token operator">=</span>                       <span class="token assign-left variable">crc</span><span class="token operator">=</span><span class="token number">1</span>        <span class="token assign-left variable">finobt</span><span class="token operator">=</span><span class="token number">0</span> <span class="token assign-left variable">spinodes</span><span class="token operator">=</span><span class="token number">0</span>
+data     <span class="token operator">=</span>                       <span class="token assign-left variable">bsize</span><span class="token operator">=</span><span class="token number">4096</span>   <span class="token assign-left variable">blocks</span><span class="token operator">=</span><span class="token number">522240</span>, <span class="token assign-left variable">imaxpct</span><span class="token operator">=</span><span class="token number">25</span>
+         <span class="token operator">=</span>                       <span class="token assign-left variable">sunit</span><span class="token operator">=</span><span class="token number">0</span>      <span class="token assign-left variable">swidth</span><span class="token operator">=</span><span class="token number">0</span> blks
+naming   <span class="token operator">=</span>version <span class="token number">2</span>              <span class="token assign-left variable">bsize</span><span class="token operator">=</span><span class="token number">4096</span>   ascii-ci<span class="token operator">=</span><span class="token number">0</span> <span class="token assign-left variable">ftype</span><span class="token operator">=</span><span class="token number">1</span>
+log      <span class="token operator">=</span>internal               <span class="token assign-left variable">bsize</span><span class="token operator">=</span><span class="token number">4096</span>   <span class="token assign-left variable">blocks</span><span class="token operator">=</span><span class="token number">2560</span>, <span class="token assign-left variable">version</span><span class="token operator">=</span><span class="token number">2</span>
+         <span class="token operator">=</span>                       <span class="token assign-left variable">sectsz</span><span class="token operator">=</span><span class="token number">512</span>   <span class="token assign-left variable">sunit</span><span class="token operator">=</span><span class="token number">0</span> blks, lazy-count<span class="token operator">=</span><span class="token number">1</span>
+realtime <span class="token operator">=</span>none                   <span class="token assign-left variable">extsz</span><span class="token operator">=</span><span class="token number">4096</span>   <span class="token assign-left variable">blocks</span><span class="token operator">=</span><span class="token number">0</span>, <span class="token assign-left variable">rtextents</span><span class="token operator">=</span><span class="token number">0</span>
+data blocks changed from <span class="token number">522240</span> to <span class="token number">624640</span>
+<span class="token punctuation">[</span>root@node3 ~<span class="token punctuation">]</span><span class="token comment"># df -hT</span>
+Filesystem                   Type      Size  Used Avail Use% Mounted on
+/dev/mapper/centos-root      xfs        17G  <span class="token number">4</span>.9G   13G  <span class="token number">29</span>% /
+devtmpfs                     devtmpfs  <span class="token number">1</span>.9G     <span class="token number">0</span>  <span class="token number">1</span>.9G   <span class="token number">0</span>% /dev
+tmpfs                        tmpfs     <span class="token number">1</span>.9G     <span class="token number">0</span>  <span class="token number">1</span>.9G   <span class="token number">0</span>% /dev/shm
+tmpfs                        tmpfs     <span class="token number">1</span>.9G  <span class="token number">9</span>.3M  <span class="token number">1</span>.9G   <span class="token number">1</span>% /run
+tmpfs                        tmpfs     <span class="token number">1</span>.9G     <span class="token number">0</span>  <span class="token number">1</span>.9G   <span class="token number">0</span>% /sys/fs/cgroup
+/dev/sda1                    xfs      1014M  143M  872M  <span class="token number">15</span>% /boot
+overlay                      overlay    17G  <span class="token number">4</span>.9G   13G  <span class="token number">29</span>% /var/lib/docker/overlay2/95a175f4dff1f816dfb5c750de381f1704acb49946c3b28b2749036405fd1297/merged
+overlay                      overlay    17G  <span class="token number">4</span>.9G   13G  <span class="token number">29</span>% /var/lib/docker/overlay2/cbb4302b85a199145d6d9c0248418b5b580c0972d6faa44395cea8f110fa442a/merged
+overlay                      overlay    17G  <span class="token number">4</span>.9G   13G  <span class="token number">29</span>% /var/lib/docker/overlay2/5e2a1bb72624a75d5e9501a0bf7c5b8eea09c378871e0757c0bfd8d0e2534148/merged
+overlay                      overlay    17G  <span class="token number">4</span>.9G   13G  <span class="token number">29</span>% /var/lib/docker/overlay2/2c188d42a46f052bc311b48b329173b52a76f4d77b7dad897120f53cd48e1863/merged
+overlay                      overlay    17G  <span class="token number">4</span>.9G   13G  <span class="token number">29</span>% /var/lib/docker/overlay2/d3b25d227bf15991d8178953871bb2d973ad3cbbf0382aa2b407d62a7792de87/merged
+overlay                      overlay    17G  <span class="token number">4</span>.9G   13G  <span class="token number">29</span>% /var/lib/docker/overlay2/fe48dacc5ad1699a15133a9078784be232570c3c7808982c07b6f74e6c9990e2/merged
+overlay                      overlay    17G  <span class="token number">4</span>.9G   13G  <span class="token number">29</span>% /var/lib/docker/overlay2/0b33c7e1786741f80f92899d33b79f608811256a233b29c542207ed013de5508/merged
+overlay                      overlay    17G  <span class="token number">4</span>.9G   13G  <span class="token number">29</span>% /var/lib/docker/overlay2/01d41b2f1d2ee45b9dd39700b239ff66b631b89f51fdc41c61aa729a03c27cde/merged
+tmpfs                        tmpfs     378M     <span class="token number">0</span>  378M   <span class="token number">0</span>% /run/user/0
+/dev/mapper/vg--01-httpd--lv xfs       <span class="token number">2</span>.4G   33M  <span class="token number">2</span>.4G   <span class="token number">2</span>% /opt/httpd-lv
+<span class="token punctuation">[</span>root@node3 ~<span class="token punctuation">]</span><span class="token comment"># </span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br><span class="line-number">84</span><br><span class="line-number">85</span><br><span class="line-number">86</span><br><span class="line-number">87</span><br><span class="line-number">88</span><br><span class="line-number">89</span><br><span class="line-number">90</span><br><span class="line-number">91</span><br><span class="line-number">92</span><br><span class="line-number">93</span><br><span class="line-number">94</span><br><span class="line-number">95</span><br><span class="line-number">96</span><br><span class="line-number">97</span><br><span class="line-number">98</span><br><span class="line-number">99</span><br><span class="line-number">100</span><br><span class="line-number">101</span><br><span class="line-number">102</span><br><span class="line-number">103</span><br><span class="line-number">104</span><br><span class="line-number">105</span><br><span class="line-number">106</span><br><span class="line-number">107</span><br><span class="line-number">108</span><br><span class="line-number">109</span><br><span class="line-number">110</span><br><span class="line-number">111</span><br><span class="line-number">112</span><br><span class="line-number">113</span><br><span class="line-number">114</span><br><span class="line-number">115</span><br><span class="line-number">116</span><br><span class="line-number">117</span><br><span class="line-number">118</span><br><span class="line-number">119</span><br><span class="line-number">120</span><br><span class="line-number">121</span><br><span class="line-number">122</span><br><span class="line-number">123</span><br><span class="line-number">124</span><br><span class="line-number">125</span><br><span class="line-number">126</span><br><span class="line-number">127</span><br><span class="line-number">128</span><br><span class="line-number">129</span><br><span class="line-number">130</span><br><span class="line-number">131</span><br><span class="line-number">132</span><br><span class="line-number">133</span><br><span class="line-number">134</span><br><span class="line-number">135</span><br><span class="line-number">136</span><br><span class="line-number">137</span><br><span class="line-number">138</span><br><span class="line-number">139</span><br><span class="line-number">140</span><br><span class="line-number">141</span><br><span class="line-number">142</span><br><span class="line-number">143</span><br><span class="line-number">144</span><br><span class="line-number">145</span><br><span class="line-number">146</span><br><span class="line-number">147</span><br><span class="line-number">148</span><br><span class="line-number">149</span><br><span class="line-number">150</span><br><span class="line-number">151</span><br><span class="line-number">152</span><br><span class="line-number">153</span><br><span class="line-number">154</span><br><span class="line-number">155</span><br><span class="line-number">156</span><br><span class="line-number">157</span><br><span class="line-number">158</span><br><span class="line-number">159</span><br><span class="line-number">160</span><br><span class="line-number">161</span><br><span class="line-number">162</span><br><span class="line-number">163</span><br><span class="line-number">164</span><br><span class="line-number">165</span><br><span class="line-number">166</span><br><span class="line-number">167</span><br><span class="line-number">168</span><br><span class="line-number">169</span><br><span class="line-number">170</span><br><span class="line-number">171</span><br><span class="line-number">172</span><br><span class="line-number">173</span><br><span class="line-number">174</span><br><span class="line-number">175</span><br><span class="line-number">176</span><br><span class="line-number">177</span><br><span class="line-number">178</span><br><span class="line-number">179</span><br><span class="line-number">180</span><br><span class="line-number">181</span><br><span class="line-number">182</span><br><span class="line-number">183</span><br><span class="line-number">184</span><br><span class="line-number">185</span><br><span class="line-number">186</span><br><span class="line-number">187</span><br><span class="line-number">188</span><br><span class="line-number">189</span><br><span class="line-number">190</span><br><span class="line-number">191</span><br></div></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/documents/study_notes/ops/disk/02.html" class="prev">
+        磁盘管理-SWAP交换分区
+      </a></span> <span class="next"><a href="/documents/study_notes/ops/nginx/01.html">
+        Nginx 基础
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><!----></div></div>
+    <script src="/documents/assets/js/app.9341f639.js" defer></script><script src="/documents/assets/js/2.e8bd7cca.js" defer></script><script src="/documents/assets/js/1.40c64e62.js" defer></script><script src="/documents/assets/js/44.6eafbfdd.js" defer></script>
+  </body>
+</html>

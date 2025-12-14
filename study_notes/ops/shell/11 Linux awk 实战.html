@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>文本处理 awk | Documents</title>
+    <meta name="generator" content="VuePress 1.9.10">
+    <link rel="icon" href="/documents/img/logo.png">
+    <link rel="stylesheet" href="/documents/css/style.css">
+    <meta name="description" content="开发运维技术文档">
+    <meta name="keywords" content="Chinaguocg,Documents,DevOps,IT技术,文档博客,开发,运维,技术文档">
+    <meta name="referrer" content="never">
+    
+    <link rel="preload" href="/documents/assets/css/0.styles.b20f9c26.css" as="style"><link rel="preload" href="/documents/assets/js/app.9341f639.js" as="script"><link rel="preload" href="/documents/assets/js/2.e8bd7cca.js" as="script"><link rel="preload" href="/documents/assets/js/1.40c64e62.js" as="script"><link rel="preload" href="/documents/assets/js/95.9d4a6378.js" as="script"><link rel="prefetch" href="/documents/assets/js/10.b63d61ac.js"><link rel="prefetch" href="/documents/assets/js/11.23025be0.js"><link rel="prefetch" href="/documents/assets/js/12.9a27d63b.js"><link rel="prefetch" href="/documents/assets/js/13.e3dba2b7.js"><link rel="prefetch" href="/documents/assets/js/14.6d3d6a88.js"><link rel="prefetch" href="/documents/assets/js/15.30a4286e.js"><link rel="prefetch" href="/documents/assets/js/16.e4505b74.js"><link rel="prefetch" href="/documents/assets/js/17.255ebcfb.js"><link rel="prefetch" href="/documents/assets/js/18.a4c4f660.js"><link rel="prefetch" href="/documents/assets/js/19.2c33fa19.js"><link rel="prefetch" href="/documents/assets/js/20.fc453a90.js"><link rel="prefetch" href="/documents/assets/js/21.c52a45d9.js"><link rel="prefetch" href="/documents/assets/js/22.faa840f0.js"><link rel="prefetch" href="/documents/assets/js/23.ef1366ba.js"><link rel="prefetch" href="/documents/assets/js/24.b943b232.js"><link rel="prefetch" href="/documents/assets/js/25.4c0d5c0d.js"><link rel="prefetch" href="/documents/assets/js/26.c1467af0.js"><link rel="prefetch" href="/documents/assets/js/27.09371cea.js"><link rel="prefetch" href="/documents/assets/js/28.3a65b93c.js"><link rel="prefetch" href="/documents/assets/js/29.e3615fad.js"><link rel="prefetch" href="/documents/assets/js/3.1bdb9756.js"><link rel="prefetch" href="/documents/assets/js/30.53aed7d2.js"><link rel="prefetch" href="/documents/assets/js/31.71d55b08.js"><link rel="prefetch" href="/documents/assets/js/32.1bd237a9.js"><link rel="prefetch" href="/documents/assets/js/33.a671388e.js"><link rel="prefetch" href="/documents/assets/js/34.f6046c03.js"><link rel="prefetch" href="/documents/assets/js/35.ce72f783.js"><link rel="prefetch" href="/documents/assets/js/36.e0906615.js"><link rel="prefetch" href="/documents/assets/js/37.bec7159a.js"><link rel="prefetch" href="/documents/assets/js/38.115418fc.js"><link rel="prefetch" href="/documents/assets/js/39.307f0445.js"><link rel="prefetch" href="/documents/assets/js/4.ce792ed0.js"><link rel="prefetch" href="/documents/assets/js/40.c75eb27b.js"><link rel="prefetch" href="/documents/assets/js/41.c7bc95f8.js"><link rel="prefetch" href="/documents/assets/js/42.005040f2.js"><link rel="prefetch" href="/documents/assets/js/43.d98cc47d.js"><link rel="prefetch" href="/documents/assets/js/44.6eafbfdd.js"><link rel="prefetch" href="/documents/assets/js/45.b3027c59.js"><link rel="prefetch" href="/documents/assets/js/46.6e1f63e6.js"><link rel="prefetch" href="/documents/assets/js/47.d5743853.js"><link rel="prefetch" href="/documents/assets/js/48.df552625.js"><link rel="prefetch" href="/documents/assets/js/49.4e1eb1ee.js"><link rel="prefetch" href="/documents/assets/js/5.d956834b.js"><link rel="prefetch" href="/documents/assets/js/50.fe8055d2.js"><link rel="prefetch" href="/documents/assets/js/51.faf86540.js"><link rel="prefetch" href="/documents/assets/js/52.94ef29cc.js"><link rel="prefetch" href="/documents/assets/js/53.25511ab8.js"><link rel="prefetch" href="/documents/assets/js/54.250ad07b.js"><link rel="prefetch" href="/documents/assets/js/55.40ae5eb0.js"><link rel="prefetch" href="/documents/assets/js/56.74d7901e.js"><link rel="prefetch" href="/documents/assets/js/57.63b2c97e.js"><link rel="prefetch" href="/documents/assets/js/58.dbbff67e.js"><link rel="prefetch" href="/documents/assets/js/59.52f3d2e8.js"><link rel="prefetch" href="/documents/assets/js/6.118e9bad.js"><link rel="prefetch" href="/documents/assets/js/60.28d21fe8.js"><link rel="prefetch" href="/documents/assets/js/61.d63e7c58.js"><link rel="prefetch" href="/documents/assets/js/62.86a1eac9.js"><link rel="prefetch" href="/documents/assets/js/63.8d5669ec.js"><link rel="prefetch" href="/documents/assets/js/64.6885c7c2.js"><link rel="prefetch" href="/documents/assets/js/65.0391c4dc.js"><link rel="prefetch" href="/documents/assets/js/66.c66aaf4b.js"><link rel="prefetch" href="/documents/assets/js/67.67136c5b.js"><link rel="prefetch" href="/documents/assets/js/68.3a92a11c.js"><link rel="prefetch" href="/documents/assets/js/69.bdd480f6.js"><link rel="prefetch" href="/documents/assets/js/7.a506e926.js"><link rel="prefetch" href="/documents/assets/js/70.21345979.js"><link rel="prefetch" href="/documents/assets/js/71.ea6eceb1.js"><link rel="prefetch" href="/documents/assets/js/72.6d24c19d.js"><link rel="prefetch" href="/documents/assets/js/73.72bc9345.js"><link rel="prefetch" href="/documents/assets/js/74.3845ef15.js"><link rel="prefetch" href="/documents/assets/js/75.8fb57d7b.js"><link rel="prefetch" href="/documents/assets/js/76.f04050fc.js"><link rel="prefetch" href="/documents/assets/js/77.577ba1fb.js"><link rel="prefetch" href="/documents/assets/js/78.0a64a5d6.js"><link rel="prefetch" href="/documents/assets/js/79.a1e874e4.js"><link rel="prefetch" href="/documents/assets/js/80.f125d856.js"><link rel="prefetch" href="/documents/assets/js/81.691ca23f.js"><link rel="prefetch" href="/documents/assets/js/82.596e89cd.js"><link rel="prefetch" href="/documents/assets/js/83.b7f56ccf.js"><link rel="prefetch" href="/documents/assets/js/84.67d2ff28.js"><link rel="prefetch" href="/documents/assets/js/85.0b691fe9.js"><link rel="prefetch" href="/documents/assets/js/86.c0d8fa6a.js"><link rel="prefetch" href="/documents/assets/js/87.b6453afd.js"><link rel="prefetch" href="/documents/assets/js/88.4ca33017.js"><link rel="prefetch" href="/documents/assets/js/89.97b8ef07.js"><link rel="prefetch" href="/documents/assets/js/90.3bb0e532.js"><link rel="prefetch" href="/documents/assets/js/91.49f16846.js"><link rel="prefetch" href="/documents/assets/js/92.07267235.js"><link rel="prefetch" href="/documents/assets/js/93.b769f2db.js"><link rel="prefetch" href="/documents/assets/js/94.b1ec52a7.js"><link rel="prefetch" href="/documents/assets/js/vendors~docsearch.271bc088.js">
+    <link rel="stylesheet" href="/documents/assets/css/0.styles.b20f9c26.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/documents/" class="home-link router-link-active"><!----> <span class="site-name">Documents</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/documents/guide/" class="nav-link">
+  指南
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="文档" class="dropdown-title"><span class="title">文档</span> <span class="arrow down"></span></button> <button type="button" aria-label="文档" class="mobile-dropdown-title"><span class="title">文档</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/documents/study_notes/ops/" class="nav-link router-link-active">
+  运维
+</a></li><li class="dropdown-item"><!----> <a href="/documents/study_notes/dev/" class="nav-link">
+  开发
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="资源共享" class="dropdown-title"><span class="title">资源共享</span> <span class="arrow down"></span></button> <button type="button" aria-label="资源共享" class="mobile-dropdown-title"><span class="title">资源共享</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          在线工具
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://shields.io/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  图标徽章
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://tinypng.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  图片压缩
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://bigjpg.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  图片放大
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="http://cron.qqe2.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  CRON 表达式
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://tableconvert.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  MD 表格生成
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          在线服务
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.bootcdn.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Boot CDN
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          镜像资源
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://msdn.itellyou.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  MSDN
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://mirrors.tuna.tsinghua.edu.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  清华开源软件镜像站
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://developer.aliyun.com/mirror/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  阿里开源镜像站
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          网址导航
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.w3school.com.cn/index.html" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  W3School
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://www.runoob.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  菜鸟教程
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="http://www.h-ui.net/site.shtml" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  IT网址导航
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li></ul></div></div> <a href="https://github.com/chinaguocg/documents" target="_blank" rel="noopener noreferrer" class="repo-link">
+    查看源码
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/documents/guide/" class="nav-link">
+  指南
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="文档" class="dropdown-title"><span class="title">文档</span> <span class="arrow down"></span></button> <button type="button" aria-label="文档" class="mobile-dropdown-title"><span class="title">文档</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/documents/study_notes/ops/" class="nav-link router-link-active">
+  运维
+</a></li><li class="dropdown-item"><!----> <a href="/documents/study_notes/dev/" class="nav-link">
+  开发
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="资源共享" class="dropdown-title"><span class="title">资源共享</span> <span class="arrow down"></span></button> <button type="button" aria-label="资源共享" class="mobile-dropdown-title"><span class="title">资源共享</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          在线工具
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://shields.io/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  图标徽章
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://tinypng.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  图片压缩
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://bigjpg.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  图片放大
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="http://cron.qqe2.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  CRON 表达式
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://tableconvert.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  MD 表格生成
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          在线服务
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.bootcdn.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Boot CDN
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          镜像资源
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://msdn.itellyou.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  MSDN
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://mirrors.tuna.tsinghua.edu.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  清华开源软件镜像站
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://developer.aliyun.com/mirror/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  阿里开源镜像站
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          网址导航
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.w3school.com.cn/index.html" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  W3School
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://www.runoob.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  菜鸟教程
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="http://www.h-ui.net/site.shtml" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  IT网址导航
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li></ul></div></div> <a href="https://github.com/chinaguocg/documents" target="_blank" rel="noopener noreferrer" class="repo-link">
+    查看源码
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Linux</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Ansible</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Disk</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Nginx</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Docker</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>Shell</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/documents/study_notes/ops/shell/00 Shell 配置文件执行顺序.html" class="sidebar-link">Shell 配置文件执行顺序</a></li><li><a href="/documents/study_notes/ops/shell/00 实现Ubuntu类似的motd.html" class="sidebar-link">实现Ubuntu类似的motd</a></li><li><a href="/documents/study_notes/ops/shell/01 Shell 变量.html" class="sidebar-link">shell 变量</a></li><li><a href="/documents/study_notes/ops/shell/02 Shell 条件测试.html" class="sidebar-link">Shell 条件测试</a></li><li><a href="/documents/study_notes/ops/shell/02shell初识 练习题.html" class="sidebar-link">初识shell 练习</a></li><li><a href="/documents/study_notes/ops/shell/03 Shell 条件判断 if.html" class="sidebar-link">Shell 条件语句if</a></li><li><a href="/documents/study_notes/ops/shell/04 Shell 模式匹配 case.html" class="sidebar-link">Shell `case` 语句</a></li><li><a href="/documents/study_notes/ops/shell/05 Shell 循环 for.html" class="sidebar-link">Linux Shell `for` 循环</a></li><li><a href="/documents/study_notes/ops/shell/06 Shell 循环 while.html" class="sidebar-link">Linux Shell `while` 循环</a></li><li><a href="/documents/study_notes/ops/shell/07 Linux Expect+Shell结合.html" class="sidebar-link">Linux Expect及Shell结合</a></li><li><a href="/documents/study_notes/ops/shell/08 Linux 正则表达式RE.html" class="sidebar-link">Linux 正则表达式</a></li><li><a href="/documents/study_notes/ops/shell/09 Linux grep与正则表达式应用.html" class="sidebar-link">Linux grep命令与正则表达式应用</a></li><li><a href="/documents/study_notes/ops/shell/10 Linux sed 实战.html" class="sidebar-link">Linux 流编辑器 sed</a></li><li><a href="/documents/study_notes/ops/shell/11 Linux awk 实战.html" class="active sidebar-link">文本处理 awk</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/documents/study_notes/ops/shell/11 Linux awk 实战.html#文本处理-awk" class="sidebar-link">文本处理 awk</a></li></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h2 id="文本处理-awk"><a href="#文本处理-awk" class="header-anchor">#</a> 文本处理 awk</h2> <h3 id="一、awk简介"><a href="#一、awk简介" class="header-anchor">#</a> 一、awk简介</h3> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code>AWK 是一种强大的文本处理工具和编程语言，由 Alfred Aho、Peter Weinberger 和 Brian Kernighan 于 <span class="token number">1977</span> 年开发（名字取自三人姓氏的首字母）。它特别适合处理结构化文本数据（如日志、CSV、表格数据），广泛应用于数据提取、格式转换和统计计算。
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><h4 id="_1、awk语法格式"><a href="#_1、awk语法格式" class="header-anchor">#</a> 1、awk语法格式</h4> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token function">awk</span> <span class="token punctuation">[</span>options<span class="token punctuation">]</span> <span class="token string">'commands'</span> filenames
+<span class="token function">awk</span> <span class="token punctuation">[</span>options<span class="token punctuation">]</span> <span class="token parameter variable">-f</span> awk-script-file filenames
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token comment"># commands分为三个阶段：</span>
+BEGIN<span class="token punctuation">{</span><span class="token punctuation">}</span>         <span class="token punctuation">{</span><span class="token punctuation">}</span>        	END<span class="token punctuation">{</span><span class="token punctuation">}</span>
+预处理阶段     主处理阶段  	后处理阶段
+
+BEGIN：在处理数据前执行（如设置变量、分隔符）
+/模式/ <span class="token punctuation">{</span>动作<span class="token punctuation">}</span>：对匹配模式的行执行动作（省略模式则处理所有行）
+END：在所有数据处理后执行（如输出统计结果）
+
+<span class="token function">awk</span> -F: <span class="token string">'BEGIN{print &quot;--------&quot;} {print $7} END{print &quot;--------&quot;}'</span> passwd.txt 
+--------
+/bin/bash
+/sbin/nologin
+/sbin/nologin
+/sbin/nologin
+/sbin/nologin
+/bin/sync
+/sbin/shutdown
+/sbin/halt
+/sbin/nologin
+/sbin/nologin
+--------
+
+<span class="token comment"># 准备练习环境</span>
+<span class="token function">head</span> /etc/passwd <span class="token operator">&gt;</span> passwd.txt
+
+<span class="token comment"># awk命令格式：</span>
+选项	<span class="token parameter variable">-F</span>  定义输入字段分隔符，默认的分隔符是空格或制表符<span class="token punctuation">(</span>tab<span class="token punctuation">)</span>
+<span class="token function">awk</span> <span class="token string">'pattern'</span> filename					示例：awk -F: <span class="token string">'/root/'</span> passwd.txt		
+<span class="token function">awk</span> <span class="token string">'{action}'</span> filename					示例：awk -F: <span class="token string">'{print $1}'</span> passwd.txt			
+<span class="token function">awk</span> <span class="token string">'pattern {action}'</span> filename		    示例：awk -F: <span class="token string">'/root/{print $1,$3}'</span> passwd.txt		
+										示例：awk <span class="token string">'BEGIN{FS=&quot;:&quot;} /root/{print $1,$3}'</span> passwd.txt
+										
+<span class="token builtin class-name">command</span> <span class="token operator">|</span><span class="token function">awk</span> <span class="token string">'pattern {action}'</span>      	示例：df -P<span class="token operator">|</span><span class="token function">grep</span> <span class="token parameter variable">-v</span> <span class="token string">'tmpfs'</span> <span class="token operator">|</span><span class="token function">grep</span>  <span class="token string">'/'</span> <span class="token operator">|</span><span class="token function">awk</span> <span class="token string">'{print $4}'</span>
+										示例：df -P<span class="token operator">|</span><span class="token function">grep</span> <span class="token parameter variable">-v</span> <span class="token string">'tmpfs'</span> <span class="token operator">|</span><span class="token function">grep</span>  <span class="token string">'/'</span> <span class="token operator">|</span><span class="token function">awk</span> <span class="token string">'$4 &gt; 25000 {print $4}'</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br></div></div><h4 id="_2、awk工作原理"><a href="#_2、awk工作原理" class="header-anchor">#</a> 2、awk工作原理</h4> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token comment"># awk -F: '{print $1,$3}' passwd.txt</span>
+- awk使用一行作为输入，并将这一行赋给内部变量<span class="token variable">$0</span>，每一行也可称为一个记录，以换行符结束；
+- 然后，行被:（默认为空格或制表符）分解成多个字段（或域），每个字段存储在已编号的变量中，从<span class="token variable">$1</span>开始，最多达100个字段；
+- awk如何知道用空格来分隔字段的呢？ 因为有一个内部变量FS来确定字段分隔符，初始时，FS赋为空格和制表符；
+- awk打印字段时，将以设置的方法使用print函数打印，awk在打印的字段间加上空格，因为<span class="token variable">$1</span>,<span class="token variable">$3</span>之间有一个逗号。逗号比较特殊，它映射为另一个内部变量，称为输出字段分隔符OFS，OFS默认为空格；
+- awk输出之后，将从文件中获取另一行，并将其存储在<span class="token variable">$0</span>中，覆盖原来的内容，然后将新的字符串分隔成字段并进行处理。该过程将持续到所有行处理完毕。
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><table><thead><tr><th style="text-align:left;">内置变量</th> <th style="text-align:left;">作用</th> <th style="text-align:left;">示例</th></tr></thead> <tbody><tr><td style="text-align:left;"><strong><code>$0</code></strong></td> <td style="text-align:left;">当前行的<strong>完整内容</strong></td> <td style="text-align:left;"><code>awk -F: '{print $0}' /etc/passwd</code></td></tr> <tr><td style="text-align:left;"><strong><code>$1,$2...$n</code></strong></td> <td style="text-align:left;">第<strong>1、2、...n</strong> 字段</td> <td style="text-align:left;"><code>awk -F: '{print $1，$3}' /etc/passwd</code></td></tr> <tr><td style="text-align:left;"><strong><code>NF</code></strong></td> <td style="text-align:left;">当前行的<strong>字段数</strong></td> <td style="text-align:left;"><code>awk -F: '{print $0,NF}' /etc/passwd</code></td></tr> <tr><td style="text-align:left;"><strong><code>NR</code></strong></td> <td style="text-align:left;"><strong>行号</strong>（跨文件累加）</td> <td style="text-align:left;"><code>awk -F: '{print NR,$0}' /etc/passwd /etc/hosts</code></td></tr> <tr><td style="text-align:left;"><strong><code>FNR</code></strong></td> <td style="text-align:left;"><strong>当前文件行号</strong>（文件单独计）</td> <td style="text-align:left;"><code>awk -F: '{print FNR,$0}' /etc/passwd /etc/hosts</code></td></tr> <tr><td style="text-align:left;"><strong><code>FS</code></strong></td> <td style="text-align:left;"><strong>输入</strong>字段分隔符，默认空格和\t</td> <td style="text-align:left;"><code>awk -F: '{print $1, $3}' /etc/passwd</code> <br><code>awk -F'[ :\t]' '{print $1,$2,$3}' /etc/passwd</code> <br><code>awk 'BEGIN{FS=&quot;:&quot;} {print $1,$2,$3}' /etc/passwd</code></td></tr> <tr><td style="text-align:left;"><strong><code>OFS</code></strong></td> <td style="text-align:left;"><strong>输出</strong>字段分隔符，默认为空格</td> <td style="text-align:left;"><code>awk -F: '/root/{print $1,$2,$3}' /etc/passwd</code><br><code>awk -F: 'BEGIN{OFS=&quot;+++&quot;} /^root/{print $1,$2,$3}' /etc/passwd</code></td></tr></tbody></table> <h4 id="_3、格式化输出"><a href="#_3、格式化输出" class="header-anchor">#</a> 3、格式化输出</h4> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code>print函数
+<span class="token comment"># date |awk '{print &quot;月份: &quot; $2 &quot;\n年份: &quot; $NF}'</span>
+<span class="token comment"># awk -F: '{print &quot;用户名: &quot; $1 &quot;\t uid: &quot; $3}' passwd.txt</span>
+<span class="token comment"># awk -F: '{print &quot;\t用户和uid: &quot; $1,$3}' passwd.txt</span>
+
+printf函数
+<span class="token comment"># awk -F: '{printf &quot;%-15s %-10s %-15s\n&quot;, $1,$2,$3}'  passwd.txt</span>
+<span class="token comment"># awk -F: '{printf &quot;|%-15s|%-10s|%-15s|\n&quot;, $1,$2,$3}' passwd.txt</span>
+
+%s 字符类型
+%d 数值类型
+%f 浮点类型
+占15字符
+- 表示左对齐，默认是右对齐
+printf默认不会在行尾自动换行，加<span class="token punctuation">\</span>n
+
+字符串使用<span class="token string">&quot; &quot;</span>，例如<span class="token string">'{print &quot;yangge&quot;}'</span>
+变量不能使用<span class="token string">&quot; &quot;</span>，例如<span class="token string">'{print &quot;yangge&quot;,$2,NF}'</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br></div></div><h3 id="二、awk模式和动作"><a href="#二、awk模式和动作" class="header-anchor">#</a> 二、awk模式和动作</h3> <p>​	任何awk语句都由<strong>模式</strong>和<strong>动作</strong>组成。<code>模式部分决定动作语句何时触发及触发事件</code>。处理即对数据进行的操作。如果省略模式部分，动作将时刻保持执行状态。模式可以是任何条件语句或复合语句或正则表达式。模式包括两个特殊字段 BEGIN和END。使用BEGIN语句设置计数和打印头。BEGIN语句使用在任何文本浏览动作之前，之后文本浏览动作依据输入文本开始执行。END语句用来在awk完成文本浏览动作后打印输出文本总数和结尾状态。</p> <h4 id="_1、正则表达式"><a href="#_1、正则表达式" class="header-anchor">#</a> 1、正则表达式</h4> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code>匹配记录（整行）：匹配操作符（~ <span class="token operator">!</span>~）
+<span class="token comment"># awk '/^root/'  /etc/passwd</span>
+<span class="token comment"># awk '$0 ~ /^root/'  /etc/passwd</span>
+
+<span class="token comment"># awk '!/^root/' passwd</span>
+<span class="token comment"># awk '$0 !~ /^root/'  /etc/passwd</span>
+
+匹配字段：匹配操作符（~ <span class="token operator">!</span>~）
+<span class="token comment"># awk -F: '$1 ~ /^root/'  /etc/passwd</span>
+<span class="token comment"># awk -F: '$NF !~ /bash$/'  /etc/passwd</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><h4 id="_2、比较表达式"><a href="#_2、比较表达式" class="header-anchor">#</a> 2、比较表达式</h4> <p>比较表达式采用对文本进行比较，只有当条件为真，才执行指定的动作。比较表达式使用关系运算符，用于比较数字与字符串。</p> <table><thead><tr><th>关系运算符</th> <th>含义</th> <th>示例</th></tr></thead> <tbody><tr><td>&lt;</td> <td>小于</td> <td>x&lt;y</td></tr> <tr><td>&lt;=</td> <td>小于或等于</td> <td>x&lt;=y</td></tr> <tr><td>==</td> <td>等于</td> <td>x==y</td></tr> <tr><td>!=</td> <td>不等于</td> <td>x!=y</td></tr> <tr><td>&gt;=</td> <td>大于等于</td> <td>x&gt;=y</td></tr> <tr><td>&gt;</td> <td>大于</td> <td>x&gt;y</td></tr></tbody></table> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token comment"># awk -F: '$3 == 0' /etc/passwd</span>
+<span class="token comment"># awk -F: '$3 &lt; 10' /etc/passwd</span>
+<span class="token comment"># awk -F: '$NF == &quot;/bin/bash&quot;' /etc/passwd</span>
+<span class="token comment"># awk -F: '$1 == &quot;alice&quot;' /etc/passwd</span>
+<span class="token comment"># awk -F: '$1 ~ /alic/ ' /etc/passwd</span>
+<span class="token comment"># awk -F: '$1 !~ /alic/ ' /etc/passwd</span>
+<span class="token comment"># df -P | grep  '/' |awk '$4 &gt; 25000'</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><h4 id="_3、条件表达式"><a href="#_3、条件表达式" class="header-anchor">#</a> 3、条件表达式</h4> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token comment"># awk -F: '$3&gt;300 {print $1,$3}' /etc/passwd</span>
+<span class="token comment"># awk -F: '{ if($3&gt;300) print $1,$3 }' /etc/passwd</span>
+<span class="token comment"># awk -F: '{ if($3&gt;300) {print $1,$3} }' /etc/passwd</span>
+<span class="token comment"># awk -F: '{ if($3&gt;5){print $1,&quot;UID大于5&quot;} else{print $1,&quot;UID小于5&quot;} }' passwd.txt </span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><h4 id="_4、算术运算"><a href="#_4、算术运算" class="header-anchor">#</a> 4、算术运算</h4> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code>+ - * / %<span class="token punctuation">(</span>模<span class="token punctuation">)</span> ^<span class="token punctuation">(</span>幂2^3<span class="token punctuation">)</span>
+可以在模式中执行计算，awk都将按浮点数方式执行算术运算
+
+<span class="token comment"># awk -F: '$3 * 10 &gt; 500' /etc/passwd</span>
+<span class="token comment"># awk -F: '{ if($3*10&gt;500){print $0} }' /etc/passwd</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><h4 id="_5、逻辑操作符"><a href="#_5、逻辑操作符" class="header-anchor">#</a> 5、逻辑操作符</h4> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token operator">&amp;&amp;</span>		逻辑与		a <span class="token operator">&amp;&amp;</span> b
+<span class="token operator">||</span>		逻辑或		a <span class="token operator">||</span> b
+<span class="token operator">!</span>		逻辑非		<span class="token operator">!</span>a
+
+<span class="token comment"># awk -F: '$1 ~ /root/ &amp;&amp; $3&lt;=15' /etc/passwd</span>
+<span class="token comment"># awk -F: '$1 ~ /root/ || $3&lt;=15' /etc/passwd</span>
+<span class="token comment"># awk -F: '!($1 ~ /root/ || $3&lt;=15)' /etc/passwd</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><h4 id="_6、注意事项"><a href="#_6、注意事项" class="header-anchor">#</a> 6、注意事项</h4> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code>以下两种结果为什么不一样？
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># awk '$3==0' /etc/passwd</span>
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># awk -F: '$3==0' /etc/passwd</span>
+root:x:0:0:root:/root:/bin/bash
+
+<span class="token punctuation">[</span>root@yang ~<span class="token punctuation">]</span><span class="token comment"># cat b.txt </span>
+yang sheng:is a::good boy<span class="token operator">!</span>
+<span class="token punctuation">[</span>root@yang ~<span class="token punctuation">]</span><span class="token comment"># awk '{print NF}' b.txt </span>
+<span class="token number">4</span>
+<span class="token punctuation">[</span>root@yang ~<span class="token punctuation">]</span><span class="token comment"># awk -F: '{print NF}' b.txt </span>
+<span class="token number">4</span>
+<span class="token punctuation">[</span>root@yang ~<span class="token punctuation">]</span><span class="token comment"># awk -F&quot;[ :]&quot; '{print NF}' b.txt </span>
+<span class="token number">7</span>
+
+--字符串匹配和正则匹配
+<span class="token variable">$3</span> <span class="token operator">==</span> <span class="token number">10</span>
+<span class="token variable">$1</span> <span class="token operator">==</span> <span class="token string">&quot;alice&quot;</span>
+<span class="token variable">$1</span> ~ /root/
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br></div></div><h3 id="三、awk脚本编程【提升】"><a href="#三、awk脚本编程【提升】" class="header-anchor">#</a> 三、awk脚本编程【提升】</h3> <h4 id="_1、条件判断【掌握】"><a href="#_1、条件判断【掌握】" class="header-anchor">#</a> 1、条件判断【掌握】</h4> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code>if语句：
+格式
+<span class="token punctuation">{</span> if<span class="token punctuation">(</span>表达式<span class="token punctuation">)</span>｛语句<span class="token punctuation">;</span>语句<span class="token punctuation">;</span><span class="token punctuation">..</span>.｝<span class="token punctuation">}</span>
+<span class="token function">awk</span> -F: <span class="token string">'{ if($3==0) {print $1 &quot; 是管理员&quot;} }'</span> /etc/passwd
+<span class="token function">awk</span> -F: <span class="token string">'{ if($3&gt;0 &amp;&amp; $3&lt;1000){count++;} }  END{print &quot;系统用户数: &quot; count }'</span> /etc/passwd	　//统计系统用户数
+
+if<span class="token punctuation">..</span>.else语句:
+格式
+<span class="token punctuation">{</span> if<span class="token punctuation">(</span>表达式<span class="token punctuation">)</span>｛语句<span class="token punctuation">;</span>语句<span class="token punctuation">;</span><span class="token punctuation">..</span>.｝else<span class="token punctuation">{</span>语句<span class="token punctuation">;</span>语句<span class="token punctuation">;</span><span class="token punctuation">..</span>.<span class="token punctuation">}</span> <span class="token punctuation">}</span>
+<span class="token function">awk</span> -F: <span class="token string">'{ if($3==0){print $1 &quot; 是管理员&quot;} else{print $1 &quot;不是管理员&quot;} }'</span> /etc/passwd
+<span class="token function">awk</span> -F: <span class="token string">'{ if($3==0){count++} else{i++} }'</span> /etc/passwd
+<span class="token function">awk</span> -F: <span class="token string">'{ if($3==0){count++} else{i++} }  END{ print &quot;管理员个数: &quot;count; print &quot;系统用户数: &quot;i}'</span> /etc/passwd
+
+if<span class="token punctuation">..</span>.else if<span class="token punctuation">..</span>.else语句：
+格式
+<span class="token punctuation">{</span> if<span class="token punctuation">(</span>表达式1<span class="token punctuation">)</span>｛语句<span class="token punctuation">;</span>语句；<span class="token punctuation">..</span>.｝else if<span class="token punctuation">(</span>表达式2<span class="token punctuation">)</span>｛语句<span class="token punctuation">;</span>语句；<span class="token punctuation">..</span>.｝else if<span class="token punctuation">(</span>表达式3<span class="token punctuation">)</span>｛语句<span class="token punctuation">;</span>语句；<span class="token punctuation">..</span>.｝else｛语句<span class="token punctuation">;</span>语句；<span class="token punctuation">..</span>.｝<span class="token punctuation">}</span>
+<span class="token function">awk</span> -F: <span class="token string">'{ if($3==0){i++} else if($3&gt;999){k++} else{j++} } END{print i; print k; print j}'</span> /etc/passwd
+<span class="token function">awk</span> -F: <span class="token string">'{ if($3==0){i++} else if($3&gt;999){k++} else{j++} } END{print &quot;管理员个数: &quot;i; print &quot;普通用个数: &quot;k; print &quot;系统用户: &quot;j}'</span> /etc/passwd 
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br></div></div><h4 id="_2、循环"><a href="#_2、循环" class="header-anchor">#</a> 2、循环</h4> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code>while:
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># awk 'BEGIN{ i=1; while(i&lt;=10){print i; i++}  }'</span>
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># awk -F: '{i=1; while(i&lt;=3) {print $0;  i++}}' /etc/passwd	   //将每行打印3次</span>
+
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># cat b.txt </span>
+<span class="token number">111</span> <span class="token number">222</span>
+<span class="token number">333</span> <span class="token number">444</span> <span class="token number">555</span>
+<span class="token number">666</span> <span class="token number">777</span> <span class="token number">888</span> <span class="token number">999</span>
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># awk '{i=1; while(i&lt;=NF){print $i; i++}}' b.txt               //分别打印每行的每列</span>
+<span class="token number">111</span>
+<span class="token number">222</span>
+<span class="token number">333</span>
+<span class="token number">444</span>
+<span class="token number">555</span>
+<span class="token number">666</span>
+<span class="token number">777</span>
+<span class="token number">888</span>
+<span class="token number">999</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br></div></div><div class="language-bash line-numbers-mode"><pre class="language-bash"><code>for:
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># awk 'BEGIN{for(i=1;i&lt;=5;i++){print i} }'                       //C风格for</span>
+<span class="token number">1</span>
+<span class="token number">2</span>
+<span class="token number">3</span>
+<span class="token number">4</span>
+<span class="token number">5</span>
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># awk -F: '{ for(i=1;i&lt;=10;i++) {print $0} }' /etc/passwd		 //将每行打印10次</span>
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># awk -F: '{ for(i=1;i&lt;=NF;i++) {print $i} }' passwd             //分别打印每行的每列</span>
+root
+x
+<span class="token number">0</span>
+<span class="token number">0</span>
+root
+/root
+/bin/bash
+bin
+x
+<span class="token number">1</span>
+<span class="token number">1</span>
+bin
+/bin
+/sbin/nologin
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br></div></div><h4 id="_3、数组【掌握】"><a href="#_3、数组【掌握】" class="header-anchor">#</a> 3、数组【掌握】</h4> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token number">1</span>. 统计/etc/passwd中各种类型shell的数量
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># awk -F: '{shells[$NF]++}' /etc/passwd</span>
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># awk -F: '{shells[$NF]++} END{ for(i in shells){print i,shells[i]} }' /etc/passwd</span>
+
+--赋值的过程
+shells<span class="token punctuation">[</span>/bin/bash<span class="token punctuation">]</span>++					<span class="token number">5</span>
+shells<span class="token punctuation">[</span>/sbin/nologin<span class="token punctuation">]</span>++				<span class="token number">20</span>
+shells<span class="token punctuation">[</span>/sbin/halt<span class="token punctuation">]</span>++				<span class="token number">2</span>
+
+问：for<span class="token punctuation">(</span>i <span class="token keyword">in</span> shells<span class="token punctuation">)</span>中的i是什么？
+索引：
+/bin/bash
+/sbin/nologin
+/sbin/halt
+<span class="token punctuation">..</span><span class="token punctuation">..</span><span class="token punctuation">..</span>.
+
+<span class="token number">2</span>. 统计Nginx访问日志中各类返回码的次数（200，404，500）
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># </span>
+<span class="token number">503</span> <span class="token number">10587</span>
+<span class="token number">400</span> <span class="token number">138</span>
+<span class="token number">403</span> <span class="token number">845</span>
+<span class="token number">200</span> <span class="token number">945</span>
+<span class="token number">404</span> <span class="token number">9846</span>
+<span class="token number">405</span> <span class="token number">38</span>
+<span class="token number">501</span> <span class="token number">2</span>
+思路：统计谁，就把谁做为索引。例如统计第9列，就把它作为索引code<span class="token punctuation">[</span><span class="token variable">$9</span><span class="token punctuation">]</span>++
+
+code<span class="token punctuation">[</span><span class="token variable">$9</span><span class="token punctuation">]</span>++
+code<span class="token punctuation">[</span><span class="token number">200</span><span class="token punctuation">]</span>++				<span class="token number">1</span>
+code<span class="token punctuation">[</span><span class="token number">200</span><span class="token punctuation">]</span>++				<span class="token number">2</span>
+code<span class="token punctuation">[</span><span class="token number">404</span><span class="token punctuation">]</span>++				<span class="token number">1</span>
+code<span class="token punctuation">[</span><span class="token number">200</span><span class="token punctuation">]</span>++				<span class="token number">3</span>
+code<span class="token punctuation">[</span><span class="token number">503</span><span class="token punctuation">]</span>++				<span class="token number">1</span>
+code<span class="token punctuation">[</span><span class="token number">200</span><span class="token punctuation">]</span>++				<span class="token number">4</span>
+
+问：for<span class="token punctuation">(</span>i <span class="token keyword">in</span> code<span class="token punctuation">)</span>中的i是什么？
+索引：
+<span class="token number">200</span>
+<span class="token number">404</span>
+<span class="token number">503</span>
+
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># awk '{print $9}' api.mobiletrain.org_access.log |sort |uniq -c</span>
+    <span class="token number">945</span> <span class="token number">200</span>
+    <span class="token number">138</span> <span class="token number">400</span>
+    <span class="token number">845</span> <span class="token number">403</span>
+   <span class="token number">9846</span> <span class="token number">404</span>
+     <span class="token number">38</span> <span class="token number">405</span>
+      <span class="token number">2</span> <span class="token number">501</span>
+  <span class="token number">10587</span> <span class="token number">503</span>
+  
+<span class="token number">3</span>. 统计服务器当前TCP各种连接状态数量
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># netstat -tna |awk '/^tcp/{ code[$6]++ }  END{ for(i in code){print i,code[i]} }'</span>
+LISTEN <span class="token number">11</span>
+ESTABLISHED <span class="token number">2</span>
+FIN_WAIT2 <span class="token number">2</span>
+
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># netstat -tna |awk '/^tcp/{ code[$6]++ }  END{ print &quot;LISTEN: &quot;code[&quot;LISTEN&quot;]}'</span>
+LISTEN: <span class="token number">11</span>
+
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># netstat -tna |awk '/^tcp/{print $6}' |sort |uniq -c</span>
+      <span class="token number">2</span> ESTABLISHED
+      <span class="token number">2</span> FIN_WAIT2
+     <span class="token number">11</span> LISTEN
+     
+<span class="token number">4</span>. 统计网站日志文件中访问的每个IP的数量
+<span class="token number">185.94</span>.29.10 <span class="token number">22232</span>
+<span class="token number">59.83</span>.208.105 <span class="token number">10</span>
+<span class="token number">59.83</span>.208.106 <span class="token number">9</span>
+<span class="token number">59.83</span>.208.108 <span class="token number">8</span>
+<span class="token number">220.196</span>.160.146 <span class="token number">7</span>
+<span class="token number">59.83</span>.208.103 <span class="token number">6</span>
+<span class="token number">180.101</span>.245.251 <span class="token number">6</span>
+
+<span class="token number">5</span>.计算总流量（第10个字段通常是字节数，在Nginx中是 <span class="token variable">$7</span>，Apache 中可能是 <span class="token variable">$7</span> 或 <span class="token variable">$10</span>）
+<span class="token function">awk</span> <span class="token string">'{sum += $10} END{print &quot;总流量:&quot;, sum/1024/1024, &quot;MB&quot;}'</span> nginx_access.log
+<span class="token function">awk</span> <span class="token string">'{sum = sum+$10} END{print &quot;总流量:&quot;, sum/1024/1024, &quot;MB&quot;}'</span>  nginx_access.log
+总流量: <span class="token number">5.40285</span> MB
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br></div></div><h4 id="_4、函数"><a href="#_4、函数" class="header-anchor">#</a> 4、函数</h4> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code>统计用户名为4个字符的用户：
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># awk -F: '$1~/^....$/{count++; print $1} END{print &quot;4个字母的用户数: &quot; count}' /etc/passwd</span>
+root
+<span class="token function">sync</span>
+<span class="token function">halt</span>
+mail
+news
+uucp
+nscd
+vcsa
+pcap
+sshd
+dbus
+jack
+<span class="token number">4</span>个字母的用户数: <span class="token number">12</span>
+
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment">#  awk -F: 'length($1)==4{count++; print $1} END{print &quot;4个字母的用户数: &quot;count}' /etc/passwd</span>
+root
+<span class="token function">sync</span>
+<span class="token function">halt</span>
+mail
+news
+uucp
+nscd
+vcsa
+pcap
+sshd
+dbus
+jack
+<span class="token number">4</span>个字母的用户数: <span class="token number">12</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br></div></div><h3 id="四、练习及作业"><a href="#四、练习及作业" class="header-anchor">#</a> 四、练习及作业</h3> <h4 id="_1、awk练习"><a href="#_1、awk练习" class="header-anchor">#</a> 1、awk练习</h4> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token number">1</span>. 统计/etc/passwd中各种类型shell的数量
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># awk -F: '{shells[$NF]++} END{ for(i in shells){print i,shells[i]} }' /etc/passwd</span>
+
+２. 网站访问状态统计　<span class="token operator">&lt;</span>当前时实状态 netstat<span class="token operator">&gt;</span> 
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># netstat -ant |grep :80 |awk '{access_stat[$NF]++} END{for(i in access_stat ){print i,access_stat[i]}}'</span>
+TIME_WAIT <span class="token number">1064</span>
+ESTABLISHED <span class="token number">1</span>
+LISTEN <span class="token number">1</span>
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># netstat -ant |grep :80 |awk '{access_stat[$NF]++} END{for(i in access_stat ){print i,access_stat[i]}}' |sort -k2 -n |head</span>
+
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># ss -an |grep :80 |awk '{access_stat[$2]++} END{for(i in access_stat){print i,access_stat[i]}}'</span>
+LISTEN <span class="token number">1</span>
+ESTAB <span class="token number">5</span>
+TIME-WAIT <span class="token number">97</span>
+
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># ss -an |grep :80 |awk '{access_stat[$2]++} END{for(i in access_stat){print i,access_stat[i]}}' |sort -k2 -rn</span>
+TIME-WAIT <span class="token number">18</span>
+ESTAB <span class="token number">8</span>
+LISTEN <span class="token number">1</span>
+
+<span class="token number">3</span>. 统计当前访问的每个IP的数量 <span class="token operator">&lt;</span>当前时实状态 netstat,ss<span class="token operator">&gt;</span>
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># netstat -ant |grep :80 |awk -F: '{ip_count[$8]++} END{for(i in ip_count){print i,ip_count[i]} }' |sort</span>
+<span class="token number">172.16</span>.130.16 <span class="token number">289</span>
+<span class="token number">172.16</span>.130.33 <span class="token number">254</span>
+<span class="token number">172.16</span>.130.44 <span class="token number">158</span>
+<span class="token number">172.16</span>.130.99 <span class="token number">4</span>
+
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># ss -an |grep :80 |awk -F&quot;:&quot; '!/LISTEN/{ip_count[$(NF-1)]++} END{for(i in ip_count){print i,ip_count[i]}}' |sort -k2 -rn |head</span>
+<span class="token number">172.16</span>.160.77 <span class="token number">59</span>
+<span class="token number">172.16</span>.160.221 <span class="token number">16</span>
+<span class="token number">172.16</span>.160.17 <span class="token number">11</span>
+<span class="token number">172.16</span>.160.69 <span class="token number">8</span>
+<span class="token number">172.16</span>.160.51 <span class="token number">7</span>
+<span class="token number">172.16</span>.160.49 <span class="token number">7</span>
+<span class="token number">172.16</span>.160.13 <span class="token number">7</span>
+<span class="token number">172.16</span>.160.153 <span class="token number">3</span>
+<span class="token number">172.16</span>.160.79 <span class="token number">2</span>
+<span class="token number">172.16</span>.160.52 <span class="token number">2</span>
+
+<span class="token number">4</span>. 统计Apache/Nginx日志中某一天的PV量 　<span class="token operator">&lt;</span>统计日志<span class="token operator">&gt;</span>
+<span class="token punctuation">[</span>root@tianyun log<span class="token punctuation">]</span><span class="token comment"># grep '22/Mar/2017' cd.mobiletrain.org.log |wc -l</span>
+<span class="token number">1646</span>
+
+<span class="token number">5</span>. 统计Apache/Nginx日志中某一天不同IP的访问量　<span class="token operator">&lt;</span>统计日志<span class="token operator">&gt;</span>
+<span class="token punctuation">[</span>root@tianyun nginx_log<span class="token punctuation">]</span><span class="token comment"># grep '07/Aug/2012' access.log |awk '{ips[$1]++} END{for(i in ips){print i,ips[i]} }' |sort -k2 -rn |head</span>
+<span class="token number">222.130</span>.129.42 <span class="token number">5761</span>
+<span class="token number">123.126</span>.51.94 <span class="token number">988</span>
+<span class="token number">123.126</span>.68.22 <span class="token number">588</span>
+<span class="token number">123.114</span>.46.141 <span class="token number">418</span>
+<span class="token number">61.135</span>.249.218 <span class="token number">368</span>
+<span class="token number">110.75</span>.173.162 <span class="token number">330</span>
+<span class="token number">110.75</span>.173.163 <span class="token number">327</span>
+<span class="token number">110.75</span>.173.161 <span class="token number">321</span>
+<span class="token number">110.75</span>.173.160 <span class="token number">319</span>
+<span class="token number">110.75</span>.173.164 <span class="token number">314</span>
+
+<span class="token punctuation">[</span>root@tianyun nginx_log<span class="token punctuation">]</span><span class="token comment"># grep '07/Aug/2012' access.log |awk '{ips[$1]++} END{for(i in ips){print i,ips[i]} }' |awk '$2&gt;100' |sort -k2 -rn</span>
+<span class="token number">222.130</span>.129.42 <span class="token number">5761</span>
+<span class="token number">123.126</span>.51.94 <span class="token number">988</span>
+<span class="token number">123.126</span>.68.22 <span class="token number">588</span>
+<span class="token number">123.114</span>.46.141 <span class="token number">418</span>
+<span class="token number">61.135</span>.249.218 <span class="token number">368</span>
+<span class="token number">110.75</span>.173.162 <span class="token number">330</span>
+<span class="token number">110.75</span>.173.163 <span class="token number">327</span>
+<span class="token number">110.75</span>.173.161 <span class="token number">321</span>
+<span class="token number">110.75</span>.173.160 <span class="token number">319</span>
+<span class="token number">110.75</span>.173.164 <span class="token number">314</span>
+<span class="token number">1.202</span>.218.67 <span class="token number">313</span>
+<span class="token number">110.75</span>.173.159 <span class="token number">311</span>
+<span class="token number">203.208</span>.60.80 <span class="token number">294</span>
+<span class="token number">221.221</span>.207.202 <span class="token number">266</span>
+<span class="token number">203.208</span>.60.82 <span class="token number">230</span>
+<span class="token number">203.208</span>.60.81 <span class="token number">209</span>
+<span class="token number">38.111</span>.147.83 <span class="token number">206</span>
+<span class="token number">61.135</span>.249.220 <span class="token number">187</span>
+<span class="token number">183.39</span>.187.86 <span class="token number">178</span>
+<span class="token number">61.156</span>.142.207 <span class="token number">129</span>
+
+<span class="token punctuation">[</span>root@tianyun log<span class="token punctuation">]</span><span class="token comment"># awk '/22\/Mar\/2017/{ips[$1]++} END{for(i in ips){print i,ips[i]}}' sz.mobiletrain.org.log |awk '$2&gt;100' |sort -k2 -rn|head180.153.93.44 1327</span>
+<span class="token number">119.147</span>.33.19 <span class="token number">551</span>
+<span class="token number">119.147</span>.33.26 <span class="token number">234</span>
+<span class="token number">119.147</span>.33.22 <span class="token number">216</span>
+<span class="token number">119.147</span>.33.21 <span class="token number">214</span>
+<span class="token number">101.69</span>.121.35 <span class="token number">209</span>
+<span class="token number">183.214</span>.128.174 <span class="token number">193</span>
+<span class="token number">175.6</span>.26.173 <span class="token number">178</span>
+<span class="token number">27.221</span>.28.174 <span class="token number">167</span>
+<span class="token number">121.29</span>.54.11 <span class="token number">161</span>
+
+<span class="token punctuation">[</span>root@tianyun log<span class="token punctuation">]</span><span class="token comment"># awk '/22\/Mar\/2017/{ips[$1]++} END{for(i in ips){if(ips[i]&gt;100){print i,ips[i]}}}' sz.mobiletrain.org.log|sort -k2 -rn|head</span>
+<span class="token number">180.153</span>.93.44 <span class="token number">1327</span>
+<span class="token number">119.147</span>.33.19 <span class="token number">551</span>
+<span class="token number">119.147</span>.33.26 <span class="token number">234</span>
+<span class="token number">119.147</span>.33.22 <span class="token number">216</span>
+<span class="token number">119.147</span>.33.21 <span class="token number">214</span>
+<span class="token number">101.69</span>.121.35 <span class="token number">209</span>
+<span class="token number">183.214</span>.128.174 <span class="token number">193</span>
+<span class="token number">175.6</span>.26.173 <span class="token number">178</span>
+<span class="token number">27.221</span>.28.174 <span class="token number">167</span>
+<span class="token number">121.29</span>.54.11 <span class="token number">161</span>
+
+思路：将需要统计的内容（某一个字段）作为数组的索引 ++
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br><span class="line-number">84</span><br><span class="line-number">85</span><br><span class="line-number">86</span><br><span class="line-number">87</span><br><span class="line-number">88</span><br><span class="line-number">89</span><br><span class="line-number">90</span><br><span class="line-number">91</span><br><span class="line-number">92</span><br><span class="line-number">93</span><br><span class="line-number">94</span><br><span class="line-number">95</span><br><span class="line-number">96</span><br><span class="line-number">97</span><br><span class="line-number">98</span><br><span class="line-number">99</span><br><span class="line-number">100</span><br><span class="line-number">101</span><br><span class="line-number">102</span><br></div></div><h4 id="_2、awk作业"><a href="#_2、awk作业" class="header-anchor">#</a> 2、awk作业</h4> <div class="language- line-numbers-mode"><pre class="language-text"><code>1. 取得网卡IP（除ipv6以外的所有IP）
+2. 获得内存使用情况
+3. 获得磁盘使用情况
+4. 清空本机的ARP缓存
+5. 打印出/etc/hosts文件的最后一个字段（按空格分隔）
+6. 打印指定目录下的目录名
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/documents/study_notes/ops/shell/10 Linux sed 实战.html" class="prev">
+        Linux 流编辑器 sed
+      </a></span> <!----></p></div> </main></div><div class="global-ui"><!----></div></div>
+    <script src="/documents/assets/js/app.9341f639.js" defer></script><script src="/documents/assets/js/2.e8bd7cca.js" defer></script><script src="/documents/assets/js/1.40c64e62.js" defer></script><script src="/documents/assets/js/95.9d4a6378.js" defer></script>
+  </body>
+</html>

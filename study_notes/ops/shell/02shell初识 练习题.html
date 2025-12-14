@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>初识shell 练习 | Documents</title>
+    <meta name="generator" content="VuePress 1.9.10">
+    <link rel="icon" href="/documents/img/logo.png">
+    <link rel="stylesheet" href="/documents/css/style.css">
+    <meta name="description" content="开发运维技术文档">
+    <meta name="keywords" content="Chinaguocg,Documents,DevOps,IT技术,文档博客,开发,运维,技术文档">
+    <meta name="referrer" content="never">
+    
+    <link rel="preload" href="/documents/assets/css/0.styles.b20f9c26.css" as="style"><link rel="preload" href="/documents/assets/js/app.9341f639.js" as="script"><link rel="preload" href="/documents/assets/js/2.e8bd7cca.js" as="script"><link rel="preload" href="/documents/assets/js/1.40c64e62.js" as="script"><link rel="preload" href="/documents/assets/js/86.c0d8fa6a.js" as="script"><link rel="prefetch" href="/documents/assets/js/10.b63d61ac.js"><link rel="prefetch" href="/documents/assets/js/11.23025be0.js"><link rel="prefetch" href="/documents/assets/js/12.9a27d63b.js"><link rel="prefetch" href="/documents/assets/js/13.e3dba2b7.js"><link rel="prefetch" href="/documents/assets/js/14.6d3d6a88.js"><link rel="prefetch" href="/documents/assets/js/15.30a4286e.js"><link rel="prefetch" href="/documents/assets/js/16.e4505b74.js"><link rel="prefetch" href="/documents/assets/js/17.255ebcfb.js"><link rel="prefetch" href="/documents/assets/js/18.a4c4f660.js"><link rel="prefetch" href="/documents/assets/js/19.2c33fa19.js"><link rel="prefetch" href="/documents/assets/js/20.fc453a90.js"><link rel="prefetch" href="/documents/assets/js/21.c52a45d9.js"><link rel="prefetch" href="/documents/assets/js/22.faa840f0.js"><link rel="prefetch" href="/documents/assets/js/23.ef1366ba.js"><link rel="prefetch" href="/documents/assets/js/24.b943b232.js"><link rel="prefetch" href="/documents/assets/js/25.4c0d5c0d.js"><link rel="prefetch" href="/documents/assets/js/26.c1467af0.js"><link rel="prefetch" href="/documents/assets/js/27.09371cea.js"><link rel="prefetch" href="/documents/assets/js/28.3a65b93c.js"><link rel="prefetch" href="/documents/assets/js/29.e3615fad.js"><link rel="prefetch" href="/documents/assets/js/3.1bdb9756.js"><link rel="prefetch" href="/documents/assets/js/30.53aed7d2.js"><link rel="prefetch" href="/documents/assets/js/31.71d55b08.js"><link rel="prefetch" href="/documents/assets/js/32.1bd237a9.js"><link rel="prefetch" href="/documents/assets/js/33.a671388e.js"><link rel="prefetch" href="/documents/assets/js/34.f6046c03.js"><link rel="prefetch" href="/documents/assets/js/35.ce72f783.js"><link rel="prefetch" href="/documents/assets/js/36.e0906615.js"><link rel="prefetch" href="/documents/assets/js/37.bec7159a.js"><link rel="prefetch" href="/documents/assets/js/38.115418fc.js"><link rel="prefetch" href="/documents/assets/js/39.307f0445.js"><link rel="prefetch" href="/documents/assets/js/4.ce792ed0.js"><link rel="prefetch" href="/documents/assets/js/40.c75eb27b.js"><link rel="prefetch" href="/documents/assets/js/41.c7bc95f8.js"><link rel="prefetch" href="/documents/assets/js/42.005040f2.js"><link rel="prefetch" href="/documents/assets/js/43.d98cc47d.js"><link rel="prefetch" href="/documents/assets/js/44.6eafbfdd.js"><link rel="prefetch" href="/documents/assets/js/45.b3027c59.js"><link rel="prefetch" href="/documents/assets/js/46.6e1f63e6.js"><link rel="prefetch" href="/documents/assets/js/47.d5743853.js"><link rel="prefetch" href="/documents/assets/js/48.df552625.js"><link rel="prefetch" href="/documents/assets/js/49.4e1eb1ee.js"><link rel="prefetch" href="/documents/assets/js/5.d956834b.js"><link rel="prefetch" href="/documents/assets/js/50.fe8055d2.js"><link rel="prefetch" href="/documents/assets/js/51.faf86540.js"><link rel="prefetch" href="/documents/assets/js/52.94ef29cc.js"><link rel="prefetch" href="/documents/assets/js/53.25511ab8.js"><link rel="prefetch" href="/documents/assets/js/54.250ad07b.js"><link rel="prefetch" href="/documents/assets/js/55.40ae5eb0.js"><link rel="prefetch" href="/documents/assets/js/56.74d7901e.js"><link rel="prefetch" href="/documents/assets/js/57.63b2c97e.js"><link rel="prefetch" href="/documents/assets/js/58.dbbff67e.js"><link rel="prefetch" href="/documents/assets/js/59.52f3d2e8.js"><link rel="prefetch" href="/documents/assets/js/6.118e9bad.js"><link rel="prefetch" href="/documents/assets/js/60.28d21fe8.js"><link rel="prefetch" href="/documents/assets/js/61.d63e7c58.js"><link rel="prefetch" href="/documents/assets/js/62.86a1eac9.js"><link rel="prefetch" href="/documents/assets/js/63.8d5669ec.js"><link rel="prefetch" href="/documents/assets/js/64.6885c7c2.js"><link rel="prefetch" href="/documents/assets/js/65.0391c4dc.js"><link rel="prefetch" href="/documents/assets/js/66.c66aaf4b.js"><link rel="prefetch" href="/documents/assets/js/67.67136c5b.js"><link rel="prefetch" href="/documents/assets/js/68.3a92a11c.js"><link rel="prefetch" href="/documents/assets/js/69.bdd480f6.js"><link rel="prefetch" href="/documents/assets/js/7.a506e926.js"><link rel="prefetch" href="/documents/assets/js/70.21345979.js"><link rel="prefetch" href="/documents/assets/js/71.ea6eceb1.js"><link rel="prefetch" href="/documents/assets/js/72.6d24c19d.js"><link rel="prefetch" href="/documents/assets/js/73.72bc9345.js"><link rel="prefetch" href="/documents/assets/js/74.3845ef15.js"><link rel="prefetch" href="/documents/assets/js/75.8fb57d7b.js"><link rel="prefetch" href="/documents/assets/js/76.f04050fc.js"><link rel="prefetch" href="/documents/assets/js/77.577ba1fb.js"><link rel="prefetch" href="/documents/assets/js/78.0a64a5d6.js"><link rel="prefetch" href="/documents/assets/js/79.a1e874e4.js"><link rel="prefetch" href="/documents/assets/js/80.f125d856.js"><link rel="prefetch" href="/documents/assets/js/81.691ca23f.js"><link rel="prefetch" href="/documents/assets/js/82.596e89cd.js"><link rel="prefetch" href="/documents/assets/js/83.b7f56ccf.js"><link rel="prefetch" href="/documents/assets/js/84.67d2ff28.js"><link rel="prefetch" href="/documents/assets/js/85.0b691fe9.js"><link rel="prefetch" href="/documents/assets/js/87.b6453afd.js"><link rel="prefetch" href="/documents/assets/js/88.4ca33017.js"><link rel="prefetch" href="/documents/assets/js/89.97b8ef07.js"><link rel="prefetch" href="/documents/assets/js/90.3bb0e532.js"><link rel="prefetch" href="/documents/assets/js/91.49f16846.js"><link rel="prefetch" href="/documents/assets/js/92.07267235.js"><link rel="prefetch" href="/documents/assets/js/93.b769f2db.js"><link rel="prefetch" href="/documents/assets/js/94.b1ec52a7.js"><link rel="prefetch" href="/documents/assets/js/95.9d4a6378.js"><link rel="prefetch" href="/documents/assets/js/vendors~docsearch.271bc088.js">
+    <link rel="stylesheet" href="/documents/assets/css/0.styles.b20f9c26.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/documents/" class="home-link router-link-active"><!----> <span class="site-name">Documents</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/documents/guide/" class="nav-link">
+  指南
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="文档" class="dropdown-title"><span class="title">文档</span> <span class="arrow down"></span></button> <button type="button" aria-label="文档" class="mobile-dropdown-title"><span class="title">文档</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/documents/study_notes/ops/" class="nav-link router-link-active">
+  运维
+</a></li><li class="dropdown-item"><!----> <a href="/documents/study_notes/dev/" class="nav-link">
+  开发
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="资源共享" class="dropdown-title"><span class="title">资源共享</span> <span class="arrow down"></span></button> <button type="button" aria-label="资源共享" class="mobile-dropdown-title"><span class="title">资源共享</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          在线工具
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://shields.io/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  图标徽章
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://tinypng.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  图片压缩
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://bigjpg.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  图片放大
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="http://cron.qqe2.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  CRON 表达式
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://tableconvert.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  MD 表格生成
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          在线服务
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.bootcdn.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Boot CDN
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          镜像资源
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://msdn.itellyou.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  MSDN
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://mirrors.tuna.tsinghua.edu.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  清华开源软件镜像站
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://developer.aliyun.com/mirror/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  阿里开源镜像站
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          网址导航
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.w3school.com.cn/index.html" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  W3School
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://www.runoob.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  菜鸟教程
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="http://www.h-ui.net/site.shtml" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  IT网址导航
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li></ul></div></div> <a href="https://github.com/chinaguocg/documents" target="_blank" rel="noopener noreferrer" class="repo-link">
+    查看源码
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/documents/guide/" class="nav-link">
+  指南
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="文档" class="dropdown-title"><span class="title">文档</span> <span class="arrow down"></span></button> <button type="button" aria-label="文档" class="mobile-dropdown-title"><span class="title">文档</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/documents/study_notes/ops/" class="nav-link router-link-active">
+  运维
+</a></li><li class="dropdown-item"><!----> <a href="/documents/study_notes/dev/" class="nav-link">
+  开发
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="资源共享" class="dropdown-title"><span class="title">资源共享</span> <span class="arrow down"></span></button> <button type="button" aria-label="资源共享" class="mobile-dropdown-title"><span class="title">资源共享</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          在线工具
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://shields.io/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  图标徽章
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://tinypng.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  图片压缩
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://bigjpg.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  图片放大
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="http://cron.qqe2.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  CRON 表达式
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://tableconvert.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  MD 表格生成
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          在线服务
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.bootcdn.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Boot CDN
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          镜像资源
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://msdn.itellyou.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  MSDN
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://mirrors.tuna.tsinghua.edu.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  清华开源软件镜像站
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://developer.aliyun.com/mirror/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  阿里开源镜像站
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          网址导航
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.w3school.com.cn/index.html" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  W3School
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://www.runoob.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  菜鸟教程
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="http://www.h-ui.net/site.shtml" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  IT网址导航
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li></ul></div></div> <a href="https://github.com/chinaguocg/documents" target="_blank" rel="noopener noreferrer" class="repo-link">
+    查看源码
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Linux</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Ansible</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Disk</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Nginx</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Docker</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>Shell</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/documents/study_notes/ops/shell/00 Shell 配置文件执行顺序.html" class="sidebar-link">Shell 配置文件执行顺序</a></li><li><a href="/documents/study_notes/ops/shell/00 实现Ubuntu类似的motd.html" class="sidebar-link">实现Ubuntu类似的motd</a></li><li><a href="/documents/study_notes/ops/shell/01 Shell 变量.html" class="sidebar-link">shell 变量</a></li><li><a href="/documents/study_notes/ops/shell/02 Shell 条件测试.html" class="sidebar-link">Shell 条件测试</a></li><li><a href="/documents/study_notes/ops/shell/02shell初识 练习题.html" class="active sidebar-link">初识shell 练习</a></li><li><a href="/documents/study_notes/ops/shell/03 Shell 条件判断 if.html" class="sidebar-link">Shell 条件语句if</a></li><li><a href="/documents/study_notes/ops/shell/04 Shell 模式匹配 case.html" class="sidebar-link">Shell `case` 语句</a></li><li><a href="/documents/study_notes/ops/shell/05 Shell 循环 for.html" class="sidebar-link">Linux Shell `for` 循环</a></li><li><a href="/documents/study_notes/ops/shell/06 Shell 循环 while.html" class="sidebar-link">Linux Shell `while` 循环</a></li><li><a href="/documents/study_notes/ops/shell/07 Linux Expect+Shell结合.html" class="sidebar-link">Linux Expect及Shell结合</a></li><li><a href="/documents/study_notes/ops/shell/08 Linux 正则表达式RE.html" class="sidebar-link">Linux 正则表达式</a></li><li><a href="/documents/study_notes/ops/shell/09 Linux grep与正则表达式应用.html" class="sidebar-link">Linux grep命令与正则表达式应用</a></li><li><a href="/documents/study_notes/ops/shell/10 Linux sed 实战.html" class="sidebar-link">Linux 流编辑器 sed</a></li><li><a href="/documents/study_notes/ops/shell/11 Linux awk 实战.html" class="sidebar-link">文本处理 awk</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="初识shell-练习"><a href="#初识shell-练习" class="header-anchor">#</a> 初识shell 练习</h1> <div class="language- line-numbers-mode"><pre class="language-text"><code>--- 课堂作业1：
+判断根分区使用率，如果超过阈值(90%)则报警 disk_use.sh
+脚本思路：
+1. 获得根分区当前的使用率（数字），将其赋值给一个变量例如 disk_use
+df |grep &quot;/$&quot; |awk '{print $5}' |awk -F&quot;%&quot; '{print $1}'
+2. 判断当前的使用率是否大于90（数值比较）
+3. 如果超过阈值（90%）输出警告消息，否则打印当前使用率（例如45%）
+
+--- 课堂作业2：
+安装软件xxx install_package.sh
+脚本思路：
+1. 判断当前用户有没有安装权限(可以通过UID或用户名来进行判断)
+2. 判断网络连接是否正常，如果不正常输出：网络无法连接，YUM源无法使用，程序退出(exit)
+3. 如果当前用户不是超级用户，输出：请使用root用户安装，程序退出(exit)
+4. 如果是超级用户，安装vsftpd。安装成功后输出：vsftpd安装成功
+提示：
+获得当前用户的UID： 使用环境变量$UID，或id -u
+获得当前用户名：使用环境变量$USER
+
+-- 课堂作业3：
+创建用户 create_user.sh
+脚本要求：
+1. 判断当前用户有没有创建用户的权限，如果没有，提示：请使用root用户，程序退出
+2. 提示用户输入要创建的用户名和密码
+3. 判断用户输入的用户名是否为空。如果为空，提示：用户名输入错误，程序退出
+4. 判断用户输入的密码是否为空。如果为空，提示：密码输入错误，程序退出
+5. 检查要创建的用户是否已存在(id xxx)，如果存在，提示：用户xxx已存在，程序退出
+6. 创建用户和设置密码，过程中不输出消息到终端
+7. 如果用户创建成功，输出：用户xxx创建成功
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br></div></div><div class="language- line-numbers-mode"><pre class="language-text"><code>[root@haoha home]# cat create_user.sh 
+#!/bin/bash
+
+if [ $UID != 0  ];then
+        echo &quot;Please use root login and create user&quot;;
+        exit
+else
+	read -p &quot;Please input username and passwold:  &quot; username passwold
+
+	if [[ $username == &quot;&quot;  ]];then
+		echo &quot;username is kong&quot;
+	elif [ -z &quot;$passwold&quot;  ];then
+		echo &quot;passwold is kong&quot;
+	else
+                id $username
+                if [ $? = 0 ];then
+                        echo &quot;user exit, please update other username and create&quot;
+		else
+        	        useradd $username;
+	                echo &quot;$username:$passwold&quot; | chpasswd
+			id $username
+			if [ $? = 0 ];then
+				echo &quot;create user success&quot;
+			else
+				echo &quot;create user fail&quot;
+			fi
+		fi
+	fi
+fi
+	
+[root@haoha home]# cat install_package.sh
+#!/bin/bash
+
+if [ $UID != 0  ];then
+        echo &quot;Please use root login and install&quot;;
+        exit
+else
+	echo &quot;keyianzhuang&quot;;
+	ping -c2 &quot;mirrors.huaweicloud.com&quot;  &amp;&gt;/dev/null                
+	if [ $? = 0 ];then                                      
+        	echo &quot;wangluotong&quot;
+		yum -y install vsftpd
+		if [ $? = 0 ];then
+			echo &quot;install vsftpd success&quot; 
+		else
+			echo &quot;install vsftpd fail&quot;
+		fi      
+	else                                              
+		echo &quot;wanglue is fail&quot;     
+	fi
+fi
+[root@haoha home]# cd 
+[root@haoha ~]# ll
+total 28
+-rw-------. 1 root root 1244 Nov 24 01:15 anaconda-ks.cfg
+-rwxr-xr-x. 1 root root  239 Dec  8 05:00 disk_use.sh
+-rw-r--r--. 1 root root   84 Dec  8 06:13 install_package.sh
+-rwxr-xr-x. 1 root root  292 Dec  8 02:17 modify_ip_v2.0.sh
+-rwxr-xr-x. 1 root root  350 Dec  8 02:42 ping2.sh
+-rwxr-xr-x. 1 root root  109 Dec  8 01:39 pingbaidu.sh
+-rwxr-xr-x. 1 root root  174 Dec  7 22:27 test_place.sh
+[root@haoha ~]# cat disk_use.sh 
+#!/bin/bash
+
+disk_use=$(df |grep &quot;/$&quot; |awk '{print $5}' )
+
+disk_use_num=$(df |grep &quot;/$&quot; |awk '{print $5}' |awk -F&quot;%&quot; '{print $1}')
+
+if [ $disk_use_num -ge 90  ];then
+	echo &quot;警告：超过90了&quot;
+else
+	echo &quot;当前使用率：$disk_use&quot;
+fi
+[root@haoha ~]# 
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br></div></div><p>完整代码</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>[root@haoha ~]# df
+Filesystem              1K-blocks    Used Available Use% Mounted on
+/dev/mapper/centos-root  17811456 1455524  16355932   9% /
+devtmpfs                   488772       0    488772   0% /dev
+tmpfs                      499848       0    499848   0% /dev/shm
+tmpfs                      499848    6892    492956   2% /run
+tmpfs                      499848       0    499848   0% /sys/fs/cgroup
+/dev/sda1                 1038336  127496    910840  13% /boot
+tmpfs                       99972       0     99972   0% /run/user/0
+[root@haoha ~]# df |grep &quot;/$&quot;
+/dev/mapper/centos-root  17811456 1455504  16355952   9% /
+[root@haoha ~]# df |grep &quot;$/dev/mapper/centos-root&quot;
+[root@haoha ~]# df |grep &quot;/$&quot;
+/dev/mapper/centos-root  17811456 1455504  16355952   9% /
+[root@haoha ~]# df |grep &quot;/$&quot; |awk '{print $5}' 
+9%
+[root@haoha ~]# df |grep &quot;/$&quot; |awk '{print $5}' |awk -F&quot;%&quot;
+Usage: awk [POSIX or GNU style options] -f progfile [--] file ...
+Usage: awk [POSIX or GNU style options] [--] 'program' file ...
+POSIX options:		GNU long options: (standard)
+	-f progfile		--file=progfile
+	-F fs			--field-separator=fs
+	-v var=val		--assign=var=val
+Short options:		GNU long options: (extensions)
+	-b			--characters-as-bytes
+	-c			--traditional
+	-C			--copyright
+	-d[file]		--dump-variables[=file]
+	-e 'program-text'	--source='program-text'
+	-E file			--exec=file
+	-g			--gen-pot
+	-h			--help
+	-L [fatal]		--lint[=fatal]
+	-n			--non-decimal-data
+	-N			--use-lc-numeric
+	-O			--optimize
+	-p[file]		--profile[=file]
+	-P			--posix
+	-r			--re-interval
+	-S			--sandbox
+	-t			--lint-old
+	-V			--version
+
+To report bugs, see node `Bugs' in `gawk.info', which is
+section `Reporting Problems and Bugs' in the printed version.
+
+gawk is a pattern scanning and processing language.
+By default it reads standard input and writes standard output.
+
+Examples:
+	gawk '{ sum += $1 }; END { print sum }' file
+	gawk -F: '{ print $1 }' /etc/passwd
+[root@haoha ~]# df |grep &quot;/$&quot; |awk '{print $5}' |awk -F&quot;%&quot; '{print $1}'
+9
+[root@haoha ~]# df |grep &quot;/$&quot; |awk '{print $5}' |awk -F&quot;%&quot; '{print $2}'
+
+[root@haoha ~]# df |grep &quot;/$&quot; |awk '{print $5}' |awk -F&quot;%&quot; '{print $1}'
+9
+[root@haoha ~]# use_num = $(df |grep &quot;/$&quot; |awk '{print $5}' |awk -F&quot;%&quot; '{print $1}')
+-bash: use_num: command not found
+[root@haoha ~]# use_num=$(df |grep &quot;/$&quot; |awk '{print $5}' |awk -F&quot;%&quot; '{print $1}')
+[root@haoha ~]# echo $use_num
+9
+[root@haoha ~]# vim disk_use.sh
+[root@haoha ~]# vim disk_use.sh
+[root@haoha ~]# chmod +x disk_use.sh 
+[root@haoha ~]# ./disk_use.sh 
+./disk_use.sh: line 10: 9%: command not found
+当前使用率：
+[root@haoha ~]# vim disk_use.sh
+[root@haoha ~]# ./disk_use.sh 
+当前使用率：9%
+[root@haoha ~]# cat disk_use.sh
+#!/bin/bash
+
+disk_use=$(df |grep &quot;/$&quot; |awk '{print $5}' )
+
+disk_use_num=$(df |grep &quot;/$&quot; |awk '{print $5}' |awk -F&quot;%&quot; '{print $1}')
+
+if [ $disk_use_num -ge 90  ];then
+	echo &quot;警告：超过90了&quot;
+else
+	echo &quot;当前使用率：$disk_use&quot;
+fi
+[root@haoha ~]# uid
+-bash: uid: command not found
+[root@haoha ~]# UID
+-bash: UID: command not found
+[root@haoha ~]# vim install_package.sh
+[root@haoha ~]# cd /home
+[root@haoha home]# ll
+total 4
+-rw-r--r--. 1 root root 84 Dec  8 06:21 install_package.sh
+[root@haoha home]# chmod +x install_package.sh 
+[root@haoha home]# ll
+total 4
+-rwxr-xr-x. 1 root root 84 Dec  8 06:21 install_package.sh
+[root@haoha home]# ./install_package.sh 
+keyianzhuang
+[root@haoha home]# useradd zhangsan
+[root@haoha home]# ll
+total 4
+-rwxr-xr-x. 1 root     root     84 Dec  8 06:21 install_package.sh
+drwx------. 2 zhangsan zhangsan 62 Dec  8 06:24 zhangsan
+[root@haoha home]# cp install_package.sh
+cp: missing destination file operand after ‘install_package.sh’
+Try 'cp --help' for more information.
+[root@haoha home]# cp install_package.sh zhangsan/install_package.sh 
+[root@haoha home]# cd zhangsan
+[root@haoha zhangsan]# ll
+total 4
+-rwxr-xr-x. 1 root root 84 Dec  8 06:29 install_package.sh
+[root@haoha zhangsan]# su - zhangsan
+/etc/profile
+[zhangsan@haoha ~]$ cd /home
+[zhangsan@haoha home]$ ll
+total 4
+-rwxr-xr-x. 1 root     root     84 Dec  8 06:21 install_package.sh
+drwx------. 2 zhangsan zhangsan 88 Dec  8 06:29 zhangsan
+[zhangsan@haoha home]$ ./install_package.sh 
+wuquanxian
+[zhangsan@haoha home]$ exit
+logout
+[root@haoha zhangsan]# cd ..
+[root@haoha home]# vim install_package.sh 
+[root@haoha home]# ./install_package.sh 
+keyianzhuang
+[root@haoha home]# su - zhangsan
+Last login: Mon Dec  8 06:30:08 EST 2025 on pts/0
+/etc/profile
+[zhangsan@haoha ~]$ cd home
+-bash: cd: home: No such file or directory
+[zhangsan@haoha ~]$ cd /home
+[zhangsan@haoha home]$ ./install_package.sh 
+Please use root login and install
+[zhangsan@haoha home]$ exit
+logout
+[root@haoha home]# ll
+total 4
+-rwxr-xr-x. 1 root     root     130 Dec  8 06:34 install_package.sh
+drwx------. 2 zhangsan zhangsan 109 Dec  8 06:30 zhangsan
+[root@haoha home]# vim install_package.sh 
+[root@haoha home]# vim install_package.sh 
+[root@haoha home]# su - zhangsan
+Last login: Mon Dec  8 06:34:34 EST 2025 on pts/0
+/etc/profile
+[zhangsan@haoha ~]$ cd home
+-bash: cd: home: No such file or directory
+[zhangsan@haoha ~]$ ll
+total 4
+-rwxr-xr-x. 1 root root 84 Dec  8 06:29 install_package.sh
+[zhangsan@haoha ~]$ ./install_package.sh 
+wuquanxian
+[zhangsan@haoha ~]$ vim install_package.sh 
+[zhangsan@haoha ~]$ exit
+logout
+[root@haoha home]# cd zhangsan
+[root@haoha zhangsan]# ll
+total 4
+-rwxr-xr-x. 1 root root 84 Dec  8 06:29 install_package.sh
+[root@haoha zhangsan]# cd ..
+[root@haoha home]# ll
+total 4
+-rwxr-xr-x. 1 root     root     129 Dec  8 06:35 install_package.sh
+drwx------. 2 zhangsan zhangsan 125 Dec  8 06:37 zhangsan
+[root@haoha home]# cp install_package.sh /zhangsan/install_package.sh
+cp: cannot create regular file ‘/zhangsan/install_package.sh’: No such file or directory
+[root@haoha home]# cd zhangsan
+[root@haoha zhangsan]# ll
+total 4
+-rwxr-xr-x. 1 root root 84 Dec  8 06:29 install_package.sh
+[root@haoha zhangsan]# rm -f install_package.sh 
+[root@haoha zhangsan]# cd ..
+[root@haoha home]# su - zhangsan
+Last login: Mon Dec  8 06:36:01 EST 2025 on pts/0
+/etc/profile
+[zhangsan@haoha ~]$ cd /home
+[zhangsan@haoha home]$ ll
+total 4
+-rwxr-xr-x. 1 root     root     129 Dec  8 06:35 install_package.sh
+drwx------. 2 zhangsan zhangsan  99 Dec  8 06:38 zhangsan
+[zhangsan@haoha home]$ cat install_package.sh 
+#!/bin/bash
+
+if [ $UID != 0  ];then
+        echo &quot;Please use root login and install&quot;;
+        exit
+else
+	echo &quot;keyianzhuang&quot;;
+fi
+[zhangsan@haoha home]$ ./install_package.sh 
+Please use root login and install
+[zhangsan@haoha home]$ exit
+logout
+[root@haoha home]# vim install_package.sh 
+[root@haoha home]# ./install_package.sh 
+keyianzhuang
+wangluotong
+[root@haoha home]# vim install_package.sh 
+[root@haoha home]# ./install_package.sh 
+./install_package.sh: line 18: syntax error: unexpected end of file
+[root@haoha home]# vim install_package.sh 
+[root@haoha home]# vim install_package.sh 
+[root@haoha home]# ./install_package.sh 
+keyianzhuang
+wangluotong
+Loaded plugins: fastestmirror
+base                                                                   | 3.6 kB  00:00:00     
+epel                                                                   | 4.3 kB  00:00:00     
+extras                                                                 | 2.9 kB  00:00:00     
+updates                                                                | 2.9 kB  00:00:00     
+Determining fastest mirrors
+Resolving Dependencies
+--&gt; Running transaction check
+---&gt; Package vsftpd.x86_64 0:3.0.2-29.el7_9 will be installed
+--&gt; Finished Dependency Resolution
+
+Dependencies Resolved
+
+==============================================================================================
+ Package            Arch               Version                      Repository           Size
+==============================================================================================
+Installing:
+ vsftpd             x86_64             3.0.2-29.el7_9               updates             173 k
+
+Transaction Summary
+==============================================================================================
+Install  1 Package
+
+Total download size: 173 k
+Installed size: 353 k
+Is this ok [y/d/N]: y
+Downloading packages:
+vsftpd-3.0.2-29.el7_9.x86_64.rpm                                       | 173 kB  00:00:00     
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : vsftpd-3.0.2-29.el7_9.x86_64                                               1/1 
+  Verifying  : vsftpd-3.0.2-29.el7_9.x86_64                                               1/1 
+
+Installed:
+  vsftpd.x86_64 0:3.0.2-29.el7_9                                                              
+
+Complete!
+install vsftpd success
+[root@haoha home]# vim install_package.sh 
+[root@haoha home]# su zhangsan
+[zhangsan@haoha home]$ ll
+total 4
+-rwxr-xr-x. 1 root     root     483 Dec  8 06:54 install_package.sh
+drwx------. 2 zhangsan zhangsan  99 Dec  8 06:38 zhangsan
+[zhangsan@haoha home]$ cat install_package.sh 
+#!/bin/bash
+
+if [ $UID != 0  ];then
+        echo &quot;Please use root login and install&quot;;
+        exit
+else
+	echo &quot;keyianzhuang&quot;;
+	ping -c2 &quot;www.baidu.com&quot;  &amp;&gt;/dev/null                
+	if [ $? = 0 ];then                                      
+        	echo &quot;wangluotong&quot;
+		yum -y install vsftpd
+		if [ $? = 0 ];then
+			echo &quot;install vsftpd success&quot; 
+		else
+			echo &quot;install vsftpd fail&quot;
+		fi      
+	else                                              
+		echo &quot;wanglue is fail&quot;     
+	fi
+fi
+[zhangsan@haoha home]$ ./install_package.sh
+Please use root login and install
+[zhangsan@haoha home]$ exit
+exit
+[root@haoha home]# ./install_package.sh 
+keyianzhuang
+wangluotong
+Loaded plugins: fastestmirror
+Loading mirror speeds from cached hostfile
+Package vsftpd-3.0.2-29.el7_9.x86_64 already installed and latest version
+Nothing to do
+install vsftpd success
+[root@haoha home]# yum -repolist
+Loaded plugins: fastestmirror
+Usage: yum [options] COMMAND
+
+List of Commands:
+
+check          Check for problems in the rpmdb
+check-update   Check for available package updates
+clean          Remove cached data
+deplist        List a package's dependencies
+distribution-synchronization Synchronize installed packages to the latest available versions
+downgrade      downgrade a package
+erase          Remove a package or packages from your system
+fs             Acts on the filesystem data of the host, mainly for removing docs/lanuages for minimal hosts.
+fssnapshot     Creates filesystem snapshots, or lists/deletes current snapshots.
+groups         Display, or use, the groups information
+help           Display a helpful usage message
+history        Display, or use, the transaction history
+info           Display details about a package or group of packages
+install        Install a package or packages on your system
+list           List a package or groups of packages
+load-transaction load a saved transaction from filename
+makecache      Generate the metadata cache
+provides       Find what package provides the given value
+reinstall      reinstall a package
+repo-pkgs      Treat a repo. as a group of packages, so we can install/remove all of them
+repolist       Display the configured software repositories
+search         Search package details for the given string
+shell          Run an interactive yum shell
+swap           Simple way to swap packages, instead of using shell
+update         Update a package or packages on your system
+update-minimal Works like upgrade, but goes to the 'newest' package match which fixes a problem that affects your system
+updateinfo     Acts on repository update information
+upgrade        Update packages taking obsoletes into account
+version        Display a version for the machine and/or available repos.
+
+
+Command line error: no such option: -r
+[root@haoha home]# yum repollist
+Loaded plugins: fastestmirror
+No such command: repollist. Please use /usr/bin/yum --help
+[root@haoha home]# yum repolist
+Loaded plugins: fastestmirror
+Loading mirror speeds from cached hostfile
+repo id                       repo name                                                 status
+base/7/x86_64                 CentOS-7 - Base - mirrors.huaweicloud.com                 10,072
+epel/7/x86_64                 EPEL for redhat/centos 7 - x86_64                         13,791
+extras/7/x86_64               CentOS-7 - Extras - mirrors.huaweicloud.com                  526
+updates/7/x86_64              CentOS-7 - Updates - mirrors.huaweicloud.com               6,173
+repolist: 30,562
+[root@haoha home]# vim install_package.sh 
+[root@haoha home]# ./install_package.sh 
+keyianzhuang
+wangluotong
+Loaded plugins: fastestmirror
+Loading mirror speeds from cached hostfile
+Package vsftpd-3.0.2-29.el7_9.x86_64 already installed and latest version
+Nothing to do
+install vsftpd success
+[root@haoha home]# cat install_package.sh 
+#!/bin/bash
+
+if [ $UID != 0  ];then
+        echo &quot;Please use root login and install&quot;;
+        exit
+else
+	echo &quot;keyianzhuang&quot;;
+	ping -c2 &quot;mirrors.huaweicloud.com&quot;  &amp;&gt;/dev/null                
+	if [ $? = 0 ];then                                      
+        	echo &quot;wangluotong&quot;
+		yum -y install vsftpd
+		if [ $? = 0 ];then
+			echo &quot;install vsftpd success&quot; 
+		else
+			echo &quot;install vsftpd fail&quot;
+		fi      
+	else                                              
+		echo &quot;wanglue is fail&quot;     
+	fi
+fi
+[root@haoha home]# ll
+total 4
+-rwxr-xr-x. 1 root     root     493 Dec  8 06:59 install_package.sh
+drwx------. 2 zhangsan zhangsan  99 Dec  8 06:38 zhangsan
+[root@haoha home]# vim create_user.sh
+[root@haoha home]# chmod +x create_user.sh 
+[root@haoha home]# ll
+total 8
+-rwxr-xr-x. 1 root     root     192 Dec  8 07:11 create_user.sh
+-rwxr-xr-x. 1 root     root     493 Dec  8 06:59 install_package.sh
+drwx------. 2 zhangsan zhangsan  99 Dec  8 06:38 zhangsan
+[root@haoha home]# ./create_user.sh 
+youquanxianchuangjianyonghu
+Please input username and passwold
+[root@haoha home]# su -zhangsan
+su: invalid option -- 'z'
+
+Usage:
+ su [options] [-] [USER [arg]...]
+
+Change the effective user id and group id to that of USER.
+A mere - implies -l.   If USER not given, assume root.
+
+Options:
+ -m, -p, --preserve-environment  do not reset environment variables
+ -g, --group &lt;group&gt;             specify the primary group
+ -G, --supp-group &lt;group&gt;        specify a supplemental group
+
+ -, -l, --login                  make the shell a login shell
+ -c, --command &lt;command&gt;         pass a single command to the shell with -c
+ --session-command &lt;command&gt;     pass a single command to the shell with -c
+                                 and do not create a new session
+ -f, --fast                      pass -f to the shell (for csh or tcsh)
+ -s, --shell &lt;shell&gt;             run shell if /etc/shells allows it
+
+ -h, --help     display this help and exit
+ -V, --version  output version information and exit
+
+For more details see su(1).
+[root@haoha home]# su - zhangsan
+Last login: Mon Dec  8 06:54:29 EST 2025 on pts/0
+/etc/profile
+[zhangsan@haoha ~]$ cd home
+-bash: cd: home: No such file or directory
+[zhangsan@haoha ~]$ cd /home
+[zhangsan@haoha home]$ ll
+total 8
+-rwxr-xr-x. 1 root     root     192 Dec  8 07:11 create_user.sh
+-rwxr-xr-x. 1 root     root     493 Dec  8 06:59 install_package.sh
+drwx------. 2 zhangsan zhangsan  99 Dec  8 06:38 zhangsan
+[zhangsan@haoha home]$ ./create_user.sh 
+Please use root login and create user
+[zhangsan@haoha home]$ exit
+logout
+[root@haoha home]# ll
+total 8
+-rwxr-xr-x. 1 root     root     192 Dec  8 07:11 create_user.sh
+-rwxr-xr-x. 1 root     root     493 Dec  8 06:59 install_package.sh
+drwx------. 2 zhangsan zhangsan  99 Dec  8 06:38 zhangsan
+[root@haoha home]# vim create_user.sh
+[root@haoha home]# ./create_user.sh 
+./create_user.sh: line 18: syntax error: unexpected end of file
+[root@haoha home]# vim create_user.sh 
+[root@haoha home]# ./create_user.sh 
+Please input username and passwold
+username is kong
+[root@haoha home]# ./create_user.sh 
+Please input username and passwoldzhangsansan zhangsan
+creater user
+[root@haoha home]# vim create_user.sh 
+[root@haoha home]# ./create_user.sh 
+Please input username and passwoldzhangsan
+passwold is kong
+[root@haoha home]# vim create_user.sh 
+[root@haoha home]# ./create_user.sh 
+Please input username and passwold:  zhangsan zhangsan
+uid=1000(zhangsan) gid=1000(zhangsan) groups=1000(zhangsan)
+user exit, please update other username and create
+[root@haoha home]# ./create_user.sh 
+Please input username and passwold:  lisi lisi
+id: lisi: no such user
+uid=1001(lisi) gid=1001(lisi) groups=1001(lisi)
+create user success
+[root@haoha home]# ll
+total 8
+-rwxr-xr-x. 1 root     root     666 Dec  8 07:45 create_user.sh
+-rwxr-xr-x. 1 root     root     493 Dec  8 06:59 install_package.sh
+drwx------. 2 lisi     lisi      62 Dec  8 07:45 lisi
+drwx------. 2 zhangsan zhangsan  99 Dec  8 06:38 zhangsan
+[root@haoha home]# cd 
+[root@haoha ~]# ll
+total 28
+-rw-------. 1 root root 1244 Nov 24 01:15 anaconda-ks.cfg
+-rwxr-xr-x. 1 root root  239 Dec  8 05:00 disk_use.sh
+-rw-r--r--. 1 root root   84 Dec  8 06:13 install_package.sh
+-rwxr-xr-x. 1 root root  292 Dec  8 02:17 modify_ip_v2.0.sh
+-rwxr-xr-x. 1 root root  350 Dec  8 02:42 ping2.sh
+-rwxr-xr-x. 1 root root  109 Dec  8 01:39 pingbaidu.sh
+-rwxr-xr-x. 1 root root  174 Dec  7 22:27 test_place.sh
+[root@haoha ~]# ./disk_use.sh 
+当前使用率：9%
+[root@haoha ~]# cd /home
+[root@haoha home]# ll
+total 8
+-rwxr-xr-x. 1 root     root     666 Dec  8 07:45 create_user.sh
+-rwxr-xr-x. 1 root     root     493 Dec  8 06:59 install_package.sh
+drwx------. 2 lisi     lisi      62 Dec  8 07:45 lisi
+drwx------. 2 zhangsan zhangsan  99 Dec  8 06:38 zhangsan
+[root@haoha home]# ./install_package.sh 
+keyianzhuang
+wangluotong
+Loaded plugins: fastestmirror
+Loading mirror speeds from cached hostfile
+Package vsftpd-3.0.2-29.el7_9.x86_64 already installed and latest version
+Nothing to do
+install vsftpd success
+[root@haoha home]# ./create_user.sh wangwu wangwu
+Please input username and passwold:  wangwu wangwu^C
+[root@haoha home]# ./create_user.sh 
+Please input username and passwold:  wangwu wangwu
+id: wangwu: no such user
+uid=1002(wangwu) gid=1002(wangwu) groups=1002(wangwu)
+create user success
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br><span class="line-number">84</span><br><span class="line-number">85</span><br><span class="line-number">86</span><br><span class="line-number">87</span><br><span class="line-number">88</span><br><span class="line-number">89</span><br><span class="line-number">90</span><br><span class="line-number">91</span><br><span class="line-number">92</span><br><span class="line-number">93</span><br><span class="line-number">94</span><br><span class="line-number">95</span><br><span class="line-number">96</span><br><span class="line-number">97</span><br><span class="line-number">98</span><br><span class="line-number">99</span><br><span class="line-number">100</span><br><span class="line-number">101</span><br><span class="line-number">102</span><br><span class="line-number">103</span><br><span class="line-number">104</span><br><span class="line-number">105</span><br><span class="line-number">106</span><br><span class="line-number">107</span><br><span class="line-number">108</span><br><span class="line-number">109</span><br><span class="line-number">110</span><br><span class="line-number">111</span><br><span class="line-number">112</span><br><span class="line-number">113</span><br><span class="line-number">114</span><br><span class="line-number">115</span><br><span class="line-number">116</span><br><span class="line-number">117</span><br><span class="line-number">118</span><br><span class="line-number">119</span><br><span class="line-number">120</span><br><span class="line-number">121</span><br><span class="line-number">122</span><br><span class="line-number">123</span><br><span class="line-number">124</span><br><span class="line-number">125</span><br><span class="line-number">126</span><br><span class="line-number">127</span><br><span class="line-number">128</span><br><span class="line-number">129</span><br><span class="line-number">130</span><br><span class="line-number">131</span><br><span class="line-number">132</span><br><span class="line-number">133</span><br><span class="line-number">134</span><br><span class="line-number">135</span><br><span class="line-number">136</span><br><span class="line-number">137</span><br><span class="line-number">138</span><br><span class="line-number">139</span><br><span class="line-number">140</span><br><span class="line-number">141</span><br><span class="line-number">142</span><br><span class="line-number">143</span><br><span class="line-number">144</span><br><span class="line-number">145</span><br><span class="line-number">146</span><br><span class="line-number">147</span><br><span class="line-number">148</span><br><span class="line-number">149</span><br><span class="line-number">150</span><br><span class="line-number">151</span><br><span class="line-number">152</span><br><span class="line-number">153</span><br><span class="line-number">154</span><br><span class="line-number">155</span><br><span class="line-number">156</span><br><span class="line-number">157</span><br><span class="line-number">158</span><br><span class="line-number">159</span><br><span class="line-number">160</span><br><span class="line-number">161</span><br><span class="line-number">162</span><br><span class="line-number">163</span><br><span class="line-number">164</span><br><span class="line-number">165</span><br><span class="line-number">166</span><br><span class="line-number">167</span><br><span class="line-number">168</span><br><span class="line-number">169</span><br><span class="line-number">170</span><br><span class="line-number">171</span><br><span class="line-number">172</span><br><span class="line-number">173</span><br><span class="line-number">174</span><br><span class="line-number">175</span><br><span class="line-number">176</span><br><span class="line-number">177</span><br><span class="line-number">178</span><br><span class="line-number">179</span><br><span class="line-number">180</span><br><span class="line-number">181</span><br><span class="line-number">182</span><br><span class="line-number">183</span><br><span class="line-number">184</span><br><span class="line-number">185</span><br><span class="line-number">186</span><br><span class="line-number">187</span><br><span class="line-number">188</span><br><span class="line-number">189</span><br><span class="line-number">190</span><br><span class="line-number">191</span><br><span class="line-number">192</span><br><span class="line-number">193</span><br><span class="line-number">194</span><br><span class="line-number">195</span><br><span class="line-number">196</span><br><span class="line-number">197</span><br><span class="line-number">198</span><br><span class="line-number">199</span><br><span class="line-number">200</span><br><span class="line-number">201</span><br><span class="line-number">202</span><br><span class="line-number">203</span><br><span class="line-number">204</span><br><span class="line-number">205</span><br><span class="line-number">206</span><br><span class="line-number">207</span><br><span class="line-number">208</span><br><span class="line-number">209</span><br><span class="line-number">210</span><br><span class="line-number">211</span><br><span class="line-number">212</span><br><span class="line-number">213</span><br><span class="line-number">214</span><br><span class="line-number">215</span><br><span class="line-number">216</span><br><span class="line-number">217</span><br><span class="line-number">218</span><br><span class="line-number">219</span><br><span class="line-number">220</span><br><span class="line-number">221</span><br><span class="line-number">222</span><br><span class="line-number">223</span><br><span class="line-number">224</span><br><span class="line-number">225</span><br><span class="line-number">226</span><br><span class="line-number">227</span><br><span class="line-number">228</span><br><span class="line-number">229</span><br><span class="line-number">230</span><br><span class="line-number">231</span><br><span class="line-number">232</span><br><span class="line-number">233</span><br><span class="line-number">234</span><br><span class="line-number">235</span><br><span class="line-number">236</span><br><span class="line-number">237</span><br><span class="line-number">238</span><br><span class="line-number">239</span><br><span class="line-number">240</span><br><span class="line-number">241</span><br><span class="line-number">242</span><br><span class="line-number">243</span><br><span class="line-number">244</span><br><span class="line-number">245</span><br><span class="line-number">246</span><br><span class="line-number">247</span><br><span class="line-number">248</span><br><span class="line-number">249</span><br><span class="line-number">250</span><br><span class="line-number">251</span><br><span class="line-number">252</span><br><span class="line-number">253</span><br><span class="line-number">254</span><br><span class="line-number">255</span><br><span class="line-number">256</span><br><span class="line-number">257</span><br><span class="line-number">258</span><br><span class="line-number">259</span><br><span class="line-number">260</span><br><span class="line-number">261</span><br><span class="line-number">262</span><br><span class="line-number">263</span><br><span class="line-number">264</span><br><span class="line-number">265</span><br><span class="line-number">266</span><br><span class="line-number">267</span><br><span class="line-number">268</span><br><span class="line-number">269</span><br><span class="line-number">270</span><br><span class="line-number">271</span><br><span class="line-number">272</span><br><span class="line-number">273</span><br><span class="line-number">274</span><br><span class="line-number">275</span><br><span class="line-number">276</span><br><span class="line-number">277</span><br><span class="line-number">278</span><br><span class="line-number">279</span><br><span class="line-number">280</span><br><span class="line-number">281</span><br><span class="line-number">282</span><br><span class="line-number">283</span><br><span class="line-number">284</span><br><span class="line-number">285</span><br><span class="line-number">286</span><br><span class="line-number">287</span><br><span class="line-number">288</span><br><span class="line-number">289</span><br><span class="line-number">290</span><br><span class="line-number">291</span><br><span class="line-number">292</span><br><span class="line-number">293</span><br><span class="line-number">294</span><br><span class="line-number">295</span><br><span class="line-number">296</span><br><span class="line-number">297</span><br><span class="line-number">298</span><br><span class="line-number">299</span><br><span class="line-number">300</span><br><span class="line-number">301</span><br><span class="line-number">302</span><br><span class="line-number">303</span><br><span class="line-number">304</span><br><span class="line-number">305</span><br><span class="line-number">306</span><br><span class="line-number">307</span><br><span class="line-number">308</span><br><span class="line-number">309</span><br><span class="line-number">310</span><br><span class="line-number">311</span><br><span class="line-number">312</span><br><span class="line-number">313</span><br><span class="line-number">314</span><br><span class="line-number">315</span><br><span class="line-number">316</span><br><span class="line-number">317</span><br><span class="line-number">318</span><br><span class="line-number">319</span><br><span class="line-number">320</span><br><span class="line-number">321</span><br><span class="line-number">322</span><br><span class="line-number">323</span><br><span class="line-number">324</span><br><span class="line-number">325</span><br><span class="line-number">326</span><br><span class="line-number">327</span><br><span class="line-number">328</span><br><span class="line-number">329</span><br><span class="line-number">330</span><br><span class="line-number">331</span><br><span class="line-number">332</span><br><span class="line-number">333</span><br><span class="line-number">334</span><br><span class="line-number">335</span><br><span class="line-number">336</span><br><span class="line-number">337</span><br><span class="line-number">338</span><br><span class="line-number">339</span><br><span class="line-number">340</span><br><span class="line-number">341</span><br><span class="line-number">342</span><br><span class="line-number">343</span><br><span class="line-number">344</span><br><span class="line-number">345</span><br><span class="line-number">346</span><br><span class="line-number">347</span><br><span class="line-number">348</span><br><span class="line-number">349</span><br><span class="line-number">350</span><br><span class="line-number">351</span><br><span class="line-number">352</span><br><span class="line-number">353</span><br><span class="line-number">354</span><br><span class="line-number">355</span><br><span class="line-number">356</span><br><span class="line-number">357</span><br><span class="line-number">358</span><br><span class="line-number">359</span><br><span class="line-number">360</span><br><span class="line-number">361</span><br><span class="line-number">362</span><br><span class="line-number">363</span><br><span class="line-number">364</span><br><span class="line-number">365</span><br><span class="line-number">366</span><br><span class="line-number">367</span><br><span class="line-number">368</span><br><span class="line-number">369</span><br><span class="line-number">370</span><br><span class="line-number">371</span><br><span class="line-number">372</span><br><span class="line-number">373</span><br><span class="line-number">374</span><br><span class="line-number">375</span><br><span class="line-number">376</span><br><span class="line-number">377</span><br><span class="line-number">378</span><br><span class="line-number">379</span><br><span class="line-number">380</span><br><span class="line-number">381</span><br><span class="line-number">382</span><br><span class="line-number">383</span><br><span class="line-number">384</span><br><span class="line-number">385</span><br><span class="line-number">386</span><br><span class="line-number">387</span><br><span class="line-number">388</span><br><span class="line-number">389</span><br><span class="line-number">390</span><br><span class="line-number">391</span><br><span class="line-number">392</span><br><span class="line-number">393</span><br><span class="line-number">394</span><br><span class="line-number">395</span><br><span class="line-number">396</span><br><span class="line-number">397</span><br><span class="line-number">398</span><br><span class="line-number">399</span><br><span class="line-number">400</span><br><span class="line-number">401</span><br><span class="line-number">402</span><br><span class="line-number">403</span><br><span class="line-number">404</span><br><span class="line-number">405</span><br><span class="line-number">406</span><br><span class="line-number">407</span><br><span class="line-number">408</span><br><span class="line-number">409</span><br><span class="line-number">410</span><br><span class="line-number">411</span><br><span class="line-number">412</span><br><span class="line-number">413</span><br><span class="line-number">414</span><br><span class="line-number">415</span><br><span class="line-number">416</span><br><span class="line-number">417</span><br><span class="line-number">418</span><br><span class="line-number">419</span><br><span class="line-number">420</span><br><span class="line-number">421</span><br><span class="line-number">422</span><br><span class="line-number">423</span><br><span class="line-number">424</span><br><span class="line-number">425</span><br><span class="line-number">426</span><br><span class="line-number">427</span><br><span class="line-number">428</span><br><span class="line-number">429</span><br><span class="line-number">430</span><br><span class="line-number">431</span><br><span class="line-number">432</span><br><span class="line-number">433</span><br><span class="line-number">434</span><br><span class="line-number">435</span><br><span class="line-number">436</span><br><span class="line-number">437</span><br><span class="line-number">438</span><br><span class="line-number">439</span><br><span class="line-number">440</span><br><span class="line-number">441</span><br><span class="line-number">442</span><br><span class="line-number">443</span><br><span class="line-number">444</span><br><span class="line-number">445</span><br><span class="line-number">446</span><br><span class="line-number">447</span><br><span class="line-number">448</span><br><span class="line-number">449</span><br><span class="line-number">450</span><br><span class="line-number">451</span><br><span class="line-number">452</span><br><span class="line-number">453</span><br><span class="line-number">454</span><br><span class="line-number">455</span><br><span class="line-number">456</span><br><span class="line-number">457</span><br><span class="line-number">458</span><br><span class="line-number">459</span><br><span class="line-number">460</span><br><span class="line-number">461</span><br><span class="line-number">462</span><br><span class="line-number">463</span><br><span class="line-number">464</span><br><span class="line-number">465</span><br><span class="line-number">466</span><br><span class="line-number">467</span><br><span class="line-number">468</span><br><span class="line-number">469</span><br><span class="line-number">470</span><br><span class="line-number">471</span><br><span class="line-number">472</span><br><span class="line-number">473</span><br><span class="line-number">474</span><br><span class="line-number">475</span><br><span class="line-number">476</span><br><span class="line-number">477</span><br><span class="line-number">478</span><br><span class="line-number">479</span><br><span class="line-number">480</span><br><span class="line-number">481</span><br><span class="line-number">482</span><br><span class="line-number">483</span><br><span class="line-number">484</span><br><span class="line-number">485</span><br><span class="line-number">486</span><br><span class="line-number">487</span><br><span class="line-number">488</span><br><span class="line-number">489</span><br></div></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/documents/study_notes/ops/shell/02 Shell 条件测试.html" class="prev">
+        Shell 条件测试
+      </a></span> <span class="next"><a href="/documents/study_notes/ops/shell/03 Shell 条件判断 if.html">
+        Shell 条件语句if
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><!----></div></div>
+    <script src="/documents/assets/js/app.9341f639.js" defer></script><script src="/documents/assets/js/2.e8bd7cca.js" defer></script><script src="/documents/assets/js/1.40c64e62.js" defer></script><script src="/documents/assets/js/86.c0d8fa6a.js" defer></script>
+  </body>
+</html>

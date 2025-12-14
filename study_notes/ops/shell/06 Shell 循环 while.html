@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Linux Shell `while` 循环 | Documents</title>
+    <meta name="generator" content="VuePress 1.9.10">
+    <link rel="icon" href="/documents/img/logo.png">
+    <link rel="stylesheet" href="/documents/css/style.css">
+    <meta name="description" content="开发运维技术文档">
+    <meta name="keywords" content="Chinaguocg,Documents,DevOps,IT技术,文档博客,开发,运维,技术文档">
+    <meta name="referrer" content="never">
+    
+    <link rel="preload" href="/documents/assets/css/0.styles.b20f9c26.css" as="style"><link rel="preload" href="/documents/assets/js/app.9341f639.js" as="script"><link rel="preload" href="/documents/assets/js/2.e8bd7cca.js" as="script"><link rel="preload" href="/documents/assets/js/1.40c64e62.js" as="script"><link rel="preload" href="/documents/assets/js/90.3bb0e532.js" as="script"><link rel="prefetch" href="/documents/assets/js/10.b63d61ac.js"><link rel="prefetch" href="/documents/assets/js/11.23025be0.js"><link rel="prefetch" href="/documents/assets/js/12.9a27d63b.js"><link rel="prefetch" href="/documents/assets/js/13.e3dba2b7.js"><link rel="prefetch" href="/documents/assets/js/14.6d3d6a88.js"><link rel="prefetch" href="/documents/assets/js/15.30a4286e.js"><link rel="prefetch" href="/documents/assets/js/16.e4505b74.js"><link rel="prefetch" href="/documents/assets/js/17.255ebcfb.js"><link rel="prefetch" href="/documents/assets/js/18.a4c4f660.js"><link rel="prefetch" href="/documents/assets/js/19.2c33fa19.js"><link rel="prefetch" href="/documents/assets/js/20.fc453a90.js"><link rel="prefetch" href="/documents/assets/js/21.c52a45d9.js"><link rel="prefetch" href="/documents/assets/js/22.faa840f0.js"><link rel="prefetch" href="/documents/assets/js/23.ef1366ba.js"><link rel="prefetch" href="/documents/assets/js/24.b943b232.js"><link rel="prefetch" href="/documents/assets/js/25.4c0d5c0d.js"><link rel="prefetch" href="/documents/assets/js/26.c1467af0.js"><link rel="prefetch" href="/documents/assets/js/27.09371cea.js"><link rel="prefetch" href="/documents/assets/js/28.3a65b93c.js"><link rel="prefetch" href="/documents/assets/js/29.e3615fad.js"><link rel="prefetch" href="/documents/assets/js/3.1bdb9756.js"><link rel="prefetch" href="/documents/assets/js/30.53aed7d2.js"><link rel="prefetch" href="/documents/assets/js/31.71d55b08.js"><link rel="prefetch" href="/documents/assets/js/32.1bd237a9.js"><link rel="prefetch" href="/documents/assets/js/33.a671388e.js"><link rel="prefetch" href="/documents/assets/js/34.f6046c03.js"><link rel="prefetch" href="/documents/assets/js/35.ce72f783.js"><link rel="prefetch" href="/documents/assets/js/36.e0906615.js"><link rel="prefetch" href="/documents/assets/js/37.bec7159a.js"><link rel="prefetch" href="/documents/assets/js/38.115418fc.js"><link rel="prefetch" href="/documents/assets/js/39.307f0445.js"><link rel="prefetch" href="/documents/assets/js/4.ce792ed0.js"><link rel="prefetch" href="/documents/assets/js/40.c75eb27b.js"><link rel="prefetch" href="/documents/assets/js/41.c7bc95f8.js"><link rel="prefetch" href="/documents/assets/js/42.005040f2.js"><link rel="prefetch" href="/documents/assets/js/43.d98cc47d.js"><link rel="prefetch" href="/documents/assets/js/44.6eafbfdd.js"><link rel="prefetch" href="/documents/assets/js/45.b3027c59.js"><link rel="prefetch" href="/documents/assets/js/46.6e1f63e6.js"><link rel="prefetch" href="/documents/assets/js/47.d5743853.js"><link rel="prefetch" href="/documents/assets/js/48.df552625.js"><link rel="prefetch" href="/documents/assets/js/49.4e1eb1ee.js"><link rel="prefetch" href="/documents/assets/js/5.d956834b.js"><link rel="prefetch" href="/documents/assets/js/50.fe8055d2.js"><link rel="prefetch" href="/documents/assets/js/51.faf86540.js"><link rel="prefetch" href="/documents/assets/js/52.94ef29cc.js"><link rel="prefetch" href="/documents/assets/js/53.25511ab8.js"><link rel="prefetch" href="/documents/assets/js/54.250ad07b.js"><link rel="prefetch" href="/documents/assets/js/55.40ae5eb0.js"><link rel="prefetch" href="/documents/assets/js/56.74d7901e.js"><link rel="prefetch" href="/documents/assets/js/57.63b2c97e.js"><link rel="prefetch" href="/documents/assets/js/58.dbbff67e.js"><link rel="prefetch" href="/documents/assets/js/59.52f3d2e8.js"><link rel="prefetch" href="/documents/assets/js/6.118e9bad.js"><link rel="prefetch" href="/documents/assets/js/60.28d21fe8.js"><link rel="prefetch" href="/documents/assets/js/61.d63e7c58.js"><link rel="prefetch" href="/documents/assets/js/62.86a1eac9.js"><link rel="prefetch" href="/documents/assets/js/63.8d5669ec.js"><link rel="prefetch" href="/documents/assets/js/64.6885c7c2.js"><link rel="prefetch" href="/documents/assets/js/65.0391c4dc.js"><link rel="prefetch" href="/documents/assets/js/66.c66aaf4b.js"><link rel="prefetch" href="/documents/assets/js/67.67136c5b.js"><link rel="prefetch" href="/documents/assets/js/68.3a92a11c.js"><link rel="prefetch" href="/documents/assets/js/69.bdd480f6.js"><link rel="prefetch" href="/documents/assets/js/7.a506e926.js"><link rel="prefetch" href="/documents/assets/js/70.21345979.js"><link rel="prefetch" href="/documents/assets/js/71.ea6eceb1.js"><link rel="prefetch" href="/documents/assets/js/72.6d24c19d.js"><link rel="prefetch" href="/documents/assets/js/73.72bc9345.js"><link rel="prefetch" href="/documents/assets/js/74.3845ef15.js"><link rel="prefetch" href="/documents/assets/js/75.8fb57d7b.js"><link rel="prefetch" href="/documents/assets/js/76.f04050fc.js"><link rel="prefetch" href="/documents/assets/js/77.577ba1fb.js"><link rel="prefetch" href="/documents/assets/js/78.0a64a5d6.js"><link rel="prefetch" href="/documents/assets/js/79.a1e874e4.js"><link rel="prefetch" href="/documents/assets/js/80.f125d856.js"><link rel="prefetch" href="/documents/assets/js/81.691ca23f.js"><link rel="prefetch" href="/documents/assets/js/82.596e89cd.js"><link rel="prefetch" href="/documents/assets/js/83.b7f56ccf.js"><link rel="prefetch" href="/documents/assets/js/84.67d2ff28.js"><link rel="prefetch" href="/documents/assets/js/85.0b691fe9.js"><link rel="prefetch" href="/documents/assets/js/86.c0d8fa6a.js"><link rel="prefetch" href="/documents/assets/js/87.b6453afd.js"><link rel="prefetch" href="/documents/assets/js/88.4ca33017.js"><link rel="prefetch" href="/documents/assets/js/89.97b8ef07.js"><link rel="prefetch" href="/documents/assets/js/91.49f16846.js"><link rel="prefetch" href="/documents/assets/js/92.07267235.js"><link rel="prefetch" href="/documents/assets/js/93.b769f2db.js"><link rel="prefetch" href="/documents/assets/js/94.b1ec52a7.js"><link rel="prefetch" href="/documents/assets/js/95.9d4a6378.js"><link rel="prefetch" href="/documents/assets/js/vendors~docsearch.271bc088.js">
+    <link rel="stylesheet" href="/documents/assets/css/0.styles.b20f9c26.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/documents/" class="home-link router-link-active"><!----> <span class="site-name">Documents</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/documents/guide/" class="nav-link">
+  指南
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="文档" class="dropdown-title"><span class="title">文档</span> <span class="arrow down"></span></button> <button type="button" aria-label="文档" class="mobile-dropdown-title"><span class="title">文档</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/documents/study_notes/ops/" class="nav-link router-link-active">
+  运维
+</a></li><li class="dropdown-item"><!----> <a href="/documents/study_notes/dev/" class="nav-link">
+  开发
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="资源共享" class="dropdown-title"><span class="title">资源共享</span> <span class="arrow down"></span></button> <button type="button" aria-label="资源共享" class="mobile-dropdown-title"><span class="title">资源共享</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          在线工具
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://shields.io/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  图标徽章
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://tinypng.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  图片压缩
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://bigjpg.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  图片放大
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="http://cron.qqe2.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  CRON 表达式
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://tableconvert.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  MD 表格生成
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          在线服务
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.bootcdn.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Boot CDN
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          镜像资源
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://msdn.itellyou.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  MSDN
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://mirrors.tuna.tsinghua.edu.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  清华开源软件镜像站
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://developer.aliyun.com/mirror/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  阿里开源镜像站
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          网址导航
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.w3school.com.cn/index.html" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  W3School
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://www.runoob.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  菜鸟教程
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="http://www.h-ui.net/site.shtml" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  IT网址导航
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li></ul></div></div> <a href="https://github.com/chinaguocg/documents" target="_blank" rel="noopener noreferrer" class="repo-link">
+    查看源码
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/documents/guide/" class="nav-link">
+  指南
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="文档" class="dropdown-title"><span class="title">文档</span> <span class="arrow down"></span></button> <button type="button" aria-label="文档" class="mobile-dropdown-title"><span class="title">文档</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/documents/study_notes/ops/" class="nav-link router-link-active">
+  运维
+</a></li><li class="dropdown-item"><!----> <a href="/documents/study_notes/dev/" class="nav-link">
+  开发
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="资源共享" class="dropdown-title"><span class="title">资源共享</span> <span class="arrow down"></span></button> <button type="button" aria-label="资源共享" class="mobile-dropdown-title"><span class="title">资源共享</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          在线工具
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://shields.io/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  图标徽章
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://tinypng.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  图片压缩
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://bigjpg.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  图片放大
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="http://cron.qqe2.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  CRON 表达式
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://tableconvert.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  MD 表格生成
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          在线服务
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.bootcdn.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Boot CDN
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          镜像资源
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://msdn.itellyou.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  MSDN
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://mirrors.tuna.tsinghua.edu.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  清华开源软件镜像站
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://developer.aliyun.com/mirror/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  阿里开源镜像站
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          网址导航
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.w3school.com.cn/index.html" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  W3School
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://www.runoob.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  菜鸟教程
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="http://www.h-ui.net/site.shtml" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  IT网址导航
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li></ul></div></div> <a href="https://github.com/chinaguocg/documents" target="_blank" rel="noopener noreferrer" class="repo-link">
+    查看源码
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Linux</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Ansible</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Disk</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Nginx</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Docker</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>Shell</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/documents/study_notes/ops/shell/00 Shell 配置文件执行顺序.html" class="sidebar-link">Shell 配置文件执行顺序</a></li><li><a href="/documents/study_notes/ops/shell/00 实现Ubuntu类似的motd.html" class="sidebar-link">实现Ubuntu类似的motd</a></li><li><a href="/documents/study_notes/ops/shell/01 Shell 变量.html" class="sidebar-link">shell 变量</a></li><li><a href="/documents/study_notes/ops/shell/02 Shell 条件测试.html" class="sidebar-link">Shell 条件测试</a></li><li><a href="/documents/study_notes/ops/shell/02shell初识 练习题.html" class="sidebar-link">初识shell 练习</a></li><li><a href="/documents/study_notes/ops/shell/03 Shell 条件判断 if.html" class="sidebar-link">Shell 条件语句if</a></li><li><a href="/documents/study_notes/ops/shell/04 Shell 模式匹配 case.html" class="sidebar-link">Shell `case` 语句</a></li><li><a href="/documents/study_notes/ops/shell/05 Shell 循环 for.html" class="sidebar-link">Linux Shell `for` 循环</a></li><li><a href="/documents/study_notes/ops/shell/06 Shell 循环 while.html" class="active sidebar-link">Linux Shell `while` 循环</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/documents/study_notes/ops/shell/06 Shell 循环 while.html#linux-shell-while-循环" class="sidebar-link">Linux Shell `while` 循环</a></li></ul></li><li><a href="/documents/study_notes/ops/shell/07 Linux Expect+Shell结合.html" class="sidebar-link">Linux Expect及Shell结合</a></li><li><a href="/documents/study_notes/ops/shell/08 Linux 正则表达式RE.html" class="sidebar-link">Linux 正则表达式</a></li><li><a href="/documents/study_notes/ops/shell/09 Linux grep与正则表达式应用.html" class="sidebar-link">Linux grep命令与正则表达式应用</a></li><li><a href="/documents/study_notes/ops/shell/10 Linux sed 实战.html" class="sidebar-link">Linux 流编辑器 sed</a></li><li><a href="/documents/study_notes/ops/shell/11 Linux awk 实战.html" class="sidebar-link">文本处理 awk</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h2 id="linux-shell-while-循环"><a href="#linux-shell-while-循环" class="header-anchor">#</a> <strong>Linux Shell <code>while</code> 循环</strong></h2> <p><code>while</code> 是 Shell 脚本中用于 <strong>条件循环</strong> 的控制结构，只要条件为真，就重复执行代码块。特别适合处理 <strong>逐行读取文件、无限循环</strong> 等场景。</p> <h3 id="_1-while-循环基础语法"><a href="#_1-while-循环基础语法" class="header-anchor">#</a> <strong>1. <code>while</code> 循环基础语法</strong></h3> <h4 id="_1-1-基本格式"><a href="#_1-1-基本格式" class="header-anchor">#</a> <strong>1.1 基本格式</strong></h4> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token keyword">while</span> <span class="token punctuation">[</span> 条件 <span class="token punctuation">]</span>
+<span class="token keyword">do</span>
+    循环体命令
+<span class="token keyword">done</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><ul><li><code>[ 条件 ]</code> 可以是 <strong>测试语句</strong>、<strong>命令返回值</strong> 或 <strong>算术表达式</strong>。</li> <li><code>do</code> 和 <code>done</code> 标记循环体的开始和结束。</li></ul> <h4 id="_1-2-三种条件写法"><a href="#_1-2-三种条件写法" class="header-anchor">#</a> <strong>1.2 三种条件写法</strong></h4> <h5 id="_1-测试条件"><a href="#_1-测试条件" class="header-anchor">#</a> <strong>(1) 测试条件</strong></h5> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token assign-left variable">count</span><span class="token operator">=</span><span class="token number">1</span>
+<span class="token keyword">while</span> <span class="token punctuation">[</span> <span class="token string">&quot;<span class="token variable">$count</span>&quot;</span> <span class="token parameter variable">-le</span> <span class="token number">5</span> <span class="token punctuation">]</span>
+<span class="token keyword">do</span>
+    <span class="token builtin class-name">echo</span> <span class="token string">&quot;计数: <span class="token variable">$count</span>&quot;</span>
+    <span class="token builtin class-name">let</span> count++
+<span class="token keyword">done</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><h5 id="_2-命令返回值"><a href="#_2-命令返回值" class="header-anchor">#</a> <strong>(2) 命令返回值</strong></h5> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token comment"># 当 ping 成功时循环</span>
+<span class="token keyword">while</span> <span class="token function">ping</span> <span class="token parameter variable">-c1</span> baidu.com <span class="token operator">&amp;&gt;</span>/dev/null
+<span class="token keyword">do</span>
+    <span class="token builtin class-name">echo</span> <span class="token string">&quot;网络畅通&quot;</span>
+    <span class="token function">sleep</span> <span class="token number">5</span>
+<span class="token keyword">done</span>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;连接失败,请检查网络......&quot;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><h5 id="_3-无限循环【死循环】"><a href="#_3-无限循环【死循环】" class="header-anchor">#</a> <strong>(3) 无限循环【死循环】</strong></h5> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token keyword">while</span> <span class="token boolean">true</span>  <span class="token comment"># 或 `:`</span>
+<span class="token keyword">do</span>
+    <span class="token builtin class-name">echo</span> <span class="token string">&quot;持续运行中...&quot;</span>
+    <span class="token function">sleep</span> <span class="token number">1</span>
+<span class="token keyword">done</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><h3 id="_2-运维实战案例"><a href="#_2-运维实战案例" class="header-anchor">#</a> <strong>2. 运维实战案例</strong></h3> <h4 id="案例-1-逐行读取文件"><a href="#案例-1-逐行读取文件" class="header-anchor">#</a> <strong>案例 1：逐行读取文件</strong></h4> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># vim while1.sh</span>
+<span class="token comment">#!/bin/bash</span>
+<span class="token keyword">while</span> <span class="token builtin class-name">read</span> line
+<span class="token keyword">do</span>
+    <span class="token builtin class-name">echo</span> <span class="token string">&quot;行内容: <span class="token variable">$line</span>&quot;</span>
+<span class="token keyword">done</span> <span class="token operator">&lt;</span> /etc/hosts
+
+要求：提取passwd文件中的: 用户名、<span class="token environment constant">UID</span>、<span class="token environment constant">SHELL</span>
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># head /etc/passwd</span>
+root:x:0:0:root:/root:/bin/bash
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+adm:x:3:4:adm:/var/adm:/sbin/nologin
+lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
+sync:x:5:0:sync:/sbin:/bin/sync
+shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
+halt:x:7:0:halt:/sbin:/sbin/halt
+mail:x:8:12:mail:/var/spool/mail:/sbin/nologin
+operator:x:11:0:operator:/root:/sbin/nologin
+
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># head /etc/passwd |awk -F&quot;:&quot; '{print $7}'</span>
+/bin/bash
+/sbin/nologin
+/sbin/nologin
+/sbin/nologin
+/sbin/nologin
+/bin/sync
+/sbin/shutdown
+/sbin/halt
+/sbin/nologin
+/sbin/nologin
+
+
+---传统版：
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># vim while2.sh</span>
+<span class="token comment">#!/bin/bash</span>
+<span class="token keyword">while</span> <span class="token builtin class-name">read</span> line
+<span class="token keyword">do</span>
+    <span class="token builtin class-name">echo</span> <span class="token string">&quot;用户名: <span class="token variable">$username</span>, UID: <span class="token variable">$useruid</span>, SHELL: <span class="token variable">$usershell</span>&quot;</span>
+<span class="token keyword">done</span> <span class="token operator">&lt;</span> /etc/passwd
+
+---传统版的完整代码
+<span class="token punctuation">[</span>root@haoha ~<span class="token punctuation">]</span><span class="token comment"># vim while_etc_passwd.sh</span>
+<span class="token punctuation">[</span>root@haoha ~<span class="token punctuation">]</span><span class="token comment"># chmod +x while_etc_passwd.sh </span>
+<span class="token punctuation">[</span>root@haoha ~<span class="token punctuation">]</span><span class="token comment"># ./while_etc_passwd.sh </span>
+<span class="token assign-left variable">username</span><span class="token operator">=</span>root,uid<span class="token operator">=</span><span class="token number">0</span>,usershell<span class="token operator">=</span>/bin/bash
+<span class="token assign-left variable">username</span><span class="token operator">=</span>bin,uid<span class="token operator">=</span><span class="token number">1</span>,usershell<span class="token operator">=</span>/sbin/nologin
+<span class="token assign-left variable">username</span><span class="token operator">=</span>daemon,uid<span class="token operator">=</span><span class="token number">2</span>,usershell<span class="token operator">=</span>/sbin/nologin
+<span class="token assign-left variable">username</span><span class="token operator">=</span>adm,uid<span class="token operator">=</span><span class="token number">3</span>,usershell<span class="token operator">=</span>/sbin/nologin
+<span class="token assign-left variable">username</span><span class="token operator">=</span>lp,uid<span class="token operator">=</span><span class="token number">4</span>,usershell<span class="token operator">=</span>/sbin/nologin
+<span class="token assign-left variable">username</span><span class="token operator">=</span>sync,uid<span class="token operator">=</span><span class="token number">5</span>,usershell<span class="token operator">=</span>/bin/sync
+<span class="token assign-left variable">username</span><span class="token operator">=</span>shutdown,uid<span class="token operator">=</span><span class="token number">6</span>,usershell<span class="token operator">=</span>/sbin/shutdown
+<span class="token assign-left variable">username</span><span class="token operator">=</span>halt,uid<span class="token operator">=</span><span class="token number">7</span>,usershell<span class="token operator">=</span>/sbin/halt
+<span class="token assign-left variable">username</span><span class="token operator">=</span>mail,uid<span class="token operator">=</span><span class="token number">8</span>,usershell<span class="token operator">=</span>/sbin/nologin
+<span class="token assign-left variable">username</span><span class="token operator">=</span>operator,uid<span class="token operator">=</span><span class="token number">11</span>,usershell<span class="token operator">=</span>/sbin/nologin
+<span class="token assign-left variable">username</span><span class="token operator">=</span>games,uid<span class="token operator">=</span><span class="token number">12</span>,usershell<span class="token operator">=</span>/sbin/nologin
+<span class="token assign-left variable">username</span><span class="token operator">=</span>ftp,uid<span class="token operator">=</span><span class="token number">14</span>,usershell<span class="token operator">=</span>/sbin/nologin
+<span class="token assign-left variable">username</span><span class="token operator">=</span>nobody,uid<span class="token operator">=</span><span class="token number">99</span>,usershell<span class="token operator">=</span>/sbin/nologin
+<span class="token assign-left variable">username</span><span class="token operator">=</span>systemd-network,uid<span class="token operator">=</span><span class="token number">192</span>,usershell<span class="token operator">=</span>/sbin/nologin
+<span class="token assign-left variable">username</span><span class="token operator">=</span>dbus,uid<span class="token operator">=</span><span class="token number">81</span>,usershell<span class="token operator">=</span>/sbin/nologin
+<span class="token assign-left variable">username</span><span class="token operator">=</span>polkitd,uid<span class="token operator">=</span><span class="token number">999</span>,usershell<span class="token operator">=</span>/sbin/nologin
+<span class="token assign-left variable">username</span><span class="token operator">=</span>postfix,uid<span class="token operator">=</span><span class="token number">89</span>,usershell<span class="token operator">=</span>/sbin/nologin
+<span class="token assign-left variable">username</span><span class="token operator">=</span>sshd,uid<span class="token operator">=</span><span class="token number">74</span>,usershell<span class="token operator">=</span>/sbin/nologin
+<span class="token assign-left variable">username</span><span class="token operator">=</span>chrony,uid<span class="token operator">=</span><span class="token number">998</span>,usershell<span class="token operator">=</span>/sbin/nologin
+<span class="token assign-left variable">username</span><span class="token operator">=</span>zhangsan,uid<span class="token operator">=</span><span class="token number">1000</span>,usershell<span class="token operator">=</span>/bin/bash
+<span class="token assign-left variable">username</span><span class="token operator">=</span>lisi,uid<span class="token operator">=</span><span class="token number">1001</span>,usershell<span class="token operator">=</span>/bin/bash
+<span class="token assign-left variable">username</span><span class="token operator">=</span>wangwu,uid<span class="token operator">=</span><span class="token number">1002</span>,usershell<span class="token operator">=</span>/bin/bash
+<span class="token assign-left variable">username</span><span class="token operator">=</span>xiaoming,uid<span class="token operator">=</span><span class="token number">1003</span>,usershell<span class="token operator">=</span>/bin/bash
+<span class="token assign-left variable">username</span><span class="token operator">=</span>nginx,uid<span class="token operator">=</span><span class="token number">997</span>,usershell<span class="token operator">=</span>/sbin/nologin
+<span class="token assign-left variable">username</span><span class="token operator">=</span>tom,uid<span class="token operator">=</span><span class="token number">1004</span>,usershell<span class="token operator">=</span>/bin/bash
+<span class="token assign-left variable">username</span><span class="token operator">=</span>tom1,uid<span class="token operator">=</span><span class="token number">1005</span>,usershell<span class="token operator">=</span>/bin/bash
+<span class="token assign-left variable">username</span><span class="token operator">=</span>tom2,uid<span class="token operator">=</span><span class="token number">1006</span>,usershell<span class="token operator">=</span>/bin/bash
+<span class="token assign-left variable">username</span><span class="token operator">=</span>tom3,uid<span class="token operator">=</span><span class="token number">1007</span>,usershell<span class="token operator">=</span>/bin/bash
+<span class="token assign-left variable">username</span><span class="token operator">=</span>tom4,uid<span class="token operator">=</span><span class="token number">1008</span>,usershell<span class="token operator">=</span>/bin/bash
+<span class="token assign-left variable">username</span><span class="token operator">=</span>tom5,uid<span class="token operator">=</span><span class="token number">1009</span>,usershell<span class="token operator">=</span>/bin/bash
+<span class="token assign-left variable">username</span><span class="token operator">=</span>tom6,uid<span class="token operator">=</span><span class="token number">1010</span>,usershell<span class="token operator">=</span>/bin/bash
+<span class="token assign-left variable">username</span><span class="token operator">=</span>tom7,uid<span class="token operator">=</span><span class="token number">1011</span>,usershell<span class="token operator">=</span>/bin/bash
+<span class="token assign-left variable">username</span><span class="token operator">=</span>tom8,uid<span class="token operator">=</span><span class="token number">1012</span>,usershell<span class="token operator">=</span>/bin/bash
+<span class="token assign-left variable">username</span><span class="token operator">=</span>tom9,uid<span class="token operator">=</span><span class="token number">1013</span>,usershell<span class="token operator">=</span>/bin/bash
+<span class="token assign-left variable">username</span><span class="token operator">=</span>tom10,uid<span class="token operator">=</span><span class="token number">1014</span>,usershell<span class="token operator">=</span>/bin/bash
+<span class="token assign-left variable">username</span><span class="token operator">=</span>tianyun,uid<span class="token operator">=</span><span class="token number">1015</span>,usershell<span class="token operator">=</span>/bin/bash
+<span class="token assign-left variable">username</span><span class="token operator">=</span>alice,uid<span class="token operator">=</span><span class="token number">1016</span>,usershell<span class="token operator">=</span>/bin/bash
+<span class="token assign-left variable">username</span><span class="token operator">=</span>zhuzhuxia,uid<span class="token operator">=</span><span class="token number">1017</span>,usershell<span class="token operator">=</span>/bin/bash
+<span class="token punctuation">[</span>root@haoha ~<span class="token punctuation">]</span><span class="token comment"># cat while_etc_passwd.sh </span>
+<span class="token comment">#!/bin/bash</span>
+
+<span class="token keyword">while</span> <span class="token builtin class-name">read</span> line
+<span class="token keyword">do</span>
+	<span class="token assign-left variable">username</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span><span class="token builtin class-name">echo</span> $line <span class="token operator">|</span><span class="token function">awk</span> -F<span class="token string">&quot;:&quot;</span> <span class="token string">'{print $1}'</span><span class="token variable">)</span></span>
+	<span class="token assign-left variable">userid</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span><span class="token builtin class-name">echo</span> $line <span class="token operator">|</span><span class="token function">awk</span> -F<span class="token string">&quot;:&quot;</span> <span class="token string">'{print $3}'</span><span class="token variable">)</span></span>
+	<span class="token assign-left variable">usershell</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span><span class="token builtin class-name">echo</span> $line <span class="token operator">|</span><span class="token function">awk</span> -F<span class="token string">&quot;:&quot;</span> <span class="token string">'{print $7}'</span><span class="token variable">)</span></span>
+	<span class="token comment">#下面这个是对应的下面的优化版</span>
+	<span class="token comment">#IFS=':' read username _ userid _ _ _ usershell &lt;&lt;&lt;$line</span>
+	<span class="token builtin class-name">echo</span> <span class="token string">&quot;username=<span class="token variable">$username</span>,uid=<span class="token variable">$userid</span>,usershell=<span class="token variable">$usershell</span>&quot;</span>
+<span class="token keyword">done</span> <span class="token operator">&lt;</span> /etc/passwd
+<span class="token punctuation">[</span>root@haoha ~<span class="token punctuation">]</span><span class="token comment"># </span>
+
+
+
+---优化版【扩展】：
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># vim while3.sh</span>
+<span class="token comment">#!/bin/bash</span>
+<span class="token keyword">while</span> <span class="token builtin class-name">read</span> line
+<span class="token keyword">do</span>
+    <span class="token assign-left variable"><span class="token environment constant">IFS</span></span><span class="token operator">=</span><span class="token string">':'</span> <span class="token builtin class-name">read</span> username _ useruid _ _ _ usershell <span class="token operator">&lt;&lt;&lt;</span><span class="token variable">$line</span>
+    <span class="token builtin class-name">echo</span> <span class="token string">&quot;用户名: <span class="token variable">$username</span>, UID: <span class="token variable">$useruid</span>, SHELL: <span class="token variable">$usershell</span>&quot;</span>
+<span class="token keyword">done</span> <span class="token operator">&lt;</span> /etc/passwd
+
+
+作业1：create_users_while.sh
+<span class="token number">1</span>. 按文件中的用户名:密码:shell创建用户
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># cat users.list </span>
+alice:123:/bin/bash
+jack:456:/sbin/nologin
+yangge:345:/bin/bash
+
+---代码示例
+<span class="token punctuation">[</span>root@haoha ~<span class="token punctuation">]</span><span class="token comment"># ./while_add_user.sh</span>
+alice exist<span class="token operator">!</span>
+jack exist<span class="token operator">!</span>
+yangge exist<span class="token operator">!</span>
+<span class="token punctuation">[</span>root@haoha ~<span class="token punctuation">]</span><span class="token comment"># cat while_add_user.sh </span>
+<span class="token comment">#!/bin/bash</span>
+
+<span class="token keyword">while</span> <span class="token assign-left variable"><span class="token environment constant">IFS</span></span><span class="token operator">=</span><span class="token string">':'</span> <span class="token builtin class-name">read</span> username pass usershell
+<span class="token keyword">do</span>
+	<span class="token function">id</span> <span class="token variable">$username</span> <span class="token operator">&amp;&gt;</span>/dev/null
+	<span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token variable">$?</span> <span class="token parameter variable">-eq</span> <span class="token number">0</span> <span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token keyword">then</span>
+		<span class="token builtin class-name">echo</span> <span class="token string">&quot;<span class="token variable">$username</span> exist!&quot;</span>
+		<span class="token builtin class-name">continue</span>
+	<span class="token keyword">else</span>
+		<span class="token function">useradd</span> <span class="token parameter variable">-m</span> <span class="token parameter variable">-s</span>  <span class="token variable">$usershell</span> <span class="token variable">$username</span> 
+		<span class="token builtin class-name">echo</span> <span class="token string">&quot;<span class="token variable">$username</span>:<span class="token variable">$pass</span>&quot;</span> <span class="token operator">|</span> chpasswd
+		<span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token variable">$?</span> <span class="token parameter variable">-eq</span> <span class="token number">0</span>  <span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token keyword">then</span>
+			<span class="token builtin class-name">echo</span> <span class="token string">&quot;<span class="token variable">$username</span> create success!&quot;</span>
+		<span class="token keyword">fi</span>
+	<span class="token keyword">fi</span>
+<span class="token keyword">done</span> <span class="token operator">&lt;</span> /root/users.list
+<span class="token punctuation">[</span>root@haoha ~<span class="token punctuation">]</span><span class="token comment"># </span>
+
+
+作业2：ping_hosts_while.sh
+<span class="token number">1</span>. ping探测hosts.txt中的主机
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># cat hosts.txt </span>
+百度 baidu.com
+千锋 qfedu.com
+杨哥 yangge.com
+<span class="token number">2</span>. 输出：网络正常 或 网络不能连接，如 百度：网络正常
+
+---完整代码示例
+<span class="token punctuation">[</span>root@haoha ~<span class="token punctuation">]</span><span class="token comment"># ./ping_hosts_while.sh</span>
+百度 网络不能连接
+千锋 网络正常
+杨哥 网络不能连接
+<span class="token punctuation">[</span>root@haoha ~<span class="token punctuation">]</span><span class="token comment"># cat ping_hosts_while.sh</span>
+<span class="token comment">#!/bin/bash</span>
+
+<span class="token keyword">while</span> <span class="token assign-left variable"><span class="token environment constant">IFS</span></span><span class="token operator">=</span><span class="token string">' '</span> <span class="token builtin class-name">read</span> <span class="token function">hostname</span> hostip
+<span class="token keyword">do</span>
+	<span class="token function">ping</span> <span class="token parameter variable">-c1</span> <span class="token parameter variable">-W1</span> <span class="token variable">$hostip</span> <span class="token operator">&amp;&gt;</span>/dev/null
+	<span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token variable">$?</span> <span class="token parameter variable">-eq</span> <span class="token number">0</span>  <span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token keyword">then</span>
+		<span class="token builtin class-name">echo</span> <span class="token string">&quot;<span class="token variable">$hostname</span> 网络正常&quot;</span>
+	<span class="token keyword">else</span>
+		<span class="token builtin class-name">echo</span> <span class="token string">&quot;<span class="token variable">$hostname</span> 网络不能连接&quot;</span>
+	<span class="token keyword">fi</span>
+<span class="token keyword">done</span> <span class="token operator">&lt;</span> /root/hosts.txt
+<span class="token punctuation">[</span>root@haoha ~<span class="token punctuation">]</span><span class="token comment"># </span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br><span class="line-number">84</span><br><span class="line-number">85</span><br><span class="line-number">86</span><br><span class="line-number">87</span><br><span class="line-number">88</span><br><span class="line-number">89</span><br><span class="line-number">90</span><br><span class="line-number">91</span><br><span class="line-number">92</span><br><span class="line-number">93</span><br><span class="line-number">94</span><br><span class="line-number">95</span><br><span class="line-number">96</span><br><span class="line-number">97</span><br><span class="line-number">98</span><br><span class="line-number">99</span><br><span class="line-number">100</span><br><span class="line-number">101</span><br><span class="line-number">102</span><br><span class="line-number">103</span><br><span class="line-number">104</span><br><span class="line-number">105</span><br><span class="line-number">106</span><br><span class="line-number">107</span><br><span class="line-number">108</span><br><span class="line-number">109</span><br><span class="line-number">110</span><br><span class="line-number">111</span><br><span class="line-number">112</span><br><span class="line-number">113</span><br><span class="line-number">114</span><br><span class="line-number">115</span><br><span class="line-number">116</span><br><span class="line-number">117</span><br><span class="line-number">118</span><br><span class="line-number">119</span><br><span class="line-number">120</span><br><span class="line-number">121</span><br><span class="line-number">122</span><br><span class="line-number">123</span><br><span class="line-number">124</span><br><span class="line-number">125</span><br><span class="line-number">126</span><br><span class="line-number">127</span><br><span class="line-number">128</span><br><span class="line-number">129</span><br><span class="line-number">130</span><br><span class="line-number">131</span><br><span class="line-number">132</span><br><span class="line-number">133</span><br><span class="line-number">134</span><br><span class="line-number">135</span><br><span class="line-number">136</span><br><span class="line-number">137</span><br><span class="line-number">138</span><br><span class="line-number">139</span><br><span class="line-number">140</span><br><span class="line-number">141</span><br><span class="line-number">142</span><br><span class="line-number">143</span><br><span class="line-number">144</span><br><span class="line-number">145</span><br><span class="line-number">146</span><br><span class="line-number">147</span><br><span class="line-number">148</span><br><span class="line-number">149</span><br><span class="line-number">150</span><br><span class="line-number">151</span><br><span class="line-number">152</span><br><span class="line-number">153</span><br><span class="line-number">154</span><br><span class="line-number">155</span><br><span class="line-number">156</span><br><span class="line-number">157</span><br><span class="line-number">158</span><br><span class="line-number">159</span><br><span class="line-number">160</span><br><span class="line-number">161</span><br><span class="line-number">162</span><br><span class="line-number">163</span><br><span class="line-number">164</span><br><span class="line-number">165</span><br><span class="line-number">166</span><br><span class="line-number">167</span><br></div></div><h4 id="案例-2-用户输入验证"><a href="#案例-2-用户输入验证" class="header-anchor">#</a> <strong>案例 2：用户输入验证</strong></h4> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># vim input_number.sh</span>
+脚本要求：当用户输入数字后退出
+
+提示思路：
+<span class="token number">1</span>. while死循环
+<span class="token number">2</span>. 当用户输入非数字，提示：请重新输入数字: <span class="token variable">$num</span>
+<span class="token number">3</span>. 当用户输入数字，提示：输入有效: <span class="token variable">$num</span>
+<span class="token number">4</span>. 当循环结束后，输出：运行其它代码
+
+---完整代码示例
+<span class="token punctuation">[</span>root@haoha ~<span class="token punctuation">]</span><span class="token comment"># ./input_number.sh</span>
+请输入数字：1
+输入有效 <span class="token number">1</span>
+运行其他代码
+<span class="token punctuation">[</span>root@haoha ~<span class="token punctuation">]</span><span class="token comment"># cat input_number.sh</span>
+<span class="token comment">#!/bin/bash</span>
+<span class="token keyword">while</span> <span class="token builtin class-name">:</span>
+<span class="token keyword">do</span>
+	<span class="token builtin class-name">read</span> <span class="token parameter variable">-p</span> <span class="token string">&quot;请输入数字：&quot;</span> num
+	<span class="token keyword">if</span> <span class="token punctuation">[</span><span class="token punctuation">[</span> <span class="token variable">$num</span> <span class="token operator">=~</span> ^<span class="token punctuation">[</span><span class="token number">0</span>-9<span class="token punctuation">]</span>+$  <span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token keyword">then</span>
+		<span class="token builtin class-name">echo</span> <span class="token string">&quot;输入有效 <span class="token variable">$num</span>&quot;</span>
+		<span class="token builtin class-name">break</span>
+	<span class="token keyword">fi</span>
+<span class="token keyword">done</span>
+
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;运行其他代码&quot;</span>
+<span class="token punctuation">[</span>root@haoha ~<span class="token punctuation">]</span><span class="token comment"># </span>
+
+
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># vim input_yes.sh</span>
+脚本要求：当用户输入数字后退出
+
+提示思路：
+<span class="token number">1</span>. while死循环
+<span class="token number">2</span>. 提示：是否继续（yes/no）? <span class="token variable">$choice</span>
+<span class="token number">3</span>. 如果不是yes,提示：请输入yes或no <span class="token variable">$choice</span>
+<span class="token number">4</span>. 当用户输入yes或YES，执行其它代码
+<span class="token number">5</span>. 输出：运行其它代码
+
+---完整代码示例
+<span class="token punctuation">[</span>root@haoha ~<span class="token punctuation">]</span><span class="token comment"># vim input_yes.sh</span>
+<span class="token punctuation">[</span>root@haoha ~<span class="token punctuation">]</span><span class="token comment"># ./input_yes.sh </span>
+是否继续（yes/no）oo
+是否继续（yes/no）oo
+是否继续（yes/no）yes
+执行其他代码
+运行其他代码
+<span class="token punctuation">[</span>root@haoha ~<span class="token punctuation">]</span><span class="token comment"># cat input_yes.sh</span>
+<span class="token comment">#!/bin/bash</span>
+
+
+<span class="token keyword">while</span> <span class="token builtin class-name">:</span>
+<span class="token keyword">do</span>
+	<span class="token builtin class-name">read</span> <span class="token parameter variable">-p</span> <span class="token string">&quot;是否继续（yes/no）&quot;</span> choice
+	<span class="token keyword">if</span> <span class="token punctuation">[</span><span class="token punctuation">[</span> <span class="token string">&quot;<span class="token variable">$choice</span>&quot;</span> <span class="token operator">==</span> <span class="token string">&quot;yes&quot;</span> <span class="token operator">||</span> <span class="token string">&quot;<span class="token variable">$choice</span>&quot;</span> <span class="token operator">==</span> <span class="token string">&quot;no&quot;</span>  <span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token keyword">then</span>
+		<span class="token builtin class-name">echo</span> <span class="token string">&quot;执行其他代码&quot;</span>
+		<span class="token builtin class-name">break</span>
+	<span class="token keyword">fi</span>
+<span class="token keyword">done</span>
+
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;运行其他代码&quot;</span>
+<span class="token punctuation">[</span>root@haoha ~<span class="token punctuation">]</span><span class="token comment"># </span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br></div></div><h4 id="案例-3-系统工具箱"><a href="#案例-3-系统工具箱" class="header-anchor">#</a> <strong>案例 3：系统工具箱</strong></h4> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># vim sys_toolkit_v1.1.sh</span>
+
+运行效果：
+<span class="token number">1</span>. 检查磁盘空间
+<span class="token number">2</span>. 检查内存使用
+<span class="token number">3</span>. 检查网络连接
+q. 退出脚本
+请选择操作 <span class="token punctuation">(</span><span class="token number">1</span>-3, q退出<span class="token punctuation">)</span>: 
+
+提示思路：
+<span class="token number">1</span>. 输出一个菜单，让用户选择
+<span class="token number">2</span>. read读入用户选择赋值给相应的变量 <span class="token variable">$choice</span>
+<span class="token number">3</span>. 通过case模式匹配变量choice，实现对应的操作，并提示：按回车键继续<span class="token punctuation">..</span><span class="token punctuation">..</span><span class="token punctuation">..</span>
+<span class="token punctuation">[</span>root@haoha ~<span class="token punctuation">]</span><span class="token comment"># read -n1 -p &quot;按任意键继……&quot;</span>
+按任意键继……
+<span class="token punctuation">[</span>root@haoha ~<span class="token punctuation">]</span><span class="token comment"># </span>
+
+<span class="token number">4</span>. 如果用户输入的不是1-3，提示输出错误
+<span class="token number">5</span>. 用户可以一直选择，直到按q退出
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br></div></div><p>完整代码示例</p> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token punctuation">[</span>root@haoha ~<span class="token punctuation">]</span><span class="token comment"># vim sys_toolkit_v1.1.sh</span>
+<span class="token punctuation">[</span>root@haoha ~<span class="token punctuation">]</span><span class="token comment"># cat sys_toolkit_v1.1.sh</span>
+<span class="token comment">#!/bin/bash</span>
+
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;1. 检查磁盘空间
+2. 检查内存使用
+3. 检查网络连接
+q. 退出脚本&quot;</span>
+
+<span class="token keyword">while</span> <span class="token builtin class-name">:</span>
+<span class="token keyword">do</span>
+	<span class="token builtin class-name">read</span> <span class="token parameter variable">-p</span> <span class="token string">&quot;请选择操作 (1-3, q退出): &quot;</span> choice
+	<span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token string">&quot;<span class="token variable">$choice</span>&quot;</span> <span class="token operator">==</span> <span class="token string">&quot;1&quot;</span>  <span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token keyword">then</span>
+		<span class="token function">df</span> <span class="token parameter variable">-h</span>
+	<span class="token keyword">fi</span>
+        <span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token string">&quot;<span class="token variable">$choice</span>&quot;</span> <span class="token operator">==</span> <span class="token string">&quot;2&quot;</span>  <span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token keyword">then</span>
+		<span class="token function">free</span> <span class="token parameter variable">-h</span>
+        <span class="token keyword">fi</span>
+        <span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token string">&quot;<span class="token variable">$choice</span>&quot;</span> <span class="token operator">==</span> <span class="token string">&quot;3&quot;</span>  <span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token keyword">then</span>
+		<span class="token function">ping</span> <span class="token parameter variable">-c1</span> <span class="token parameter variable">-W1</span> www.baidu.com
+        <span class="token keyword">fi</span>
+        <span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token string">&quot;<span class="token variable">$choice</span>&quot;</span> <span class="token operator">==</span> <span class="token string">&quot;q&quot;</span>  <span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token keyword">then</span>
+		<span class="token builtin class-name">exit</span>
+        <span class="token keyword">fi</span>
+
+<span class="token keyword">done</span>
+
+<span class="token punctuation">[</span>root@haoha ~<span class="token punctuation">]</span><span class="token comment">#</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br></div></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/documents/study_notes/ops/shell/05 Shell 循环 for.html" class="prev">
+        Linux Shell `for` 循环
+      </a></span> <span class="next"><a href="/documents/study_notes/ops/shell/07 Linux Expect+Shell结合.html">
+        Linux Expect及Shell结合
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><!----></div></div>
+    <script src="/documents/assets/js/app.9341f639.js" defer></script><script src="/documents/assets/js/2.e8bd7cca.js" defer></script><script src="/documents/assets/js/1.40c64e62.js" defer></script><script src="/documents/assets/js/90.3bb0e532.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Linux Expect及Shell结合 | Documents</title>
+    <meta name="generator" content="VuePress 1.9.10">
+    <link rel="icon" href="/documents/img/logo.png">
+    <link rel="stylesheet" href="/documents/css/style.css">
+    <meta name="description" content="开发运维技术文档">
+    <meta name="keywords" content="Chinaguocg,Documents,DevOps,IT技术,文档博客,开发,运维,技术文档">
+    <meta name="referrer" content="never">
+    
+    <link rel="preload" href="/documents/assets/css/0.styles.b20f9c26.css" as="style"><link rel="preload" href="/documents/assets/js/app.9341f639.js" as="script"><link rel="preload" href="/documents/assets/js/2.e8bd7cca.js" as="script"><link rel="preload" href="/documents/assets/js/1.40c64e62.js" as="script"><link rel="preload" href="/documents/assets/js/91.49f16846.js" as="script"><link rel="prefetch" href="/documents/assets/js/10.b63d61ac.js"><link rel="prefetch" href="/documents/assets/js/11.23025be0.js"><link rel="prefetch" href="/documents/assets/js/12.9a27d63b.js"><link rel="prefetch" href="/documents/assets/js/13.e3dba2b7.js"><link rel="prefetch" href="/documents/assets/js/14.6d3d6a88.js"><link rel="prefetch" href="/documents/assets/js/15.30a4286e.js"><link rel="prefetch" href="/documents/assets/js/16.e4505b74.js"><link rel="prefetch" href="/documents/assets/js/17.255ebcfb.js"><link rel="prefetch" href="/documents/assets/js/18.a4c4f660.js"><link rel="prefetch" href="/documents/assets/js/19.2c33fa19.js"><link rel="prefetch" href="/documents/assets/js/20.fc453a90.js"><link rel="prefetch" href="/documents/assets/js/21.c52a45d9.js"><link rel="prefetch" href="/documents/assets/js/22.faa840f0.js"><link rel="prefetch" href="/documents/assets/js/23.ef1366ba.js"><link rel="prefetch" href="/documents/assets/js/24.b943b232.js"><link rel="prefetch" href="/documents/assets/js/25.4c0d5c0d.js"><link rel="prefetch" href="/documents/assets/js/26.c1467af0.js"><link rel="prefetch" href="/documents/assets/js/27.09371cea.js"><link rel="prefetch" href="/documents/assets/js/28.3a65b93c.js"><link rel="prefetch" href="/documents/assets/js/29.e3615fad.js"><link rel="prefetch" href="/documents/assets/js/3.1bdb9756.js"><link rel="prefetch" href="/documents/assets/js/30.53aed7d2.js"><link rel="prefetch" href="/documents/assets/js/31.71d55b08.js"><link rel="prefetch" href="/documents/assets/js/32.1bd237a9.js"><link rel="prefetch" href="/documents/assets/js/33.a671388e.js"><link rel="prefetch" href="/documents/assets/js/34.f6046c03.js"><link rel="prefetch" href="/documents/assets/js/35.ce72f783.js"><link rel="prefetch" href="/documents/assets/js/36.e0906615.js"><link rel="prefetch" href="/documents/assets/js/37.bec7159a.js"><link rel="prefetch" href="/documents/assets/js/38.115418fc.js"><link rel="prefetch" href="/documents/assets/js/39.307f0445.js"><link rel="prefetch" href="/documents/assets/js/4.ce792ed0.js"><link rel="prefetch" href="/documents/assets/js/40.c75eb27b.js"><link rel="prefetch" href="/documents/assets/js/41.c7bc95f8.js"><link rel="prefetch" href="/documents/assets/js/42.005040f2.js"><link rel="prefetch" href="/documents/assets/js/43.d98cc47d.js"><link rel="prefetch" href="/documents/assets/js/44.6eafbfdd.js"><link rel="prefetch" href="/documents/assets/js/45.b3027c59.js"><link rel="prefetch" href="/documents/assets/js/46.6e1f63e6.js"><link rel="prefetch" href="/documents/assets/js/47.d5743853.js"><link rel="prefetch" href="/documents/assets/js/48.df552625.js"><link rel="prefetch" href="/documents/assets/js/49.4e1eb1ee.js"><link rel="prefetch" href="/documents/assets/js/5.d956834b.js"><link rel="prefetch" href="/documents/assets/js/50.fe8055d2.js"><link rel="prefetch" href="/documents/assets/js/51.faf86540.js"><link rel="prefetch" href="/documents/assets/js/52.94ef29cc.js"><link rel="prefetch" href="/documents/assets/js/53.25511ab8.js"><link rel="prefetch" href="/documents/assets/js/54.250ad07b.js"><link rel="prefetch" href="/documents/assets/js/55.40ae5eb0.js"><link rel="prefetch" href="/documents/assets/js/56.74d7901e.js"><link rel="prefetch" href="/documents/assets/js/57.63b2c97e.js"><link rel="prefetch" href="/documents/assets/js/58.dbbff67e.js"><link rel="prefetch" href="/documents/assets/js/59.52f3d2e8.js"><link rel="prefetch" href="/documents/assets/js/6.118e9bad.js"><link rel="prefetch" href="/documents/assets/js/60.28d21fe8.js"><link rel="prefetch" href="/documents/assets/js/61.d63e7c58.js"><link rel="prefetch" href="/documents/assets/js/62.86a1eac9.js"><link rel="prefetch" href="/documents/assets/js/63.8d5669ec.js"><link rel="prefetch" href="/documents/assets/js/64.6885c7c2.js"><link rel="prefetch" href="/documents/assets/js/65.0391c4dc.js"><link rel="prefetch" href="/documents/assets/js/66.c66aaf4b.js"><link rel="prefetch" href="/documents/assets/js/67.67136c5b.js"><link rel="prefetch" href="/documents/assets/js/68.3a92a11c.js"><link rel="prefetch" href="/documents/assets/js/69.bdd480f6.js"><link rel="prefetch" href="/documents/assets/js/7.a506e926.js"><link rel="prefetch" href="/documents/assets/js/70.21345979.js"><link rel="prefetch" href="/documents/assets/js/71.ea6eceb1.js"><link rel="prefetch" href="/documents/assets/js/72.6d24c19d.js"><link rel="prefetch" href="/documents/assets/js/73.72bc9345.js"><link rel="prefetch" href="/documents/assets/js/74.3845ef15.js"><link rel="prefetch" href="/documents/assets/js/75.8fb57d7b.js"><link rel="prefetch" href="/documents/assets/js/76.f04050fc.js"><link rel="prefetch" href="/documents/assets/js/77.577ba1fb.js"><link rel="prefetch" href="/documents/assets/js/78.0a64a5d6.js"><link rel="prefetch" href="/documents/assets/js/79.a1e874e4.js"><link rel="prefetch" href="/documents/assets/js/80.f125d856.js"><link rel="prefetch" href="/documents/assets/js/81.691ca23f.js"><link rel="prefetch" href="/documents/assets/js/82.596e89cd.js"><link rel="prefetch" href="/documents/assets/js/83.b7f56ccf.js"><link rel="prefetch" href="/documents/assets/js/84.67d2ff28.js"><link rel="prefetch" href="/documents/assets/js/85.0b691fe9.js"><link rel="prefetch" href="/documents/assets/js/86.c0d8fa6a.js"><link rel="prefetch" href="/documents/assets/js/87.b6453afd.js"><link rel="prefetch" href="/documents/assets/js/88.4ca33017.js"><link rel="prefetch" href="/documents/assets/js/89.97b8ef07.js"><link rel="prefetch" href="/documents/assets/js/90.3bb0e532.js"><link rel="prefetch" href="/documents/assets/js/92.07267235.js"><link rel="prefetch" href="/documents/assets/js/93.b769f2db.js"><link rel="prefetch" href="/documents/assets/js/94.b1ec52a7.js"><link rel="prefetch" href="/documents/assets/js/95.9d4a6378.js"><link rel="prefetch" href="/documents/assets/js/vendors~docsearch.271bc088.js">
+    <link rel="stylesheet" href="/documents/assets/css/0.styles.b20f9c26.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/documents/" class="home-link router-link-active"><!----> <span class="site-name">Documents</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/documents/guide/" class="nav-link">
+  指南
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="文档" class="dropdown-title"><span class="title">文档</span> <span class="arrow down"></span></button> <button type="button" aria-label="文档" class="mobile-dropdown-title"><span class="title">文档</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/documents/study_notes/ops/" class="nav-link router-link-active">
+  运维
+</a></li><li class="dropdown-item"><!----> <a href="/documents/study_notes/dev/" class="nav-link">
+  开发
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="资源共享" class="dropdown-title"><span class="title">资源共享</span> <span class="arrow down"></span></button> <button type="button" aria-label="资源共享" class="mobile-dropdown-title"><span class="title">资源共享</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          在线工具
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://shields.io/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  图标徽章
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://tinypng.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  图片压缩
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://bigjpg.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  图片放大
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="http://cron.qqe2.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  CRON 表达式
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://tableconvert.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  MD 表格生成
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          在线服务
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.bootcdn.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Boot CDN
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          镜像资源
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://msdn.itellyou.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  MSDN
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://mirrors.tuna.tsinghua.edu.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  清华开源软件镜像站
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://developer.aliyun.com/mirror/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  阿里开源镜像站
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          网址导航
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.w3school.com.cn/index.html" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  W3School
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://www.runoob.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  菜鸟教程
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="http://www.h-ui.net/site.shtml" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  IT网址导航
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li></ul></div></div> <a href="https://github.com/chinaguocg/documents" target="_blank" rel="noopener noreferrer" class="repo-link">
+    查看源码
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/documents/guide/" class="nav-link">
+  指南
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="文档" class="dropdown-title"><span class="title">文档</span> <span class="arrow down"></span></button> <button type="button" aria-label="文档" class="mobile-dropdown-title"><span class="title">文档</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/documents/study_notes/ops/" class="nav-link router-link-active">
+  运维
+</a></li><li class="dropdown-item"><!----> <a href="/documents/study_notes/dev/" class="nav-link">
+  开发
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="资源共享" class="dropdown-title"><span class="title">资源共享</span> <span class="arrow down"></span></button> <button type="button" aria-label="资源共享" class="mobile-dropdown-title"><span class="title">资源共享</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          在线工具
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://shields.io/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  图标徽章
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://tinypng.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  图片压缩
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://bigjpg.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  图片放大
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="http://cron.qqe2.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  CRON 表达式
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://tableconvert.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  MD 表格生成
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          在线服务
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.bootcdn.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Boot CDN
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          镜像资源
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://msdn.itellyou.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  MSDN
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://mirrors.tuna.tsinghua.edu.cn/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  清华开源软件镜像站
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://developer.aliyun.com/mirror/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  阿里开源镜像站
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li><li class="dropdown-item"><h4>
+          网址导航
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://www.w3school.com.cn/index.html" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  W3School
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://www.runoob.com/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  菜鸟教程
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="http://www.h-ui.net/site.shtml" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  IT网址导航
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li></ul></div></div> <a href="https://github.com/chinaguocg/documents" target="_blank" rel="noopener noreferrer" class="repo-link">
+    查看源码
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Linux</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Ansible</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Disk</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Nginx</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Docker</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>Shell</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/documents/study_notes/ops/shell/00 Shell 配置文件执行顺序.html" class="sidebar-link">Shell 配置文件执行顺序</a></li><li><a href="/documents/study_notes/ops/shell/00 实现Ubuntu类似的motd.html" class="sidebar-link">实现Ubuntu类似的motd</a></li><li><a href="/documents/study_notes/ops/shell/01 Shell 变量.html" class="sidebar-link">shell 变量</a></li><li><a href="/documents/study_notes/ops/shell/02 Shell 条件测试.html" class="sidebar-link">Shell 条件测试</a></li><li><a href="/documents/study_notes/ops/shell/02shell初识 练习题.html" class="sidebar-link">初识shell 练习</a></li><li><a href="/documents/study_notes/ops/shell/03 Shell 条件判断 if.html" class="sidebar-link">Shell 条件语句if</a></li><li><a href="/documents/study_notes/ops/shell/04 Shell 模式匹配 case.html" class="sidebar-link">Shell `case` 语句</a></li><li><a href="/documents/study_notes/ops/shell/05 Shell 循环 for.html" class="sidebar-link">Linux Shell `for` 循环</a></li><li><a href="/documents/study_notes/ops/shell/06 Shell 循环 while.html" class="sidebar-link">Linux Shell `while` 循环</a></li><li><a href="/documents/study_notes/ops/shell/07 Linux Expect+Shell结合.html" class="active sidebar-link">Linux Expect及Shell结合</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/documents/study_notes/ops/shell/07 Linux Expect+Shell结合.html#linux-expect及shell结合" class="sidebar-link">Linux Expect及Shell结合</a></li></ul></li><li><a href="/documents/study_notes/ops/shell/08 Linux 正则表达式RE.html" class="sidebar-link">Linux 正则表达式</a></li><li><a href="/documents/study_notes/ops/shell/09 Linux grep与正则表达式应用.html" class="sidebar-link">Linux grep命令与正则表达式应用</a></li><li><a href="/documents/study_notes/ops/shell/10 Linux sed 实战.html" class="sidebar-link">Linux 流编辑器 sed</a></li><li><a href="/documents/study_notes/ops/shell/11 Linux awk 实战.html" class="sidebar-link">文本处理 awk</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h2 id="linux-expect及shell结合"><a href="#linux-expect及shell结合" class="header-anchor">#</a> <strong>Linux Expect及Shell结合</strong></h2> <p>Expect 是一个强大的自动化交互工具，特别适合处理需要用户交互的命令行程序。</p> <h3 id="一、expect-核心详解"><a href="#一、expect-核心详解" class="header-anchor">#</a> 一、Expect 核心详解</h3> <h4 id="_1-expect-基本流程"><a href="#_1-expect-基本流程" class="header-anchor">#</a> 1. Expect 基本流程</h4> <ul><li><strong>spawn</strong>：启动目标程序</li> <li><strong>expect</strong>：等待特定模式出现</li> <li><strong>send</strong>：发送响应内容</li> <li><strong>interact</strong>（可选）：将控制权交还用户</li></ul> <h4 id="_2-expect常用命令"><a href="#_2-expect常用命令" class="header-anchor">#</a> 2. Expect常用命令</h4> <p><strong>spawn</strong></p> <div class="language-tcl line-numbers-mode"><pre class="language-tcl"><code>spawn ssh user@host  	<span class="token comment"># 启动ssh连接</span>
+spawn ftp $<span class="token variable">ftp_host</span>		<span class="token comment"># 启动FTP连接</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p><strong>expect</strong></p> <div class="language-tcl line-numbers-mode"><pre class="language-tcl"><code>expect <span class="token punctuation">{</span>
+    <span class="token string">&quot;password:&quot;</span> <span class="token punctuation">{</span>send <span class="token string">&quot;mypass\r&quot;</span><span class="token punctuation">}</span>  			<span class="token comment"># 匹配password:</span>
+    <span class="token string">&quot;yes/no&quot;</span> <span class="token punctuation">{</span>send <span class="token string">&quot;yes\r&quot;</span>; exp_continue<span class="token punctuation">}</span>  	<span class="token comment"># 继续等待</span>
+    timeout <span class="token punctuation">{</span>exit 1<span class="token punctuation">}</span>  						<span class="token comment"># 超时处理</span>
+    <span class="token keyword">eof</span> <span class="token punctuation">{</span>exit<span class="token punctuation">}</span>  							<span class="token comment"># 程序结束</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><p><strong>send</strong></p> <div class="language-tcl line-numbers-mode"><pre class="language-tcl"><code>send <span class="token string">&quot;ls -l\r&quot;</span>  			<span class="token comment"># 发送命令</span>
+send <span class="token string">&quot;exit\r&quot;</span>				<span class="token comment"># 发送命令</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><h3 id="二、expect脚本案例"><a href="#二、expect脚本案例" class="header-anchor">#</a> 二、Expect脚本案例</h3> <h4 id="案例1-自动ssh登录"><a href="#案例1-自动ssh登录" class="header-anchor">#</a> 案例1：自动SSH登录</h4> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token shebang important">#!/usr/bin/expect</span>
+<span class="token builtin class-name">set</span> <span class="token function">ip</span> <span class="token number">10.9</span>.48.121
+<span class="token builtin class-name">set</span> user root
+<span class="token builtin class-name">set</span> password <span class="token number">123</span>
+
+spawn <span class="token function">ssh</span> <span class="token variable">$user</span>@<span class="token variable">$ip</span>
+
+<span class="token function">expect</span> <span class="token punctuation">{</span>
+	<span class="token string">&quot;yes/no&quot;</span> <span class="token punctuation">{</span> send <span class="token string">&quot;yes<span class="token entity" title="\r">\r</span>&quot;</span><span class="token punctuation">;</span> exp_continue <span class="token punctuation">}</span>
+	<span class="token string">&quot;password:&quot;</span> <span class="token punctuation">{</span> send <span class="token string">&quot;<span class="token variable">$password</span><span class="token entity" title="\r">\r</span>&quot;</span> <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+interact
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><h4 id="案例2-自动远程复制文件"><a href="#案例2-自动远程复制文件" class="header-anchor">#</a> 案例2：自动远程复制文件</h4> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token shebang important">#!/usr/bin/expect</span>
+<span class="token builtin class-name">set</span> <span class="token function">ip</span> <span class="token number">10.9</span>.48.121
+<span class="token builtin class-name">set</span> user root
+<span class="token builtin class-name">set</span> password <span class="token number">123</span>
+
+spawn <span class="token function">scp</span> <span class="token parameter variable">-r</span> /etc/hosts <span class="token variable">$user</span>@<span class="token variable">$ip</span>:/tmp
+<span class="token function">expect</span> <span class="token punctuation">{</span>
+	<span class="token string">&quot;yes/no&quot;</span> <span class="token punctuation">{</span> send <span class="token string">&quot;yes<span class="token entity" title="\r">\r</span>&quot;</span><span class="token punctuation">;</span> exp_continue <span class="token punctuation">}</span>
+	<span class="token string">&quot;password:&quot;</span> <span class="token punctuation">{</span> send <span class="token string">&quot;<span class="token variable">$password</span><span class="token entity" title="\r">\r</span>&quot;</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token function">expect</span> eof
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><h3 id="三、expect-与-shell-结合"><a href="#三、expect-与-shell-结合" class="header-anchor">#</a> 三、Expect 与 Shell 结合</h3> <h4 id="案例1-自动化批量ssh执行命令"><a href="#案例1-自动化批量ssh执行命令" class="header-anchor">#</a> 案例1：自动化批量SSH执行命令</h4> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># cat hosts_list.txt </span>
+node1 <span class="token number">192.168</span>.92.201 root <span class="token number">123</span>
+node2 <span class="token number">192.168</span>.92.202 root <span class="token number">456</span>
+node3 <span class="token number">192.168</span>.92.203 root <span class="token number">789</span>
+
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># vim remote_task.sh</span>
+<span class="token comment">#!/bin/bash</span>
+<span class="token keyword">while</span> <span class="token builtin class-name">read</span> 
+<span class="token keyword">do</span>
+	<span class="token assign-left variable">host</span><span class="token operator">=</span>
+	<span class="token assign-left variable">ip</span><span class="token operator">=</span>
+	<span class="token assign-left variable">user</span><span class="token operator">=</span>
+	<span class="token assign-left variable">password</span><span class="token operator">=</span>
+	
+    /usr/bin/expect <span class="token operator">&lt;&lt;</span><span class="token string">EOF
+    spawn ssh <span class="token variable">$user</span>@<span class="token variable">$ip</span>
+    expect {
+        &quot;yes/no&quot; {send &quot;yes<span class="token entity" title="\r">\r</span>&quot;; exp_continue}
+        &quot;password:&quot; {send &quot;<span class="token variable">$password</span><span class="token entity" title="\r">\r</span>&quot;}
+    }
+    expect &quot;# &quot; {send &quot;hostname<span class="token entity" title="\r">\r</span>&quot;}
+    expect &quot;# &quot; {send &quot;exit<span class="token entity" title="\r">\r</span>&quot;}
+    expect eof
+EOF</span>    
+<span class="token keyword">done</span> <span class="token operator">&lt;</span> hosts_list.txt 
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br></div></div><div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token punctuation">[</span>root@node1 test<span class="token punctuation">]</span><span class="token comment"># ./remote_task.sh</span>
+spawn <span class="token function">ssh</span> root@192.168.230.130
+Last login: Thu Dec <span class="token number">11</span> 06:19:21 <span class="token number">2025</span> from <span class="token number">192.168</span>.230.132
+<span class="token punctuation">[</span>root@bogon ~<span class="token punctuation">]</span><span class="token comment"># hostname</span>
+bogon
+<span class="token punctuation">[</span>root@bogon ~<span class="token punctuation">]</span><span class="token comment"># exit</span>
+<span class="token builtin class-name">logout</span>
+Connection to <span class="token number">192.168</span>.230.130 closed.
+spawn <span class="token function">ssh</span> root@192.168.230.131
+Last login: Thu Dec <span class="token number">11</span> 06:19:30 <span class="token number">2025</span> from <span class="token number">192.168</span>.230.132
+<span class="token punctuation">[</span>root@bogon ~<span class="token punctuation">]</span><span class="token comment"># hostname</span>
+bogon
+<span class="token punctuation">[</span>root@bogon ~<span class="token punctuation">]</span><span class="token comment"># exit</span>
+<span class="token builtin class-name">logout</span>
+Connection to <span class="token number">192.168</span>.230.131 closed.
+<span class="token punctuation">[</span>root@node1 test<span class="token punctuation">]</span><span class="token comment"># cat remote_task.sh</span>
+<span class="token comment">#!/bin/bash</span>
+<span class="token keyword">while</span> <span class="token builtin class-name">read</span> <span class="token function">host</span> <span class="token function">ip</span> user password 
+<span class="token keyword">do</span>
+	
+    /usr/bin/expect <span class="token operator">&lt;&lt;</span><span class="token string">EOF
+    spawn ssh <span class="token variable">$user</span>@<span class="token variable">$ip</span>
+    expect {
+        &quot;yes/no&quot; {send &quot;yes<span class="token entity" title="\r">\r</span>&quot;; exp_continue}
+        &quot;password:&quot; {send &quot;<span class="token variable">$password</span><span class="token entity" title="\r">\r</span>&quot;}
+    }
+    expect &quot;# &quot; {send &quot;hostname<span class="token entity" title="\r">\r</span>&quot;}
+    expect &quot;# &quot; {send &quot;exit<span class="token entity" title="\r">\r</span>&quot;}
+    expect eof
+EOF</span>
+    
+<span class="token keyword">done</span> <span class="token operator">&lt;</span> hosts_list.txt 
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br></div></div><h4 id="案例2-自动化批量scp文件复制"><a href="#案例2-自动化批量scp文件复制" class="header-anchor">#</a> 案例2：自动化批量SCP文件复制</h4> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># vim hosts_list.txt </span>
+node1 <span class="token number">192.168</span>.92.201 root <span class="token number">123</span>
+node2 <span class="token number">192.168</span>.92.202 root <span class="token number">456</span>
+node3 <span class="token number">192.168</span>.92.203 root <span class="token number">789</span>
+
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># vim remote_task.sh</span>
+<span class="token comment">#!/bin/bash</span>
+<span class="token keyword">while</span>  <span class="token builtin class-name">read</span> <span class="token function">host</span> <span class="token function">ip</span> user pass
+<span class="token keyword">do</span>
+        /usr/bin/expect <span class="token operator">&lt;&lt;</span><span class="token string">EOF
+        spawn scp /etc/hosts <span class="token variable">$user</span>@<span class="token variable">$ip</span>:/var/tmp
+        expect {
+                &quot;yes/no&quot; {send &quot;yes<span class="token entity" title="\r">\r</span>&quot;; exp_continue}
+                &quot;password:&quot; {send &quot;<span class="token variable">$pass</span><span class="token entity" title="\r">\r</span>&quot;}
+        }
+        expect eof      
+EOF</span>
+        <span class="token builtin class-name">echo</span> <span class="token string">&quot;<span class="token variable">$host</span> 文件复制完成&quot;</span>
+<span class="token keyword">done</span> <span class="token operator">&lt;</span>hosts_list.txt
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br></div></div><div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token punctuation">[</span>root@node1 test<span class="token punctuation">]</span><span class="token comment"># ./remote_task2.sh</span>
+spawn <span class="token function">scp</span> /etc/hosts root@192.168.230.130:/var/tmp
+hosts                                                       <span class="token number">100</span>%  <span class="token number">225</span>   <span class="token number">126</span>.9KB/s   00:00    
+expect: spawn <span class="token function">id</span> exp6 not <span class="token function">open</span>
+    <span class="token keyword">while</span> executing
+<span class="token string">&quot;expect eof      &quot;</span>
+node2 文件复制完成
+spawn <span class="token function">scp</span> /etc/hosts root@192.168.230.131:/var/tmp
+hosts                                                       <span class="token number">100</span>%  <span class="token number">225</span>   <span class="token number">132</span>.4KB/s   00:00    
+expect: spawn <span class="token function">id</span> exp6 not <span class="token function">open</span>
+    <span class="token keyword">while</span> executing
+<span class="token string">&quot;expect eof      &quot;</span>
+node3 文件复制完成
+<span class="token punctuation">[</span>root@node1 test<span class="token punctuation">]</span><span class="token comment"># cat remote_task2.sh</span>
+<span class="token comment">#!/bin/bash</span>
+<span class="token keyword">while</span> <span class="token builtin class-name">read</span> <span class="token function">host</span> <span class="token function">ip</span> user password 
+<span class="token keyword">do</span>
+	
+        /usr/bin/expect <span class="token operator">&lt;&lt;</span><span class="token string">EOF
+        spawn scp /etc/hosts <span class="token variable">$user</span>@<span class="token variable">$ip</span>:/var/tmp
+        expect {
+                &quot;yes/no&quot; {send &quot;yes<span class="token entity" title="\r">\r</span>&quot;; exp_continue}
+                &quot;password:&quot; {send &quot;<span class="token variable">$password</span><span class="token entity" title="\r">\r</span>&quot;}
+        }
+        expect eof      
+EOF</span>
+        <span class="token builtin class-name">echo</span> <span class="token string">&quot;<span class="token variable">$host</span> 文件复制完成&quot;</span>   
+ 
+<span class="token keyword">done</span> <span class="token operator">&lt;</span> hosts_list.txt 
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br></div></div><h4 id="案例3-自动化批量公钥推送"><a href="#案例3-自动化批量公钥推送" class="header-anchor">#</a> 案例3：自动化批量公钥推送</h4> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># vim hosts_list.txt </span>
+node1 <span class="token number">192.168</span>.92.201 root <span class="token number">123</span>
+node2 <span class="token number">192.168</span>.92.202 root <span class="token number">456</span>
+node3 <span class="token number">192.168</span>.92.203 root <span class="token number">789</span>
+
+<span class="token punctuation">[</span>root@tianyun ~<span class="token punctuation">]</span><span class="token comment"># cat push_publickey.sh</span>
+<span class="token comment">#!/bin/bash</span>
+<span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token operator">!</span> <span class="token parameter variable">-f</span> ~/.ssh/id_rsa <span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token keyword">then</span>
+        ssh-keygen <span class="token parameter variable">-P</span> <span class="token string">&quot;&quot;</span> <span class="token parameter variable">-f</span> ~/.ssh/id_rsa <span class="token operator">&amp;&gt;</span>/dev/null
+        <span class="token builtin class-name">echo</span> <span class="token string">&quot;创建密钥对&quot;</span>
+<span class="token keyword">fi</span>
+
+<span class="token keyword">while</span> <span class="token builtin class-name">read</span> <span class="token function">host</span> <span class="token function">ip</span> user pass
+<span class="token keyword">do</span>
+		<span class="token comment"># 判断目标主机是否在线</span>
+		<span class="token punctuation">..</span>.
+		<span class="token punctuation">..</span>.
+		
+		<span class="token comment"># expect推送公钥</span>
+        /usr/bin/expect <span class="token operator">&lt;&lt;</span><span class="token string">EOF
+        spawn ssh-copy-id <span class="token variable">$user</span>@<span class="token variable">$ip</span>
+        expect {
+                &quot;yes/no&quot; {send &quot;yes<span class="token entity" title="\r">\r</span>&quot;; exp_continue}
+                &quot;password:&quot; {send &quot;<span class="token variable">$pass</span><span class="token entity" title="\r">\r</span>&quot;}
+        }
+        expect eof
+EOF</span>
+		<span class="token comment">#判断是否可以免密登录</span>
+		<span class="token comment">#ssh $user@$ip &quot;hostname&quot;</span>
+        <span class="token builtin class-name">echo</span> <span class="token string">&quot;<span class="token variable">$host</span> 公钥推送完成&quot;</span>
+        
+<span class="token keyword">done</span> <span class="token operator">&lt;</span>hosts_list.txt
+
+
+并发执行<span class="token punctuation">..</span>.
+<span class="token keyword">while</span> <span class="token builtin class-name">read</span> line
+<span class="token keyword">do</span>
+	<span class="token punctuation">{</span>
+	循环体
+	<span class="token punctuation">}</span> <span class="token operator">&amp;</span>
+<span class="token keyword">done</span>
+<span class="token function">wait</span>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;执行完成&quot;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br></div></div><div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token punctuation">[</span>root@node1 test<span class="token punctuation">]</span><span class="token comment"># ./push_publickey.sh</span>
+node3 <span class="token number">192.168</span>.230.131 root
+node2 <span class="token number">192.168</span>.230.130 root
+spawn ssh-copy-id root@192.168.230.131
+spawn ssh-copy-id root@192.168.230.130
+/usr/bin/ssh-copy-id: INFO: Source of key<span class="token punctuation">(</span>s<span class="token punctuation">)</span> to be installed: <span class="token string">&quot;/root/.ssh/id_rsa.pub&quot;</span>
+/usr/bin/ssh-copy-id: INFO: Source of key<span class="token punctuation">(</span>s<span class="token punctuation">)</span> to be installed: <span class="token string">&quot;/root/.ssh/id_rsa.pub&quot;</span>
+/usr/bin/ssh-copy-id: INFO: attempting to log <span class="token keyword">in</span> with the new key<span class="token punctuation">(</span>s<span class="token punctuation">)</span>, to filter out any that are already installed
+/usr/bin/ssh-copy-id: INFO: attempting to log <span class="token keyword">in</span> with the new key<span class="token punctuation">(</span>s<span class="token punctuation">)</span>, to filter out any that are already installed
+
+/usr/bin/ssh-copy-id: WARNING: All keys were skipped because they already exist on the remote system.
+		<span class="token punctuation">(</span>if you think this is a mistake, you may want to use <span class="token parameter variable">-f</span> option<span class="token punctuation">)</span>
+
+expect: spawn <span class="token function">id</span> exp6 not <span class="token function">open</span>
+    <span class="token keyword">while</span> executing
+<span class="token string">&quot;expect eof&quot;</span>
+
+/usr/bin/ssh-copy-id: WARNING: All keys were skipped because they already exist on the remote system.
+		<span class="token punctuation">(</span>if you think this is a mistake, you may want to use <span class="token parameter variable">-f</span> option<span class="token punctuation">)</span>
+
+expect: spawn <span class="token function">id</span> exp6 not <span class="token function">open</span>
+    <span class="token keyword">while</span> executing
+<span class="token string">&quot;expect eof&quot;</span>
+bogon
+bogon
+执行完成
+<span class="token punctuation">[</span>root@node1 test<span class="token punctuation">]</span><span class="token comment"># cat push_publickey.sh</span>
+<span class="token comment">#!/bin/bash</span>
+<span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token operator">!</span> <span class="token parameter variable">-f</span> ~/.ssh/id_rsa <span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token keyword">then</span>
+        ssh-keygen <span class="token parameter variable">-P</span> <span class="token string">&quot;&quot;</span> <span class="token parameter variable">-f</span> ~/.ssh/id_rsa <span class="token operator">&amp;&gt;</span>/dev/null
+        <span class="token builtin class-name">echo</span> <span class="token string">&quot;创建密钥对&quot;</span>
+<span class="token keyword">fi</span>
+
+<span class="token keyword">while</span> <span class="token builtin class-name">read</span> <span class="token function">host</span> <span class="token function">ip</span> user password
+<span class="token keyword">do</span>
+	<span class="token punctuation">{</span>
+
+		<span class="token builtin class-name">echo</span> <span class="token string">&quot;<span class="token variable">$host</span> <span class="token variable">$ip</span> <span class="token variable">$user</span>&quot;</span>
+		<span class="token comment"># 判断目标主机是否在线</span>
+		<span class="token function">ping</span> <span class="token parameter variable">-c1</span> <span class="token parameter variable">-W1</span> <span class="token variable">$ip</span> <span class="token operator">&amp;&gt;</span>/dev/null 
+		<span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token variable">$?</span> <span class="token parameter variable">-ne</span> <span class="token number">0</span>  <span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token keyword">then</span>
+			<span class="token builtin class-name">echo</span> <span class="token string">&quot;<span class="token variable">$host</span> <span class="token variable">$ip</span> ping不通， 请检查！！！&quot;</span> <span class="token operator">&gt;&gt;</span> push_publickey.log
+			<span class="token builtin class-name">continue</span>
+		<span class="token keyword">fi</span>
+		
+		<span class="token comment"># expect推送公钥</span>
+		/usr/bin/expect <span class="token operator">&lt;&lt;</span><span class="token string">EOF
+		spawn ssh-copy-id <span class="token variable">$user</span>@<span class="token variable">$ip</span>
+		expect {
+			&quot;yes/no&quot; {send &quot;yes<span class="token entity" title="\r">\r</span>&quot;; exp_continue}
+			&quot;password:&quot; {send &quot;<span class="token variable">$password</span><span class="token entity" title="\r">\r</span>&quot;}
+		}
+		expect eof
+EOF</span>
+		
+		<span class="token comment">#判断是否可以免密登录</span>
+		<span class="token function">ssh</span> <span class="token parameter variable">-n</span> <span class="token variable">$user</span>@<span class="token variable">$ip</span> <span class="token string">&quot;hostname&quot;</span> <span class="token operator"><span class="token file-descriptor important">2</span>&gt;</span><span class="token file-descriptor important">&amp;1</span> <span class="token operator">|</span> <span class="token function">tee</span> <span class="token parameter variable">-a</span> <span class="token string">&quot;push_pk_ssh.txt&quot;</span>
+		<span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token variable">$?</span> <span class="token parameter variable">-eq</span> <span class="token number">0</span>  <span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token keyword">then</span>
+        		<span class="token builtin class-name">echo</span> <span class="token string">&quot;<span class="token variable">$host</span> 公钥推送完成 免密登录已实现&quot;</span> <span class="token operator">&gt;&gt;</span> push_publickey.log
+		<span class="token keyword">else</span>
+			<span class="token builtin class-name">echo</span> <span class="token string">&quot;<span class="token variable">$host</span> 免密登录失败 请检查！！！&quot;</span> <span class="token operator">&gt;&gt;</span> push_publickey.log
+        	<span class="token keyword">fi</span>
+
+
+	<span class="token punctuation">}</span> <span class="token operator">&amp;</span>
+
+<span class="token keyword">done</span> <span class="token operator">&lt;</span>hosts_list.txt
+
+<span class="token function">wait</span>
+
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;执行完成&quot;</span>
+
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br></div></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/documents/study_notes/ops/shell/06 Shell 循环 while.html" class="prev">
+        Linux Shell `while` 循环
+      </a></span> <span class="next"><a href="/documents/study_notes/ops/shell/08 Linux 正则表达式RE.html">
+        Linux 正则表达式
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><!----></div></div>
+    <script src="/documents/assets/js/app.9341f639.js" defer></script><script src="/documents/assets/js/2.e8bd7cca.js" defer></script><script src="/documents/assets/js/1.40c64e62.js" defer></script><script src="/documents/assets/js/91.49f16846.js" defer></script>
+  </body>
+</html>
