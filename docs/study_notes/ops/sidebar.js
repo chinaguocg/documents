@@ -102,6 +102,8 @@ module.exports = [
 			collapsable: true,
 			children:[
 				'/study_notes/ops/docker/01',
+				'/study_notes/ops/docker/02Docker容器化解决方案',
+				'/study_notes/ops/docker/03关于Docker安装-Centos9',
                 
 			]
 		},
@@ -118,7 +120,14 @@ module.exports = [
 				'/study_notes/ops/shell/04 Shell 模式匹配 case',
 				'/study_notes/ops/shell/05 Shell 循环 for',
 				'/study_notes/ops/shell/06 Shell 循环 while',
+				'/study_notes/ops/shell/07 Linux Expect+Shell结合',
+				'/study_notes/ops/shell/08 Linux 正则表达式RE',
+				'/study_notes/ops/shell/09 Linux grep与正则表达式应用',
+				'/study_notes/ops/shell/10 Linux sed 实战',
+				'/study_notes/ops/shell/11 Linux awk 实战',
 				
 			]
 		},
-	]
+
+
+]
